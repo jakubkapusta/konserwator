@@ -7,8 +7,9 @@ import { imageUrl, loadCatalog, loadImage, loadLevel, type CatalogItem, type Lev
 import { Renderer } from './render/renderer';
 import { Camera } from './game/camera';
 import { Input } from './game/input';
-import { Studio } from './game/studio';
-import { clearWork, loadPrefs, loadWork, savePrefs } from './game/save';
+import { Studio, type Recording } from './game/studio';
+import { updateTilt } from './game/tilt';
+import { clearWork, idbGet, loadPrefs, loadWork, savePrefs } from './game/save';
 import { UI } from './ui/ui';
 import { sound } from './audio/audio';
 
@@ -40,7 +41,10 @@ const ui = new UI(document.getElementById('ui')!, {
   },
   music: () => { prefs.music = !prefs.music; sound.setMusic(prefs.music); savePrefs(prefs); return prefs.music; },
   sfx: () => { prefs.sfx = !prefs.sfx; sound.setSfx(prefs.sfx); savePrefs(prefs); return prefs.sfx; },
-  skip: () => studio?.skipCleaning(),
+  skip: () => studio?.skipStage(),
+  gallery: (focus) => { leave(false); ui.showGallery(catalog, focus); },
+  menu: () => { leave(false); showMenu(); },
+  replay: (it) => void replay(it),
   restart: () => {
     if (!studio) return;
     const it = studio.item, lv = studio.levelId;
@@ -52,19 +56,25 @@ const input = new Input(canvas, cam, () => studio?.handler() ?? null);
 input.onAnyDown = () => sound.unlock();
 window.addEventListener('pointerdown', () => sound.unlock(), { capture: true });
 
-async function open(it: CatalogItem, level: LevelId, fresh: boolean) {
+async function replay(it: CatalogItem) {
+  const rec = await idbGet<Recording>('rec-done:' + it.slug);
+  if (!rec) { ui.toast('Nie ma nagrania tej renowacji. Odnów obraz jeszcze raz, żeby je nagrać.', 4000); return; }
+  await open(it, rec.level, false, rec);
+}
+
+async function open(it: CatalogItem, level: LevelId, fresh: boolean, rec?: Recording) {
   if (opening) return;
   opening = true;
   if (studio) { studio.flush(); studio = null; }
   ui.loading(true);
   try {
-    if (fresh) clearWork(it.slug);
-    const save = fresh ? null : loadWork(it.slug);
+    if (fresh && !rec) clearWork(it.slug);
+    const save = fresh || rec ? null : loadWork(it.slug);
     const [img, lv] = await Promise.all([loadImage(imageUrl(it.slug)), loadLevel(it.slug, level)]);
     const gpu = renderer.load(img, lv);
     renderer.particles.list.length = 0;
-    ui.showHud(it);
-    studio = new Studio(it, level, lv, gpu, renderer, cam, ui);
+    ui.showHud(it, !!rec);
+    studio = new Studio(it, level, lv, gpu, renderer, cam, ui, rec);
     layout();
     await studio.begin(save && save.level === level ? save : null);
     layout();
@@ -80,11 +90,15 @@ async function open(it: CatalogItem, level: LevelId, fresh: boolean) {
   }
 }
 
-function leave() {
+function leave(toMenu = true) {
+  const wasReplay = studio?.replaying;
+  const slug = studio?.item.slug;
   if (studio) studio.flush();
   studio = null;
   renderer.unload();
-  showMenu();
+  if (!toMenu) return;
+  if (wasReplay) ui.showGallery(catalog, slug);
+  else showMenu();
 }
 
 function showMenu() {
@@ -118,6 +132,7 @@ function step(dt: number) {
     insetT -= dt;
     if (insetT <= 0) { insetT = 0.5; cam.insets = ui.insets(); }
     cam.update(dt);
+    updateTilt(dt);
     studio.update(dt);
   }
   renderer.particles.update(dt);
@@ -134,6 +149,7 @@ async function boot() {
     catalog = [];
   }
   showMenu();
+  if (location.hash.includes('gallery')) ui.showGallery(catalog);
   const m = location.hash.match(/#p=([\w-]+)(?:\/(\w+))?/);
   if (m) {
     const it = catalog.find((c) => c.slug === m[1]);

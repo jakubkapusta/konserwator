@@ -31,6 +31,14 @@
     "object": "https://id.rijksmuseum.nl/200108369",
     "iiif": "https://iiif.micr.io/QkOGy",
     "commons": null,
+    "dimensions_en": "height 45.5 cm x width 41 cm",
+    "medium_nl": "olieverf op doek",
+    "provenance_en": "? Pieter Claesz van Ruijven (1624-1674) and Maria Simonsdr de Knuijt (1623-1681), Delft; ? their daughter, Magdalena van Ruijven (1655-1682), Delft; ? her widower, Jacob Dissius (1653-1695), Delft;{Montias 1989, pp. 246-262, 359, doc. 417.} his sale, Amsterdam, 16 May 1696, no. 2, fl. 175, to Isaac Rooleeuw (1663-1701), Amsterdam;{Hoet and Terwesten 1752-1770, vol. 1 (1752), p. 34; Montias 1989, p. 363, doc. 439; Grijzenhout 2010, p. 66.} his sale, Amsterdam, 20 April 1701, no. 7, fl. 320;{Hoet and Terwesten 1752-1770, vol. 1 (1752), p. 62.} …; sale Jacob van Hoek (1670-1718), Amsterdam, 12 April 1719, no. 20, fl. 126;{Ibid., p. 221.} …; collection Pieter Leendert de Neufville (1707-1759), Amsterdam, after 1752;{Missing in the collection description of 1752, see Hoet and Terwesten 1752-1770, vol. 2 (1752), pp. 513-516.} his son, Leendert Pieter de Neufville (1729-1774?), Amsterdam; sale De Neufville, Amsterdam (J.M. Cok), 19 June 1765, no. 65, fl. 560, to the dealer Yver;{Copy RKD.} …; sale Jean Dulong (?-?), Amsterdam (H. de Winter and J. Yver), 18 April 1768, no. 10, fl. 925, to Van Diemen;{Copy RKD.} …; collection Jan Jacob de Bruyn (1720-1792), Amsterdam;{Reynolds 1996, p. 106.} his sale, Amsterdam (P. van der Schley <em>et al.</em>), 12 September 1798, no. 32, fl. 1,550, to the dealer J.A. Spaan;{Copy RKD.} …; sale Hendrik Muilman (1743-1812), Amsterdam (P. van der Schley <em>et al.</em>), 12 April 1813 _<em>sqq.</em>_, no. 96, fl. 2,125, to the dealer J. de Vries for Lucretia Johanna van Winter (1785-1845), Amsterdam;{Copy RKD.} her widower, Jonkheer Hendrik Six (1790-1847), Lord of Hillegom, Amsterdam; their son, Jonkheer Pieter Hendrik Six (1827-1905), Lord of Vromade, Amsterdam;{Archive Six family, inv.no. CS53207-002. 0014.} from whose heirs, fl. 550,000, with 38 other paintings, with the support of the Vereniging Rembrandt, to the museum, 1908",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "description_nl": "Een dienstmaagd staat achter een tafel en schenkt melk uit een kruik in een aardewerken kom. Op de tafel staat een mand met brood en een stenen kruik, links een venster met een rieten mand en een koperen pot. Onderaan de muur rechts een rijtje tegels en een stoofje.",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "hoogte 45,5 cm x breedte 41 cm",
     "image": "https://iiif.micr.io/QkOGy/full/!4000,4000/0/default.jpg"
   }
 }

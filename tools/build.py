@@ -146,6 +146,28 @@ def build(slug, levels, previews=True):
         review_sheet(slug, LEVEL_ORDER)
 
 
+MEDIUM_PL = {
+    "oil on canvas": "olej na płótnie", "oil on panel": "olej na desce", "oil on copper": "olej na miedzi",
+    "oil on paper": "olej na papierze", "watercolour": "akwarela", "woodblock print": "drzeworyt",
+}
+
+
+def medium_pl(src):
+    m = (src.get("medium_en") or "").strip().lower()
+    return MEDIUM_PL.get(m, m or None)
+
+
+def dims_pl(src):
+    """'height 45.5 cm x width 41 cm' -> '45,5 × 41 cm'"""
+    d = src.get("dimensions_en") or ""
+    import re
+    h = re.search(r"height ([\d.]+) cm", d)
+    w = re.search(r"width ([\d.]+) cm", d)
+    if not (h and w):
+        return None
+    return f"{h.group(1).replace('.', ',')} × {w.group(1).replace('.', ',')} cm"
+
+
 def catalog():
     """public/p/catalog.json: everything the menus need, in the order of paintings/*.json -> order."""
     items = []
@@ -170,6 +192,7 @@ def catalog():
             date=rec.get("date") or src.get("date"), objectNumber=src.get("object_number"),
             license="Rijksmuseum, domena publiczna", licenseUrl=(src.get("rights") or [None])[0],
             sourceUrl=src.get("object"), kind=rec.get("kind"),
+            medium=rec.get("medium") or medium_pl(src), dimensions=rec.get("dimensions") or dims_pl(src),
             story=rec.get("story"), card=rec.get("card"), dirt=rec.get("dirt"),
         ))
     items.sort(key=lambda i: (i["order"], i["slug"]))

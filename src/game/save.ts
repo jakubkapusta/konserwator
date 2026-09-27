@@ -2,7 +2,7 @@
 // All storage access is wrapped: private mode or blocked storage must never break the game.
 import type { LevelId } from '../data';
 
-export type Stage = 'clean' | 'retouch' | 'done';
+export type Stage = 'clean' | 'retouch' | 'gild' | 'varnish' | 'done';
 
 export interface WorkSave {
   v: 1;
@@ -14,6 +14,8 @@ export interface WorkSave {
   painted?: number[];
   sel?: number;
   hints?: number;
+  gild?: { laid: boolean[]; done: boolean[] };
+  varnish?: number[];
   progress: number; // 0..1 of the current stage, for the menu
 }
 

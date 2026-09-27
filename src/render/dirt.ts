@@ -157,7 +157,7 @@ export class DirtSim {
     gl.viewport(0, 0, w, h);
     gl.disable(gl.BLEND);
     gl.bindVertexArray(this.vao);
-    this.reduceP.use().tex('u_state', 0, this.state).f2('u_srcTexel', 1 / this.tw, 1 / this.th).i1('u_cell', cell);
+    this.reduceP.use().tex('u_state', 0, this.state).f2('u_srcTexel', 1 / this.tw, 1 / this.th).i1('u_cell', cell).f1('u_div', MAXV);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
 

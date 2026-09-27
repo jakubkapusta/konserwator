@@ -5,6 +5,8 @@ import type { LevelData } from '../data';
 import { BG_FS, FRAME_FS, NUM_FS, NUM_VS, PAINT_FS, SPRITE_FS, SPRITE_VS, WORLD_VS } from './shaders';
 import { glyphAtlas, noiseTexture, spriteAtlas, texture } from './textures';
 import { DirtSim } from './dirt';
+import { GiltSim } from './gilt';
+import { VROWS } from '../game/varnish';
 import { Particles } from './particles';
 
 /** t0 of a region nobody has painted yet (shaders test < -1e8). */
@@ -24,6 +26,10 @@ export interface SceneState {
   restored: number;
   frameDust: number;
   numAlpha: number;
+  style: number;
+  tilt: [number, number];
+  shine: number;
+  varnOn: number;
 }
 
 /** GPU side of one painting at one level. */
@@ -39,10 +45,12 @@ export class PaintingGL {
   numVao: WebGLVertexArrayObject;
   numCount = 0;
   dirt: DirtSim;
+  gilt: GiltSim;
+  varn: WebGLTexture;
   readonly W: number;
   readonly H: number;
 
-  constructor(private gl: GL, quad: WebGLBuffer, fullVao: WebGLVertexArrayObject, noise: WebGLTexture, image: HTMLImageElement, readonly level: LevelData) {
+  constructor(private gl: GL, quad: WebGLBuffer, fullVao: WebGLVertexArrayObject, noise: WebGLTexture, image: HTMLImageElement, readonly level: LevelData, F: number) {
     const W = (this.W = level.width), H = (this.H = level.height);
     this.img = texture(gl, { mips: true });
     gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
@@ -100,6 +108,15 @@ export class PaintingGL {
     gl.bindVertexArray(null);
 
     this.dirt = new DirtSim(gl, fullVao, W, H, noise);
+    this.gilt = new GiltSim(gl, fullVao, W, H, F, noise);
+    this.varn = texture(gl);
+    this.uploadVarnish(new Float32Array(VROWS * 4));
+  }
+
+  uploadVarnish(rows: Float32Array) {
+    const gl = this.gl;
+    gl.bindTexture(gl.TEXTURE_2D, this.varn);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA16F, 1, VROWS, 0, gl.RGBA, gl.FLOAT, rows);
   }
 
   /** Start revealing region i from world point (x, y) at time t0 over dur seconds. */
@@ -130,7 +147,8 @@ export class PaintingGL {
 
   dispose() {
     const gl = this.gl;
-    for (const t of [this.img, this.reg, this.rinfo, this.pal]) gl.deleteTexture(t);
+    for (const t of [this.img, this.reg, this.rinfo, this.pal, this.varn]) gl.deleteTexture(t);
+    this.gilt.dispose();
     gl.deleteBuffer(this.numBuf);
     gl.deleteVertexArray(this.numVao);
     this.dirt.dispose();
@@ -202,7 +220,7 @@ export class Renderer {
 
   load(image: HTMLImageElement, level: LevelData) {
     this.painting?.dispose();
-    this.painting = new PaintingGL(this.gl, this.quad, this.fullVao, this.noise, image, level);
+    this.painting = new PaintingGL(this.gl, this.quad, this.fullVao, this.noise, image, level, this.frameWidth(level.width, level.height));
     return this.painting;
   }
   unload() {
@@ -249,7 +267,9 @@ export class Renderer {
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     cm(this.frameP, [-F, -F, W + F, H + F])
-      .tex('u_noise', 0, this.noise).f2('u_size', W, H).f1('u_fw', F).f1('u_dust', s.frameDust).f1('u_pxw', pxw).f1('u_time', s.time);
+      .tex('u_noise', 0, this.noise).tex('u_gilt', 1, p.gilt.state).f4('u_giltRect', ...p.gilt.rect)
+      .f2('u_size', W, H).f1('u_fw', F).f1('u_dust', s.frameDust).f1('u_pxw', pxw).f1('u_time', s.time)
+      .i1('u_style', s.style).f2('u_tilt', s.tilt[0], s.tilt[1]).f1('u_shine', s.shine);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     cm(this.paintP, [0, 0, W, H])
@@ -258,7 +278,8 @@ export class Renderer {
       .f2('u_size', W, H).f2('u_dirtTexel', 1 / p.dirt.tw, 1 / p.dirt.th).f1('u_time', s.time).f1('u_pxw', pxw)
       .f1('u_outline', s.outline).f2('u_outlineC', s.outlineC[0], s.outlineC[1]).f1('u_outlineR', s.outlineR)
       .f1('u_dirtOn', s.dirtOn).i1('u_sel', s.sel).f1('u_selT', s.selT).f4('u_sweep', s.sweep[0], s.sweep[1], s.sweep[2], 0)
-      .f1('u_peek', s.peek).f4('u_webs', ...s.webs).f1('u_restored', s.restored);
+      .f1('u_peek', s.peek).f4('u_webs', ...s.webs).f1('u_restored', s.restored)
+      .tex('u_varn', 7, p.varn).f1('u_varnOn', s.varnOn).f2('u_tilt', s.tilt[0], s.tilt[1]);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     gl.enable(gl.BLEND);

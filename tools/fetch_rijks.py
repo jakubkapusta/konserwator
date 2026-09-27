@@ -27,6 +27,11 @@ PREFERRED = "http://vocab.getty.edu/aat/300404670"
 OBJECT_NUMBER = "http://vocab.getty.edu/aat/300312355"
 CREATOR_TEXT = "http://vocab.getty.edu/aat/300435416"
 WIKIDATA = "https://www.wikidata.org/w/api.php"
+# referred_to_by text types (Getty AAT)
+DESCRIPTION, DIMENSIONS, MEDIUM, PROVENANCE, CREDIT = (
+    "http://vocab.getty.edu/aat/300435452", "http://vocab.getty.edu/aat/300435430",
+    "http://vocab.getty.edu/aat/300435429", "http://vocab.getty.edu/aat/300444174",
+    "http://vocab.getty.edu/aat/300026687")
 RIJKSMUSEUM_QID = "Q190804"
 OPEN_RIGHTS = ("creativecommons.org/publicdomain/mark", "creativecommons.org/publicdomain/zero")
 
@@ -63,6 +68,13 @@ def resolve(obj_url):
     prod = obj.get("produced_by", {})
     creator = next((t["content"] for t in prod.get("referred_to_by", []) if CREATOR_TEXT in classes(t)), None)
     date = next((n["content"] for n in prod.get("timespan", {}).get("identified_by", []) if EN in langs(n)), None)
+    texts = {}
+    for t in obj.get("referred_to_by", []):
+        for kind, key in ((DESCRIPTION, "description"), (DIMENSIONS, "dimensions"), (MEDIUM, "medium"),
+                          (PROVENANCE, "provenance"), (CREDIT, "credit")):
+            if kind in classes(t):
+                lang = "en" if EN in langs(t) else "nl" if NL in langs(t) else "x"
+                texts.setdefault(f"{key}_{lang}", t.get("content"))
     vis = get_json(obj["shows"][0]["id"])
     rights = [c["id"] for r in vis.get("subject_to", []) for c in r.get("classified_as", [])]
     iiif = commons = None
@@ -73,7 +85,7 @@ def resolve(obj_url):
         commons = commons_image(number)
     return dict(object_number=number, title_en=name(obj, EN), title_nl=name(obj, NL), creator=creator, date=date,
                 rights=rights, open=any(any(o in r for o in OPEN_RIGHTS) for r in rights),
-                object=obj_url, iiif=iiif, commons=commons)
+                object=obj_url, iiif=iiif, commons=commons, **texts)
 
 
 def commons_image(number):

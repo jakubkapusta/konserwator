@@ -19,6 +19,8 @@ export interface CatalogItem {
   licenseUrl?: string;
   sourceUrl?: string;
   kind?: string;
+  medium?: string;
+  dimensions?: string;
   story?: { client: string; text: string };
   card?: string[];
   dirt?: Partial<{ soot: number; webs: number; spots: number }>;

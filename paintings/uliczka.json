@@ -31,6 +31,14 @@
     "object": "https://id.rijksmuseum.nl/200108371",
     "iiif": null,
     "commons": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20Gezicht%20op%20huizen%20in%20Delft%2C%20bekend%20als%20%27Het%20straatje%27%20-%20Google%20Art%20Project.jpg",
+    "dimensions_en": "height 54.3 cm x width 44 cm x depth 9 cm",
+    "credit_nl": "Schenking van de heer H.W.A. Deterding, Londen",
+    "medium_en": "oil on canvas",
+    "credit_en": "Gift of H.W.A. Deterding, London",
+    "dimensions_nl": "doekmaat: hoogte 54,3 cm x breedte 44 cm x diepte 9 cm",
+    "medium_nl": "olieverf op doek",
+    "provenance_en": "? Pieter Claesz van Ruijven (1624-1674) and Maria Simonsdr de Knuijt (1623-1681), Delft; ? their daughter, Magdalena van Ruijven (1655-1682), Delft; ? her widower, Jacob Dissius (1653-1695), Delft;{Montias 1989, pp. 246-262, 359, doc. 417.} his sale, Amsterdam, 16 May 1696, no. 32, fl. 72.10 or no. 33, fl. 48;{Hoet and Terwesten 1752-1770, vol. 1 (1752), p. 35; Montias 1989, p. 394, doc. 439.} …; collection Gerrit Willem van Oosten de Bruyn (1727-1797), Haarlem;{According to the sale catalogue Van Oosten de Bruyn, Haarlem (V. van der Vinne), 8 April 1800 _<em>sqq.</em>_, no. 7.} his widow, Maria Croon (1729-1799), Haarlem; sale Van Oosten de Bruyn, Haarlem (V. van der Vinne), 8 April 1800 _<em>sqq.</em>_, no. 7, fl. 1,040, to Pieter van Winter (1745-1807), Amsterdam;{Priem 1997, p. 118.} his daughter, Lucretia Johanna van Winter (1785-1845), Amsterdam; her widower, Jonkheer Hendrik Six (1790-1847), Lord of Hillegom, Amsterdam; their son, Jonkheer Jan Pieter Six (1824-1899), Lord of Hillegom, Amsterdam;{Archive Six family, inv. No. CS53207-002. 0014.} his son, Jonkheer Willem Six (1859-1919), Lord of Wimmenum, Amsterdam; his brother, Jonkheer Jan Six (1857-1926), Lord of Hillegom, Amsterdam and ’s-Graveland; sale Six, Amsterdam (F. Muller), 12 April 1921 (unsold); from whom, fl. 625,000, to Henry W.A. Deterding (1866-1939), Amsterdam;{Priem 1997, p. 190; archive Six family, inv.no. CS53207-002. 0024.} by whom presented to the museum, 1921",
+    "description_nl": "Gezicht op huizen in Delft, bekend als 'Het straatje'. De gevels van enkele huizen aan een straat in Delft. Tussen de huizen een steegje waar een vrouw over een wastobbe gebogen staat. In de openstaande deur van het huis rechts zit een vrouw te handwerken, links voor het huis op de stoep twee spelende kinderen.",
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20Gezicht%20op%20huizen%20in%20Delft%2C%20bekend%20als%20%27Het%20straatje%27%20-%20Google%20Art%20Project.jpg?width=4000"
   }
 }

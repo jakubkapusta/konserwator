@@ -21,6 +21,8 @@ export class Retouch {
   sel = 0;
   selT = 0;
   finished = false;
+  /** Replay: no sounds, quicker fields. */
+  quiet = false;
   private last: { x: number; y: number } | null = null;
   private dragged = false;
   private hintIdx = 0;
@@ -138,13 +140,13 @@ export class Retouch {
     this.order.push(id);
     this.left[r.c]--;
     const size = Math.sqrt(r.a);
-    const dur = Math.min(1.7, 0.4 + size / 420);
+    const dur = this.quiet ? Math.min(0.8, 0.25 + size / 900) : Math.min(1.7, 0.4 + size / 420);
     this.gpu.reveal(id, x, y, this.time, dur);
-    sound.dab(r.c, Math.min(1, size / 500));
+    if (!this.quiet) sound.dab(r.c, Math.min(1, size / 500));
     this.splash(x, y, r.c, drag);
     this.ev.painted(id, r.c);
     if (this.left[r.c] === 0) {
-      sound.paintDone(r.c);
+      if (!this.quiet) sound.paintDone(r.c);
       this.celebratePaint(r.c);
       this.ev.paintDone(r.c);
       const nx = this.nextPaint(r.c);

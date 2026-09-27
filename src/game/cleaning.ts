@@ -178,20 +178,31 @@ export class Cleaning {
   // ---- strokes (screen coordinates in, world inside) ----
   down(sx: number, sy: number, p: number, kind: string) {
     const w = this.cam.toWorld(sx, sy);
-    this.brush = { x: w.x, y: w.y, p, kind, active: true, lastX: sx, lastY: sy, speed: 0 };
-    this.queue(w.x, w.y, w.x, w.y, p, 0.016);
-    this.idleT = 0;
+    this.downW(w.x, w.y, p, kind);
   }
   move(sx: number, sy: number, p: number) {
+    const w = this.cam.toWorld(sx, sy);
+    this.moveW(w.x, w.y, p);
+  }
+  /** World-coordinate strokes (input converts; the replay feeds these directly). */
+  downW(x: number, y: number, p: number, kind: string) {
+    const s = this.cam.toScreen(x, y);
+    this.brush = { x, y, p, kind, active: true, lastX: s.x, lastY: s.y, speed: 0 };
+    this.queue(x, y, x, y, p, 0.016);
+    this.idleT = 0;
+  }
+  moveW(x: number, y: number, p: number) {
     const b = this.brush;
     if (!b.active) return;
-    const w = this.cam.toWorld(sx, sy);
-    this.queue(b.x, b.y, w.x, w.y, p, 0);
-    const d = Math.hypot(sx - b.lastX, sy - b.lastY);
+    const s = this.cam.toScreen(x, y);
+    this.queue(b.x, b.y, x, y, p, 0);
+    const d = Math.hypot(s.x - b.lastX, s.y - b.lastY);
     b.speed = Math.max(b.speed, d);
-    b.lastX = sx; b.lastY = sy;
-    b.x = w.x; b.y = w.y; b.p = p;
+    b.lastX = s.x; b.lastY = s.y;
+    b.x = x; b.y = y; b.p = p;
   }
+  /** Replay: no sound, no hints. */
+  quiet = false;
   up() {
     this.brush.active = false;
     sound.scrub(0, 0, 0);
@@ -245,15 +256,15 @@ export class Cleaning {
     if (b.active) {
       const under = this.dirtAt(b.x, b.y);
       const rel = def.channels.reduce((a, c) => Math.max(a, under[c] * MAXV), 0) + (this.tool === 2 ? under[0] * 0.5 : 0);
-      const spd = Math.min(1, b.speed / (40 * (dt * 60)));
-      sound.scrub(this.tool, Math.max(spd, 0.12), Math.min(1, rel));
+      const spd = Math.min(1, b.speed / (40 * (Math.max(dt, 1 / 120) * 60)));
+      if (!this.quiet) sound.scrub(this.tool, Math.max(spd, 0.12), Math.min(1, rel));
       this.emit(rel, spd, under);
       if (this.tool === 2) this.swabDirt = Math.min(1, this.swabDirt + rel * spd * dt * 0.35);
       b.speed = 0;
       // scrubbing where this tool can't do anything: point at the one that can
       const other = this.tool === 1 ? Math.max(under[1], under[2]) : this.tool === 2 ? under[3] : Math.max(under[0], under[1], under[2]);
       if (rel < 0.05 && other * MAXV > 0.25) this.uselessT += dt; else this.uselessT = Math.max(0, this.uselessT - dt * 2);
-      if (this.uselessT > 1.2) {
+      if (this.uselessT > 1.2 && !this.quiet) {
         this.uselessT = -6;
         if (this.tool === 1) this.ev.suggestTool(2, 'Pędzel zmiata tylko kurz. Sadzę i werniks zdejmie wacik z rozpuszczalnikiem.');
         else if (this.tool === 2) this.ev.suggestTool(3, 'Rozpuszczalnik nie rusza zaschniętych kropli. Weź skalpel.');
@@ -269,7 +280,7 @@ export class Cleaning {
       const sums = this.readProgress(cells);
       this.checkTiles(sums);
       this.ev.progress();
-      this.maybeSuggest();
+      if (!this.quiet) this.maybeSuggest();
     }
   }
 

@@ -2,7 +2,7 @@
 
 const PENTA = [0, 2, 4, 7, 9]; // major pentatonic, semitones
 
-export type ScrubTool = 0 | 1 | 2 | 3;
+export type ScrubTool = 0 | 1 | 2 | 3 | 4 | 5; // none, brush, swab, scalpel, burnisher, varnish brush
 
 export class Sound {
   private ctx: AudioContext | null = null;
@@ -111,6 +111,8 @@ export class Sound {
     if (tool === 1) { f = 3800 - dirt * 1400; q = 0.6; g = 0.5; }
     else if (tool === 2) { f = 1300 - dirt * 400; q = 1.3; g = 0.75; }
     else if (tool === 3) { f = 2600 + (1 - dirt) * 1500; q = 5; g = 0.6; }
+    else if (tool === 4) { f = 5200; q = 3.5; g = 0.28; }
+    else if (tool === 5) { f = 650; q = 0.8; g = 0.7; }
     this.scrubBand.frequency.setTargetAtTime(f, t, 0.04);
     this.scrubBand.Q.setTargetAtTime(q, t, 0.04);
     const level = tool ? g * Math.min(1, intensity) * (0.35 + 0.65 * Math.min(1, dirt * 1.5 + 0.15)) : 0;
@@ -211,6 +213,25 @@ export class Sound {
     s.connect(lp).connect(g).connect(this.out);
     g.connect(this.verb);
     s.start(t, Math.random(), dur + 0.05);
+  }
+
+  /** A leaf of gold leaving the booklet: a papery rustle with a tiny metallic shimmer. */
+  rustle() {
+    const c = this.ctx;
+    if (!c) return;
+    const t = c.currentTime;
+    const s = c.createBufferSource();
+    s.buffer = this.noise;
+    const hp = c.createBiquadFilter();
+    hp.type = 'highpass';
+    hp.frequency.value = 2500;
+    const g = c.createGain();
+    g.gain.setValueAtTime(0, t);
+    for (let i = 0; i < 5; i++) g.gain.linearRampToValueAtTime((0.05 + Math.random() * 0.08), t + 0.02 + i * 0.045);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+    s.connect(hp).connect(g).connect(this.out);
+    s.start(t, Math.random(), 0.4);
+    this.bell(2400 + Math.random() * 600, 0.02, 0.05, 0.5);
   }
 
   /** Wrong paint for this field: a dry little tick. */

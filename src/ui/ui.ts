@@ -15,7 +15,11 @@ const h = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', html = '') =
   return e;
 };
 
-const STAGE_NAMES: Record<string, string> = { clean: 'Czyszczenie', retouch: 'Retusz', done: 'Ukończony' };
+const STAGE_NAMES: Record<string, string> = { clean: 'Czyszczenie', retouch: 'Retusz', gild: 'Złocenie ramy', varnish: 'Werniks', done: 'Ukończony' };
+const PHASE_NAMES: Record<Phase, string> = {
+  intro: 'Czyszczenie', clean: 'Czyszczenie', toRetouch: 'Czyszczenie', retouch: 'Retusz', toGild: 'Retusz',
+  gild: 'Złocenie ramy', toVarnish: 'Złocenie ramy', varnish: 'Werniks', finale: 'Odnowiony', done: 'Odnowiony',
+};
 
 export interface UIActions {
   open(item: CatalogItem): void;
@@ -27,6 +31,9 @@ export interface UIActions {
   fit(): void;
   peek(on: boolean): void;
   mute(): boolean;
+  gallery(focus?: string): void;
+  menu(): void;
+  replay(item: CatalogItem): void;
   music(): boolean;
   sfx(): boolean;
   skip(): void;
@@ -35,6 +42,8 @@ export interface UIActions {
 
 export class UI implements StudioUI {
   private menu = h('section', 'screen menu');
+  private gal = h('section', 'screen gallery');
+  replaying = false;
   private comm = h('section', 'screen commission');
   private hud = h('section', 'screen hud');
   private fin = h('section', 'screen finale');
@@ -60,7 +69,7 @@ export class UI implements StudioUI {
   item: CatalogItem | null = null;
 
   constructor(private root: HTMLElement, private act: UIActions, prefs: Prefs) {
-    root.append(this.menu, this.comm, this.hud, this.fin, this.loadingEl);
+    root.append(this.menu, this.gal, this.comm, this.hud, this.fin, this.loadingEl);
     this.buildHud(prefs);
   }
 
@@ -71,6 +80,7 @@ export class UI implements StudioUI {
     const done = loadDone();
     this.menu.innerHTML = '';
     const head = h('header', '', `<h1>Konser<span>w</span>ator</h1><p>Pracownia konserwacji malarstwa</p>`);
+    head.append(this.tabs('menu'));
     const grid = h('div', 'commissions');
     for (const it of items) {
       const w = work[it.slug];
@@ -133,7 +143,7 @@ export class UI implements StudioUI {
   loading(on: boolean) { this.loadingEl.classList.toggle('show', on); }
 
   hideAll() {
-    for (const e of [this.menu, this.comm, this.hud, this.fin]) e.classList.remove('show');
+    for (const e of [this.menu, this.gal, this.comm, this.hud, this.fin]) e.classList.remove('show');
     this.pop.classList.remove('show');
   }
 
@@ -166,7 +176,7 @@ export class UI implements StudioUI {
     right.append(eye, fit, this.soundBtn, more);
     top.append(back, sb, right);
 
-    const skip = h('button', '', 'Pomiń czyszczenie (test)');
+    const skip = h('button', '', 'Pomiń ten etap (test)');
     skip.onclick = () => { this.pop.classList.remove('show'); this.act.skip(); };
     const restart = h('button', '', 'Zacznij ten obraz od nowa');
     restart.onclick = () => { this.pop.classList.remove('show'); this.act.restart(); };
@@ -195,9 +205,11 @@ export class UI implements StudioUI {
     this.hud.append(top, this.tools, this.pal, this.toastEl, this.cursorEl, this.markerEl, this.pop);
   }
 
-  showHud(it: CatalogItem) {
+  showHud(it: CatalogItem, replay = false) {
     this.hideAll();
     this.item = it;
+    this.replaying = replay;
+    this.hud.classList.toggle('replay', replay);
     this.hud.classList.add('show');
     this.stageSub.textContent = it.title;
   }
@@ -212,12 +224,17 @@ export class UI implements StudioUI {
 
   phase(p: Phase) {
     const clean = p === 'intro' || p === 'clean';
-    this.tools.classList.toggle('show', clean);
-    this.pal.classList.toggle('show', p === 'retouch');
-    this.stageName.textContent = clean || p === 'toRetouch' ? STAGE_NAMES.clean : p === 'retouch' ? STAGE_NAMES.retouch : 'Obraz odzyskał kolory';
+    this.tools.classList.toggle('show', clean && !this.replaying);
+    this.pal.classList.toggle('show', p === 'retouch' && !this.replaying);
+    this.stageName.textContent = this.replaying ? 'Nagranie renowacji' : PHASE_NAMES[p];
+    this.stageSub.textContent = this.replaying ? PHASE_NAMES[p] + ' · ' + (this.item?.title ?? '') : this.item?.title ?? '';
     if (p === 'finale' || p === 'done') { this.barFill.style.width = '100%'; this.fin.classList.remove('show'); }
-    if (p === 'toRetouch') this.barFill.style.width = '100%';
-    if (p === 'retouch') this.barFill.style.width = '0%';
+    if (p === 'toRetouch' || p === 'toGild' || p === 'toVarnish') this.barFill.style.width = '100%';
+    if (p === 'retouch' || p === 'gild' || p === 'varnish') this.barFill.style.width = '0%';
+  }
+
+  progress(p: number) {
+    this.barFill.style.width = (p * 100).toFixed(1) + '%';
   }
 
   cleanProgress(c: Cleaning) {
@@ -317,7 +334,7 @@ export class UI implements StudioUI {
     this.barFill.style.width = ((done / Math.max(1, total)) * 100).toFixed(1) + '%';
   }
 
-  cursor(x: number, y: number, show: boolean, tool: Tool, r: number, kind: PointerKind | null, swabDirt: number) {
+  cursor(x: number, y: number, show: boolean, tool: number, r: number, kind: PointerKind | null, swabDirt: number) {
     const c = this.cursorEl;
     c.classList.toggle('show', show);
     if (!show) return;
@@ -336,6 +353,7 @@ export class UI implements StudioUI {
     c.style.transform = `translate(${x}px, ${y}px)`;
     const a = c.firstElementChild as HTMLElement;
     a.style.width = a.style.height = 2 * r + 'px';
+    a.style.display = r > 0 ? '' : 'none';
     const d = Math.min(1, swabDirt);
     c.style.setProperty('--tip', `rgb(${251 - d * 90},${247 - d * 120},${238 - d * 180})`);
   }
@@ -350,19 +368,106 @@ export class UI implements StudioUI {
     m.style.top = y + 'px';
   }
 
+  private tabs(on: 'menu' | 'gallery') {
+    const t = h('nav', 'tabs');
+    const a = h('button', on === 'menu' ? 'on' : '', 'Pracownia');
+    const b = h('button', on === 'gallery' ? 'on' : '', 'Galeria');
+    a.onclick = () => this.act.menu();
+    b.onclick = () => this.act.gallery();
+    t.append(a, b);
+    return t;
+  }
+
+  showGallery(items: CatalogItem[], focus?: string) {
+    this.hideAll();
+    const done = loadDone();
+    const hung = items.filter((it) => done[it.slug] && Object.keys(done[it.slug]).length);
+    this.gal.innerHTML = '';
+    const head = h('header', '', `<h1>Galeria</h1><p>${hung.length ? `Odnowione obrazy: ${hung.length} z ${items.length}` : 'Tu zawisną obrazy, które odnowisz.'}</p>`);
+    head.append(this.tabs('gallery'));
+    const hall = h('div', 'hall');
+    const wall = h('div', 'wall');
+    for (const it of hung) {
+      const lv = done[it.slug];
+      const best = Math.max(...LEVELS.map((l, i) => (lv[l.id] ? i : -1)));
+      const f = h('button', `hung style-${best}`);
+      f.dataset.slug = it.slug;
+      const [w, hh] = it.size;
+      const H = 300, W = Math.round((H * w) / hh);
+      f.innerHTML = `<div class="lamp"></div><div class="fr"><div class="fr-in"><img src="${thumbUrl(it.slug)}" alt="" style="width:${Math.min(W, 380)}px"></div></div>
+        <div class="plaque"><b>${it.title}</b><span>${it.author}, ${it.date}</span><i>${LEVELS.map((l) => `<em class="${lv[l.id] ? 'on' : ''}"></em>`).join('')}</i></div>`;
+      f.onclick = () => this.galleryCard(it);
+      wall.append(f);
+    }
+    const left = items.length - hung.length;
+    if (left) {
+      const e = h('div', 'hung empty', `<div class="nail"></div><span>${left === 1 ? 'Jeszcze jedno miejsce' : `Jeszcze ${left} ${left < 5 ? 'miejsca' : 'miejsc'}`} na ścianie</span>`);
+      wall.append(e);
+    }
+    hall.append(wall);
+    this.gal.append(head, hall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
+    this.gal.classList.add('show');
+    if (focus) {
+      const el = wall.querySelector(`[data-slug="${focus}"]`) as HTMLElement | null;
+      if (el) {
+        requestAnimationFrame(() => { hall.scrollLeft = el.offsetLeft - (hall.clientWidth - el.clientWidth) / 2; });
+        el.classList.add('fresh');
+      }
+    }
+  }
+
+  private galleryCard(it: CatalogItem) {
+    const done = loadDone()[it.slug] ?? {};
+    const sheet = h('div', 'sheet');
+    sheet.innerHTML = `<div class="tag">Karta obrazu</div><h2>${it.title}</h2><div class="by">${it.author}, ${it.date}</div>
+      <div class="card-text" style="margin-top:14px">${(it.card ?? []).map((p) => `<p>${p}</p>`).join('')}</div>
+      <div class="facts">${[it.medium, it.dimensions, it.objectNumber].filter(Boolean).join(' · ')}</div>
+      <div class="order"><div class="tag">Zlecenie wykonane</div><p>${it.story?.text ?? ''}</p><span class="client">${it.story?.client ?? ''}</span></div>
+      <div class="won">${LEVELS.map((l) => `<span class="${done[l.id] ? 'on' : ''}">${l.name}${done[l.id] ? ' ✓' : ''}</span>`).join('')}</div>`;
+    const actions = h('div', 'actions');
+    const watch = h('button', 'btn', 'Obejrzyj renowację');
+    watch.onclick = () => { this.comm.classList.remove('show'); this.act.replay(it); };
+    const again = h('button', 'btn ghost', 'Odnów jeszcze raz');
+    again.onclick = () => this.showCommission(it);
+    const close = h('button', 'btn ghost', 'Zamknij');
+    close.onclick = () => this.comm.classList.remove('show');
+    actions.append(watch, again, close);
+    sheet.append(actions, h('div', 'credit', `${it.license}${it.objectNumber ? ' · ' + it.objectNumber : ''}`));
+    this.comm.innerHTML = '';
+    this.comm.append(sheet);
+    this.comm.onclick = (e) => { if (e.target === this.comm) this.comm.classList.remove('show'); };
+    this.comm.classList.add('show');
+  }
+
+  replayDone() {
+    const sheet = h('div', 'sheet');
+    sheet.innerHTML = `<div class="tag">Koniec nagrania</div><h2>${this.item?.title ?? ''}</h2><div class="by">${this.item?.author ?? ''}, ${this.item?.date ?? ''}</div>`;
+    const actions = h('div', 'actions');
+    const back = h('button', 'btn', 'Wróć do galerii');
+    back.onclick = () => this.act.gallery(this.item?.slug);
+    const admire = h('button', 'btn ghost', 'Podziwiaj');
+    admire.onclick = () => this.fin.classList.remove('show');
+    actions.append(back, admire);
+    sheet.append(actions);
+    this.fin.innerHTML = '';
+    this.fin.append(sheet);
+    this.fin.classList.add('show');
+  }
+
   finale() {
     const it = this.item;
     if (!it) return;
     const sheet = h('div', 'sheet');
     sheet.innerHTML = `<div class="tag">Karta obrazu</div><h2>${it.title}</h2><div class="by">${it.author}, ${it.date}</div>
       <div class="card-text" style="margin-top:14px">${(it.card ?? []).map((p) => `<p>${p}</p>`).join('')}</div>
-      <div class="next">Retusz ukończony. Złocenie ramy, werniks i galeria dojdą w kolejnym etapie prac.</div>`;
+      <div class="facts">${[it.medium, it.dimensions].filter(Boolean).join(' · ')}</div>
+      <div class="order"><div class="tag">Zlecenie wykonane</div><p>${it.story?.text ?? ''}</p><span class="client">${it.story?.client ?? ''}</span></div>`;
     const actions = h('div', 'actions');
     const admire = h('button', 'btn ghost', 'Podziwiaj');
-    admire.onclick = () => this.fin.classList.remove('show');
-    const back = h('button', 'btn', 'Wróć do pracowni');
-    back.onclick = () => this.act.back();
-    actions.append(back, admire);
+    admire.onclick = () => { this.fin.classList.remove('show'); this.toast('Przechyl iPada albo porusz myszą: złoto i werniks łapią światło.', 3600); };
+    const hang = h('button', 'btn', 'Powieś w galerii');
+    hang.onclick = () => this.act.gallery(it.slug);
+    actions.append(hang, admire);
     sheet.append(actions, h('div', 'credit', `${it.license}${it.objectNumber ? ' · ' + it.objectNumber : ''}`));
     this.fin.innerHTML = '';
     this.fin.append(sheet);
