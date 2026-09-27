@@ -108,15 +108,44 @@ export function paintingFiles(it: CatalogItem) {
   return out;
 }
 
-/** Fetch everything once so the service worker keeps it for offline play. */
+/** The service worker's cache for painting files (src/sw.template.js). */
+const DATA_CACHE = 'konserwator-data';
+
+/** Which paintings can be played without a connection (all their files are in the cache). */
+export async function offlineSlugs(items: CatalogItem[]): Promise<Set<string>> {
+  const out = new Set<string>();
+  if (!('caches' in window)) return out;
+  try {
+    const c = await caches.open(DATA_CACHE);
+    await Promise.all(items.map(async (it) => {
+      const hits = await Promise.all(paintingFiles(it).map((f) => c.match(f, { ignoreVary: true })));
+      if (hits.every(Boolean)) out.add(it.slug);
+    }));
+  } catch { /* no cache storage (private mode): nothing offline */ }
+  return out;
+}
+
+/**
+ * Put every painting's files into the cache for offline play. Written into Cache Storage from the page
+ * itself, not through the service worker: on a first visit the worker doesn't control the page yet and
+ * would let everything pass uncached. Files already there are skipped, so it resumes after an interruption.
+ */
 export async function downloadAll(items: CatalogItem[], progress: (done: number, total: number) => void) {
   const files = items.flatMap(paintingFiles);
   let done = 0, failed = 0;
+  // ask the browser not to evict it (iOS clears storage of sites not used for a while otherwise)
+  try { await navigator.storage?.persist?.(); } catch { /* ignore */ }
+  const cache = await caches.open(DATA_CACHE);
   const queue = files.slice();
   const worker = async () => {
     while (queue.length) {
       const f = queue.shift()!;
-      try { const r = await fetch(f); if (!r.ok) failed++; else await r.arrayBuffer(); } catch { failed++; }
+      try {
+        if (!(await cache.match(f, { ignoreVary: true }))) {
+          const r = await fetch(f, { cache: 'no-store' });
+          if (r.ok) await cache.put(f, r); else failed++;
+        }
+      } catch { failed++; }
       progress(++done, files.length);
     }
   };

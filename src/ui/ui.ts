@@ -1,5 +1,5 @@
 // DOM layer: the studio (menu), the commission card, the workbench HUD (tools, palette, toasts, cursor, hint ring).
-import { downloadAll, LEVELS, thumbUrl, type CatalogItem, type LevelData, type LevelId } from '../data';
+import { downloadAll, LEVELS, offlineSlugs, thumbUrl, type CatalogItem, type LevelData, type LevelId } from '../data';
 import type { Tool } from '../render/dirt';
 import type { PointerKind } from '../game/input';
 import type { Cleaning } from '../game/cleaning';
@@ -74,6 +74,7 @@ export class UI implements StudioUI {
 
   constructor(private root: HTMLElement, private act: UIActions, private prefs: Prefs) {
     root.append(this.menu, this.gal, this.comm, this.hud, this.fin, this.loadingEl);
+    for (const ev of ['online', 'offline']) window.addEventListener(ev, () => { if (this.menu.classList.contains('show')) this.refreshOffline(); });
     this.buildHud(prefs);
   }
 
@@ -101,6 +102,9 @@ export class UI implements StudioUI {
 
   // ---------------- menu ----------------
   private kindFilter = '';
+  /** Paintings whose files are all in the offline cache (null until checked). */
+  private offline: Set<string> | null = null;
+  private refreshOffline = () => {};
   private showDone = false;
   private motes: Motes | null = null;
 
@@ -174,14 +178,17 @@ export class UI implements StudioUI {
         const w = work[it.slug];
         const stage = isDone(it) ? 'done' : live(it) ? w.stage : 'new';
         const rot = ((hashStr(it.slug) % 100) / 100 - 0.5) * 3.2;
-        const c = h('button', `hung-card ${stage === 'done' ? 'done' : stage === 'new' ? 'new' : 'started'}`);
+        const c = h('button', `hung-card ${stage === 'done' ? 'done' : stage === 'new' ? 'new' : 'started'}${!navigator.onLine && this.offline && !this.offline.has(it.slug) ? ' away' : ''}`);
+        c.dataset.slug = it.slug;
         c.style.setProperty('--rot', rot.toFixed(2) + 'deg');
         c.style.setProperty('--delay', Math.min(i, 20) * 45 + 'ms');
         const L = it.levels.latwy;
         c.innerHTML = `<div class="string"></div>${this.miniature(it, stage, live(it) ? w.progress : 0, 'onwall', [200, 175, 225][hashStr(it.slug) % 3])}
           <div class="label"><div class="meta"><em>${it.kind ?? 'obraz'} · ${L.colors} farb · od ${L.regions} pól</em>
           <i class="dots">${LEVELS.map((l) => `<u class="${done[it.slug]?.[l.id] ? 'on' : ''}"></u>`).join('')}</i></div><b>${it.title}</b><span>${it.author}</span></div>`;
-        c.onclick = () => { c.classList.remove('swing'); void c.offsetWidth; c.classList.add('swing'); setTimeout(() => this.act.open(it), 180); };
+        c.onclick = () => {
+          if (c.classList.contains('away')) { this.toast('Ten obraz nie jest pobrany. Połącz się z internetem, żeby go otworzyć.', 3600); return; }
+          c.classList.remove('swing'); void c.offsetWidth; c.classList.add('swing'); setTimeout(() => this.act.open(it), 180); };
         wall.append(c);
       });
       if (!shown.length) wall.append(h('div', 'empty-wall', this.showDone ? 'Nic tu nie ma.' : 'Wszystkie zlecenia z tej grupy już wiszą w galerii. Włącz „Pokaż ukończone”.'));
@@ -205,18 +212,30 @@ export class UI implements StudioUI {
     bar.append(h('h2', 'shelf', 'Zlecenia'), pickWrap, toggle);
     fill();
     const foot = h('footer', '', 'Obrazy: Rijksmuseum, The Metropolitan Museum of Art i Wikimedia Commons, domena publiczna');
-    // the flag holds how many paintings were downloaded: new ones in the catalog ask for a download again
-    let offFlag: string | null = null;
-    try { offFlag = localStorage.getItem('konserwator.offline'); } catch { /* ignore */ }
-    const off = h('button', 'offline', offFlag === String(items.length) ? 'Cała kolekcja jest dostępna offline ✓'
-      : `Pobierz całą kolekcję do gry bez internetu (ok. ${Math.round(items.length * 1.9)} MB)`);
+    // offline: what's really in the cache decides (not a flag: Safari and the home-screen app keep separate
+    // storage, and new paintings in the catalog need downloading too)
+    const off = h('button', 'offline', 'Sprawdzam, co jest pobrane…');
+    const setOff = (have: Set<string>) => {
+      const missing = items.filter((it) => !have.has(it.slug)).length;
+      off.classList.toggle('ok', !missing);
+      off.textContent = !missing ? 'Cała kolekcja jest w pracowni, gra działa bez internetu ✓'
+        : have.size ? `Pobierz brakujące obrazy do gry bez internetu (${missing}, ok. ${Math.max(1, Math.round(missing * 1.9))} MB)`
+        : `Pobierz całą kolekcję do gry bez internetu (ok. ${Math.round(items.length * 1.9)} MB)`;
+      // without a connection the paintings that aren't downloaded can't be opened
+      wall.querySelectorAll<HTMLElement>('.hung-card').forEach((c) => c.classList.toggle('away', !navigator.onLine && !have.has(c.dataset.slug!)));
+      this.offline = have;
+    };
+    this.refreshOffline = () => { void offlineSlugs(items).then(setOff); };
+    void offlineSlugs(items).then(setOff);
     off.onclick = async () => {
-      if (off.classList.contains('busy')) return;
+      if (off.classList.contains('busy') || off.classList.contains('ok')) return;
+      if (!navigator.onLine) { off.textContent = 'Brak internetu. Połącz się, żeby pobrać obrazy.'; return; }
       off.classList.add('busy');
       const failed = await downloadAll(items, (d, t) => { off.textContent = `Pobieram obrazy… ${Math.round((d / t) * 100)}%`; });
       off.classList.remove('busy');
-      if (failed) off.textContent = `Nie udało się pobrać ${failed} plików. Spróbuj ponownie.`;
-      else { off.textContent = 'Cała kolekcja jest dostępna offline ✓'; try { localStorage.setItem('konserwator.offline', String(items.length)); } catch { /* ignore */ } }
+      const have = await offlineSlugs(items);
+      setOff(have);
+      if (failed) off.textContent = `Nie udało się pobrać ${failed} plików. Dotknij, żeby dokończyć.`;
     };
     const reset = h('button', 'reset', 'Zacznij grę od nowa');
     reset.onclick = () => this.confirmReset();
@@ -376,7 +395,8 @@ export class UI implements StudioUI {
     }
     this.findBtn.onclick = () => this.act.hint();
     this.pal.append(this.findBtn, this.swatches);
-    this.hud.append(top, this.tools, this.pal, this.toastEl, this.cursorEl, this.markerEl, this.pop);
+    this.hud.append(top, this.tools, this.pal, this.cursorEl, this.markerEl, this.pop);
+    this.root.append(this.toastEl); // above every screen (the studio shows it too)
   }
 
   showHud(it: CatalogItem, replay = false) {

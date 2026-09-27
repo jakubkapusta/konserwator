@@ -169,6 +169,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hung-card .label .dots u.on { background: #b8862f; border-color: #b8862f; }
 .empty-wall { color: var(--muted); padding: 30px; font-size: 16px; }
 .menu .offline { display: block; margin: 36px auto 0; padding: 9px 18px; border-radius: 2px; font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--muted); border: 1px dashed rgba(241, 232, 216, 0.25); }
+.menu .offline.ok { border-style: solid; border-color: rgba(220, 182, 96, 0.35); color: var(--gold); cursor: default; }
+.hung-card.away { opacity: 0.4; filter: grayscale(0.8); }
+.hung-card.away .label::after { content: 'niepobrany'; position: absolute; right: 8px; bottom: 6px; font-size: 11px; color: var(--rust); }
 .menu .offline.busy { color: var(--gold); border-color: rgba(220, 182, 96, 0.5); }
 .menu .reset { display: block; margin: 14px auto 0; padding: 8px 16px; font-family: var(--serif); font-size: 16px; font-weight: 600; color: rgba(230, 160, 130, 0.75); }
 .menu footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; opacity: 0.8; }
@@ -291,6 +294,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sw.done { width: 0; margin: 0 -3px; opacity: 0; transform: scale(0.3) translateY(-30px); pointer-events: none; }
 
 .toast {
+  z-index: 30;
   position: absolute; left: 50%; top: calc(var(--top) + 78px); transform: translate(-50%, -12px) rotate(-2deg); opacity: 0; transition: opacity 0.4s, transform 0.5s var(--ease);
   background: var(--fibre), linear-gradient(180deg, #f1e7cf, #e2d3b2); color: var(--p-ink); border-radius: 1px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   padding: 9px 18px 8px; font-family: var(--serif); font-size: 20px; font-weight: 600; max-width: min(520px, calc(100vw - 30px)); text-align: center; line-height: 1.25;

@@ -347,29 +347,45 @@ function room(ctx: AudioContext, secs: number, curve: number) {
 const midi = (n: number) => 440 * Math.pow(2, (n - 69) / 12);
 
 /**
- * Generative background music: soft music-box / kalimba plucks over a quiet pad, slowly walking through
- * D major chords (I – vi – IV – V and friends). Never the same twice, never busy.
+ * Background music: a small music-box waltz in D major (3/4, about 70 bpm), composed, not random, so there's a
+ * tune to hum. Form A A' B A' and then a few bars of just the accompaniment to breathe; every pass varies a
+ * little (melody an octave lower, an echo on the long notes, ornaments) so the loop doesn't wear thin.
+ * Accompaniment is a soft oom-pah-pah (bass on one, two chord tones on two and three) over a quiet pad.
+ * Mood 0 (cleaning) is slower and sparser, 1 (retouch, gilding) the full waltz, 2 (varnish, finale) adds bells.
  */
+type Bar = { ch: string; mel: [number, number | null][] }; // melody: [beats, midi or rest]
+const CHORDS: Record<string, [number, number[]]> = {
+  D: [50, [62, 66, 69]], 'A/C#': [49, [61, 64, 69]], Bm: [47, [62, 66, 71]], 'F#m': [42, [61, 66, 69]],
+  G: [43, [62, 67, 71]], 'D/F#': [42, [62, 66, 69]], Em: [40, [59, 64, 67]], A: [45, [61, 64, 69]], A7: [45, [61, 64, 67]],
+};
+const bars = (chs: string, mel: [number, number | null][][]): Bar[] => chs.split(' ').map((ch, i) => ({ ch, mel: mel[i] }));
+const A1 = bars('D A/C# Bm F#m G D/F# Em A', [
+  [[1, 78], [1, 81], [1, 86]], [[2, 85], [1, 83]], [[1, 81], [1, 78], [1, 74]], [[2, 76], [1, 78]],
+  [[1, 79], [1, 83], [1, 86]], [[2, 81], [1, 78]], [[1, 79], [1, 78], [1, 76]], [[2, 81], [1, null]],
+]);
+const A2 = bars('D A/C# Bm F#m G D A7 D', [
+  [[1, 78], [1, 81], [1, 86]], [[2, 85], [1, 83]], [[1, 81], [1, 78], [1, 74]], [[2, 76], [1, 78]],
+  [[1, 79], [1, 83], [1, 88]], [[2, 86], [1, 85]], [[1, 83], [1, 79], [1, 76]], [[3, 74]],
+]);
+const B = bars('G A F#m Bm Em A D/F# A7', [
+  [[1.5, 86], [0.5, 85], [1, 83]], [[2, 85], [1, 81]], [[1.5, 85], [0.5, 83], [1, 81]], [[2, 83], [1, 78]],
+  [[1, 79], [1, 83], [1, 88]], [[1.5, 88], [0.5, 86], [1, 85]], [[1, 86], [1, 81], [1, 78]], [[2, 76], [1, 81]],
+]);
+const BREATH = bars('D G D A', [[[3, null]], [[3, null]], [[3, null]], [[3, null]]]);
+const SONG: { bars: Bar[]; tune: boolean }[] = [
+  { bars: A1, tune: true }, { bars: A2, tune: true }, { bars: B, tune: true }, { bars: A2, tune: true }, { bars: BREATH, tune: false },
+];
+
 class Music {
   private bus: GainNode;
   private verb: GainNode;
   private next = 0;
+  private sec = 0;
   private bar = 0;
-  private step = 0;
-  private chord = 0;
+  private pass = 0;
   private moodV = 0;
   private padNodes: { o: OscillatorNode; g: GainNode }[] = [];
-  private last = 74;
-  // chord tones as MIDI notes (D major): D, Bm, G, A, Em, F#m
-  private chords = [
-    [62, 66, 69, 73, 76], // Dmaj7(9)
-    [59, 62, 66, 69, 73], // Bm7(9)
-    [55, 59, 62, 66, 69], // Gmaj7
-    [57, 61, 64, 66, 71], // A6(9)
-    [52, 55, 59, 62, 66], // Em7(9)
-    [54, 57, 61, 64, 69], // F#m7
-  ];
-  private prog = [0, 1, 2, 3, 0, 4, 2, 3, 0, 5, 1, 2, 4, 3];
+  private padChord = '';
   constructor(private ctx: AudioContext, out: GainNode) {
     this.bus = ctx.createGain();
     this.bus.gain.value = 0.55;
@@ -380,82 +396,100 @@ class Music {
     const conv = ctx.createConvolver();
     conv.buffer = room(ctx, 3.8, 2.4);
     this.verb = ctx.createGain();
-    this.verb.gain.value = 0.55;
+    this.verb.gain.value = 0.5;
     this.verb.connect(conv).connect(out);
   }
   setMood(m: number) { this.moodV = m; }
   start() {
-    this.next = this.ctx.currentTime + 0.3;
-    this.pad();
+    this.next = this.ctx.currentTime + 0.5;
     setInterval(() => this.schedule(), 150);
   }
-  private get beat() { return 60 / (68 + this.moodV * 6); }
+  private get beat() { return 60 / (64 + this.moodV * 5); }
   private schedule() {
     const c = this.ctx;
-    while (this.next < c.currentTime + 0.6) {
-      const t = this.next;
-      const tones = this.chords[this.prog[this.chord % this.prog.length]];
-      const eighth = this.step % 2 === 1;
-      const p = eighth ? 0.22 + this.moodV * 0.12 : this.step % 8 === 0 ? 0.95 : 0.55 + this.moodV * 0.1;
-      if (Math.random() < p) {
-        // random walk over chord tones, one or two octaves up
-        const pool = tones.flatMap((n) => [n + 12, n + 24]).filter((n) => n >= 66 && n <= 91);
-        pool.sort((a, b) => Math.abs(a - this.last) - Math.abs(b - this.last));
-        const n = pool[Math.min(pool.length - 1, Math.floor(Math.random() * Math.random() * 5))];
-        this.last = n;
-        this.pluck(midi(n), t, 0.05 + Math.random() * 0.03);
-        if (this.step % 8 === 0 && Math.random() < 0.5) this.pluck(midi(n - 12 + (Math.random() < 0.5 ? 0 : 7)), t + 0.02, 0.035);
+    // one bar at a time, a little ahead
+    while (this.next < c.currentTime + 0.8) {
+      const section = SONG[this.sec];
+      const bar = section.bars[this.bar];
+      const t0 = this.next, bt = this.beat, m = this.moodV;
+      const [bass, tones] = CHORDS[bar.ch];
+      if (bar.ch !== this.padChord) { this.pad(bar.ch, t0); this.padChord = bar.ch; }
+      // oom-pah-pah (sparser while cleaning)
+      const hum = () => (Math.random() - 0.5) * 0.012;
+      this.pluck(midi(bass), t0 + hum(), 0.05, 'bass');
+      if (m >= 1 || this.bar % 2 === 0) this.pluck(midi(tones[1]), t0 + bt + hum(), 0.018, 'soft');
+      this.pluck(midi(tones[m >= 1 ? 2 : 1]), t0 + 2 * bt + hum(), m >= 1 ? 0.018 : 0.014, 'soft');
+      if (!section.tune && this.bar === 1) this.pluck(midi(tones[2] + 12), t0 + 1.5 * bt, 0.02, 'tune');
+      // the tune
+      if (section.tune) {
+        const v = this.pass % 3;
+        let at = 0;
+        bar.mel.forEach(([len, n], i) => {
+          if (n !== null) {
+            const low = v === 1 && this.sec !== 2 ? -12 : 0;
+            const vol = (i === 0 ? 0.075 : 0.058) * (m === 0 ? 0.8 : 1);
+            this.pluck(midi(n + low), t0 + at * bt + hum(), vol, 'tune');
+            // variation 2: an echo an octave up on the long notes
+            if (v === 2 && len >= 2) this.pluck(midi(n + 12), t0 + (at + 1) * bt + hum(), vol * 0.35, 'tune');
+            // a grace note now and then on the strong beat
+            if (v !== 1 && i === 0 && this.bar % 4 === 3 && Math.random() < 0.5) this.pluck(midi(n + 2), t0 + at * bt - 0.07, vol * 0.4, 'tune');
+          }
+          at += len;
+        });
       }
-      this.step++;
-      this.next += this.beat / 2;
-      if (this.step % 16 === 0) {
-        this.bar++;
-        if (this.bar % 2 === 0) { this.chord++; this.pad(t + this.beat / 2); }
+      // finale: bells on the downbeat
+      if (m >= 2 && this.bar % 2 === 0) this.pluck(midi(tones[0] + 24), t0 + 0.01, 0.02, 'bell');
+      this.next += 3 * bt;
+      if (++this.bar >= section.bars.length) {
+        this.bar = 0;
+        if (++this.sec >= SONG.length) { this.sec = 0; this.pass++; }
       }
     }
   }
-  private pluck(f: number, t: number, vol: number) {
+  private pluck(f: number, t: number, vol: number, kind: 'tune' | 'soft' | 'bass' | 'bell') {
     const c = this.ctx;
+    t = Math.max(t, c.currentTime + 0.005);
     const g = c.createGain();
-    g.gain.value = 0;
     g.connect(this.bus);
-    g.connect(this.verb);
-    const dec = 1.4 + Math.random() * 1.2;
-    const parts: [number, number, number][] = [[1, 1, 1], [2.005, 0.22, 0.35], [3.99, 0.06, 0.15]];
+    if (kind !== 'bass') g.connect(this.verb);
+    // music-box tine: fundamental, a bright octave and a faint inharmonic ring; the accompaniment is duller
+    const dec = kind === 'bass' ? 2.2 : kind === 'soft' ? 1.4 : kind === 'bell' ? 3.2 : 2.0 + Math.random() * 0.6;
+    const parts: [number, number, number][] = kind === 'tune' ? [[1, 1, 1], [2.003, 0.28, 0.4], [4.2, 0.07, 0.12]]
+      : kind === 'bell' ? [[1, 1, 1], [2.76, 0.35, 0.5], [5.4, 0.12, 0.25]]
+      : kind === 'bass' ? [[1, 1, 1], [2, 0.12, 0.3]] : [[1, 1, 1], [2.004, 0.12, 0.3]];
     for (const [r, a, dk] of parts) {
       const o = c.createOscillator();
       o.type = 'sine';
       o.frequency.value = f * r;
       const og = c.createGain();
       og.gain.setValueAtTime(0, t);
-      og.gain.linearRampToValueAtTime(a * vol, t + 0.006);
+      og.gain.linearRampToValueAtTime(a * vol, t + (kind === 'bass' ? 0.02 : 0.005));
       og.gain.exponentialRampToValueAtTime(0.0001, t + dec * dk);
       o.connect(og).connect(g);
       o.start(t);
       o.stop(t + dec * dk + 0.05);
     }
-    g.gain.setValueAtTime(1, t);
   }
-  private pad(t = this.ctx.currentTime) {
+  private pad(name: string, t: number) {
     const c = this.ctx;
     for (const p of this.padNodes) {
       p.g.gain.cancelScheduledValues(t);
-      p.g.gain.setTargetAtTime(0, t, 0.8);
-      p.o.stop(t + 4);
+      p.g.gain.setTargetAtTime(0, t, 0.6);
+      p.o.stop(t + 3);
     }
     this.padNodes = [];
-    const tones = this.chords[this.prog[this.chord % this.prog.length]];
-    for (const n of [tones[0] - 12, tones[2] - 12, tones[1]]) {
+    const [bass, tones] = CHORDS[name];
+    for (const n of [bass + 12, tones[0], tones[2]]) {
       const o = c.createOscillator();
       o.type = 'triangle';
       o.frequency.value = midi(n);
       o.detune.value = (Math.random() - 0.5) * 8;
       const lp = c.createBiquadFilter();
       lp.type = 'lowpass';
-      lp.frequency.value = 700;
+      lp.frequency.value = 650;
       const g = c.createGain();
       g.gain.value = 0;
-      g.gain.setTargetAtTime(0.018, t, 1.2);
+      g.gain.setTargetAtTime(0.011, t, 0.9);
       o.connect(lp).connect(g).connect(this.bus);
       g.connect(this.verb);
       o.start(t);
