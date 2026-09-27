@@ -1,0 +1,43 @@
+{
+  "order": 7.2,
+  "title": "Kompozycja VIII",
+  "author": "Wassily Kandinsky",
+  "date": "1923",
+  "medium": "olej na płótnie",
+  "card": [
+    "Koła, trójkąty, szachownice i cienkie linie krzyżują się na jasnym tle. W lewym górnym rogu wisi wielkie czarne koło z fioletowym środkiem.",
+    "Kandinsky namalował ten obraz, gdy uczył w Bauhausie. Uważał, że kolory i kształty działają na człowieka jak muzyka: żółty jak trąbka, błękit jak wiolonczela, a obraz można słuchać oczami."
+  ],
+  "story": {
+    "client": "Filharmonia w Kaliszu",
+    "text": "Kopia wisiała w pokoju prób za sceną. Kurz z kulis, kalafonia ze smyczków i dym z przerw na papierosa przez lata zasnuły kolory szarą mgłą."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Wassily Kandinsky Composition VIII.jpg",
+    "object_number": null,
+    "title_en": "Wassily Kandinsky Composition VIII",
+    "creator": "Wassily Kandinsky",
+    "date": "1923",
+    "credit_en": "http://www.wassilykandinskypaintingsforsale.com/composition-viii-p-3.html",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Wassily_Kandinsky_Composition_VIII.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Wassily_Kandinsky_Composition_VIII.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "size": [
+      3400,
+      2380
+    ]
+  }
+}

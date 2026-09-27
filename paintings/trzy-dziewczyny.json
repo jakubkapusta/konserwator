@@ -1,0 +1,43 @@
+{
+  "order": 12.8,
+  "title": "Trzy dziewczynki w żółtych kapeluszach",
+  "author": "August Macke",
+  "date": "1913",
+  "medium": "olej na płótnie",
+  "card": [
+    "Trzy dziewczynki w słomkowych kapeluszach stoją w parku między kolorowymi drzewami. Kształty są uproszczone, a kolory czyste i jasne.",
+    "August Macke należał do kręgu Der Blaue Reiter i przyjaźnił się z Franzem Markiem. Malował spacerowiczów, parki i sklepowe witryny. Zginął na froncie we wrześniu 1914 roku, mając dwadzieścia siedem lat."
+  ],
+  "story": {
+    "client": "Szkoła podstawowa w Sopocie",
+    "text": "Kopia wisiała w stołówce szkolnej. Para z garnków, kurz i odciski palców dzieci pokryły ją przez lata lepką warstwą."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:August Macke - Three girls in yellow straw hats I - Google Art Project.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "August Macke",
+    "date": "1913",
+    "credit_en": "Google Arts & Culture    —  UwHI5wOEczSLZA",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:August_Macke_-_Three_girls_in_yellow_straw_hats_I_-_Google_Art_Project.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/August_Macke_-_Three_girls_in_yellow_straw_hats_I_-_Google_Art_Project.jpg/3840px-August_Macke_-_Three_girls_in_yellow_straw_hats_I_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      5929,
+      8383
+    ]
+  }
+}

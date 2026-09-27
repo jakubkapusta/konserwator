@@ -1,0 +1,93 @@
+{
+  "order": 19.8,
+  "title": "Ukrzyżowanie",
+  "author": "Ugolino da Siena",
+  "date": "ok. 1315–1320",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "dimensions": "56,5 × 40 cm",
+  "card": [
+    "Chrystus wisi na krzyżu na tle złota, a wokół krążą płaczące anioły. Pod krzyżem stoją Maria, święte niewiasty, Jan i święty Franciszek.",
+    "Ugolino da Siena uczył się u Duccia. Złote tło nie jest tu niebem, tylko znakiem, że scena dzieje się poza zwykłym światem."
+  ],
+  "story": {
+    "client": "Bractwo Męki Pańskiej z Kalwarii",
+    "text": "Kopia wisiała w kaplicy przy drodze krzyżowej, otwartej dla pielgrzymów. Świece, kurz i wilgoć zniszczyły złoto niemal do gołej glinki."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "crop": [
+    0.055,
+    0.045,
+    0.945,
+    0.945
+  ],
+  "gold": {
+    "min_chroma": 24,
+    "hue": [
+      52,
+      100
+    ],
+    "figures": [
+      [
+        0.5,
+        0.3
+      ],
+      [
+        0.5,
+        0.45
+      ],
+      [
+        0.47,
+        0.2
+      ],
+      [
+        0.2,
+        0.75
+      ],
+      [
+        0.33,
+        0.75
+      ],
+      [
+        0.64,
+        0.75
+      ],
+      [
+        0.8,
+        0.75
+      ],
+      [
+        0.3,
+        0.9
+      ],
+      [
+        0.7,
+        0.9
+      ]
+    ]
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 440985,
+    "object_number": "41.190.31a",
+    "title_en": "The Crucifixion",
+    "creator": "Ugolino da Siena",
+    "date": "ca. 1315–20",
+    "medium_en": "Tempera on wood, gold ground",
+    "dimensions_en": "Overall, with engaged frame, 25 1/4 x 18 5/8 in. (64.1 x 47.3 cm), painted surface 22 1/4 x 15 3/4 in. (56.5 x 40 cm)",
+    "credit_en": "Bequest of George Blumenthal, 1941",
+    "department": "European Paintings",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/440985",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/ep/original/DP296426.jpg"
+  }
+}

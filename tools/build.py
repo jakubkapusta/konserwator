@@ -59,6 +59,9 @@ def source_image(slug, rec):
         if rec["source"].get("museum") == "met":
             import fetch_met
             fetch_met.download(rec["source"], p)
+        elif rec["source"].get("museum") == "commons":
+            import fetch_commons
+            fetch_commons.download(rec["source"], p)
         else:
             fetch_rijks.download(rec["source"], p, 4000)
     im = Image.open(p).convert("RGB")
@@ -209,7 +212,8 @@ MEDIUM_PL = {
     "tempera on panel": "tempera na desce", "tempera and gold on panel": "tempera i złoto na desce",
     "oil on cardboard": "olej na tekturze",
 }
-MUSEUM = {"met": "The Metropolitan Museum of Art, domena publiczna (CC0)", None: "Rijksmuseum, domena publiczna"}
+MUSEUM = {"met": "The Metropolitan Museum of Art, domena publiczna (CC0)", "commons": "Wikimedia Commons, domena publiczna",
+          None: "Rijksmuseum, domena publiczna"}
 
 
 def medium_pl(src):

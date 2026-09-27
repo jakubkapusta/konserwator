@@ -1,0 +1,49 @@
+{
+  "order": 13.2,
+  "title": "Złote rybki",
+  "author": "Henri Matisse",
+  "date": "1912",
+  "medium": "olej na płótnie",
+  "card": [
+    "Cztery czerwone rybki pływają w szklanym słoju na okrągłym, różowym stoliku, otoczone zielenią roślin i kwiatów. Słój oglądamy z góry, a rybki z boku.",
+    "W 1912 roku Matisse namalował kilka obrazów ze złotymi rybkami. Zestawiał kolory przeciwne, czerwień i zieleń, tak by się nawzajem wzmacniały."
+  ],
+  "story": {
+    "client": "Pani Beata, właścicielka sklepu zoologicznego w Gdyni",
+    "text": "Kopia wisiała nad akwariami. Para z wody, pokarm dla rybek i słońce z witryny przez lata zrobiły z niej bladą, zieloną mgłę."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 358
+    },
+    "sredni": {
+      "work_long": 483
+    },
+    "trudny": {
+      "work_long": 565
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:I pesci rossi.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Henri Matisse",
+    "date": "1911",
+    "credit_en": "http://www.arte-e-pensiero-in-liberta.com/2010/06/henri-matisse-pesci-rossi.html",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:I_pesci_rossi.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/I_pesci_rossi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "size": [
+      2052,
+      3200
+    ]
+  }
+}

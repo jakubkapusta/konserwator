@@ -1,0 +1,49 @@
+{
+  "order": 14.2,
+  "title": "Żółty – czerwony – niebieski",
+  "author": "Wassily Kandinsky",
+  "date": "1925",
+  "medium": "olej na płótnie",
+  "card": [
+    "Z lewej wznosi się żółty prostokąt, z prawej głęboki niebieski krąg, a między nimi czerwone i fioletowe kształty, kratki i łuki. Cały obraz to rozmowa trzech kolorów.",
+    "Kandinsky był jednym z pierwszych malarzy abstrakcyjnych. Już w 1911 roku napisał książkę „O duchowości w sztuce”, w której opisywał, co każdy kolor robi z człowiekiem."
+  ],
+  "story": {
+    "client": "Pan Rafał, stroiciel fortepianów z Opola",
+    "text": "Kopia wisiała w warsztacie między starymi pianinami. Kurz z filcu, dym z lutownicy i wilgoć z piwnicy zrobiły swoje."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "crop": [
+    0.022,
+    0.032,
+    0.978,
+    0.968
+  ],
+  "source": {
+    "museum": "commons",
+    "file": "File:Kandinsky - Jaune Rouge Bleu.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Wassily Kandinsky",
+    "date": "1925",
+    "credit_en": "Own work , 7 July 2012",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Kandinsky_-_Jaune_Rouge_Bleu.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Kandinsky_-_Jaune_Rouge_Bleu.jpg/3840px-Kandinsky_-_Jaune_Rouge_Bleu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      4780,
+      3074
+    ]
+  }
+}

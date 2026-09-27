@@ -204,7 +204,7 @@ export class UI implements StudioUI {
     toggle.onclick = () => { this.showDone = !this.showDone; fill(); };
     bar.append(h('h2', 'shelf', 'Zlecenia'), pickWrap, toggle);
     fill();
-    const foot = h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna');
+    const foot = h('footer', '', 'Obrazy: Rijksmuseum, The Metropolitan Museum of Art i Wikimedia Commons, domena publiczna');
     // the flag holds how many paintings were downloaded: new ones in the catalog ask for a download again
     let offFlag: string | null = null;
     try { offFlag = localStorage.getItem('konserwator.offline'); } catch { /* ignore */ }
@@ -581,7 +581,7 @@ export class UI implements StudioUI {
       wall.append(e);
     }
     hall.append(wall);
-    this.gal.append(head, hall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'), this.soundCorner());
+    this.gal.append(head, hall, h('footer', '', 'Obrazy: Rijksmuseum, The Metropolitan Museum of Art i Wikimedia Commons, domena publiczna'), this.soundCorner());
     this.gal.classList.add('show');
     this.syncSound();
     if (focus) {

@@ -1,0 +1,49 @@
+{
+  "order": 22.2,
+  "title": "Portret Pabla Picassa",
+  "author": "Juan Gris",
+  "date": "1912",
+  "medium": "olej na płótnie",
+  "card": [
+    "Picasso z paletą w ręce, rozłożony na pochylone płaszczyzny w błękitach, szarościach i brązach. Twarz, ubranie i tło są pocięte na geometryczne kawałki.",
+    "Juan Gris był Hiszpanem jak Picasso i jednym z najważniejszych kubistów. Tym portretem złożył hołd przyjacielowi, który razem z Braque’em wymyślił kubizm. Obraz pokazano w Paryżu w 1912 roku."
+  ],
+  "story": {
+    "client": "Galeria sztuki w Katowicach",
+    "text": "Kopia wisiała na zapleczu galerii obok pakowni. Kurz z kartonów i ślady taśmy klejącej pokryły ją warstwa po warstwie."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 359
+    },
+    "sredni": {
+      "work_long": 463
+    },
+    "trudny": {
+      "work_long": 531
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Juan Gris - Portrait of Pablo Picasso - Google Art Project.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Juan Gris",
+    "date": "1912",
+    "credit_en": "Google Arts & Culture    —  RgGPipJ4FxSBiw",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg/3840px-Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      6221,
+      7913
+    ]
+  }
+}

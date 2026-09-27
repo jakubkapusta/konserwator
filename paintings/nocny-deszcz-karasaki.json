@@ -1,0 +1,42 @@
+{
+  "order": 12.2,
+  "title": "Nocny deszcz w Karasaki",
+  "author": "Utagawa Hiroshige",
+  "date": "ok. 1835",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "22,2 × 34,6 cm",
+  "card": [
+    "Nad jeziorem Biwa stoi ogromna, stara sosna z Karasaki, a przez noc leje deszcz narysowany setkami ukośnych kresek. Woda u dołu jest ciemnoniebieska.",
+    "Rycina pochodzi z serii „Osiem widoków Ōmi”, czyli ośmiu słynnych miejsc wokół jeziora Biwa. Sosna z Karasaki była znana w całej Japonii i opiewana w wierszach."
+  ],
+  "story": {
+    "client": "Pani Irena, emerytowana bibliotekarka z Mikołajek",
+    "text": "Kopia wisiała w domku letniskowym nad jeziorem. Wilgoć, pajęczyny i dym z kominka pokryły ją zielonkawym nalotem."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 36531,
+    "object_number": "JP52",
+    "title_en": "Night Rain at Karasaki, from the series Eight Views of Ōmi (Ōmi hakkei no uchi)",
+    "creator": "Utagawa Hiroshige",
+    "date": "ca. 1835",
+    "medium_en": "Woodblock print; ink and color on paper",
+    "dimensions_en": "Image: 8 3/4 × 13 5/8 in. (22.2 × 34.6 cm)",
+    "credit_en": "Rogers Fund, 1914",
+    "department": "Asian Art",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/36531",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/as/original/DP122118.jpg"
+  }
+}

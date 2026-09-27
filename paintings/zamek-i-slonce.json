@@ -1,0 +1,53 @@
+{
+  "order": 23.2,
+  "title": "Zamek i słońce",
+  "author": "Paul Klee",
+  "date": "1928",
+  "medium": "olej na płótnie",
+  "card": [
+    "Zamek zbudowany z kolorowych kwadratów, prostokątów i trójkątów stoi pod okrągłym, czerwonym słońcem. Z daleka to miasto z wieżami, z bliska mozaika plam koloru.",
+    "Klee całe życie łączył kolor z rytmem. Był też skrzypkiem i mówił, że kolor i on są jednym: obrazy budował z pól koloru jak z nut."
+  ],
+  "story": {
+    "client": "Pan Jerzy, murarz z Malborka",
+    "text": "Kopia wisiała w baraku budowy przy renowacji zamku. Pył z cegieł i zaprawy osiadał na niej przez kilka sezonów."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 300
+    },
+    "sredni": {
+      "work_long": 463
+    },
+    "trudny": {}
+  },
+  "crop": [
+    0.02,
+    0.025,
+    0.98,
+    0.975
+  ],
+  "source": {
+    "museum": "commons",
+    "file": "File:Burg und Sonne - Klee.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Paul Klee",
+    "date": "1928",
+    "credit_en": "Scan of Print",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Burg_und_Sonne_-_Klee.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Burg_und_Sonne_-_Klee.jpg/3840px-Burg_und_Sonne_-_Klee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      8070,
+      6621
+    ]
+  }
+}

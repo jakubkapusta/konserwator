@@ -16,7 +16,9 @@ tools/.venv/bin/python tools/fetch_rijks.py --object-number SK-A-2344 --dry-run 
 
 Titles search in Dutch and English. Pick the painting itself (`SK-A-…` / `SK-C-…` for paintings, `RP-P-…` for prints), not a copy or a photo of it. If the owner gave a name only, confirm with `--dry-run` that creator, title and date match.
 
-From the Met (CC0, no IIIF so no deep-zoom loupe): `tools/.venv/bin/python tools/fetch_met.py --search "Hiroshige" --department 6 --all-hits`, then `--id <objectID> --slug <slug>` (department 6 Asian Art, 11 European Paintings). The record gets `source.museum = "met"` and the credit line changes automatically.
+From the Met (CC0, no IIIF so no deep-zoom loupe): `tools/.venv/bin/python tools/fetch_met.py --search "Utagawa Hiroshige" --artist --all-hits` (full name with `--artist`; `--department "European Paintings"` filters the hits), then `--id <objectID> --slug <slug>`. The record gets `source.museum = "met"` and the credit line changes automatically.
+
+Early modern art (not published openly by museums): `tools/.venv/bin/python tools/fetch_commons.py --search "Klee Senecio"`, then `--file "File:..." --slug <slug>`; take only painters dead for 70+ years (the Polish/EU rule) and the largest file.
 
 Scans with a photographed frame, colour bars or big margins: set `crop` in the record (`[x0, y0, x1, y1]` fractions, measure on a gridded preview).
 

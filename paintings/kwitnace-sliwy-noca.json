@@ -1,0 +1,42 @@
+{
+  "order": 6.2,
+  "title": "Kwitnąca śliwa nocą",
+  "author": "Suzuki Harunobu",
+  "date": "ok. 1766",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "32,4 × 21 cm",
+  "card": [
+    "Młoda kobieta stoi nocą na werandzie z latarnią i patrzy na gałąź kwitnącej śliwy. Tło jest czarne, a białe kwiaty świecą w ciemności.",
+    "Harunobu jako pierwszy robił wielobarwne drzeworyty z wielu klocków. Na tej rycinie część wzorów jest wytłoczona w papierze bez farby, tak że widać je dopiero pod światło."
+  ],
+  "story": {
+    "client": "Pani Aleksandra, ogrodniczka z Zielonej Góry",
+    "text": "Kopia wisiała w szklarni, w kącie z doniczkami. Wilgoć i ziemia z rąk zostawiły na niej zacieki i odciski palców."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 41057,
+    "object_number": "JP1506",
+    "title_en": "Woman Admiring Plum Blossoms at Night",
+    "creator": "Suzuki Harunobu 鈴木春信",
+    "date": "ca. 1766",
+    "medium_en": "Woodblock print (nishiki-e) with embossing (karazuri); ink and color on paper",
+    "dimensions_en": "Image: 12 3/4 x 8 1/4 in. (32.4 x 21 cm)",
+    "credit_en": "Fletcher Fund, 1929",
+    "department": "Asian Art",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/41057",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/as/original/DP114890.jpg"
+  }
+}

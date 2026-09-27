@@ -1,0 +1,46 @@
+{
+  "order": 11.2,
+  "title": "Łódź na rzece",
+  "author": "Utagawa Kuniyoshi",
+  "date": "1840",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny (surimono)",
+  "dimensions": "20,2 × 18,1 cm",
+  "card": [
+    "Kobieta w pasiastym kimonie siedzi w łodzi na rzece, za nią widać most, domy i drugą łódź. U góry wypisano wiersze.",
+    "To surimono: rycina drukowana na zamówienie, często dla klubu poetów, na grubym papierze i z wyjątkową starannością. Nie była na sprzedaż, rozdawano ją jako prezent."
+  ],
+  "story": {
+    "client": "Przystań kajakowa w Augustowie",
+    "text": "Kopia wisiała w wypożyczalni kajaków, przybita pinezkami. Wilgoć od rzeki i słońce przez okno zrobiły swoje."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 510
+    },
+    "trudny": {
+      "work_long": 576
+    }
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 54384,
+    "object_number": "JP1252",
+    "title_en": "Water Scene",
+    "creator": "Utagawa Kuniyoshi",
+    "date": "1840",
+    "medium_en": "Woodblock print (surimono); ink and color on paper",
+    "dimensions_en": "7 15/16 x 7 1/8 in. (20.2 x 18.1 cm)",
+    "credit_en": "Rogers Fund, 1921",
+    "department": "Asian Art",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/54384",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/as/original/DP143984.jpg"
+  }
+}

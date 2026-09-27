@@ -1,0 +1,52 @@
+{
+  "order": 2.5,
+  "title": "Suprematyzm",
+  "author": "Kazimierz Malewicz",
+  "date": "1915",
+  "medium": "olej na płótnie",
+  "card": [
+    "Na białym tle unoszą się prostokąty, kwadraty i koło: czarne, czerwone, żółte, niebieskie. Nie przedstawiają niczego, tylko się ze sobą układają, jakby dryfowały w przestrzeni.",
+    "Malewicz, urodzony w Kijowie w rodzinie polskiego pochodzenia, w 1915 roku ogłosił suprematyzm: sztukę czystych form i kolorów, bez przedmiotów. Na tej samej wystawie pokazał słynny „Czarny kwadrat”."
+  ],
+  "story": {
+    "client": "Liceum plastyczne w Łodzi",
+    "text": "Kopia namalowana przez uczniów na zajęciach i powieszona na korytarzu. Przez dwadzieścia lat trafiała w nią kreda, piłka i kurz z remontów."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 1100,
+      "colors": 7
+    },
+    "sredni": {
+      "work_long": 1100,
+      "colors": 9
+    },
+    "trudny": {
+      "work_long": 1100,
+      "colors": 12
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Suprematism - Abstract Composition (Malevich, 1915).jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Kazimir Malevich",
+    "date": "1915",
+    "credit_en": "http://www.emii.ru/kollekcii/russkii-hudozhestvennyi-avangard/suprematizm-exhibit-72.html",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Suprematism_-_Abstract_Composition_(Malevich,_1915).jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/Suprematism_-_Abstract_Composition_%28Malevich%2C_1915%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "size": [
+      2000,
+      1987
+    ]
+  }
+}

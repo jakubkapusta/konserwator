@@ -1,0 +1,45 @@
+{
+  "order": 5.2,
+  "title": "Senecio",
+  "author": "Paul Klee",
+  "date": "1922",
+  "medium": "olej na gazie naklejonej na karton",
+  "card": [
+    "Okrągła twarz złożona z kwadratów w kolorach pomarańczy, różu i bieli patrzy na nas dwoma czerwonymi oczami. Jedna brew jest uniesiona, jakby w zdziwieniu.",
+    "Tytuł nawiązuje do łacińskiego słowa senex, starzec. Tak nazywa się też roślina: po polsku starzec. Paul Klee uczył w Bauhausie i lubił obrazy, które wyglądają prosto jak rysunek dziecka, a są precyzyjnie zbudowane."
+  ],
+  "story": {
+    "client": "Przedszkole „Słoneczko” w Rzeszowie",
+    "text": "Kopia wisiała w sali zabaw na wysokości dziecięcych rąk. Kredki, plastelina i klej zostawiły ślady w każdym rogu."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 618
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Paul Klee, 1922, Senecio, oil on gauze, 40.3 × 37.4 cm, Kunstmuseum Basel.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Paul Klee",
+    "date": "1922",
+    "credit_en": "Kunstmuseum Basel",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Paul_Klee,_1922,_Senecio,_oil_on_gauze,_40.3_%C3%97_37.4_cm,_Kunstmuseum_Basel.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Paul_Klee%2C_1922%2C_Senecio%2C_oil_on_gauze%2C_40.3_%C3%97_37.4_cm%2C_Kunstmuseum_Basel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "size": [
+      3712,
+      4046
+    ]
+  }
+}

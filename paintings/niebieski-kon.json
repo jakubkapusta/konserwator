@@ -1,0 +1,43 @@
+{
+  "order": 9.8,
+  "title": "Niebieski koń",
+  "author": "Franz Marc",
+  "date": "1911",
+  "medium": "olej na płótnie",
+  "card": [
+    "Młody koń w odcieniach błękitu stoi z pochyloną głową na tle kolorowych wzgórz: żółtych, czerwonych i fioletowych.",
+    "Franz Marc razem z Kandinskim założył grupę Der Blaue Reiter, „Niebieski Jeździec”. Malował zwierzęta w nierealnych kolorach, bo kolor miał wyrażać uczucia, a nie wygląd. Zginął pod Verdun w 1916 roku."
+  ],
+  "story": {
+    "client": "Stadnina w Janowie Podlaskim",
+    "text": "Kopia wisiała w biurze stadniny obok tablicy z rodowodami. Kurz z siana i dym z pieca przez pół wieku zrobiły z błękitu szarość."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Marc, Franz - Blue Horse I - Google Art Project.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "Franz Marc",
+    "date": "1911",
+    "credit_en": "ZAFpPn_oQwEIwQ at Google Cultural Institute , zoom level maximum",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Marc,_Franz_-_Blue_Horse_I_-_Google_Art_Project.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Marc%2C_Franz_-_Blue_Horse_I_-_Google_Art_Project.jpg/3840px-Marc%2C_Franz_-_Blue_Horse_I_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      3881,
+      5180
+    ]
+  }
+}

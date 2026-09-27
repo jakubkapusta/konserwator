@@ -1,0 +1,49 @@
+{
+  "order": 16.8,
+  "title": "Ogród zoologiczny",
+  "author": "August Macke",
+  "date": "1912",
+  "medium": "olej na płótnie",
+  "card": [
+    "W kolorowym ogrodzie zoologicznym spacerują ludzie, a obok nich papugi, jelenie i inne zwierzęta. Drzewa i postaci są zbudowane z płaskich, jasnych plam koloru.",
+    "Macke łączył jasne barwy impresjonistów z uproszczonymi kształtami kubizmu. Ten obraz jest w zbiorach Lenbachhaus w Monachium, razem z pracami jego przyjaciół z Der Blaue Reiter."
+  ],
+  "story": {
+    "client": "Ogród zoologiczny w Poznaniu",
+    "text": "Kopia wisiała w budynku administracji przy wejściu. Pierze z woliery, kurz i wilgoć przez lata osiadały na niej grubo."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 334
+    },
+    "sredni": {
+      "work_long": 428
+    },
+    "trudny": {
+      "work_long": 522
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:August Macke Zoologischer Garten I PA291076.jpg",
+    "object_number": null,
+    "title_en": null,
+    "creator": "August Macke",
+    "date": "1912",
+    "credit_en": "Own work ,  Ermell",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:August_Macke_Zoologischer_Garten_I_PA291076.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/August_Macke_Zoologischer_Garten_I_PA291076.jpg/3840px-August_Macke_Zoologischer_Garten_I_PA291076.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      4795,
+      2747
+    ]
+  }
+}

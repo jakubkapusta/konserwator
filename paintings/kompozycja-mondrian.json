@@ -1,0 +1,52 @@
+{
+  "order": 1.5,
+  "title": "Kompozycja z czerwienią, błękitem i żółcią",
+  "author": "Piet Mondrian",
+  "date": "1930",
+  "medium": "olej na płótnie",
+  "card": [
+    "Wielki czerwony kwadrat, mały niebieski prostokąt w rogu, odrobina żółci i czarne linie na białym tle. Nic więcej, a obraz jest w idealnej równowadze.",
+    "Mondrian zaczynał od pejzaży z młynami, a doszedł do malarstwa, które nazwał neoplastycyzmem: tylko linie pionowe i poziome, trzy czyste kolory, czerń, biel i szarość. Chciał namalować harmonię samą w sobie."
+  ],
+  "story": {
+    "client": "Pani Ewa, architektka z Wrocławia",
+    "text": "Kopia wisiała w biurze projektowym nad kreślarskim stołem przez całe lata dziewięćdziesiąte. Dym z papierosów i kurz z ploterów zmieniły biel w kolor herbaty."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {
+      "work_long": 1100,
+      "colors": 6
+    },
+    "sredni": {
+      "work_long": 1100,
+      "colors": 8
+    },
+    "trudny": {
+      "work_long": 1100,
+      "colors": 10
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:Piet Mondriaan, 1930 - Mondrian Composition II in Red, Blue, and Yellow.jpg",
+    "object_number": null,
+    "title_en": "Composition with Red, Blue, and Yellow",
+    "creator": "Piet Mondrian",
+    "date": "1930",
+    "credit_en": "[1]",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg/3840px-Piet_Mondriaan%2C_1930_-_Mondrian_Composition_II_in_Red%2C_Blue%2C_and_Yellow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "size": [
+      5918,
+      6000
+    ]
+  }
+}

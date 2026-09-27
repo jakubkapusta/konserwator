@@ -1,0 +1,44 @@
+{
+  "order": 10.2,
+  "title": "Dwie kobiety",
+  "author": "Kitagawa Utamaro",
+  "date": "ok. 1790",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "39,1 × 25,7 cm",
+  "card": [
+    "Dwie kobiety w wysokich fryzurach z grzebieniami i szpilkami stoją blisko siebie. Jedna trzyma wachlarz. Kimona pokrywają drobne wzory.",
+    "Utamaro słynął z portretów pięknych kobiet, bijin-ga. Pokazywał je z bliska, w półpostaci, zwracając uwagę na fryzurę, gest i wzór tkaniny."
+  ],
+  "story": {
+    "client": "Salon fryzjerski „Loczek” w Częstochowie",
+    "text": "Kopia wisiała przy lustrze przez trzydzieści lat. Lakier do włosów, para z suszarek i puder osiadły na niej lepką warstwą."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 754
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 52002,
+    "object_number": "JP2735",
+    "title_en": "Two Women",
+    "creator": "Kitagawa Utamaro",
+    "date": "ca. 1790",
+    "medium_en": "Woodblock print; ink and color on paper",
+    "dimensions_en": "15 3/8 x 10 1/8 in. (39.1 x 25.7 cm)",
+    "credit_en": "The Howard Mansfield Collection, Purchase, Rogers Fund, 1936",
+    "department": "Asian Art",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/52002",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/as/original/DP141296.jpg"
+  }
+}

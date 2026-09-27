@@ -50,6 +50,54 @@
    "dirt": null
   },
   {
+   "slug": "kompozycja-mondrian",
+   "order": 1.5,
+   "size": [
+    1578,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 6,
+     "regions": 9,
+     "v": "ed098e21"
+    },
+    "sredni": {
+     "colors": 8,
+     "regions": 14,
+     "v": "ddb38194"
+    },
+    "trudny": {
+     "colors": 10,
+     "regions": 30,
+     "v": "f36ef89d"
+    }
+   },
+   "v": "2d8d5bda",
+   "title": "Kompozycja z czerwienią, błękitem i żółcią",
+   "author": "Piet Mondrian",
+   "date": "1930",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Piet_Mondriaan,_1930_-_Mondrian_Composition_II_in_Red,_Blue,_and_Yellow.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Ewa, architektka z Wrocławia",
+    "text": "Kopia wisiała w biurze projektowym nad kreślarskim stołem przez całe lata dziewięćdziesiąte. Dym z papierosów i kurz z ploterów zmieniły biel w kolor herbaty."
+   },
+   "card": [
+    "Wielki czerwony kwadrat, mały niebieski prostokąt w rogu, odrobina żółci i czarne linie na białym tle. Nic więcej, a obraz jest w idealnej równowadze.",
+    "Mondrian zaczynał od pejzaży z młynami, a doszedł do malarstwa, które nazwał neoplastycyzmem: tylko linie pionowe i poziome, trzy czyste kolory, czerń, biel i szarość. Chciał namalować harmonię samą w sobie."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "truskawki",
    "order": 2,
    "size": [
@@ -94,6 +142,54 @@
    "card": [
     "Na kamiennym postumencie stoi porcelanowa miseczka pełna truskawek. Kilka owoców leży obok, a z tła wyłania się tylko ciemność. Coorte malował niewiele przedmiotów, za to z niezwykłą uwagą dla światła na każdej pestce.",
     "Adriaen Coorte pracował w Middelburgu na przełomie XVII i XVIII wieku i malował prawie wyłącznie takie małe, skromne martwe natury. Po śmierci o nim zapomniano. Jego obrazy odkryto na nowo dopiero w XX wieku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "suprematyzm",
+   "order": 2.5,
+   "size": [
+    1600,
+    1590
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 6,
+     "regions": 17,
+     "v": "35a14ac4"
+    },
+    "sredni": {
+     "colors": 8,
+     "regions": 28,
+     "v": "719b38c1"
+    },
+    "trudny": {
+     "colors": 9,
+     "regions": 64,
+     "v": "829d6f43"
+    }
+   },
+   "v": "4067fa7f",
+   "title": "Suprematyzm",
+   "author": "Kazimierz Malewicz",
+   "date": "1915",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suprematism_-_Abstract_Composition_(Malevich,_1915).jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Liceum plastyczne w Łodzi",
+    "text": "Kopia namalowana przez uczniów na zajęciach i powieszona na korytarzu. Przez dwadzieścia lat trafiała w nią kreda, piłka i kurz z remontów."
+   },
+   "card": [
+    "Na białym tle unoszą się prostokąty, kwadraty i koło: czarne, czerwone, żółte, niebieskie. Nie przedstawiają niczego, tylko się ze sobą układają, jakby dryfowały w przestrzeni.",
+    "Malewicz, urodzony w Kijowie w rodzinie polskiego pochodzenia, w 1915 roku ogłosił suprematyzm: sztukę czystych form i kolorów, bez przedmiotów. Na tej samej wystawie pokazał słynny „Czarny kwadrat”."
    ],
    "dirt": null
   },
@@ -341,6 +437,54 @@
    "dirt": null
   },
   {
+   "slug": "senecio",
+   "order": 5.2,
+   "size": [
+    1468,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 89,
+     "v": "ade9427c"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 201,
+     "v": "0a6efefb"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 383,
+     "v": "550d0a4b"
+    }
+   },
+   "v": "a8ea190f",
+   "title": "Senecio",
+   "author": "Paul Klee",
+   "date": "1922",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paul_Klee,_1922,_Senecio,_oil_on_gauze,_40.3_%C3%97_37.4_cm,_Kunstmuseum_Basel.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na gazie naklejonej na karton",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Przedszkole „Słoneczko” w Rzeszowie",
+    "text": "Kopia wisiała w sali zabaw na wysokości dziecięcych rąk. Kredki, plastelina i klej zostawiły ślady w każdym rogu."
+   },
+   "card": [
+    "Okrągła twarz złożona z kwadratów w kolorach pomarańczy, różu i bieli patrzy na nas dwoma czerwonymi oczami. Jedna brew jest uniesiona, jakby w zdziwieniu.",
+    "Tytuł nawiązuje do łacińskiego słowa senex, starzec. Tak nazywa się też roślina: po polsku starzec. Paul Klee uczył w Bauhausie i lubił obrazy, które wyglądają prosto jak rysunek dziecka, a są precyzyjnie zbudowane."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "dwa-karpie",
    "order": 5.5,
    "size": [
@@ -434,6 +578,54 @@
     "Ceglane domy przy zwykłej ulicy w Delfcie. W bramie kobieta zajmuje się praniem, w drzwiach druga szyje, a na chodniku bawią się dzieci. To jeden z zaledwie dwóch pejzaży miejskich Vermeera, obok „Widoku Delftu”.",
     "Przez lata spierano się, którą ulicę namalował. W 2015 roku historyk sztuki Frans Grijzenhout porównał dawne rejestry podatkowe i wskazał posesje przy Vlamingstraat w Delfcie.",
     "Vermeer odtworzył każdą cegłę i pęknięcie tynku, ale scena nie jest dokumentem. To spokojny portret codziennego życia na holenderskim podwórku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kwitnace-sliwy-noca",
+   "order": 6.2,
+   "size": [
+    1052,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 10,
+     "regions": 54,
+     "v": "c1339528"
+    },
+    "sredni": {
+     "colors": 13,
+     "regions": 114,
+     "v": "a548566c"
+    },
+    "trudny": {
+     "colors": 26,
+     "regions": 267,
+     "v": "46a5f8a5"
+    }
+   },
+   "v": "a968a8d7",
+   "title": "Kwitnąca śliwa nocą",
+   "author": "Suzuki Harunobu",
+   "date": "ok. 1766",
+   "objectNumber": "JP1506",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/41057",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "32,4 × 21 cm",
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Aleksandra, ogrodniczka z Zielonej Góry",
+    "text": "Kopia wisiała w szklarni, w kącie z doniczkami. Wilgoć i ziemia z rąk zostawiły na niej zacieki i odciski palców."
+   },
+   "card": [
+    "Młoda kobieta stoi nocą na werandzie z latarnią i patrzy na gałąź kwitnącej śliwy. Tło jest czarne, a białe kwiaty świecą w ciemności.",
+    "Harunobu jako pierwszy robił wielobarwne drzeworyty z wielu klocków. Na tej rycinie część wzorów jest wytłoczona w papierze bez farby, tak że widać je dopiero pod światło."
    ],
    "dirt": null
   },
@@ -534,6 +726,54 @@
    "dirt": null
   },
   {
+   "slug": "kompozycja-8",
+   "order": 7.2,
+   "size": [
+    1600,
+    1120
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 62,
+     "v": "825b92ac"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 183,
+     "v": "44a5c8b4"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 309,
+     "v": "e5fdf8d5"
+    }
+   },
+   "v": "7e1912bc",
+   "title": "Kompozycja VIII",
+   "author": "Wassily Kandinsky",
+   "date": "1923",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wassily_Kandinsky_Composition_VIII.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Filharmonia w Kaliszu",
+    "text": "Kopia wisiała w pokoju prób za sceną. Kurz z kulis, kalafonia ze smyczków i dym z przerw na papierosa przez lata zasnuły kolory szarą mgłą."
+   },
+   "card": [
+    "Koła, trójkąty, szachownice i cienkie linie krzyżują się na jasnym tle. W lewym górnym rogu wisi wielkie czarne koło z fioletowym środkiem.",
+    "Kandinsky namalował ten obraz, gdy uczył w Bauhausie. Uważał, że kolory i kształty działają na człowieka jak muzyka: żółty jak trąbka, błękit jak wiolonczela, a obraz można słuchać oczami."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "paw-i-piwonie",
    "order": 7.5,
    "size": [
@@ -627,6 +867,54 @@
     "Młoda kobieta w białym kimonie leży na kanapie przykrytej tkaniną. Za nią stoi parawan, a jej jasne ubranie świeci na tle czerwieni i złota.",
     "Pozowała Geesje Kwak, szesnastoletnia modelka, z którą Breitner namalował całą serię dziewcząt w kimonach. W Europie trwała wtedy moda na Japonię i japońskie tkaniny.",
     "Breitner był malarzem Amsterdamu i jednym z pierwszych holenderskich artystów, którzy fotografowali, żeby lepiej malować."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "dzikie-gesi",
+   "order": 8.2,
+   "size": [
+    555,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 64,
+     "v": "bbe38d00"
+    },
+    "sredni": {
+     "colors": 20,
+     "regions": 126,
+     "v": "7d7d37d5"
+    },
+    "trudny": {
+     "colors": 27,
+     "regions": 241,
+     "v": "477c7f1c"
+    }
+   },
+   "v": "0c478df5",
+   "title": "Dzikie gęsi pod pełnią księżyca",
+   "author": "Utagawa Hiroshige",
+   "date": "ok. 1833",
+   "objectNumber": "JP270",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/36742",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "38,1 × 12,5 cm",
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Władysław, myśliwy z Biebrzy",
+    "text": "Ręcznie malowana kopia wisiała w leśniczówce nad drzwiami. Dym z pieca, kurz i muchy przez lata zrobiły z księżyca szarą plamę."
+   },
+   "card": [
+    "Trzy dzikie gęsi przelatują przed ogromną tarczą księżyca, nad nimi jest wiersz. Wąski, wysoki arkusz przypomina zwój do zawieszenia na filarze domu.",
+    "Hiroshige robił takie „obrazy z ptakami i kwiatami” obok swoich słynnych pejzaży. Gęsi pod jesiennym księżycem to w Japonii dawny, lubiany motyw, obecny też w poezji."
    ],
    "dirt": null
   },
@@ -825,6 +1113,54 @@
    "dirt": null
   },
   {
+   "slug": "niebieski-kon",
+   "order": 9.8,
+   "size": [
+    1199,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 100,
+     "v": "eb8c4c21"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 216,
+     "v": "490339c4"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 369,
+     "v": "47fbb2ef"
+    }
+   },
+   "v": "e12a1afa",
+   "title": "Niebieski koń",
+   "author": "Franz Marc",
+   "date": "1911",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Marc,_Franz_-_Blue_Horse_I_-_Google_Art_Project.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Stadnina w Janowie Podlaskim",
+    "text": "Kopia wisiała w biurze stadniny obok tablicy z rodowodami. Kurz z siana i dym z pieca przez pół wieku zrobiły z błękitu szarość."
+   },
+   "card": [
+    "Młody koń w odcieniach błękitu stoi z pochyloną głową na tle kolorowych wzgórz: żółtych, czerwonych i fioletowych.",
+    "Franz Marc razem z Kandinskim założył grupę Der Blaue Reiter, „Niebieski Jeździec”. Malował zwierzęta w nierealnych kolorach, bo kolor miał wyrażać uczucia, a nie wygląd. Zginął pod Verdun w 1916 roku."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "lyzwiarze",
    "order": 10,
    "size": [
@@ -870,6 +1206,54 @@
     "Zamarznięta rzeka przy wsi zamieniła się w lodowisko. Są tu łyżwiarze, gracze w kolf, spacerowicze i psy, po prawej sanie, po lewej kościół. Każda z dziesiątek postaci robi coś innego.",
     "Avercamp był głuchoniemy i nazywano go „Niemową z Kampen”. Specjalizował się w zimowych scenach, które malował w czasach mroźnych zim tak zwanej małej epoki lodowcowej.",
     "Obraz jest namalowany na desce. Muzeum kupiło go w 1897 roku z pomocą Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "dwie-kobiety",
+   "order": 10.2,
+   "size": [
+    1101,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 86,
+     "v": "e662bfd9"
+    },
+    "sredni": {
+     "colors": 17,
+     "regions": 122,
+     "v": "7a7f341a"
+    },
+    "trudny": {
+     "colors": 29,
+     "regions": 293,
+     "v": "101e5125"
+    }
+   },
+   "v": "973ff4ed",
+   "title": "Dwie kobiety",
+   "author": "Kitagawa Utamaro",
+   "date": "ok. 1790",
+   "objectNumber": "JP2735",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/52002",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "39,1 × 25,7 cm",
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Salon fryzjerski „Loczek” w Częstochowie",
+    "text": "Kopia wisiała przy lustrze przez trzydzieści lat. Lakier do włosów, para z suszarek i puder osiadły na niej lepką warstwą."
+   },
+   "card": [
+    "Dwie kobiety w wysokich fryzurach z grzebieniami i szpilkami stoją blisko siebie. Jedna trzyma wachlarz. Kimona pokrywają drobne wzory.",
+    "Utamaro słynął z portretów pięknych kobiet, bijin-ga. Pokazywał je z bliska, w półpostaci, zwracając uwagę na fryzurę, gest i wzór tkaniny."
    ],
    "dirt": null
   },
@@ -971,6 +1355,54 @@
    "dirt": null
   },
   {
+   "slug": "lodz-na-sumidzie",
+   "order": 11.2,
+   "size": [
+    1444,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 105,
+     "v": "53c542c6"
+    },
+    "sredni": {
+     "colors": 18,
+     "regions": 190,
+     "v": "38074792"
+    },
+    "trudny": {
+     "colors": 32,
+     "regions": 378,
+     "v": "e01a68ec"
+    }
+   },
+   "v": "2468bc3b",
+   "title": "Łódź na rzece",
+   "author": "Utagawa Kuniyoshi",
+   "date": "1840",
+   "objectNumber": "JP1252",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/54384",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny (surimono)",
+   "dimensions": "20,2 × 18,1 cm",
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Przystań kajakowa w Augustowie",
+    "text": "Kopia wisiała w wypożyczalni kajaków, przybita pinezkami. Wilgoć od rzeki i słońce przez okno zrobiły swoje."
+   },
+   "card": [
+    "Kobieta w pasiastym kimonie siedzi w łodzi na rzece, za nią widać most, domy i drugą łódź. U góry wypisano wiersze.",
+    "To surimono: rycina drukowana na zamówienie, często dla klubu poetów, na grubym papierze i z wyjątkową starannością. Nie była na sprzedaż, rozdawano ją jako prezent."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "jastrzab",
    "order": 11.5,
    "size": [
@@ -1015,6 +1447,59 @@
    "card": [
     "Jastrząb siedzi na pniu sosny na tle wielkiego, czerwonego słońca. W prawym górnym rogu jest wiersz. Kompozycja jest prosta: pień, ptak, słońce.",
     "Jastrząb na tle słońca był w Japonii znakiem siły i dobrej wróżby. Hiroshige robił takie wąskie, wysokie ryciny z ptakami i kwiatami obok swoich słynnych pejzaży."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "madonna-duccio",
+   "order": 11.8,
+   "size": [
+    1257,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 52,
+     "v": "d51345af"
+    },
+    "sredni": {
+     "colors": 20,
+     "regions": 196,
+     "v": "84b0c134"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 494,
+     "v": "ba95d6e0"
+    }
+   },
+   "v": "b35d2cdb",
+   "title": "Madonna z Dzieciątkiem",
+   "author": "Duccio di Buoninsegna",
+   "date": "ok. 1290–1300",
+   "objectNumber": "2004.442",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/438754",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "23,8 × 16,5 cm",
+   "iiif": null,
+   "crop": [
+    0.09,
+    0.06,
+    0.91,
+    0.855
+   ],
+   "gold": true,
+   "story": {
+    "client": "Pani Anna, historyczka sztuki z Krakowa",
+    "text": "Kopia, którą dziadek przywiózł z Włoch przed wojną. Stała na komodzie przy lampce oliwnej, więc sadza i olej pokryły ją ciemną warstwą, a złoto starło się do czerwonej glinki."
+   },
+   "card": [
+    "Maria trzyma Dzieciątko, które sięga rączką do jej welonu. Pod nimi biegnie namalowany parapet, a za nimi złoto. Deska jest niewielka, przeznaczona do prywatnej modlitwy.",
+    "Duccio był najważniejszym malarzem Sieny około 1300 roku. Twarze jego Madonn są już czułe i ludzkie, choć złote tło i układ wciąż pochodzą z bizantyjskich ikon. Na dole ramy widać ślady po świecach, które stawiano przed obrazem."
    ],
    "dirt": null
   },
@@ -1068,6 +1553,54 @@
    "dirt": null
   },
   {
+   "slug": "nocny-deszcz-karasaki",
+   "order": 12.2,
+   "size": [
+    1600,
+    1041
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 10,
+     "regions": 48,
+     "v": "45fc4747"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 128,
+     "v": "fa0d2c31"
+    },
+    "trudny": {
+     "colors": 29,
+     "regions": 280,
+     "v": "74a2dac7"
+    }
+   },
+   "v": "7384ac49",
+   "title": "Nocny deszcz w Karasaki",
+   "author": "Utagawa Hiroshige",
+   "date": "ok. 1835",
+   "objectNumber": "JP52",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/36531",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "22,2 × 34,6 cm",
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Irena, emerytowana bibliotekarka z Mikołajek",
+    "text": "Kopia wisiała w domku letniskowym nad jeziorem. Wilgoć, pajęczyny i dym z kominka pokryły ją zielonkawym nalotem."
+   },
+   "card": [
+    "Nad jeziorem Biwa stoi ogromna, stara sosna z Karasaki, a przez noc leje deszcz narysowany setkami ukośnych kresek. Woda u dołu jest ciemnoniebieska.",
+    "Rycina pochodzi z serii „Osiem widoków Ōmi”, czyli ośmiu słynnych miejsc wokół jeziora Biwa. Sosna z Karasaki była znana w całej Japonii i opiewana w wierszach."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "osiolki",
    "order": 12.5,
    "size": [
@@ -1112,6 +1645,54 @@
    "card": [
     "Trzy dziewczynki jadą plażą na osiołkach, a chłopiec prowadzi je obok. Wszystko jest ujęte w ruchu, jak w migawce: szybkie pociągnięcia pędzla, jasny piasek i wiatr od morza.",
     "Isaac Israëls był synem słynnego malarza Jozefa Israëlsa i jednym z amsterdamskich impresjonistów. Lubił tłumy, plaże, ulice i kawiarnie. Obraz trafił do Rijksmuseum w wielkim zapisie kolekcji Drucker-Fraser."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "trzy-dziewczyny",
+   "order": 12.8,
+   "size": [
+    1132,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 117,
+     "v": "a55d8b75"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 214,
+     "v": "7871ab90"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 347,
+     "v": "211e68b0"
+    }
+   },
+   "v": "ec9346a7",
+   "title": "Trzy dziewczynki w żółtych kapeluszach",
+   "author": "August Macke",
+   "date": "1913",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:August_Macke_-_Three_girls_in_yellow_straw_hats_I_-_Google_Art_Project.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Szkoła podstawowa w Sopocie",
+    "text": "Kopia wisiała w stołówce szkolnej. Para z garnków, kurz i odciski palców dzieci pokryły ją przez lata lepką warstwą."
+   },
+   "card": [
+    "Trzy dziewczynki w słomkowych kapeluszach stoją w parku między kolorowymi drzewami. Kształty są uproszczone, a kolory czyste i jasne.",
+    "August Macke należał do kręgu Der Blaue Reiter i przyjaźnił się z Franzem Markiem. Malował spacerowiczów, parki i sklepowe witryny. Zginął na froncie we wrześniu 1914 roku, mając dwadzieścia siedem lat."
    ],
    "dirt": null
   },
@@ -1161,6 +1742,54 @@
     "W niebieskim szklanym wazonie na marmurowym blacie stoi bukiet róż, maków, irysów, goździków i powoju. Między płatkami ukrywają się owady.",
     "Rachel Ruysch była jedną z najlepiej opłacanych malarek swoich czasów i nadworną malarką elektora Palatynatu w Düsseldorfie. Malowała aż do późnej starości.",
     "Jej ojciec, Frederik Ruysch, był słynnym anatomem i botanikiem, więc od dziecka miała pod ręką rzadkie rośliny i okazy."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zlote-rybki",
+   "order": 13.2,
+   "size": [
+    1026,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 106,
+     "v": "84543c1a"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 246,
+     "v": "a1871b88"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 425,
+     "v": "db47bf64"
+    }
+   },
+   "v": "3dce885e",
+   "title": "Złote rybki",
+   "author": "Henri Matisse",
+   "date": "1912",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:I_pesci_rossi.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Beata, właścicielka sklepu zoologicznego w Gdyni",
+    "text": "Kopia wisiała nad akwariami. Para z wody, pokarm dla rybek i słońce z witryny przez lata zrobiły z niej bladą, zieloną mgłę."
+   },
+   "card": [
+    "Cztery czerwone rybki pływają w szklanym słoju na okrągłym, różowym stoliku, otoczone zielenią roślin i kwiatów. Słój oglądamy z góry, a rybki z boku.",
+    "W 1912 roku Matisse namalował kilka obrazów ze złotymi rybkami. Zestawiał kolory przeciwne, czerwień i zieleń, tak by się nawzajem wzmacniały."
    ],
    "dirt": null
   },
@@ -1258,6 +1887,59 @@
     "Wzdłuż kanału stoją okazałe kamienice z piaskowca i cegły, a w wodzie odbijają się fasady. Po ulicy jedzie powóz, idą przechodnie. Brakuje tylko drzew, które dziś rosną wzdłuż całego kanału.",
     "Ten odcinek Herengracht nazywano Złotym Zakrętem, bo mieszkali tu najbogatsi kupcy Amsterdamu. Kamienice były wtedy prawie nowe.",
     "Gerrit Berckheyde pochodził z Haarlemu i malował widoki miast z dokładnością niemal fotograficzną."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zolty-czerwony-niebieski",
+   "order": 14.2,
+   "size": [
+    1600,
+    1007
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 107,
+     "v": "dcc9f099"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 230,
+     "v": "b52835a1"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 366,
+     "v": "e22facd6"
+    }
+   },
+   "v": "d3ec0ac5",
+   "title": "Żółty – czerwony – niebieski",
+   "author": "Wassily Kandinsky",
+   "date": "1925",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kandinsky_-_Jaune_Rouge_Bleu.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": [
+    0.022,
+    0.032,
+    0.978,
+    0.968
+   ],
+   "gold": null,
+   "story": {
+    "client": "Pan Rafał, stroiciel fortepianów z Opola",
+    "text": "Kopia wisiała w warsztacie między starymi pianinami. Kurz z filcu, dym z lutownicy i wilgoć z piwnicy zrobiły swoje."
+   },
+   "card": [
+    "Z lewej wznosi się żółty prostokąt, z prawej głęboki niebieski krąg, a między nimi czerwone i fioletowe kształty, kratki i łuki. Cały obraz to rozmowa trzech kolorów.",
+    "Kandinsky był jednym z pierwszych malarzy abstrakcyjnych. Już w 1911 roku napisał książkę „O duchowości w sztuce”, w której opisywał, co każdy kolor robi z człowiekiem."
    ],
    "dirt": null
   },
@@ -1360,6 +2042,59 @@
     "Patrzymy wzdłuż nawy jasnego, prawie pustego kościoła. Białe ściany i drewniane sklepienie wypełnia spokojne światło, a kilka postaci podkreśla wielkość wnętrza.",
     "Saenredam wyspecjalizował się w portretach kościołów. Najpierw starannie mierzył i rysował wnętrza, a dopiero potem malował je na desce, często po latach.",
     "Assendelft było jego rodzinną miejscowością. Obraz jest datowany co do dnia: 2 października 1649 roku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "madonna-ugolino",
+   "order": 15.2,
+   "size": [
+    1040,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 74,
+     "v": "d2faced6"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 228,
+     "v": "36797d94"
+    },
+    "trudny": {
+     "colors": 32,
+     "regions": 462,
+     "v": "83cd3fce"
+    }
+   },
+   "v": "ec145f47",
+   "title": "Madonna z Dzieciątkiem",
+   "author": "Ugolino da Siena",
+   "date": "koniec lat 1310.",
+   "objectNumber": "1975.1.5",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/459129",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "89,9 × 58,4 cm",
+   "iiif": null,
+   "crop": [
+    0.035,
+    0.02,
+    0.965,
+    0.975
+   ],
+   "gold": true,
+   "story": {
+    "client": "Siostry klaryski ze Starego Sącza",
+    "text": "Kopia wisiała w klasztornej celi nad klęcznikiem. Łukowe narożniki ktoś kiedyś zamalował brązem, a złoto tła starło się od dotyku."
+   },
+   "card": [
+    "Maria w ciemnym płaszczu trzyma na ręku Dzieciątko, które ściska jej palec. Łukowato zakończona deska jest cała wypełniona złotem.",
+    "Ugolino di Nerio pracował w Sienie i był jednym z najwierniejszych uczniów Duccia. Namalował między innymi wielki ołtarz dla kościoła Santa Croce we Florencji."
    ],
    "dirt": null
   },
@@ -1557,6 +2292,54 @@
    "dirt": null
   },
   {
+   "slug": "ogrod-zoologiczny",
+   "order": 16.8,
+   "size": [
+    1600,
+    917
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 116,
+     "v": "620585f0"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 272,
+     "v": "6762a193"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 484,
+     "v": "db9f286d"
+    }
+   },
+   "v": "6472a67b",
+   "title": "Ogród zoologiczny",
+   "author": "August Macke",
+   "date": "1912",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:August_Macke_Zoologischer_Garten_I_PA291076.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Ogród zoologiczny w Poznaniu",
+    "text": "Kopia wisiała w budynku administracji przy wejściu. Pierze z woliery, kurz i wilgoć przez lata osiadały na niej grubo."
+   },
+   "card": [
+    "W kolorowym ogrodzie zoologicznym spacerują ludzie, a obok nich papugi, jelenie i inne zwierzęta. Drzewa i postaci są zbudowane z płaskich, jasnych plam koloru.",
+    "Macke łączył jasne barwy impresjonistów z uproszczonymi kształtami kubizmu. Ten obraz jest w zbiorach Lenbachhaus w Monachium, razem z pracami jego przyjaciół z Der Blaue Reiter."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "wesoly-pijak",
    "order": 17,
    "size": [
@@ -1602,6 +2385,54 @@
     "Roześmiany mężczyzna z brodą, w wielkim czarnym kapeluszu, podnosi rękę, jakby wznosił toast albo coś do nas mówił. W drugiej ręce trzyma szklany kielich, a na szyi ma medalion na łańcuszku.",
     "Hals malował szybko, luźnymi, widocznymi pociągnięciami. Dzięki temu obraz wygląda jak uchwycona chwila, a nie pozowany portret.",
     "Muzeum kupiło go w 1816 roku. To jedno z najbardziej lubianych dzieł Halsa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "harmonia-w-czerwieni",
+   "order": 17.2,
+   "size": [
+    1600,
+    1320
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 107,
+     "v": "5c85f47f"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 254,
+     "v": "a1d779ff"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 450,
+     "v": "7754fc56"
+    }
+   },
+   "v": "776f600a",
+   "title": "Harmonia w czerwieni",
+   "author": "Henri Matisse",
+   "date": "1908",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:La_Desserte_rouge,_par_Henri_Matisse.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Restauracja „Pod Czerwonym Obrusem” w Lublinie",
+    "text": "Kopia wisiała w sali jadalnej nad kredensem przez czterdzieści lat. Para z kuchni, tłuszcz i dym z papierosów zmatowiły czerwień do koloru cegły."
+   },
+   "card": [
+    "Czerwony stół i czerwona ściana zlewają się w jedną płaszczyznę pokrytą niebieskim wzorem. Służąca układa owoce, a przez okno widać zielony ogród z kwitnącymi drzewami.",
+    "Matisse namalował ten obraz dla rosyjskiego kolekcjonera Siergieja Szczukina. Najpierw był niebiesko-zielony, ale przed wysłaniem malarz przemalował go na czerwono. Matisse był przywódcą fowistów, którzy używali kolorów czystych i mocnych jak nikt przed nimi."
    ],
    "dirt": null
   },
@@ -1699,6 +2530,59 @@
     "Dziewczynka w kosztownej błękitnej sukience z koronkowym kołnierzem stoi i spogląda na nas poważnie. Z tła wyłania się tylko jej jasna postać.",
     "Verspronck był portrecistą z Haarlemu, młodszym od Fransa Halsa. W przeciwieństwie do niego malował gładko i starannie, prawie bez śladów pędzla.",
     "Nie wiemy, kim była dziewczynka. Portret należy dziś do najpopularniejszych w Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "poklon-trzech-kroli",
+   "order": 18.2,
+   "size": [
+    1538,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 126,
+     "v": "8226a498"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 272,
+     "v": "e93b172d"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 431,
+     "v": "f7dd9adc"
+    }
+   },
+   "v": "96cf2a04",
+   "title": "Pokłon Trzech Króli",
+   "author": "Giotto di Bondone",
+   "date": "ok. 1320",
+   "objectNumber": "11.126.1",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/436504",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "45,1 × 43,8 cm",
+   "iiif": null,
+   "crop": [
+    0.01,
+    0.005,
+    0.99,
+    0.995
+   ],
+   "gold": true,
+   "story": {
+    "client": "Parafia pw. Trzech Króli w Szczecinie",
+    "text": "Kopia wisiała w kaplicy nad żłóbkiem, który co roku ustawiano pod nią ze świecami i sianem. Dym, kurz z siana i wosk zrobiły swoje."
+   },
+   "card": [
+    "Pod drewnianym daszkiem leży Maria, a najstarszy z królów klęka i bierze na ręce Dzieciątko. Obok stoją dwaj pozostali królowie, Józef, pastuszek i zwierzęta, a na złotym niebie latają anioły.",
+    "Giotto zmienił malarstwo: jego postaci mają ciężar, zajmują przestrzeń i okazują uczucia. Ta niewielka deska należała najpewniej do serii scen z życia Chrystusa."
    ],
    "dirt": null
   },
@@ -1844,6 +2728,59 @@
    "card": [
     "Młoda kobieta schodzi o zmierzchu z werandy, trzymając w lewej ręce latarnię. Za nią widać pokój z drugą, stojącą latarnią. Scena jest cicha i delikatna.",
     "Harunobu jako pierwszy, około 1765 roku, zaczął robić wielobarwne drzeworyty odbijane z wielu klocków. Nazywano je „obrazami z brokatu”. Wcześniejsze ryciny miały tylko kilka kolorów albo były kolorowane ręcznie."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "ukrzyzowanie-ugolino",
+   "order": 19.8,
+   "size": [
+    1178,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 73,
+     "v": "ea8ad6f3"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 206,
+     "v": "67fedaf0"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 514,
+     "v": "09510e5a"
+    }
+   },
+   "v": "f8afe4b2",
+   "title": "Ukrzyżowanie",
+   "author": "Ugolino da Siena",
+   "date": "ok. 1315–1320",
+   "objectNumber": "41.190.31a",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/440985",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "56,5 × 40 cm",
+   "iiif": null,
+   "crop": [
+    0.055,
+    0.045,
+    0.945,
+    0.945
+   ],
+   "gold": true,
+   "story": {
+    "client": "Bractwo Męki Pańskiej z Kalwarii",
+    "text": "Kopia wisiała w kaplicy przy drodze krzyżowej, otwartej dla pielgrzymów. Świece, kurz i wilgoć zniszczyły złoto niemal do gołej glinki."
+   },
+   "card": [
+    "Chrystus wisi na krzyżu na tle złota, a wokół krążą płaczące anioły. Pod krzyżem stoją Maria, święte niewiasty, Jan i święty Franciszek.",
+    "Ugolino da Siena uczył się u Duccia. Złote tło nie jest tu niebem, tylko znakiem, że scena dzieje się poza zwykłym światem."
    ],
    "dirt": null
   },
@@ -2042,6 +2979,59 @@
    "dirt": null
   },
   {
+   "slug": "madonna-simone-martini",
+   "order": 21.2,
+   "size": [
+    1114,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 64,
+     "v": "7e64297b"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 152,
+     "v": "ebd6b36e"
+    },
+    "trudny": {
+     "colors": 33,
+     "regions": 345,
+     "v": "0966780d"
+    }
+   },
+   "v": "b3ae6b66",
+   "title": "Madonna z Dzieciątkiem",
+   "author": "Simone Martini",
+   "date": "ok. 1326",
+   "objectNumber": "1975.1.12",
+   "license": "The Metropolitan Museum of Art, domena publiczna (CC0)",
+   "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "sourceUrl": "https://www.metmuseum.org/art/collection/search/459136",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "58,7 × 39,4 cm",
+   "iiif": null,
+   "crop": [
+    0.115,
+    0.095,
+    0.885,
+    0.905
+   ],
+   "gold": true,
+   "story": {
+    "client": "Muzeum diecezjalne w Pelplinie",
+    "text": "Kopia wisiała w zakrystii przez sto lat. Wilgoć z kamiennych ścian i dym kadzidła pokryły ją ciemnym nalotem, a złote tło odpadało płatami."
+   },
+   "card": [
+    "Maria w granatowym płaszczu przytula Dzieciątko w czerwonej sukience. Wokół głów lśnią aureole wybite w złocie drobnym wzorem, a tło jest gładkie i jasne.",
+    "Simone Martini był uczniem Duccia i jednym z najbardziej wytwornych malarzy Sieny. Ta Madonna była częścią większego ołtarza, z którego zachowały się też inne panele ze świętymi."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "mlyn-gein",
    "order": 21.5,
    "size": [
@@ -2139,6 +3129,54 @@
    "dirt": null
   },
   {
+   "slug": "portret-picassa",
+   "order": 22.2,
+   "size": [
+    1258,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 120,
+     "v": "f6d152e6"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 278,
+     "v": "03644dab"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 473,
+     "v": "846c7eb1"
+    }
+   },
+   "v": "8f4aca3d",
+   "title": "Portret Pabla Picassa",
+   "author": "Juan Gris",
+   "date": "1912",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Juan_Gris_-_Portrait_of_Pablo_Picasso_-_Google_Art_Project.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Galeria sztuki w Katowicach",
+    "text": "Kopia wisiała na zapleczu galerii obok pakowni. Kurz z kartonów i ślady taśmy klejącej pokryły ją warstwa po warstwie."
+   },
+   "card": [
+    "Picasso z paletą w ręce, rozłożony na pochylone płaszczyzny w błękitach, szarościach i brązach. Twarz, ubranie i tło są pocięte na geometryczne kawałki.",
+    "Juan Gris był Hiszpanem jak Picasso i jednym z najważniejszych kubistów. Tym portretem złożył hołd przyjacielowi, który razem z Braque’em wymyślił kubizm. Obraz pokazano w Paryżu w 1912 roku."
+   ],
+   "dirt": null
+  },
+  {
    "slug": "sierotki",
    "order": 22.5,
    "size": [
@@ -2232,6 +3270,59 @@
     "Patrzymy przez otwarte drzwi do pokoju, gdzie służąca podaje list młodej kobiecie z cytrą na kolanach. Na ścianie wiszą pejzaż i obraz z morzem, a na pierwszym planie leżą kapcie i miotła.",
     "W 1971 roku obraz skradziono z wystawy w Brukseli. Złodziej wyciął płótno z ramy i je uszkodził. Po odzyskaniu obraz trzeba było starannie odrestaurować.",
     "Muzeum kupiło go w 1893 roku przy wsparciu Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zamek-i-slonce",
+   "order": 23.2,
+   "size": [
+    1600,
+    1299
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 127,
+     "v": "9518f5e7"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 297,
+     "v": "21adda52"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 547,
+     "v": "49081e1d"
+    }
+   },
+   "v": "087d895a",
+   "title": "Zamek i słońce",
+   "author": "Paul Klee",
+   "date": "1928",
+   "objectNumber": null,
+   "license": "Wikimedia Commons, domena publiczna",
+   "licenseUrl": "Public domain",
+   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Burg_und_Sonne_-_Klee.jpg",
+   "kind": "sztuka nowoczesna",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": null,
+   "crop": [
+    0.02,
+    0.025,
+    0.98,
+    0.975
+   ],
+   "gold": null,
+   "story": {
+    "client": "Pan Jerzy, murarz z Malborka",
+    "text": "Kopia wisiała w baraku budowy przy renowacji zamku. Pył z cegieł i zaprawy osiadał na niej przez kilka sezonów."
+   },
+   "card": [
+    "Zamek zbudowany z kolorowych kwadratów, prostokątów i trójkątów stoi pod okrągłym, czerwonym słońcem. Z daleka to miasto z wieżami, z bliska mozaika plam koloru.",
+    "Klee całe życie łączył kolor z rytmem. Był też skrzypkiem i mówił, że kolor i on są jednym: obrazy budował z pól koloru jak z nut."
    ],
    "dirt": null
   },

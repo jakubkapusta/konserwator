@@ -1,0 +1,55 @@
+{
+  "order": 11.8,
+  "title": "Madonna z Dzieciątkiem",
+  "author": "Duccio di Buoninsegna",
+  "date": "ok. 1290–1300",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "dimensions": "23,8 × 16,5 cm",
+  "card": [
+    "Maria trzyma Dzieciątko, które sięga rączką do jej welonu. Pod nimi biegnie namalowany parapet, a za nimi złoto. Deska jest niewielka, przeznaczona do prywatnej modlitwy.",
+    "Duccio był najważniejszym malarzem Sieny około 1300 roku. Twarze jego Madonn są już czułe i ludzkie, choć złote tło i układ wciąż pochodzą z bizantyjskich ikon. Na dole ramy widać ślady po świecach, które stawiano przed obrazem."
+  ],
+  "story": {
+    "client": "Pani Anna, historyczka sztuki z Krakowa",
+    "text": "Kopia, którą dziadek przywiózł z Włoch przed wojną. Stała na komodzie przy lampce oliwnej, więc sadza i olej pokryły ją ciemną warstwą, a złoto starło się do czerwonej glinki."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "crop": [
+    0.09,
+    0.06,
+    0.91,
+    0.855
+  ],
+  "gold": {
+    "min_chroma": 22,
+    "hue": [
+      55,
+      100
+    ]
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 438754,
+    "object_number": "2004.442",
+    "title_en": "Madonna and Child",
+    "creator": "Duccio di Buoninsegna",
+    "date": "ca. 1290–1300",
+    "medium_en": "Tempera and gold on wood",
+    "dimensions_en": "Overall, with engaged frame, 11 x 8 1/4 in. (27.9 x 21 cm); painted surface 9 3/8 x 6 1/2 in. (23.8 x 16.5 cm)",
+    "credit_en": "Purchase, Rogers Fund, Walter and Leonore Annenberg and The Annenberg Foundation Gift, Lila Acheson Wallace Gift, Annette de la Renta Gift, Harris Brisbane Dick, Fletcher, Louis V. Bell, and Dodge Funds, Joseph Pulitzer Bequest, several members of The Chairman's Council Gifts, Elaine L. Rosenberg and Stephenson Family Foundation Gifts, 2003 Benefit Fund, and other gifts and funds from various donors, 2004",
+    "department": "European Paintings",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/438754",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/ep/original/DP142735.jpg"
+  }
+}

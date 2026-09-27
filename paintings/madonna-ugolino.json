@@ -1,0 +1,56 @@
+{
+  "order": 15.2,
+  "title": "Madonna z Dzieciątkiem",
+  "author": "Ugolino da Siena",
+  "date": "koniec lat 1310.",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "dimensions": "89,9 × 58,4 cm",
+  "card": [
+    "Maria w ciemnym płaszczu trzyma na ręku Dzieciątko, które ściska jej palec. Łukowato zakończona deska jest cała wypełniona złotem.",
+    "Ugolino di Nerio pracował w Sienie i był jednym z najwierniejszych uczniów Duccia. Namalował między innymi wielki ołtarz dla kościoła Santa Croce we Florencji."
+  ],
+  "story": {
+    "client": "Siostry klaryski ze Starego Sącza",
+    "text": "Kopia wisiała w klasztornej celi nad klęcznikiem. Łukowe narożniki ktoś kiedyś zamalował brązem, a złoto tła starło się od dotyku."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "crop": [
+    0.035,
+    0.02,
+    0.965,
+    0.975
+  ],
+  "gold": {
+    "bg": true,
+    "min_chroma": 56,
+    "hue": [
+      60,
+      112
+    ]
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 459129,
+    "object_number": "1975.1.5",
+    "title_en": "Madonna and Child",
+    "creator": "Ugolino da Siena (Ugolino di Nerio)",
+    "date": "late 1310s",
+    "medium_en": "Tempera on wood, gold ground",
+    "dimensions_en": "Arched top, 35 3/8 x 23 in. (89.9 x 58.4 cm)",
+    "credit_en": "Robert Lehman Collection, 1975",
+    "department": "Robert Lehman Collection",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/459129",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/rl/original/DP-46124-001.jpg"
+  }
+}

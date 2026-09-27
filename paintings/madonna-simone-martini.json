@@ -1,0 +1,51 @@
+{
+  "order": 21.2,
+  "title": "Madonna z Dzieciątkiem",
+  "author": "Simone Martini",
+  "date": "ok. 1326",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "dimensions": "58,7 × 39,4 cm",
+  "card": [
+    "Maria w granatowym płaszczu przytula Dzieciątko w czerwonej sukience. Wokół głów lśnią aureole wybite w złocie drobnym wzorem, a tło jest gładkie i jasne.",
+    "Simone Martini był uczniem Duccia i jednym z najbardziej wytwornych malarzy Sieny. Ta Madonna była częścią większego ołtarza, z którego zachowały się też inne panele ze świętymi."
+  ],
+  "story": {
+    "client": "Muzeum diecezjalne w Pelplinie",
+    "text": "Kopia wisiała w zakrystii przez sto lat. Wilgoć z kamiennych ścian i dym kadzidła pokryły ją ciemnym nalotem, a złote tło odpadało płatami."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "crop": [
+    0.115,
+    0.095,
+    0.885,
+    0.905
+  ],
+  "gold": {
+    "min_chroma": 34
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 459136,
+    "object_number": "1975.1.12",
+    "title_en": "Madonna and Child",
+    "creator": "Simone Martini",
+    "date": "ca. 1326",
+    "medium_en": "Tempera on wood, gold ground",
+    "dimensions_en": "23 1/8 × 15 1/2 in. (58.7 × 39.4 cm)\r\nFramed: 26 1/2 in. × 19 in. × 1 3/4 in. (67.3 × 48.3 × 4.4 cm)",
+    "credit_en": "Robert Lehman Collection, 1975",
+    "department": "Robert Lehman Collection",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/459136",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/rl/original/DP-29454-001.jpg"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "order": 8.2,
+  "title": "Dzikie gęsi pod pełnią księżyca",
+  "author": "Utagawa Hiroshige",
+  "date": "ok. 1833",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "38,1 × 12,5 cm",
+  "card": [
+    "Trzy dzikie gęsi przelatują przed ogromną tarczą księżyca, nad nimi jest wiersz. Wąski, wysoki arkusz przypomina zwój do zawieszenia na filarze domu.",
+    "Hiroshige robił takie „obrazy z ptakami i kwiatami” obok swoich słynnych pejzaży. Gęsi pod jesiennym księżycem to w Japonii dawny, lubiany motyw, obecny też w poezji."
+  ],
+  "story": {
+    "client": "Pan Władysław, myśliwy z Biebrzy",
+    "text": "Ręcznie malowana kopia wisiała w leśniczówce nad drzwiami. Dym z pieca, kurz i muchy przez lata zrobiły z księżyca szarą plamę."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 733
+    },
+    "sredni": {
+      "work_long": 906
+    },
+    "trudny": {
+      "work_long": 1100
+    }
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 36742,
+    "object_number": "JP270",
+    "title_en": "Wild Geese Flying under the Full Moon",
+    "creator": "Utagawa Hiroshige",
+    "date": "ca. 1833",
+    "medium_en": "Woodblock print",
+    "dimensions_en": "15 x 4 29/32 in. (38.1 x 12.5 cm)",
+    "credit_en": "Purchase, Joseph Pulitzer Bequest, 1918",
+    "department": "Asian Art",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/36742",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/as/original/DP121523.jpg"
+  }
+}

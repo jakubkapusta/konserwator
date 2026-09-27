@@ -1,0 +1,47 @@
+{
+  "order": 17.2,
+  "title": "Harmonia w czerwieni",
+  "author": "Henri Matisse",
+  "date": "1908",
+  "medium": "olej na płótnie",
+  "card": [
+    "Czerwony stół i czerwona ściana zlewają się w jedną płaszczyznę pokrytą niebieskim wzorem. Służąca układa owoce, a przez okno widać zielony ogród z kwitnącymi drzewami.",
+    "Matisse namalował ten obraz dla rosyjskiego kolekcjonera Siergieja Szczukina. Najpierw był niebiesko-zielony, ale przed wysłaniem malarz przemalował go na czerwono. Matisse był przywódcą fowistów, którzy używali kolorów czystych i mocnych jak nikt przed nimi."
+  ],
+  "story": {
+    "client": "Restauracja „Pod Czerwonym Obrusem” w Lublinie",
+    "text": "Kopia wisiała w sali jadalnej nad kredensem przez czterdzieści lat. Para z kuchni, tłuszcz i dym z papierosów zmatowiły czerwień do koloru cegły."
+  },
+  "kind": "sztuka nowoczesna",
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 501
+    },
+    "trudny": {
+      "work_long": 641
+    }
+  },
+  "source": {
+    "museum": "commons",
+    "file": "File:La Desserte rouge, par Henri Matisse.jpg",
+    "object_number": null,
+    "title_en": "La Desserte rouge, par Henri Matisse",
+    "creator": "Henri Matisse",
+    "date": "1908",
+    "credit_en": "https://www.cineclubdecaen.com/peinture/peintres/matisse/desserterouge.jpg",
+    "rights": [
+      "Public domain"
+    ],
+    "license": "Public domain",
+    "open": true,
+    "object": "https://commons.wikimedia.org/wiki/File:La_Desserte_rouge,_par_Henri_Matisse.jpg",
+    "iiif": null,
+    "commons": null,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/cf/La_Desserte_rouge%2C_par_Henri_Matisse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "size": [
+      1999,
+      1649
+    ]
+  }
+}

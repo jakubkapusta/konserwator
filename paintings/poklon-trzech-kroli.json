@@ -1,0 +1,86 @@
+{
+  "order": 18.2,
+  "title": "Pokłon Trzech Króli",
+  "author": "Giotto di Bondone",
+  "date": "ok. 1320",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Pod drewnianym daszkiem leży Maria, a najstarszy z królów klęka i bierze na ręce Dzieciątko. Obok stoją dwaj pozostali królowie, Józef, pastuszek i zwierzęta, a na złotym niebie latają anioły.",
+    "Giotto zmienił malarstwo: jego postaci mają ciężar, zajmują przestrzeń i okazują uczucia. Ta niewielka deska należała najpewniej do serii scen z życia Chrystusa."
+  ],
+  "story": {
+    "client": "Parafia pw. Trzech Króli w Szczecinie",
+    "text": "Kopia wisiała w kaplicy nad żłóbkiem, który co roku ustawiano pod nią ze świecami i sianem. Dym, kurz z siana i wosk zrobiły swoje."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 598
+    }
+  },
+  "crop": [
+    0.01,
+    0.005,
+    0.99,
+    0.995
+  ],
+  "gold": {
+    "min_chroma": 34,
+    "figures": [
+      [
+        0.73,
+        0.6
+      ],
+      [
+        0.74,
+        0.75
+      ],
+      [
+        0.75,
+        0.9
+      ],
+      [
+        0.08,
+        0.75
+      ],
+      [
+        0.1,
+        0.9
+      ],
+      [
+        0.2,
+        0.85
+      ],
+      [
+        0.7,
+        0.5
+      ],
+      [
+        0.07,
+        0.66
+      ]
+    ]
+  },
+  "source": {
+    "museum": "met",
+    "met_id": 436504,
+    "object_number": "11.126.1",
+    "title_en": "The Adoration of the Magi",
+    "creator": "Giotto di Bondone",
+    "date": "possibly ca. 1320",
+    "medium_en": "Tempera on wood, gold ground",
+    "dimensions_en": "17 3/4 x 17 1/4 in. (45.1 x 43.8 cm)",
+    "credit_en": "John Stewart Kennedy Fund, 1911",
+    "department": "European Paintings",
+    "rights": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "open": true,
+    "object": "https://www.metmuseum.org/art/collection/search/436504",
+    "iiif": null,
+    "commons": null,
+    "image": "https://images.metmuseum.org/CRDImages/ep/original/DP-31416-001.jpg"
+  }
+}
