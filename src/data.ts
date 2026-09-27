@@ -91,3 +91,29 @@ export function loadImage(url: string): Promise<HTMLImageElement> {
     im.src = url;
   });
 }
+
+/** Every file a painting needs (image + all levels), versioned like the game fetches them. */
+export function paintingFiles(it: CatalogItem) {
+  const out = [imageUrl(it.slug), thumbUrl(it.slug)];
+  for (const l of LEVELS) {
+    const v = versions.get(it.slug + '/' + l.id);
+    out.push(`${base}${it.slug}/${l.id}.json${q(v)}`, `${base}${it.slug}/${l.id}.bin${q(v)}`);
+  }
+  return out;
+}
+
+/** Fetch everything once so the service worker keeps it for offline play. */
+export async function downloadAll(items: CatalogItem[], progress: (done: number, total: number) => void) {
+  const files = items.flatMap(paintingFiles);
+  let done = 0, failed = 0;
+  const queue = files.slice();
+  const worker = async () => {
+    while (queue.length) {
+      const f = queue.shift()!;
+      try { const r = await fetch(f); if (!r.ok) failed++; else await r.arrayBuffer(); } catch { failed++; }
+      progress(++done, files.length);
+    }
+  };
+  await Promise.all([worker(), worker(), worker(), worker()]);
+  return failed;
+}

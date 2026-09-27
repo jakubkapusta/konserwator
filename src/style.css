@@ -122,6 +122,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hung-card .label .dots u { width: 6px; height: 6px; border-radius: 50%; border: 1px solid #8a7658; }
 .hung-card .label .dots u.on { background: #b8862f; border-color: #b8862f; }
 .empty-wall { color: var(--muted); padding: 30px; font-size: 16px; }
+.menu .offline { display: block; margin: 36px auto 0; padding: 10px 18px; border-radius: 999px; font-size: 14px; color: var(--muted); border: 1px dashed var(--line); }
+.menu .offline.busy { color: var(--gold); border-color: rgba(220, 182, 96, 0.5); }
 .menu footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; opacity: 0.8; }
 
 /* ---------- commission card ---------- */
@@ -262,8 +264,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @keyframes blink { 50% { opacity: 0.2; } }
 
 @media (max-width: 520px) {
-  .tool { width: 74px; height: 70px; }
-  .tool svg { width: 38px; height: 38px; }
+  .dock { max-width: calc(100vw - 12px); padding: 6px; }
+  .tools { gap: 2px; }
+  .tool { width: 64px; height: 64px; border-radius: 13px; }
+  .tool svg { width: 32px; height: 32px; }
+  .tool span { font-size: 11px; }
+  .tool .ring { top: 4px; right: 5px; width: 13px; height: 13px; }
+  .hud .top { gap: 6px; padding-left: 8px; padding-right: 8px; }
+  .pill { height: 38px; min-width: 38px; }
+  .pill.icon { width: 38px; }
+  .right { gap: 5px; }
+  .right .fit { display: none; }
   .stage-name { font-size: 19px; }
   .pill.back span { display: none; }
   .sheet { padding: 20px 18px 18px; }

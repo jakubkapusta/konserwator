@@ -1,5 +1,5 @@
 // DOM layer: the studio (menu), the commission card, the workbench HUD (tools, palette, toasts, cursor, hint ring).
-import { LEVELS, thumbUrl, type CatalogItem, type LevelData, type LevelId } from '../data';
+import { downloadAll, LEVELS, thumbUrl, type CatalogItem, type LevelData, type LevelId } from '../data';
 import type { Tool } from '../render/dirt';
 import type { PointerKind } from '../game/input';
 import type { Cleaning } from '../game/cleaning';
@@ -170,7 +170,17 @@ export class UI implements StudioUI {
     toggle.onclick = () => { this.showDone = !this.showDone; fill(); };
     bar.append(h('h2', 'shelf', 'Zlecenia'), chips, toggle);
     fill();
-    this.menu.append(bar, wall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
+    const foot = h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna');
+    const off = h('button', 'offline', localStorage.getItem('konserwator.offline') === '1' ? 'Cała kolekcja jest dostępna offline ✓' : 'Pobierz całą kolekcję do gry bez internetu (ok. 55 MB)');
+    off.onclick = async () => {
+      if (off.classList.contains('busy')) return;
+      off.classList.add('busy');
+      const failed = await downloadAll(items, (d, t) => { off.textContent = `Pobieram obrazy… ${Math.round((d / t) * 100)}%`; });
+      off.classList.remove('busy');
+      if (failed) off.textContent = `Nie udało się pobrać ${failed} plików. Spróbuj ponownie.`;
+      else { off.textContent = 'Cała kolekcja jest dostępna offline ✓'; try { localStorage.setItem('konserwator.offline', '1'); } catch { /* ignore */ } }
+    };
+    this.menu.append(bar, wall, off, foot);
     this.menu.classList.add('show');
   }
 
@@ -270,7 +280,7 @@ export class UI implements StudioUI {
     eye.addEventListener('pointerup', peekOff);
     eye.addEventListener('pointerleave', peekOff);
     eye.addEventListener('pointercancel', peekOff);
-    const fit = h('button', 'pill icon', ICON.fit);
+    const fit = h('button', 'pill icon fit', ICON.fit);
     fit.title = 'Cały obraz';
     fit.onclick = () => this.act.fit();
     this.soundBtn.innerHTML = muted ? ICON.mute : ICON.sound;
