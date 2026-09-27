@@ -5,7 +5,7 @@ import type { PointerKind } from '../game/input';
 import type { Cleaning } from '../game/cleaning';
 import { TOOLS } from '../game/cleaning';
 import type { Phase, StudioUI } from '../game/studio';
-import { allWork, loadDone, type Prefs, type WorkSave } from '../game/save';
+import { allWork, clearAll, loadDone, type Prefs, type WorkSave } from '../game/save';
 import { ICON, TOOL_ICONS } from './icons';
 import { Motes } from './motes';
 
@@ -64,6 +64,7 @@ export class UI implements StudioUI {
   private markerEl = h('div', 'marker');
   private pop = h('div', 'menu-pop');
   private soundBtn = h('button', 'pill icon');
+  private skipBtn = h('button', '', 'Pomiń ten etap (test)');
   private toastTimer = 0;
   private swEls: HTMLElement[] = [];
   private totals: number[] = [];
@@ -159,13 +160,17 @@ export class UI implements StudioUI {
     // the wall
     const kinds = [...new Set(items.map((i) => i.kind).filter(Boolean))] as string[];
     const bar = h('div', 'wallbar');
-    const chips = h('div', 'chips');
+    const pick = h('button', 'kind-pick');
+    const list = h('div', 'kind-menu');
+    const pickWrap = h('div', 'kind-wrap');
+    pickWrap.append(pick, list);
     const toggle = h('button', 'toggle-done', '<i></i><span>Pokaż ukończone</span>');
     const wall = h('div', 'salon');
+    const label = (k: string) => (k ? k[0].toUpperCase() + k.slice(1) : 'Wszystkie rodzaje');
     const fill = () => {
       wall.innerHTML = '';
-      const list = items.filter((it) => (!this.kindFilter || it.kind === this.kindFilter) && (this.showDone || !isDone(it)));
-      list.forEach((it, i) => {
+      const shown = items.filter((it) => (!this.kindFilter || it.kind === this.kindFilter) && (this.showDone || !isDone(it)));
+      shown.forEach((it, i) => {
         const w = work[it.slug];
         const stage = isDone(it) ? 'done' : live(it) ? w.stage : 'new';
         const rot = ((hashStr(it.slug) % 100) / 100 - 0.5) * 3.2;
@@ -179,18 +184,25 @@ export class UI implements StudioUI {
         c.onclick = () => { c.classList.remove('swing'); void c.offsetWidth; c.classList.add('swing'); setTimeout(() => this.act.open(it), 180); };
         wall.append(c);
       });
-      if (!list.length) wall.append(h('div', 'empty-wall', this.showDone ? 'Nic tu nie ma.' : 'Wszystkie zlecenia z tej grupy już wiszą w galerii. Włącz „Pokaż ukończone”.'));
-      chips.querySelectorAll('button').forEach((b) => b.classList.toggle('on', (b as HTMLElement).dataset.k === this.kindFilter));
+      if (!shown.length) wall.append(h('div', 'empty-wall', this.showDone ? 'Nic tu nie ma.' : 'Wszystkie zlecenia z tej grupy już wiszą w galerii. Włącz „Pokaż ukończone”.'));
+      pick.innerHTML = `<span>${label(this.kindFilter)}</span><i></i>`;
+      menu();
       toggle.classList.toggle('on', this.showDone);
     };
-    for (const k of ['', ...kinds]) {
-      const b = h('button', '', k ? k[0].toUpperCase() + k.slice(1) : 'Wszystkie');
-      b.dataset.k = k;
-      b.onclick = () => { this.kindFilter = k; fill(); };
-      chips.append(b);
-    }
+    // the kinds as a dropdown: a paper list with how many commissions wait in each
+    const menu = () => {
+      list.innerHTML = '';
+      for (const k of ['', ...kinds]) {
+        const n = items.filter((it) => (!k || it.kind === k) && (this.showDone || !isDone(it))).length;
+        const b = h('button', k === this.kindFilter ? 'on' : '', `<span>${label(k)}</span><em>${n}</em>`);
+        b.onclick = (e) => { e.stopPropagation(); this.kindFilter = k; pickWrap.classList.remove('open'); fill(); };
+        list.append(b);
+      }
+    };
+    pick.onclick = (e) => { e.stopPropagation(); pickWrap.classList.toggle('open'); };
+    this.menu.addEventListener('pointerdown', (e) => { if (!pickWrap.contains(e.target as Node)) pickWrap.classList.remove('open'); });
     toggle.onclick = () => { this.showDone = !this.showDone; fill(); };
-    bar.append(h('h2', 'shelf', 'Zlecenia'), chips, toggle);
+    bar.append(h('h2', 'shelf', 'Zlecenia'), pickWrap, toggle);
     fill();
     const foot = h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna');
     // the flag holds how many paintings were downloaded: new ones in the catalog ask for a download again
@@ -206,9 +218,34 @@ export class UI implements StudioUI {
       if (failed) off.textContent = `Nie udało się pobrać ${failed} plików. Spróbuj ponownie.`;
       else { off.textContent = 'Cała kolekcja jest dostępna offline ✓'; try { localStorage.setItem('konserwator.offline', String(items.length)); } catch { /* ignore */ } }
     };
-    this.menu.append(bar, wall, off, foot);
+    const reset = h('button', 'reset', 'Zacznij grę od nowa');
+    reset.onclick = () => this.confirmReset();
+    this.menu.append(bar, wall, off, reset, foot);
     this.menu.classList.add('show');
     this.syncSound();
+  }
+
+  /** Wipe all progress, after asking on a sheet of paper. */
+  private confirmReset() {
+    const sheet = h('div', 'sheet');
+    sheet.innerHTML = `<div class="tag">Uwaga</div><h2>Zacząć od nowa?</h2>
+      <p class="warn">Znikną postępy we wszystkich obrazach, obrazy z galerii i nagrania renowacji. Tego nie da się cofnąć. Ustawienia dźwięku i pobrana kolekcja zostaną.</p>`;
+    const actions = h('div', 'actions');
+    const yes = h('button', 'btn danger', 'Tak, wyczyść wszystko');
+    yes.onclick = async () => {
+      yes.disabled = true;
+      await clearAll();
+      this.comm.classList.remove('show');
+      this.act.menu();
+    };
+    const no = h('button', 'btn ghost', 'Wróć');
+    no.onclick = () => this.comm.classList.remove('show');
+    actions.append(no, yes);
+    sheet.append(actions);
+    this.comm.innerHTML = '';
+    this.comm.append(paper(sheet));
+    this.comm.onclick = (e) => { if (e.target === this.comm) this.comm.classList.remove('show'); };
+    this.comm.classList.add('show');
   }
 
   /** A painting in its current state: dirty, partly cleaned (diagonal wipe by progress) or restored in gold. */
@@ -312,7 +349,7 @@ export class UI implements StudioUI {
     right.append(eye, fit, this.soundBtn, more);
     top.append(back, sb, right);
 
-    const skip = h('button', '', 'Pomiń ten etap (test)');
+    const skip = this.skipBtn;
     skip.onclick = () => { this.pop.classList.remove('show'); this.act.skip(); };
     const restart = h('button', '', 'Zacznij ten obraz od nowa');
     restart.onclick = () => { this.pop.classList.remove('show'); this.act.restart(); };
@@ -349,6 +386,7 @@ export class UI implements StudioUI {
     this.hud.classList.toggle('replay', replay);
     this.hud.classList.add('show');
     this.stageSub.textContent = it.title;
+    this.skipBtn.hidden = !location.hash.includes('debug'); // test helper, only with #debug in the address
   }
 
   /** Space taken by the bars, for the camera. */

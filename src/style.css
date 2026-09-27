@@ -56,7 +56,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 228, 170, 0.07) 30%, rgba(255, 232, 180, 0.11) 50%, rgba(255, 228, 170, 0.06) 70%, transparent);
   transform: rotate(-32deg); filter: blur(8px); animation: beam 9s ease-in-out infinite alternate; }
 @keyframes beam { from { opacity: 0.7; } to { opacity: 1; transform: rotate(-30deg) translateX(3vw); } }
-.menu > *:not(.motes):not(.beam):not(.snd) { position: relative; z-index: 3; }
+.menu > *:not(.motes):not(.beam):not(.snd):not(.wallbar) { position: relative; z-index: 3; }
+.menu > .wallbar { position: relative; z-index: 6; }
 .sign { text-align: center; margin: 0 auto 10px; }
 .gilt {
   font-family: var(--serif); font-weight: 600; font-size: clamp(46px, 9.5vw, 84px); line-height: 1; margin: 0; letter-spacing: 0.03em;
@@ -121,14 +122,20 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wallbar { max-width: 1100px; margin: 40px auto 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .wallbar .shelf { margin: 0 8px 0 0; }
 .shelf { font-family: var(--serif); font-weight: 600; font-size: 28px; letter-spacing: 0.02em; color: var(--ink); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px 10px; flex: 1; }
-/* kinds as paper price tags on the wall */
-.chips button { position: relative; padding: 6px 13px 6px 22px; font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--p-mid);
-  background: var(--fibre), linear-gradient(180deg, #ecdfc3, #d6c29c); clip-path: polygon(11px 0, 100% 0, 100% 100%, 11px 100%, 0 50%);
-  transition: transform 0.25s var(--ease), color 0.2s; }
-.chips button::before { content: ''; position: absolute; left: 9px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #241a12; box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.8); }
-.chips button:active { transform: translateY(1px); }
-.chips button.on { color: #3a260e; background: var(--brass); }
+/* kinds: a paper tag that opens a paper list */
+.kind-wrap { position: relative; flex: 1; z-index: 8; }
+.kind-pick { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 24px; font-family: var(--serif); font-size: 19px; font-weight: 600; color: #3a260e;
+  background: var(--fibre), linear-gradient(180deg, #ecdfc3, #d6c29c); clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%); position: relative; }
+.kind-pick::before { content: ''; position: absolute; left: 10px; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: #241a12; }
+.kind-pick i { width: 8px; height: 8px; border: solid var(--p-mid); border-width: 0 2px 2px 0; transform: translateY(-2px) rotate(45deg); transition: transform 0.25s var(--ease); }
+.kind-wrap.open .kind-pick i { transform: translateY(2px) rotate(225deg); }
+.kind-menu { position: absolute; left: 6px; top: calc(100% + 8px); min-width: 240px; padding: 6px; display: none; flex-direction: column; color: var(--p-ink); border-radius: 2px;
+  background: var(--fibre), linear-gradient(180deg, #f1e7cf, #e3d4b4); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55); outline: 1px solid rgba(95, 70, 40, 0.3); outline-offset: -5px; }
+.kind-wrap.open .kind-menu { display: flex; animation: popIn 0.22s var(--ease); }
+.kind-menu button { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 9px 12px; border-radius: 2px; font-family: var(--serif); font-size: 19px; font-weight: 600; text-align: left; }
+.kind-menu button em { font-style: normal; font-family: var(--sans); font-size: 13px; color: var(--p-soft); font-variant-numeric: lining-nums tabular-nums; }
+.kind-menu button:active { background: rgba(90, 60, 25, 0.1); }
+.kind-menu button.on { background: rgba(176, 128, 48, 0.2); box-shadow: inset 3px 0 0 var(--rust); }
 .toggle-done { display: inline-flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 18px; font-weight: 600; color: var(--muted); }
 .toggle-done i, .menu-pop .toggle i { position: relative; flex: none; width: 20px; height: 20px; border-radius: 2px; border: 1.5px solid currentColor; opacity: 0.8; }
 .toggle-done i::after, .menu-pop .toggle i::after { content: ''; position: absolute; left: 5px; top: 0px; width: 6px; height: 12px; border: solid var(--gold); border-width: 0 2.5px 2.5px 0;
@@ -163,6 +170,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .empty-wall { color: var(--muted); padding: 30px; font-size: 16px; }
 .menu .offline { display: block; margin: 36px auto 0; padding: 9px 18px; border-radius: 2px; font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--muted); border: 1px dashed rgba(241, 232, 216, 0.25); }
 .menu .offline.busy { color: var(--gold); border-color: rgba(220, 182, 96, 0.5); }
+.menu .reset { display: block; margin: 14px auto 0; padding: 8px 16px; font-family: var(--serif); font-size: 16px; font-weight: 600; color: rgba(230, 160, 130, 0.75); }
 .menu footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; opacity: 0.8; }
 
 /* ---------- commission card ---------- */
@@ -214,6 +222,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .btn.ghost { background: transparent; color: var(--p-ink); text-shadow: none;
   box-shadow: inset 0 0 0 1px rgba(60, 40, 20, 0.55), inset 0 0 0 4px transparent, inset 0 0 0 3px rgba(255, 250, 235, 0.35); }
 .btn.ghost:active { box-shadow: inset 0 0 0 1px rgba(60, 40, 20, 0.7); background: rgba(90, 60, 25, 0.08); }
+.btn.danger { background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.12)), #8e3a22; color: #f7e9d6; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(40, 10, 0, 0.7), inset 0 0 0 3px rgba(255, 210, 180, 0.25), 0 2px 0 #4f1d0e, 0 6px 14px rgba(0, 0, 0, 0.35); }
+.sheet .warn { margin: 16px 0 20px; font-size: 16.5px; line-height: 1.55; color: #3b2d1f; }
 .sheet .credit { margin-top: 18px; font-size: 12.5px; color: var(--p-soft); text-align: center; }
 
 /* ---------- workbench HUD ---------- */

@@ -32,7 +32,7 @@ tools/.venv/bin/python tools/build.py --all              # rebuild the whole col
 
 Python setup once: `python3 -m venv tools/.venv && tools/.venv/bin/pip install -r tools/requirements.txt`.
 
-URL hash: `#p=<slug>/<level>` opens a painting straight away (`/fresh` drops the save), `#skip` skips the cleaning, `#gallery` opens the gallery. The menu "⋯" has "Pomiń ten etap (test)" (`studio.skipStage()`).
+URL hash: `#p=<slug>/<level>` opens a painting straight away (`/fresh` drops the save), `#skip` skips the cleaning, `#gallery` opens the gallery. With `#debug` in the address the menu "⋯" also has "Pomiń ten etap (test)" (`studio.skipStage()`). The studio menu ends with "Zacznij grę od nowa" (confirmation sheet, `save.clearAll()`: work, gallery, IndexedDB; prefs stay). Kinds are a dropdown with counts.
 Dev helpers on `window.__k`: `studio`, `cam`, `renderer`, `tick(n)` (run n frames synchronously — the browser pane may be hidden and throttle rAF), `shot(name)` (dev server only: renders and saves the canvas to `work/shots/<name>.png`, DOM overlay not included), `stroke(pts, {type, pressure})`, `zig(x0,y0,x1,y1,rows,steps)`, `tap(x,y)`.
 
 ## Painting data (pipeline)

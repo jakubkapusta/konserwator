@@ -61,6 +61,21 @@ export interface Prefs { muted: boolean; music: boolean; sfx: boolean; hints: Re
 export function loadPrefs(): Prefs { return { muted: false, music: true, sfx: true, hints: {}, ...read<Partial<Prefs>>(PREFS, {}) }; }
 export function savePrefs(p: Prefs) { write(PREFS, p); }
 
+/** Start over: every painting's progress, the gallery and the recordings go; sound settings stay. */
+export async function clearAll() {
+  try { localStorage.removeItem(WORK); localStorage.removeItem(DONE); } catch { /* ignore */ }
+  const d = await db();
+  if (!d) return;
+  await new Promise<void>((res) => {
+    try {
+      const tx = d.transaction('kv', 'readwrite');
+      tx.objectStore('kv').clear();
+      tx.oncomplete = () => res();
+      tx.onerror = () => res();
+    } catch { res(); }
+  });
+}
+
 // ---- IndexedDB (dirt snapshots) ----
 let dbp: Promise<IDBDatabase | null> | null = null;
 function db() {
