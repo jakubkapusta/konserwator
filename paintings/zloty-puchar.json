@@ -1,0 +1,44 @@
+{
+  "order": 12,
+  "title": "Martwa natura z pozłacanym pucharem",
+  "author": "Willem Claesz Heda",
+  "date": "1635",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Restauracja przy Długim Targu w Gdańsku",
+    "text": "Kopia wisiała nad bufetem restauracji od czasów międzywojennych. Opary z kuchni, dym papierosowy i tłuszcz osiadły na niej grubą warstwą, a pozłacany puchar wyglądał jak z blachy."
+  },
+  "card": [
+    "Na stole z zielonym obrusem i lnianymi serwetkami leżą chleb, ostrygi na cynowym talerzu i przewrócona srebrna czarka. Są też kieliszki z winem, solniczka i wielki pozłacany puchar z pokrywą.",
+    "Heda należał do malarzy z Haarlemu, którzy malowali takie „bankiety” w stonowanych szarościach i zieleniach. Popisem jego mistrzostwa są odbicia światła w szkle, cynie i srebrze.",
+    "Muzeum kupiło obraz w 1984 roku przy wsparciu Towarzystwa Rembrandta i innych fundacji."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-4830",
+    "title_en": "Still Life with a Gilt Cup",
+    "title_nl": "Stilleven met vergulde bokaal",
+    "creator": "Willem Claesz. Heda (eigenhandig gesigneerd)",
+    "date": "1635",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109354",
+    "iiif": "https://iiif.micr.io/UjEro",
+    "commons": null,
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en de Rijksmuseum-Stichting",
+    "medium_en": "oil on panel",
+    "description_nl": "Stilleven met een vergulde bokaal. Op een tafel bekleed met een groen tafelkleed en twee linnendamasten servetten zijn onder meer uitgestald: een tinnen bord met brood en een tinnen schaal met oesters, een glas met rode wijn, een olie- of azijnkannetje van glas, een zilveren zoutvat, een roemer met witte wijn, een neergelegde zilveren drinkschaal op voet,   een verguld zilveren bokaal met deksel, een tinnen wijnkan en een neergelegde berkenmeier.",
+    "medium_nl": "olieverf op paneel",
+    "dimensions_en": "support: height 87.8 cm x width 112.6 cm",
+    "dimensions_nl": "drager: hoogte 87,8 cm x breedte 112,6 cm",
+    "provenance_en": "…; collection Richedot family, formed in the 17th century in Holland, from the 18th century until the 1970s at the family seat, Château de Choisey, near Dole (Jura);{According to the catalogue for the sale, Paris (Palais d’Orsay), 13 December 1977, no. 18.}…; sale, Paris (Palais d’Orsay), 13 December 1977, no. 18;…; from Noortman and Brod Gallery, London, fl. 3,000,000, to the museum, with support from the Vereniging Rembrandt, the Jubileumfonds, the Dutch State and the Rijksmuseum-Stichting, 1984",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Rijksmuseum-Stichting",
+    "image": "https://iiif.micr.io/UjEro/full/!4000,4000/0/default.jpg"
+  }
+}

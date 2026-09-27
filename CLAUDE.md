@@ -4,9 +4,16 @@ Browser game (iPad + Apple Pencil first, phone and laptop too): restore old pain
 
 ## Status (read first)
 
-- **M0 done** (repo, pipeline, 3 paintings: Mleczarka, Uliczka, Zagrożony łabędź).
-- **M1 pushed 2026-09-27, waiting for the owner's iPad + Pencil test (STOP)**: cleaning (3 tools, 4 layers, self-finishing tiles with bells, layer chords, tool hints), the transition (light sweep, outlines grow from the centre, numbers fade in), retouch variant B (reveal spreads from the touch with a streaky wet front, then a drying gloss), hint ring, peek (hold the eye), save/restore mid-stage, finale with the painting card. All 3 paintings playable on all 3 levels. Don't start M2 until the owner has given M1 feedback.
+- **M0 done**, **M1 accepted** 2026-09-27 after the owner's iPad test. Owner feedback applied: peek (hold the eye) stays; "Znajdź" limited to **5 per painting**; the selected paint's fields get a **semi-transparent white/grey checker** (visible on any colour, tiny fields too); pinch zoom-out bug fixed (a finger used as the tool stayed in the touch list); with the Pencil a **finger tap paints** a field; generative **music** (music-box plucks over a pad) with separate music / effects toggles; retouch save restore fixed; the commission card shows the original first, the copy's story below; the collection should include easier paintings (still lifes, prints).
+- **M2 in progress / pushed for review**: gilding, varnish, finale, gallery with replay, saves for all stages, `dodaj-obraz` + `przelicz-kolekcje` skills, collection of 30 paintings built with the pipeline.
 - Player-facing text Polish; code and comments English; commit messages Polish. Don't wait for the Pages deploy after a push.
+
+## Stages of one painting (`src/game/studio.ts`)
+
+`intro → clean → toRetouch → retouch → toGild → gild → toVarnish → varnish → finale`. Transitions are timed in `update()` (light sweeps, outlines growing, gold shine). Saves (`WorkSave.stage`): clean | retouch | gild | varnish | done; a save whose region count differs from the level (painting rebuilt) is ignored.
+- Gilding (`gilding.ts`, `render/gilt.ts`): the frame ring is split into leaf-sized patches; touching a bare patch lays a crumpled leaf (GPU stamp), rubbing burnishes (G channel); a patch >72 % burnished finishes itself. Frame look in `FRAME_FS`: profile per level (`u_style` 0 plain / 1 pearls / 2 carved + corner rosettes), gold = softbox reflections, sharper as it's burnished, moving with `tilt` (`game/tilt.ts`: DeviceOrientation after a tap on iOS, mouse on laptops, slow drift otherwise).
+- Varnish (`varnish.ts`): a full-width flat brush; per-row coverage + time in a 1×256 RGBA16F texture; painting shader deepens colour under it, wet streaks along the stroke dry out, a tilt-driven gloss stays.
+- Recording/replay: cleaning strokes (world ints) + paint order are recorded (`rec:<slug>` in IDB while working, `rec-done:<slug>` when finished); the gallery replays them at speed through the same `Studio` (`replay` ctor arg, `quiet` flags).
 
 ## Commands
 
@@ -22,15 +29,18 @@ tools/.venv/bin/python tools/build.py --all              # rebuild the whole col
 
 Python setup once: `python3 -m venv tools/.venv && tools/.venv/bin/pip install -r tools/requirements.txt`.
 
-URL hash: `#p=<slug>/<level>` opens a painting straight away (`/fresh` drops the save), `#skip` skips the cleaning.
+URL hash: `#p=<slug>/<level>` opens a painting straight away (`/fresh` drops the save), `#skip` skips the cleaning, `#gallery` opens the gallery. The menu "⋯" has "Pomiń ten etap (test)" (`studio.skipStage()`).
 Dev helpers on `window.__k`: `studio`, `cam`, `renderer`, `tick(n)` (run n frames synchronously — the browser pane may be hidden and throttle rAF), `shot(name)` (dev server only: renders and saves the canvas to `work/shots/<name>.png`, DOM overlay not included), `stroke(pts, {type, pressure})`, `zig(x0,y0,x1,y1,rows,steps)`, `tap(x,y)`.
 
 ## Painting data (pipeline)
 
+To add a painting follow `.claude/skills/dodaj-obraz/SKILL.md`; after algorithm changes `.claude/skills/przelicz-kolekcje/SKILL.md`.
+
+
 - `paintings/<slug>.json` — the record in the repo: Polish `title/author/date/kind`, `story` (fiction: we restore **copies** from imagined collections — never claim the real painting was somewhere it wasn't), `card` (real facts about the original), per-level segmentation overrides `levels.<level>` (`colors`, `work_long`, `min_area`, `min_radius`, `chroma`, `tv`), optional `dirt` (`soot`, `webs`, `spots` multipliers), `source` (from `fetch_rijks.py`: object number, rights, IIIF/Commons URL).
 - `tools/fetch_rijks.py` — Rijksmuseum search → Linked Art → rights check (PD mark / CC0 only) → IIIF (or Wikimedia Commons via Wikidata when the record has no image). Downloads to `work/<slug>/source.jpg` (gitignored).
 - `tools/segment.py` — TV denoise → k-means in Lab (chroma weighted) → mode filter → connected regions → merge regions too small/thin for a number → smooth upscale → label points (pole of inaccessibility).
-- `tools/build.py` → `public/p/<slug>/`: `image.jpg` (3000 px long side, the texture the retouch reveals), `thumb.jpg`, `<level>.bin` (region map 1600 px long side, RLE u16 pairs), `<level>.json` (palette dark→light, regions `c,x,y,r,a,b`), and `public/p/catalog.json`. Review images in `work/<slug>/review.jpg` — **look at them** after building.
+- `tools/build.py` (`--fit` tunes `work_long` per level towards `TARGETS` and writes it back to the record; paints closer than `MERGE_DE` are merged, k-means samples by detail so flat backgrounds don't eat the palette) → `public/p/<slug>/`: `image.jpg` (3000 px long side, the texture the retouch reveals), `thumb.jpg`, `<level>.bin` (region map 1600 px long side, RLE u16 pairs), `<level>.json` (palette dark→light, regions `c,x,y,r,a,b`), and `public/p/catalog.json` (with content hashes `v`; the game appends `?v=` so the SW's data cache never serves stale files). Review images in `work/<slug>/review.jpg` — **look at them** after building.
 - World units in the game = region-map pixels, y down.
 
 ## Code map

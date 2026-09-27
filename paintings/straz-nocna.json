@@ -1,0 +1,46 @@
+{
+  "order": 30,
+  "title": "Straż nocna",
+  "author": "Rembrandt van Rijn",
+  "date": "1642",
+  "kind": "portret",
+  "story": {
+    "client": "Zarząd ratusza w Toruniu",
+    "text": "Wielka dziewiętnastowieczna kopia, zamówiona dla bractwa kurkowego. Wisiała w ratuszowej sali, gdzie przez dziesięciolecia palono świece i cygara. Werniks pociemniał tak bardzo, że scena wyglądała na nocną."
+  },
+  "card": [
+    "Kapitan Frans Banninck Cocq i porucznik Willem van Ruytenburch wyprowadzają swoją kompanię strzelców. Wokół nich ruch, dym, bębny, broń i dziewczynka w złocistej sukni.",
+    "To scena dzienna. Nazwę „Straż nocna” obraz dostał później, bo pociemniałe warstwy werniksu zrobiły z niego nocny obraz.",
+    "Płótno ma prawie 3,8 na 4,5 metra. W 1715 roku przycięto je ze wszystkich stron, żeby zmieściło się na ścianie ratusza w Amsterdamie."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 593
+    }
+  },
+  "source": {
+    "object_number": "SK-C-5",
+    "title_en": "The Night Watch Militia Company of District II under the Command of Captain Frans Banninck Cocq",
+    "title_nl": "De Nachtwacht",
+    "creator": "Rembrandt van Rijn",
+    "date": "1642",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200107928",
+    "iiif": "https://iiif.micr.io/PJEZO",
+    "commons": null,
+    "description_nl": "Het korporaalschap van kapitein Frans Banninck Cocq en luitenant Willem van Ruytenburch, bekend als de 'Nachtwacht'. Schutters van de kloveniersdoelen uit een poort naar buiten tredend. Op een schild aangebracht naast de poort staan de namen van de afgebeelde personen: Frans Banning Cocq, heer van purmerlant en Ilpendam, Capiteijn Willem van Ruijtenburch van Vlaerdingen, heer van Vlaerdingen, Lu[ij]tenant, Jan Visscher Cornelisen Vaendrich, Rombout Kemp Sergeant, Reijnier Engelen Sergeant, Barent Harmansen, Jan Adriaensen Keyser, Elbert Willemsen, Jan Clasen Leydeckers, Jan Ockersen, Jan Pietersen bronchorst, Harman Iacobsen wormskerck, Jacob Dircksen de Roy, Jan vander heede, Walich Schellingwou, Jan brugman, Claes van Cruysbergen, Paulus Schoonhoven. De schutters zijn gewapend met lansen, musketten en hellebaarden. Rechts de tamboer met een grote trommel. Tussen de soldaten links staat een meisje met een dode kip om haar middel, rechts een blaffende hond. Linksboven de vaandrig met de uitgestoken vaandel.",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 379.5 cm x width 453.5 cm x weight 337 kg x weight 170 kg",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam",
+    "dimensions_nl": "hoogte 379,5 cm (hoogte van het nog resterende originele doek is 363 cm) x breedte 453,5 cm (breedte van het nog resterende originele doek is 438 cm) x gewicht (eigenschap) 337 kg (gewicht met lijst) x gewicht (eigenschap) 170 kg (gewicht zonder lijst)",
+    "medium_en": "oil on canvas",
+    "provenance_en": "Commissioned by or for the sitters for the great hall of the Kloveniersdoelen (the headquarters of the arquebusiers’ civic guard), Amsterdam; first mentioned in the Kloveniersdoelen, 1653: 'Ibid. daer naast aanvolgen. Frans Benning Cock Capn. en Witt van Ruijtenburg Lut. geschildert van Rembrand an 1642.';{Schaep 1653, p. 135, no. 4.} transferred to the Small Council of War Chamber (Kleine Krijgsraadkamer) in the Town Hall on Dam square, Amsterdam, 1715 {SAA, Archief van de Thesaurieren Ordinaris, Resolutieboek 28 October 1711-28 January 1723, 23 May 1715: 'Is geordonneert, omme het groote Stuk Schilderij van Rembrandts hangende op de Saal van de Colveniersdoelen Schoon te maken, en als dan hetzelve te Plaetsen op de Kreygsraats Kamer van het Stadhuys'. First published in Dyserinck 1890, p. 245.} transferred to the house of Cornelis Sebille Roos (the 'Trippenhuis'), 29 Kloveniersburgwal, Amsterdam, 1808;{See Brugmans 1913, p. 60.} on loan to the museum from the City of Amsterdam since 1808",
+    "credit_en": "On loan from the City of Amsterdam",
+    "image": "https://iiif.micr.io/PJEZO/full/!4000,4000/0/default.jpg"
+  }
+}

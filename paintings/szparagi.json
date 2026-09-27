@@ -1,0 +1,41 @@
+{
+  "order": 7,
+  "title": "Martwa natura ze szparagami",
+  "author": "Adriaen Coorte",
+  "date": "1697",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Właścicielka apteki na Starym Mieście w Lublinie",
+    "text": "Kopia wisiała w aptece za ladą przez ponad pół wieku. Unosiły się tam opary spirytusu i ziół, a klienci zostawiali na szkle gablot tłuste odciski palców. W końcu nikt nie pamiętał, co jest na obrazie."
+  },
+  "card": [
+    "Pęczek białych szparagów związany łykiem leży na krawędzi kamiennego blatu. Tło jest ciemne i puste, więc całe światło spada na łodygi i ich różowe końcówki.",
+    "Obraz jest mały, ma zaledwie 25 na 20,5 cm. Coorte malował szparagi wiele razy. Były wtedy przysmakiem, który pojawiał się na stołach tylko przez kilka wiosennych tygodni."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2099",
+    "title_en": "Still Life with Asparagus",
+    "title_nl": "Stilleven met asperges",
+    "creator": "Adriaen Coorte (vermeld op object)",
+    "date": "1697",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109193",
+    "iiif": "https://iiif.micr.io/OHDPD",
+    "commons": null,
+    "medium_nl": "olieverf op papier op paneel",
+    "dimensions_en": "height 25 cm x width 20.5 cm",
+    "description_nl": "Stilleven met een bosje asperges.",
+    "credit_en": "A.A. des Tombe Bequest, The Hague",
+    "dimensions_nl": "hoogte 25 cm x breedte 20,5 cm",
+    "credit_nl": "Legaat van de heer A.A. des Tombe, Den Haag",
+    "image": "https://iiif.micr.io/OHDPD/full/!4000,4000/0/default.jpg"
+  }
+}

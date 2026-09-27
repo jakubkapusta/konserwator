@@ -1,0 +1,43 @@
+{
+  "order": 3,
+  "title": "Wielka fala w Kanagawie",
+  "author": "Katsushika Hokusai",
+  "date": "1829–1833",
+  "kind": "drzeworyt",
+  "story": {
+    "client": "Pan Tadeusz, marynarz w stanie spoczynku",
+    "text": "Ręcznie malowana kopia drzeworytu, przywieziona z rejsu do Jokohamy w latach siedemdziesiątych. Wisiała w kajucie, a potem nad piecykiem na działce pod Gdynią. Papier pożółkł od dymu, a w rogach zamieszkały pająki."
+  },
+  "card": [
+    "Olbrzymia fala z pazurami piany wisi nad trzema łodziami z wioślarzami. W dole, między grzbietami wody, widać maleńką górę Fuji. To najsłynniejszy obraz japońskiej sztuki.",
+    "Hokusai wydał go w serii „Trzydzieści sześć widoków góry Fuji”. To drzeworyt: każdy kolor odbijano z osobnego klocka drewna, a do błękitu użyto sprowadzanego z Europy błękitu pruskiego, wtedy nowości w Japonii.",
+    "Odbitki sprzedawano tanio i w dużych nakładach. Po otwarciu Japonii na świat takie grafiki zachwyciły europejskich malarzy, między innymi Van Gogha i Moneta."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1956-733",
+    "title_en": "Under the Wave off Kanagawa",
+    "title_nl": "De grote golf bij Kanagawa",
+    "creator": "Katsushika Hokusai (mentioned on object)",
+    "date": "1829 - 1833",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134564",
+    "iiif": "https://iiif.micr.io/MFiyA",
+    "commons": null,
+    "dimensions_en": "height 254 mm x width 375 mm",
+    "description_nl": "Een hoge golf, op het punt van omslaan, in een woelige zee met drie roeibootjes, de golven trotserend; op de achtergrond de berg Fuji.",
+    "dimensions_nl": "blad: hoogte 254 mm x breedte 375 mm",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "medium_nl": "kleurenhoutsnede; lijnblok in blauw met kleurblokken",
+    "image": "https://iiif.micr.io/MFiyA/full/!4000,4000/0/default.jpg"
+  },
+  "medium": "drzeworyt barwny"
+}

@@ -1,0 +1,48 @@
+{
+  "order": 8,
+  "title": "Dziewczyna w białym kimonie",
+  "author": "George Hendrik Breitner",
+  "date": "1894",
+  "kind": "portret",
+  "story": {
+    "client": "Fundacja teatru w Łodzi",
+    "text": "Kopia wisiała w garderobie aktorek łódzkiego teatru. Sto lat pudru, dymu papierosowego i lakieru do włosów zostawiło na niej lepką szarą warstwę, a ktoś kiedyś przykleił do ramy afisz."
+  },
+  "card": [
+    "Młoda kobieta w białym kimonie leży na kanapie przykrytej tkaniną. Za nią stoi parawan, a jej jasne ubranie świeci na tle czerwieni i złota.",
+    "Pozowała Geesje Kwak, szesnastoletnia modelka, z którą Breitner namalował całą serię dziewcząt w kimonach. W Europie trwała wtedy moda na Japonię i japońskie tkaniny.",
+    "Breitner był malarzem Amsterdamu i jednym z pierwszych holenderskich artystów, którzy fotografowali, żeby lepiej malować."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 511
+    },
+    "trudny": {
+      "work_long": 629
+    }
+  },
+  "source": {
+    "object_number": "SK-A-3584",
+    "title_en": "Girl in a White Kimono",
+    "title_nl": "Meisje in witte kimono",
+    "creator": "George Hendrik Breitner (vermeld op object)",
+    "date": "1894",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108304",
+    "iiif": "https://iiif.micr.io/cQMKz",
+    "commons": null,
+    "credit_en": "Mr and Mrs Drucker-Fraser Bequest, Montreux",
+    "description_nl": "Een meisje gekleed in een kimono, achterover liggend op een bank. Waarschijnlijk het model Geesje Kwak.",
+    "medium_nl": "olieverf op doek",
+    "dimensions_nl": "doekmaat: hoogte 59 cm x breedte 57 cm x diepte 11 cm",
+    "credit_nl": "Legaat van de heer en mevrouw Drucker-Fraser, Montreux",
+    "medium_en": "oil on canvas",
+    "dimensions_en": "height 59 cm x width 57 cm x depth 11 cm",
+    "provenance_en": "…; on loan from Jean Charles Joseph Drucker (1862-1944, Montreux) and Maria Lydia Drucker-Fraser (1886-1944, Montreux), with 70 other paintings, to the museum, 1919;{Note RMA.} by whom bequeathed, with 71 other paintings, to the museum, 1944",
+    "image": "https://iiif.micr.io/cQMKz/full/!4000,4000/0/default.jpg"
+  }
+}

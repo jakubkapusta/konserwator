@@ -149,6 +149,7 @@ export class Studio {
       this.setPhase('clean');
       return;
     }
+    if (save && save.regions && save.regions !== this.lv.regions.length) save = null; // the painting was rebuilt
     const rec = await idbGet<Recording>('rec:' + this.item.slug);
     if (save && rec && rec.level === this.levelId) this.rec = rec;
     if (save && save.stage !== 'clean') {
@@ -544,7 +545,7 @@ export class Studio {
     const st = this.stage;
     const progress = st === 'clean' ? this.cleaning.progress : st === 'retouch' ? this.retouch.done / this.retouch.total
       : st === 'gild' ? this.gilding.progress : st === 'varnish' ? this.varnish.progress : 1;
-    const w: WorkSave = { v: 1, slug: this.item.slug, level: this.levelId, stage: st, t: Date.now(), progress };
+    const w: WorkSave = { v: 1, slug: this.item.slug, level: this.levelId, stage: st, t: Date.now(), progress, regions: this.lv.regions.length };
     if (st === 'clean') w.clean = this.cleaning.saveState();
     else {
       w.painted = this.retouch.order.slice();

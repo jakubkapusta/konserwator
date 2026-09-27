@@ -1,0 +1,46 @@
+{
+  "order": 16,
+  "title": "Muszle na kamiennym postumencie",
+  "author": "Adriaen Coorte",
+  "date": "1698",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Muzeum regionalne w Helu",
+    "text": "Kopia z dawnej izby rybackiej, którą muzeum dostało razem z sieciami i beczkami. Wisiała nad piecem w wędzarni, więc pokryła ją warstwa sadzy o zapachu ryby."
+  },
+  "card": [
+    "Na kamiennej półce leży kilka muszli o różnych kształtach i barwach. Są tak dokładne, że można rozpoznać gatunki.",
+    "W czasach Coortego egzotyczne muszle przywożone przez holenderskie statki z Azji i Afryki były cenione jak klejnoty. Kolekcjonerzy płacili za nie fortuny.",
+    "Coorte malował małe obrazy w Middelburgu, a po śmierci na długo o nim zapomniano. Jego sztukę doceniono ponownie w XX wieku."
+  ],
+  "levels": {
+    "latwy": {
+      "work_long": 765
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-1761",
+    "title_en": "Shells on a Stone Plinth",
+    "title_nl": "Schelpen op een stenen plint",
+    "creator": "Adriaen Coorte",
+    "date": "1698",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200614287",
+    "iiif": "https://iiif.micr.io/HpCpn",
+    "commons": null,
+    "medium_en": "oil on paper on panel",
+    "description_nl": "Schelpen op een stenen plint; Euspira nitida, Chicoreus saulii, Cittarium pica, Terebra subulata en Tonna tessellata.",
+    "dimensions_en": "height 29 cm x width 22.5 cm",
+    "dimensions_nl": "inclusief lijst: hoogte 0 cm x breedte 0 cm",
+    "medium_nl": "olieverf op papier op paneel, zit in klimaatlijst (lijstnummer ontbreekt)",
+    "credit_en": "On loan from a private collector",
+    "credit_nl": "Bruikleen van een particulier",
+    "image": "https://iiif.micr.io/HpCpn/full/!4000,4000/0/default.jpg"
+  },
+  "medium": "olej na papierze naklejonym na deskę"
+}

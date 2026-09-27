@@ -74,6 +74,8 @@ export class UI implements StudioUI {
   }
 
   // ---------------- menu ----------------
+  private kindFilter = '';
+
   showMenu(items: CatalogItem[]) {
     this.hideAll();
     const work = allWork();
@@ -81,20 +83,42 @@ export class UI implements StudioUI {
     this.menu.innerHTML = '';
     const head = h('header', '', `<h1>Konser<span>w</span>ator</h1><p>Pracownia konserwacji malarstwa</p>`);
     head.append(this.tabs('menu'));
-    const grid = h('div', 'commissions');
-    for (const it of items) {
+    const card = (it: CatalogItem) => {
       const w = work[it.slug];
       const d = done[it.slug] ?? {};
-      const c = h('button', 'card' + (Object.keys(d).length ? ' done' : w ? ' started' : ''));
+      const live = w && w.stage !== 'done';
+      const c = h('button', 'card' + (Object.keys(d).length ? ' done' : live ? ' started' : ''));
       c.innerHTML = `<div class="dots">${LEVELS.map((l) => `<i class="${d[l.id] ? 'on' : ''}" title="${l.name}"></i>`).join('')}</div>
         <div class="pic"><div class="fr"><img src="${thumbUrl(it.slug)}" alt="" loading="lazy"></div></div>
         <h3>${it.title}</h3><div class="by">${it.author}, ${it.date}</div>
-        <div class="state">${w ? stateText(w) : Object.keys(d).length ? 'Wisi w galerii' : 'Nowe zlecenie'}</div>`;
+        <div class="state">${live ? stateText(w) : Object.keys(d).length ? 'Wisi w galerii' : 'Nowe zlecenie'}</div>`;
       c.onclick = () => this.act.open(it);
-      grid.append(c);
+      return c;
+    };
+    this.menu.append(head);
+    const easel = items.filter((it) => work[it.slug] && work[it.slug].stage !== 'done').sort((a, b) => work[b.slug].t - work[a.slug].t);
+    if (easel.length) {
+      this.menu.append(h('h2', 'shelf', 'Na sztalugach'));
+      const g = h('div', 'commissions');
+      easel.forEach((it) => g.append(card(it)));
+      this.menu.append(g);
     }
-    const foot = h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna');
-    this.menu.append(head, grid, foot);
+    const kinds = [...new Set(items.map((i) => i.kind).filter(Boolean))] as string[];
+    const chips = h('div', 'chips');
+    const grid = h('div', 'commissions');
+    const fill = () => {
+      grid.innerHTML = '';
+      items.filter((it) => !this.kindFilter || it.kind === this.kindFilter).forEach((it) => grid.append(card(it)));
+      chips.querySelectorAll('button').forEach((b) => b.classList.toggle('on', (b as HTMLElement).dataset.k === this.kindFilter));
+    };
+    for (const k of ['', ...kinds]) {
+      const b = h('button', '', k ? k[0].toUpperCase() + k.slice(1) : 'Wszystkie');
+      b.dataset.k = k;
+      b.onclick = () => { this.kindFilter = k; fill(); };
+      chips.append(b);
+    }
+    fill();
+    this.menu.append(h('h2', 'shelf', 'Zlecenia'), chips, grid, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
     this.menu.classList.add('show');
   }
 
@@ -394,7 +418,7 @@ export class UI implements StudioUI {
       f.dataset.slug = it.slug;
       const [w, hh] = it.size;
       const H = 300, W = Math.round((H * w) / hh);
-      f.innerHTML = `<div class="lamp"></div><div class="fr"><div class="fr-in"><img src="${thumbUrl(it.slug)}" alt="" style="width:${Math.min(W, 380)}px"></div></div>
+      f.innerHTML = `<div class="lamp"></div><div class="fr"><div class="fr-bead"><div class="fr-in"><img src="${thumbUrl(it.slug)}" alt="" style="width:${Math.min(W, 380)}px"></div></div></div>
         <div class="plaque"><b>${it.title}</b><span>${it.author}, ${it.date}</span><i>${LEVELS.map((l) => `<em class="${lv[l.id] ? 'on' : ''}"></em>`).join('')}</i></div>`;
       f.onclick = () => this.galleryCard(it);
       wall.append(f);

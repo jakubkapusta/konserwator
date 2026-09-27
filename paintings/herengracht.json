@@ -1,0 +1,44 @@
+{
+  "order": 14,
+  "title": "Złoty Zakręt na Herengracht",
+  "author": "Gerrit Berckheyde",
+  "date": "1671–1672",
+  "kind": "miasto",
+  "story": {
+    "client": "Biuro architektów z Krakowa",
+    "text": "Kopię kupiono na aukcji dla biura na Kazimierzu. Przez lata wisiała w pokoju, w którym stał kserograf i palili wszyscy pracownicy. Kanał zniknął pod żółtym nalotem."
+  },
+  "card": [
+    "Wzdłuż kanału stoją okazałe kamienice z piaskowca i cegły, a w wodzie odbijają się fasady. Po ulicy jedzie powóz, idą przechodnie. Brakuje tylko drzew, które dziś rosną wzdłuż całego kanału.",
+    "Ten odcinek Herengracht nazywano Złotym Zakrętem, bo mieszkali tu najbogatsi kupcy Amsterdamu. Kamienice były wtedy prawie nowe.",
+    "Gerrit Berckheyde pochodził z Haarlemu i malował widoki miast z dokładnością niemal fotograficzną."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-5003",
+    "title_en": "View of the Golden Bend in the Herengracht",
+    "title_nl": "Gezicht op de Gouden Bocht in de Herengracht",
+    "creator": "Gerrit Berckheyde",
+    "date": "1671 - 1672",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/20013086",
+    "iiif": "https://iiif.micr.io/vYQLC",
+    "commons": null,
+    "description_nl": "Gezicht op de Amsterdamse Herengracht in aanbouw, gezien vanaf de brug van de Vijzelstraat. Bocht met in classicistische stijl opgetrokken grachtenpanden op de Herengracht met de ingang van de Nieuwe Spiegelstraat aan de linkerkant. Tussen de nog onvoltooide gevelrij valt zonlicht en reflecteert op het water van de gracht. Bouwmaterialen liggen verspreid op de kade. Schuttingen schermen de onbebouwde kavels af van de openbare weg. Het laatste pand aan de zuidzijde van de gracht staat zelfs nog in de steigers.",
+    "dimensions_en": "height 42.5 cm x width 57.9 cm",
+    "medium_en": "oil on panel",
+    "medium_nl": "olieverf op paneel",
+    "credit_en": "Purchased upon the recommendation of the Vereniging Rembrandt - with the support of the Stichting Nationaal Fonds Kunstbezit, thanks to a gift of the Royal Dutch Shell, and the BankGiro Lottery",
+    "provenance_en": "…; ? collection Sir William Cuthbert Quilter (1841-1911), Bawdsey Manor, Suffolk;{According to the catalogue of the anonymous sale, part I, London (Sotheby’s), 10 July 2002, no. 42.} …; collection John Quilter, Chelsea Square, Londen/ Dock House, Ramsholt, Suffolk, 1966;{According to the catalogue of the sale anonymous sale, part I, London (Sotheby’s), 10 July 2002, no. 42.} …; the dealer Gooden and Fox, London;{According to the catalogue of the anonymous sale, part I, London (Sotheby’s), 10 July 2002, no. 42.} from whom purchased by private collectors;{According to the catalogue of the anonymous sale, part I, London (Sotheby’s), 10 July 2002, no. 42.}; their daughter;{According to the catalogue of the anonymous sale, part I, London (Sotheby’s), 10 July 2002, no. 42.}; anonymous sale, part I [section the property of a lady(daughter of the previous owners)], London (Sotheby’s), 10 July 2002, no. 42, £611,650, to the dealer Richard Green, London, 2002;{Note RMA.}; from whom purchased by a private collector; from whom purchased by the museum, 2008, with support of Royal Dutch Shell, the Stichting Nationaal Fonds Kunstbezit and the BankGiro Loterij",
+    "credit_nl": "Aankoop op voordracht van de Vereniging Rembrandt – met steun van de Stichting Nationaal Fonds Kunstbezit, dankzij een gift van de Royal Dutch Shell, en de BankGiro Loterij",
+    "dimensions_nl": "hoogte 42,5 cm x breedte 57,9 cm",
+    "image": "https://iiif.micr.io/vYQLC/full/!4000,4000/0/default.jpg"
+  }
+}

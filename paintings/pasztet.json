@@ -1,0 +1,48 @@
+{
+  "order": 19,
+  "title": "Martwa natura z pasztetem z indyka",
+  "author": "Pieter Claesz",
+  "date": "1627",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Pani Barbara, szefowa kuchni ze Szczecina",
+    "text": "Kopia wisiała w kuchni restauracji tuż nad płytą. Tłuszcz z patelni i para z garnków zrobiły z niej lepką, bursztynową taflę."
+  },
+  "card": [
+    "Na białym adamaszkowym obrusie stoją cynowe talerze z ostrygami, cytryną i pasztetem, dzbanek, kieliszek, nóż i bułki. Z tyłu wznosi się wielki pasztet, na którym ustawiono indyka.",
+    "Obok leżą muszla nautilusa oprawiona w puchar i chińska miska z owocami. Takie przedmioty świadczyły o bogactwie i dalekim handlu.",
+    "Pieter Claesz był mistrzem martwych natur z Haarlemu. Muzeum kupiło ten obraz w 1974 roku."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 503
+    },
+    "trudny": {
+      "work_long": 630
+    }
+  },
+  "source": {
+    "object_number": "SK-A-4646",
+    "title_en": "Still Life with a Turkey Pie",
+    "title_nl": "Stilleven met kalkoenpastei",
+    "creator": "Pieter Claesz (signed by artist)",
+    "date": "1627",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109183",
+    "iiif": "https://iiif.micr.io/TmDqg",
+    "commons": null,
+    "dimensions_en": "support: height 76.5 cm x width 135 cm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Stichting tot Bevordering van de Belangen van het Rijksmuseum",
+    "provenance_en": "…; collection, Cecilia Maria Barones Van Pallandt, née jonkvrouw Steengracht (1813-99), kasteel Keukenhof, Lisse, before 1881;{_<em>Schilderijen van oude meesters uit particulier bezit op de tentoonstelling ten bate van de watersnoodslachtoffers</em>_, The Hague (Noordeinde Palace) 1881, no. 33; G. Jaspers, ‘Uit het oog - niet uit het hart. De teloorgang van een schilderijencollectie,’ in G. Jaspers <em>et al.</em> (eds), _<em>Kunst, natuur en techniek op en rond kasteel Keukenhof </em>_, Hilversum 2009, pp. 10-68, esp. pp. 17, 29.} her daughter, Cornelia Johanna Gravin van Lynden, née Barones van Pallandt (1840-1923), kasteel Keukenhof, Lisse;{G. Jaspers, ‘Uit het oog - niet uit het hart. De teloorgang van een schilderijencollectie,’ in G. Jaspers <em>et al.</em> (eds), _<em>Kunst, natuur en techniek op en rond kasteel Keukenhof </em>_, Hilversum 2009, pp. 10-68, esp. p. 29.} her son Johan Maurits Dideric Graaf van Lynden (1864-1930), kasteel Keukenhof, Lisse;{G. Jaspers, ‘Uit het oog - niet uit het hart. De teloorgang van een schilderijencollectie,’ in G. Jaspers <em>et al.</em> (eds), _<em>Kunst, natuur en techniek op en rond kasteel Keukenhof </em>_, Hilversum 2009, pp. 10-68, esp. p. 29.} his son Johan Carel Elias Graaf van Lynden (1912-2003), Sint-Michielsgestel; from whom, fl. 300,000, to the dealer S. Nijstad, The Hague, 1974;{ G. Jaspers, ‘Uit het oog - niet uit het hart. De teloorgang van een schilderijencollectie,’ in G. Jaspers <em>et al.</em> (eds), _<em>Kunst, natuur en techniek op en rond kasteel Keukenhof </em>_, Hilversum 2009, pp. 10-68, esp. p. 29.} from whom, fl. 832,000, to the museum, with support from the Vereniging Rembrandt, the Prins Bernhard Cultuurfonds and the Fotocommissie, 1974",
+    "medium_en": "oil on panel",
+    "medium_nl": "olieverf op paneel",
+    "description_nl": "Stilleven met kalkoenpastei.Tafel met een tafelkleed van wit damast waarop staan tinnen borden met een pastei, oesters, citroen, zout en peper en olijven (?). Verder een tinnen schenkkan, roemer, mes, noten, broodjes, een nautilusbeker en een Wan Li-schaal met vruchten. Achteraan staat een grote pastei waarop een kalkoen is gezet.",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en de Stichting tot Bevordering van de Belangen van het Rijksmuseum",
+    "dimensions_nl": "drager: hoogte 76,5 cm x breedte 135 cm",
+    "image": "https://iiif.micr.io/TmDqg/full/!4000,4000/0/default.jpg"
+  }
+}

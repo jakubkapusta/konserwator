@@ -10,17 +10,21 @@
    "levels": {
     "latwy": {
      "colors": 16,
-     "regions": 87
+     "regions": 88,
+     "v": "f6729e0f"
     },
     "sredni": {
      "colors": 24,
-     "regions": 205
+     "regions": 186,
+     "v": "40eb7118"
     },
     "trudny": {
      "colors": 36,
-     "regions": 435
+     "regions": 409,
+     "v": "af3ba1f9"
     }
    },
+   "v": "f1fe9c7a",
    "title": "Mleczarka",
    "author": "Johannes Vermeer",
    "date": "ok. 1660",
@@ -43,8 +47,191 @@
    "dirt": null
   },
   {
-   "slug": "uliczka",
+   "slug": "truskawki",
    "order": 2,
+   "size": [
+    1232,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 83,
+     "v": "bfff0a68"
+    },
+    "sredni": {
+     "colors": 20,
+     "regions": 117,
+     "v": "18ab55e4"
+    },
+    "trudny": {
+     "colors": 32,
+     "regions": 292,
+     "v": "79d1f396"
+    }
+   },
+   "v": "7e969aa6",
+   "title": "Miska truskawek",
+   "author": "Adriaen Coorte",
+   "date": "1696",
+   "objectNumber": "SK-A-5098",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200367359",
+   "kind": "martwa natura",
+   "medium": null,
+   "dimensions": "28,9 × 22,3 cm",
+   "story": {
+    "client": "Pani Halina, emerytowana nauczycielka biologii",
+    "text": "Mała kopia w dębowej ramce, która przez trzydzieści lat wisiała w szkolnej pracowni biologicznej w Tarnowie, tuż nad klatką z kanarkami. Dzieci dotykały jej palcami, a kurz z tablicy osiadał warstwa po warstwie."
+   },
+   "card": [
+    "Na kamiennym postumencie stoi porcelanowa miseczka pełna truskawek. Kilka owoców leży obok, a z tła wyłania się tylko ciemność. Coorte malował niewiele przedmiotów, za to z niezwykłą uwagą dla światła na każdej pestce.",
+    "Adriaen Coorte pracował w Middelburgu na przełomie XVII i XVIII wieku i malował prawie wyłącznie takie małe, skromne martwe natury. Po śmierci o nim zapomniano. Jego obrazy odkryto na nowo dopiero w XX wieku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "wielka-fala",
+   "order": 3,
+   "size": [
+    1600,
+    1092
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 8,
+     "regions": 48,
+     "v": "bd7dde48"
+    },
+    "sredni": {
+     "colors": 15,
+     "regions": 154,
+     "v": "8f016401"
+    },
+    "trudny": {
+     "colors": 24,
+     "regions": 352,
+     "v": "4c738e9f"
+    }
+   },
+   "v": "e6c13c63",
+   "title": "Wielka fala w Kanagawie",
+   "author": "Katsushika Hokusai",
+   "date": "1829–1833",
+   "objectNumber": "RP-P-1956-733",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134564",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": null,
+   "story": {
+    "client": "Pan Tadeusz, marynarz w stanie spoczynku",
+    "text": "Ręcznie malowana kopia drzeworytu, przywieziona z rejsu do Jokohamy w latach siedemdziesiątych. Wisiała w kajucie, a potem nad piecykiem na działce pod Gdynią. Papier pożółkł od dymu, a w rogach zamieszkały pająki."
+   },
+   "card": [
+    "Olbrzymia fala z pazurami piany wisi nad trzema łodziami z wioślarzami. W dole, między grzbietami wody, widać maleńką górę Fuji. To najsłynniejszy obraz japońskiej sztuki.",
+    "Hokusai wydał go w serii „Trzydzieści sześć widoków góry Fuji”. To drzeworyt: każdy kolor odbijano z osobnego klocka drewna, a do błękitu użyto sprowadzanego z Europy błękitu pruskiego, wtedy nowości w Japonii.",
+    "Odbitki sprzedawano tanio i w dużych nakładach. Po otwarciu Japonii na świat takie grafiki zachwyciły europejskich malarzy, między innymi Van Gogha i Moneta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "labedz",
+   "order": 4,
+   "size": [
+    1600,
+    1332
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 69,
+     "v": "085f5698"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 207,
+     "v": "aacac530"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 461,
+     "v": "2837bad0"
+    }
+   },
+   "v": "ed07305a",
+   "title": "Zagrożony łabędź",
+   "author": "Jan Asselijn",
+   "date": "ok. 1650",
+   "objectNumber": "SK-A-4",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108146",
+   "kind": "zwierzęta",
+   "medium": "olej na płótnie",
+   "dimensions": "144 × 171 cm",
+   "story": {
+    "client": "Fundacja opiekująca się dworem pod Kaliszem",
+    "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
+   },
+   "card": [
+    "Łabędź z rozpostartymi skrzydłami broni gniazda przed psem, który podpływa z lewej strony. Asselijn namalował zwierzę niemal w naturalnej wielkości, a dramatyczne światło podkreśla gniew ptaka.",
+    "Później ktoś dopisał na obrazie słowa, które zmieniły go w alegorię polityczną. Łabędź stał się wielkim pensjonariuszem Johanem de Wittem, a jajo w gnieździe Holandią broniącą się przed wrogiem.",
+    "Był to pierwszy obraz kupiony w 1800 roku przez Nationale Kunst-Galerij, poprzedniczkę dzisiejszego Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "wiatrak",
+   "order": 5,
+   "size": [
+    1600,
+    1356
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 64,
+     "v": "e1ee63ac"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 181,
+     "v": "7594611a"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 335,
+     "v": "63d37c8f"
+    }
+   },
+   "v": "6d6b8282",
+   "title": "Młyn w Wijk bij Duurstede",
+   "author": "Jacob van Ruisdael",
+   "date": "ok. 1668–1670",
+   "objectNumber": "SK-C-211",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200107959",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "83 × 101 cm",
+   "story": {
+    "client": "Gospodarz zajazdu pod Kazimierzem Dolnym",
+    "text": "Dziewiętnastowieczna kopia, którą ktoś przywiózł z Holandii i powiesił w sali jadalnej zajazdu. Nad obrazem przez sto lat buzował kominek, a pod nim goście palili fajki. Werniks zrobił się brązowy jak herbata."
+   },
+   "card": [
+    "Nad rzeką Lek wznosi się okrągły młyn wiatrowy, a nad nim kłębią się chmury. Po lewej płynie łódka, w oddali widać wieże zamku Duurstede i kościoła. Brzegiem idzie kilka kobiet.",
+    "Ruisdael ustawił widza nisko, niemal przy wodzie, więc młyn wyrasta ponad horyzont jak pomnik. Połowę obrazu zajmuje niebo z chmurami, w których odbija się światło.",
+    "Obraz uchodzi za jeden z najważniejszych pejzaży holenderskiego złotego wieku. Muzeum ma go w depozycie od miasta Amsterdam, z kolekcji zapisanej przez Adriaana van der Hoopa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "uliczka",
+   "order": 6,
    "size": [
     1292,
     1600
@@ -52,17 +239,21 @@
    "levels": {
     "latwy": {
      "colors": 16,
-     "regions": 129
+     "regions": 131,
+     "v": "721d8bdc"
     },
     "sredni": {
-     "colors": 24,
-     "regions": 337
+     "colors": 23,
+     "regions": 296,
+     "v": "cc4396fc"
     },
     "trudny": {
      "colors": 36,
-     "regions": 679
+     "regions": 411,
+     "v": "5c23d007"
     }
    },
+   "v": "209938ce",
    "title": "Uliczka",
    "author": "Johannes Vermeer",
    "date": "ok. 1658",
@@ -85,44 +276,1105 @@
    "dirt": null
   },
   {
-   "slug": "labedz",
-   "order": 3,
+   "slug": "szparagi",
+   "order": 7,
+   "size": [
+    1286,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 57,
+     "v": "762936f0"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 137,
+     "v": "64d6e2e2"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 281,
+     "v": "d008d0b4"
+    }
+   },
+   "v": "0291cdfb",
+   "title": "Martwa natura ze szparagami",
+   "author": "Adriaen Coorte",
+   "date": "1697",
+   "objectNumber": "SK-A-2099",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109193",
+   "kind": "martwa natura",
+   "medium": null,
+   "dimensions": "25 × 20,5 cm",
+   "story": {
+    "client": "Właścicielka apteki na Starym Mieście w Lublinie",
+    "text": "Kopia wisiała w aptece za ladą przez ponad pół wieku. Unosiły się tam opary spirytusu i ziół, a klienci zostawiali na szkle gablot tłuste odciski palców. W końcu nikt nie pamiętał, co jest na obrazie."
+   },
+   "card": [
+    "Pęczek białych szparagów związany łykiem leży na krawędzi kamiennego blatu. Tło jest ciemne i puste, więc całe światło spada na łodygi i ich różowe końcówki.",
+    "Obraz jest mały, ma zaledwie 25 na 20,5 cm. Coorte malował szparagi wiele razy. Były wtedy przysmakiem, który pojawiał się na stołach tylko przez kilka wiosennych tygodni."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kimono",
+   "order": 8,
+   "size": [
+    1554,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 94,
+     "v": "ee0758ff"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 222,
+     "v": "1580f1ce"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 481,
+     "v": "4aeca3c2"
+    }
+   },
+   "v": "fabb1750",
+   "title": "Dziewczyna w białym kimonie",
+   "author": "George Hendrik Breitner",
+   "date": "1894",
+   "objectNumber": "SK-A-3584",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108304",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "59 × 57 cm",
+   "story": {
+    "client": "Fundacja teatru w Łodzi",
+    "text": "Kopia wisiała w garderobie aktorek łódzkiego teatru. Sto lat pudru, dymu papierosowego i lakieru do włosów zostawiło na niej lepką szarą warstwę, a ktoś kiedyś przykleił do ramy afisz."
+   },
+   "card": [
+    "Młoda kobieta w białym kimonie leży na kanapie przykrytej tkaniną. Za nią stoi parawan, a jej jasne ubranie świeci na tle czerwieni i złota.",
+    "Pozowała Geesje Kwak, szesnastoletnia modelka, z którą Breitner namalował całą serię dziewcząt w kimonach. W Europie trwała wtedy moda na Japonię i japońskie tkaniny.",
+    "Breitner był malarzem Amsterdamu i jednym z pierwszych holenderskich artystów, którzy fotografowali, żeby lepiej malować."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "autoportret-van-gogh",
+   "order": 9,
+   "size": [
+    1270,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 122,
+     "v": "008893ef"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 245,
+     "v": "10c6d527"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 414,
+     "v": "40f5b50a"
+    }
+   },
+   "v": "9a2c884c",
+   "title": "Autoportret",
+   "author": "Vincent van Gogh",
+   "date": "1887",
+   "objectNumber": "SK-A-3262",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109794",
+   "kind": "portret",
+   "medium": null,
+   "dimensions": "42 × 34 cm",
+   "story": {
+    "client": "Pan Julian, student Akademii Sztuk Pięknych",
+    "text": "Studencka kopia z lat sześćdziesiątych, znaleziona w piwnicy akademika przy remoncie. Leżała pod stertą ram obok kotłowni, więc pokryła ją sadza, a ktoś zostawił na niej kropki farby z własnej palety."
+   },
+   "card": [
+    "Vincent van Gogh patrzy prosto na nas. Twarz, broda i tło zbudował z krótkich, osobnych pociągnięć czystych kolorów, które zlewają się w oku dopiero z daleka.",
+    "Namalował ten autoportret w Paryżu, gdzie zobaczył obrazy impresjonistów i puentylistów. Tam jego paleta nagle pojaśniała.",
+    "Van Gogh malował siebie wiele razy, między innymi dlatego, że nie było go stać na opłacanie modeli. Ten autoportret należał do Andriesa Bongera, szwagra jego brata Theo, a w 1936 roku wdowa po nim podarowała go muzeum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "lyzwiarze",
+   "order": 10,
    "size": [
     1600,
-    1332
+    928
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 134,
+     "v": "835faa4a"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 250,
+     "v": "4209b97e"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 443,
+     "v": "be7c2bb8"
+    }
+   },
+   "v": "3695ac04",
+   "title": "Pejzaż zimowy z łyżwiarzami",
+   "author": "Hendrick Avercamp",
+   "date": "ok. 1608",
+   "objectNumber": "SK-A-1718",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108163",
+   "kind": "pejzaż",
+   "medium": "olej na desce",
+   "dimensions": "77,3 × 131,9 cm",
+   "story": {
+    "client": "Proboszcz parafii pod Nowym Sączem",
+    "text": "Stara kopia z plebanii, która przez dziesięciolecia wisiała w kancelarii przy kaflowym piecu. Świece, kadzidło i dym z pieca zrobiły swoje, a zimowy pejzaż wyglądał, jakby leżał pod warstwą błota."
+   },
+   "card": [
+    "Zamarznięta rzeka przy wsi zamieniła się w lodowisko. Są tu łyżwiarze, gracze w kolf, spacerowicze i psy, po prawej sanie, po lewej kościół. Każda z dziesiątek postaci robi coś innego.",
+    "Avercamp był głuchoniemy i nazywano go „Niemową z Kampen”. Specjalizował się w zimowych scenach, które malował w czasach mroźnych zim tak zwanej małej epoki lodowcowej.",
+    "Obraz jest namalowany na desce. Muzeum kupiło go w 1897 roku z pomocą Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "czytajaca-list",
+   "order": 11,
+   "size": [
+    1359,
+    1600
    ],
    "levels": {
     "latwy": {
      "colors": 16,
-     "regions": 102
+     "regions": 57,
+     "v": "4ceb5702"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 170,
+     "v": "fd9d7c92"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 200,
+     "v": "108b6b21"
+    }
+   },
+   "v": "b68ef987",
+   "title": "Kobieta czytająca list",
+   "author": "Johannes Vermeer",
+   "date": "ok. 1663",
+   "objectNumber": "SK-C-251",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108372",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "46,5 × 39 cm",
+   "story": {
+    "client": "Pani Teresa, córka przedwojennego notariusza",
+    "text": "Kopia z kancelarii notarialnej w Poznaniu. Przetrwała wojnę zwinięta w rulon w piwnicy, potem wróciła na ścianę gabinetu, gdzie przez lata palono cygara. Płótno pofałdowało się od wilgoci, a werniks pociemniał."
+   },
+   "card": [
+    "Młoda kobieta w niebieskim kaftanie stoi przy stole i czyta list. Za nią na ścianie wisi mapa na drążkach, przed nią stoją krzesła. Okna nie widać, ale z lewej pada miękkie światło.",
+    "Vermeer nie mówi, co jest w liście. Całą uwagę przyciąga skupiona twarz i cisza pokoju, namalowana subtelnymi odcieniami błękitu i szarości.",
+    "Obraz należy do miasta Amsterdam i od 1885 roku jest w depozycie Rijksmuseum. Trafił tam z kolekcji zapisanej przez Adriaana van der Hoopa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zloty-puchar",
+   "order": 12,
+   "size": [
+    1600,
+    1242
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 84,
+     "v": "3703b745"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 249,
+     "v": "a3e1720d"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 497,
+     "v": "14c7c08c"
+    }
+   },
+   "v": "203e4f94",
+   "title": "Martwa natura z pozłacanym pucharem",
+   "author": "Willem Claesz Heda",
+   "date": "1635",
+   "objectNumber": "SK-A-4830",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109354",
+   "kind": "martwa natura",
+   "medium": "olej na desce",
+   "dimensions": "87,8 × 112,6 cm",
+   "story": {
+    "client": "Restauracja przy Długim Targu w Gdańsku",
+    "text": "Kopia wisiała nad bufetem restauracji od czasów międzywojennych. Opary z kuchni, dym papierosowy i tłuszcz osiadły na niej grubą warstwą, a pozłacany puchar wyglądał jak z blachy."
+   },
+   "card": [
+    "Na stole z zielonym obrusem i lnianymi serwetkami leżą chleb, ostrygi na cynowym talerzu i przewrócona srebrna czarka. Są też kieliszki z winem, solniczka i wielki pozłacany puchar z pokrywą.",
+    "Heda należał do malarzy z Haarlemu, którzy malowali takie „bankiety” w stonowanych szarościach i zieleniach. Popisem jego mistrzostwa są odbicia światła w szkle, cynie i srebrze.",
+    "Muzeum kupiło obraz w 1984 roku przy wsparciu Towarzystwa Rembrandta i innych fundacji."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kwiaty-ruysch",
+   "order": 13,
+   "size": [
+    1308,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 90,
+     "v": "9ed246fc"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 203,
+     "v": "2b5a7029"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 471,
+     "v": "df2aaded"
+    }
+   },
+   "v": "f05e315d",
+   "title": "Kwiaty na marmurowym blacie",
+   "author": "Rachel Ruysch",
+   "date": "1716",
+   "objectNumber": "SK-A-2338",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/20027537",
+   "kind": "martwa natura",
+   "medium": "olej na płótnie",
+   "dimensions": "48,5 × 39,5 cm",
+   "story": {
+    "client": "Kwiaciarnia rodziny Nowaków z Wrocławia",
+    "text": "Kopia zdobiła kwiaciarnię od trzech pokoleń. Wilgoć z wiader, pył z kwiatowej ziemi i ślady po taśmie klejącej zamieniły bukiet w mętną plamę."
+   },
+   "card": [
+    "W niebieskim szklanym wazonie na marmurowym blacie stoi bukiet róż, maków, irysów, goździków i powoju. Między płatkami ukrywają się owady.",
+    "Rachel Ruysch była jedną z najlepiej opłacanych malarek swoich czasów i nadworną malarką elektora Palatynatu w Düsseldorfie. Malowała aż do późnej starości.",
+    "Jej ojciec, Frederik Ruysch, był słynnym anatomem i botanikiem, więc od dziecka miała pod ręką rzadkie rośliny i okazy."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "herengracht",
+   "order": 14,
+   "size": [
+    1600,
+    1167
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 63,
+     "v": "e0aeea7c"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 159,
+     "v": "3925e4fe"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 414,
+     "v": "bff072e5"
+    }
+   },
+   "v": "1d62be47",
+   "title": "Złoty Zakręt na Herengracht",
+   "author": "Gerrit Berckheyde",
+   "date": "1671–1672",
+   "objectNumber": "SK-A-5003",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/20013086",
+   "kind": "miasto",
+   "medium": "olej na desce",
+   "dimensions": "42,5 × 57,9 cm",
+   "story": {
+    "client": "Biuro architektów z Krakowa",
+    "text": "Kopię kupiono na aukcji dla biura na Kazimierzu. Przez lata wisiała w pokoju, w którym stał kserograf i palili wszyscy pracownicy. Kanał zniknął pod żółtym nalotem."
+   },
+   "card": [
+    "Wzdłuż kanału stoją okazałe kamienice z piaskowca i cegły, a w wodzie odbijają się fasady. Po ulicy jedzie powóz, idą przechodnie. Brakuje tylko drzew, które dziś rosną wzdłuż całego kanału.",
+    "Ten odcinek Herengracht nazywano Złotym Zakrętem, bo mieszkali tu najbogatsi kupcy Amsterdamu. Kamienice były wtedy prawie nowe.",
+    "Gerrit Berckheyde pochodził z Haarlemu i malował widoki miast z dokładnością niemal fotograficzną."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kosciol",
+   "order": 15,
+   "size": [
+    1600,
+    1042
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 85,
+     "v": "8816b7ad"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 241,
+     "v": "2eaa9dc2"
+    },
+    "trudny": {
+     "colors": 33,
+     "regions": 502,
+     "v": "94cf3223"
+    }
+   },
+   "v": "5cb6e9f9",
+   "title": "Wnętrze kościoła św. Odulfa w Assendelft",
+   "author": "Pieter Saenredam",
+   "date": "1649",
+   "objectNumber": "SK-C-217",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200107965",
+   "kind": "wnętrze",
+   "medium": "olej na desce",
+   "dimensions": "49,6 × 75 cm",
+   "story": {
+    "client": "Parafia ewangelicka w Cieszynie",
+    "text": "Kopia z zakrystii, gdzie przez stulecie palono świece i kadzidło. Jasne ściany kościoła zrobiły się szare, a na płótnie zastygły krople wosku."
+   },
+   "card": [
+    "Patrzymy wzdłuż nawy jasnego, prawie pustego kościoła. Białe ściany i drewniane sklepienie wypełnia spokojne światło, a kilka postaci podkreśla wielkość wnętrza.",
+    "Saenredam wyspecjalizował się w portretach kościołów. Najpierw starannie mierzył i rysował wnętrza, a dopiero potem malował je na desce, często po latach.",
+    "Assendelft było jego rodzinną miejscowością. Obraz jest datowany co do dnia: 2 października 1649 roku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "muszle",
+   "order": 16,
+   "size": [
+    1244,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 75,
+     "v": "18544745"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 117,
+     "v": "c0374c71"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 201,
+     "v": "87be240c"
+    }
+   },
+   "v": "adc44faa",
+   "title": "Muszle na kamiennym postumencie",
+   "author": "Adriaen Coorte",
+   "date": "1698",
+   "objectNumber": "SK-C-1761",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200614287",
+   "kind": "martwa natura",
+   "medium": "olej na papierze naklejonym na deskę",
+   "dimensions": "29 × 22,5 cm",
+   "story": {
+    "client": "Muzeum regionalne w Helu",
+    "text": "Kopia z dawnej izby rybackiej, którą muzeum dostało razem z sieciami i beczkami. Wisiała nad piecem w wędzarni, więc pokryła ją warstwa sadzy o zapachu ryby."
+   },
+   "card": [
+    "Na kamiennej półce leży kilka muszli o różnych kształtach i barwach. Są tak dokładne, że można rozpoznać gatunki.",
+    "W czasach Coortego egzotyczne muszle przywożone przez holenderskie statki z Azji i Afryki były cenione jak klejnoty. Kolekcjonerzy płacili za nie fortuny.",
+    "Coorte malował małe obrazy w Middelburgu, a po śmierci na długo o nim zapomniano. Jego sztukę doceniono ponownie w XX wieku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "wesoly-pijak",
+   "order": 17,
+   "size": [
+    1337,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 88,
+     "v": "011cbc1f"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 255,
+     "v": "c50adf30"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 420,
+     "v": "0492b4ee"
+    }
+   },
+   "v": "31b2f1f9",
+   "title": "Wesoły pijak",
+   "author": "Frans Hals",
+   "date": "ok. 1628–1630",
+   "objectNumber": "SK-A-135",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109347",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "81 × 66,5 cm",
+   "story": {
+    "client": "Właściciel dawnego browaru w Żywcu",
+    "text": "Kopia wisiała w piwiarni przy browarze, nad ladą. Zostawiły na niej ślad dziesięciolecia dymu, pary i pienistych toastów, a od spodu zaciekło ją piwo."
+   },
+   "card": [
+    "Roześmiany mężczyzna z brodą, w wielkim czarnym kapeluszu, podnosi rękę, jakby wznosił toast albo coś do nas mówił. W drugiej ręce trzyma szklany kielich, a na szyi ma medalion na łańcuszku.",
+    "Hals malował szybko, luźnymi, widocznymi pociągnięciami. Dzięki temu obraz wygląda jak uchwycona chwila, a nie pozowany portret.",
+    "Muzeum kupiło go w 1816 roku. To jedno z najbardziej lubianych dzieł Halsa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "dziewczynka-w-blekicie",
+   "order": 18,
+   "size": [
+    1338,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 57,
+     "v": "c628a2d9"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 142,
+     "v": "ad250e30"
+    },
+    "trudny": {
+     "colors": 33,
+     "regions": 294,
+     "v": "9787ea54"
+    }
+   },
+   "v": "3253e931",
+   "title": "Dziewczynka w błękitnej sukience",
+   "author": "Johannes Verspronck",
+   "date": "1641",
+   "objectNumber": "SK-A-3064",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108377",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "82 × 66,7 cm",
+   "story": {
+    "client": "Przedszkole na warszawskim Żoliborzu",
+    "text": "Kopia wisiała w przedszkolnej sali od lat pięćdziesiątych. Kredki, klej, kurz i kilka pokoleń małych rąk zrobiły z błękitnej sukienki szarą plamę."
+   },
+   "card": [
+    "Dziewczynka w kosztownej błękitnej sukience z koronkowym kołnierzem stoi i spogląda na nas poważnie. Z tła wyłania się tylko jej jasna postać.",
+    "Verspronck był portrecistą z Haarlemu, młodszym od Fransa Halsa. W przeciwieństwie do niego malował gładko i starannie, prawie bez śladów pędzla.",
+    "Nie wiemy, kim była dziewczynka. Portret należy dziś do najpopularniejszych w Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "pasztet",
+   "order": 19,
+   "size": [
+    1600,
+    888
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 115,
+     "v": "01ae928e"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 220,
+     "v": "c5258ae5"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 437,
+     "v": "a9bb2bd7"
+    }
+   },
+   "v": "43f5b8be",
+   "title": "Martwa natura z pasztetem z indyka",
+   "author": "Pieter Claesz",
+   "date": "1627",
+   "objectNumber": "SK-A-4646",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109183",
+   "kind": "martwa natura",
+   "medium": "olej na desce",
+   "dimensions": "76,5 × 135 cm",
+   "story": {
+    "client": "Pani Barbara, szefowa kuchni ze Szczecina",
+    "text": "Kopia wisiała w kuchni restauracji tuż nad płytą. Tłuszcz z patelni i para z garnków zrobiły z niej lepką, bursztynową taflę."
+   },
+   "card": [
+    "Na białym adamaszkowym obrusie stoją cynowe talerze z ostrygami, cytryną i pasztetem, dzbanek, kieliszek, nóż i bułki. Z tyłu wznosi się wielki pasztet, na którym ustawiono indyka.",
+    "Obok leżą muszla nautilusa oprawiona w puchar i chińska miska z owocami. Takie przedmioty świadczyły o bogactwie i dalekim handlu.",
+    "Pieter Claesz był mistrzem martwych natur z Haarlemu. Muzeum kupiło ten obraz w 1974 roku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "bielizniarka",
+   "order": 20,
+   "size": [
+    1600,
+    1462
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 11,
+     "regions": 87,
+     "v": "5f30e163"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 262,
+     "v": "6b99ea89"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 480,
+     "v": "db16c341"
+    }
+   },
+   "v": "b533f447",
+   "title": "Kobiety przy szafie z bielizną",
+   "author": "Pieter de Hooch",
+   "date": "1663",
+   "objectNumber": "SK-C-1191",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/2003051",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "70 × 75,5 cm",
+   "story": {
+    "client": "Pralnia rodzinna z Bydgoszczy",
+    "text": "Kopia wisiała w pralni od czasów przedwojennych. Para, krochmal i mydliny osiadły na niej warstwą, a w kącie ktoś przybijał gwoździem kartkę z cennikiem."
+   },
+   "card": [
+    "Dwie kobiety układają w szafie świeżo wyprasowaną bieliznę. W głębi przez otwarte drzwi widać ulicę z domami w słońcu, a dziewczynka gra w kolf, grę podobną do hokeja.",
+    "Szafa z bielizną była jednym z najcenniejszych mebli w domu. Pani domu nosiła przy sobie klucz i wydawała pościel, bo to ona rządziła w domu.",
+    "Obraz należy do miasta Amsterdam i jest w depozycie Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "podworze",
+   "order": 21,
+   "size": [
+    1243,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 97,
+     "v": "2d89e6d4"
     },
     "sredni": {
      "colors": 24,
-     "regions": 222
+     "regions": 259,
+     "v": "303de001"
     },
     "trudny": {
      "colors": 36,
-     "regions": 464
+     "regions": 531,
+     "v": "1923d794"
     }
    },
-   "title": "Zagrożony łabędź",
-   "author": "Jan Asselijn",
-   "date": "ok. 1650",
-   "objectNumber": "SK-A-4",
+   "v": "394a3d17",
+   "title": "Towarzystwo na podwórzu za domem",
+   "author": "Pieter de Hooch",
+   "date": "ok. 1663–1665",
+   "objectNumber": "SK-C-150",
    "license": "Rijksmuseum, domena publiczna",
    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-   "sourceUrl": "https://id.rijksmuseum.nl/200108146",
-   "kind": "zwierzęta",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109390",
+   "kind": "wnętrze",
    "medium": "olej na płótnie",
-   "dimensions": "144 × 171 cm",
+   "dimensions": "60 × 45,7 cm",
    "story": {
-    "client": "Fundacja opiekująca się dworem pod Kaliszem",
-    "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
+    "client": "Pan Andrzej, sadownik spod Grójca",
+    "text": "Kopia z werandy starego domu, gdzie przez lata suszono jabłka i wędzono kiełbasę. Deszcz przeciekał przez dach, więc na płótnie zostały zacieki."
    },
    "card": [
-    "Łabędź z rozpostartymi skrzydłami broni gniazda przed psem, który podpływa z lewej strony. Asselijn namalował zwierzę niemal w naturalnej wielkości, a dramatyczne światło podkreśla gniew ptaka.",
-    "Później ktoś dopisał na obrazie słowa, które zmieniły go w alegorię polityczną. Łabędź stał się wielkim pensjonariuszem Johanem de Wittem, a jajo w gnieździe Holandią broniącą się przed wrogiem.",
-    "Był to pierwszy obraz kupiony w 1800 roku przez Nationale Kunst-Galerij, poprzedniczkę dzisiejszego Rijksmuseum."
+    "W ogrodzie za domem przy stole siedzą mężczyzna z fajką i kobieta, która wyciska cytrynę do kieliszka wina. Za nimi stoi kobieta ze szklanką piwa, a po prawej służąca szoruje miedziany kocioł.",
+    "Pieter de Hooch lubił podwórza i wnętrza, w których przez drzwi i okna widać kolejne pomieszczenia i kolejne światło.",
+    "Obraz pochodzi z kolekcji Adriaana van der Hoopa i należy do miasta Amsterdam."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "plywajace-piorko",
+   "order": 22,
+   "size": [
+    1462,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 113,
+     "v": "e828503d"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 247,
+     "v": "b2a4d0a7"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 419,
+     "v": "5ec7c2ec"
+    }
+   },
+   "v": "c87c1572",
+   "title": "Pływające piórko",
+   "author": "Melchior d'Hondecoeter",
+   "date": "ok. 1680",
+   "objectNumber": "SK-A-175",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109383",
+   "kind": "zwierzęta",
+   "medium": "olej na płótnie",
+   "dimensions": "159 × 144 cm",
+   "story": {
+    "client": "Ogród zoologiczny w Poznaniu",
+    "text": "Kopia wisiała w dawnym pawilonie ptaków. Było tam ciepło, wilgotno i pełno kurzu z karmy, więc płótno pokryła szara skorupa, a w rogach zamieszkały pająki."
+   },
+   "card": [
+    "Nad sadzawką zebrały się ptaki: pelikan, kaczki i inne gatunki, egzotyczne obok zwyczajnych. Na wodzie na pierwszym planie unosi się jedno małe piórko, od którego obraz wziął nazwę.",
+    "Melchior d'Hondecoeter był najsłynniejszym malarzem ptaków w Holandii. Bogaci zamawiali u niego obrazy do swoich domów i posiadłości.",
+    "Muzeum ma w kolekcji kilka jego dużych płócien."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "list-milosny",
+   "order": 23,
+   "size": [
+    1380,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 60,
+     "v": "368293de"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 200,
+     "v": "6224f9c8"
+    },
+    "trudny": {
+     "colors": 30,
+     "regions": 391,
+     "v": "9ef5e9a8"
+    }
+   },
+   "v": "1fed8671",
+   "title": "List miłosny",
+   "author": "Johannes Vermeer",
+   "date": "ok. 1669–1670",
+   "objectNumber": "SK-A-1595",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108370",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "68,5 × 62,5 cm",
+   "story": {
+    "client": "Pani Ewa, antykwariuszka z Krakowa",
+    "text": "Kopia znaleziona w szafie po starszym panu, który pisał listy do żony z każdej delegacji. Przez lata stała za szafą w chłodnym pokoju, więc zawilgła, a na werniksie wykwitły plamy."
+   },
+   "card": [
+    "Patrzymy przez otwarte drzwi do pokoju, gdzie służąca podaje list młodej kobiecie z cytrą na kolanach. Na ścianie wiszą pejzaż i obraz z morzem, a na pierwszym planie leżą kapcie i miotła.",
+    "W 1971 roku obraz skradziono z wystawy w Brukseli. Złodziej wyciął płótno z ramy i je uszkodził. Po odzyskaniu obraz trzeba było starannie odrestaurować.",
+    "Muzeum kupiło go w 1893 roku przy wsparciu Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kwiaty-huysum",
+   "order": 24,
+   "size": [
+    1258,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 114,
+     "v": "f1becec1"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 249,
+     "v": "9e02389c"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 475,
+     "v": "6e151656"
+    }
+   },
+   "v": "2c77ae34",
+   "title": "Martwa natura z kwiatami i owocami",
+   "author": "Jan van Huysum",
+   "date": "ok. 1728",
+   "objectNumber": "SK-C-155",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109397",
+   "kind": "martwa natura",
+   "medium": "olej na desce",
+   "dimensions": "66,5 × 52 cm",
+   "story": {
+    "client": "Pałacyk fabrykanta w Łodzi",
+    "text": "Kopia zdobiła jadalnię pałacyku. Potem mieścił się tam urząd, a obraz trafił na strych. Gołębie, kurz i sto lat przerw w ogrzewaniu zostawiły po sobie ślady."
+   },
+   "card": [
+    "Bogaty bukiet kwiatów przelewa się z wazonu na tle jasnego pejzażu. Na blacie leżą winogrona, brzoskwinie i melony, a wśród nich owady.",
+    "Kwiaty na obrazie nie mogły zakwitnąć jednocześnie. Van Huysum składał bukiety z osobnych studiów, malowanych przez wiele miesięcy.",
+    "Pilnie strzegł swoich metod i nie wpuszczał innych do pracowni. Jego jasne, świetliste martwe natury osiągały zawrotne ceny."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "swieto-mikolaja",
+   "order": 25,
+   "size": [
+    1377,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 109,
+     "v": "f43802c3"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 253,
+     "v": "76ddb451"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 512,
+     "v": "03b008fb"
+    }
+   },
+   "v": "1e5bc3ff",
+   "title": "Święto św. Mikołaja",
+   "author": "Jan Steen",
+   "date": "1665–1668",
+   "objectNumber": "SK-A-385",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/2006398",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "82 × 70,5 cm",
+   "story": {
+    "client": "Dom dziecka w Zamościu",
+    "text": "Kopia wisiała w świetlicy od czasów, gdy nikt nie pamięta. Brokat z dekoracji świątecznych, pył z choinek i dym z pieca zrobiły swoje, a jedna z pinezek zostawiła dziurkę."
+   },
+   "card": [
+    "Rodzina świętuje dzień św. Mikołaja. Dziewczynka tuli lalkę i wiaderko słodyczy, chłopiec płacze nad rózgą, którą znalazł w bucie, a jego brat śmieje się z niego.",
+    "Na podłodze stoi kosz z piernikami i bułkami, a przy kominie młodzi śpiewają piosenkę dla Mikołaja. Starsi przyglądają się wszystkiemu z głębi pokoju.",
+    "Jan Steen malował pełne humoru sceny z życia rodzin. Uczył przy tym, jak żyć, i trochę się z ludzi podśmiewał."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "portret-malzenski",
+   "order": 26,
+   "size": [
+    1600,
+    1351
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 70,
+     "v": "87334621"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 188,
+     "v": "0dca595e"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 419,
+     "v": "36aa1b2f"
+    }
+   },
+   "v": "f14d1dd4",
+   "title": "Portret małżeński Isaaca Massy i Beatrix van der Laen",
+   "author": "Frans Hals",
+   "date": "ok. 1622",
+   "objectNumber": "SK-A-133",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109346",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "140 × 166,5 cm",
+   "story": {
+    "client": "Pan Henryk, dziedzic dworu na Kaszubach",
+    "text": "Kopia z sali balowej dworu, w której po wojnie mieścił się magazyn zboża. Ziarno, pył i myszy obeszły się z nią bezlitośnie, ale uśmiechy małżonków przetrwały."
+   },
+   "card": [
+    "Młodzi małżonkowie siedzą pod drzewem i uśmiechają się do nas. Po lewej rośnie oset, po prawej bluszcz, symbole wierności. W tle eleganckie pary spacerują w ogrodzie z fontanną.",
+    "Isaac Massa był kupcem, który handlował z Rosją i pisał o niej. Ślub z Beatrix van der Laen wzięli w Haarlemie 25 kwietnia 1622 roku.",
+    "Portret pary w pełnej postaci, w plenerze i z uśmiechem, był wtedy czymś niezwykłym."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "don-ramon",
+   "order": 27,
+   "size": [
+    1276,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 54,
+     "v": "5d23875a"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 121,
+     "v": "c570398d"
+    },
+    "trudny": {
+     "colors": 28,
+     "regions": 192,
+     "v": "7473630c"
+    }
+   },
+   "v": "e73c759c",
+   "title": "Portret Don Ramóna Satué",
+   "author": "Francisco de Goya",
+   "date": "1823",
+   "objectNumber": "SK-A-2963",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109334",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "135,5 × 112 cm",
+   "story": {
+    "client": "Pan Ignacy, adwokat z Katowic",
+    "text": "Kopia wisiała w kancelarii adwokackiej w gabinecie szefa, który palił fajkę przez czterdzieści lat. Obraz zszarzał tak, że klienci myśleli, że to fotografia."
+   },
+   "card": [
+    "Mężczyzna w ciemnym surducie i rozpiętej kamizelce patrzy na nas z lekkim uśmiechem. Goya namalował go swobodnie, bez przepychu, na ciemnym tle.",
+    "Ramón Satué był urzędnikiem dworu i sędzią w Madrycie. Goya namalował portret w 1823 roku, na krótko przed wyjazdem na emigrację do Francji.",
+    "To jeden z nielicznych obrazów Goi w holenderskich zbiorach."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "wesola-rodzina",
+   "order": 28,
+   "size": [
+    1600,
+    1258
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 102,
+     "v": "32694357"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 256,
+     "v": "9604aa3d"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 499,
+     "v": "be403d37"
+    }
+   },
+   "v": "d5f7cefa",
+   "title": "Wesoła rodzina",
+   "author": "Jan Steen",
+   "date": "1668",
+   "objectNumber": "SK-C-229",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108012",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "110,5 × 141 cm",
+   "story": {
+    "client": "Karczma pod Zakopanem",
+    "text": "Kopia wisiała w karczmie nad wielkim stołem, przy którym przez sto lat grała kapela. Dym, para z kwaśnicy i toasty zostawiły na niej warstwę, pod którą ledwo było widać muzykantów."
+   },
+   "card": [
+    "Cała rodzina bawi się przy stole: dziadek śpiewa z kielichem w ręku, ojciec gra na dudach, matka śpiewa z kartki. Dzieci palą fajki, grają na fletach, a najmłodsze dostaje łyk wina.",
+    "Na kartce przy kominku widnieje przysłowie: jak starzy śpiewają, tak młodzi piszczą. Steen pokazuje, że dzieci powtarzają zachowania rodziców.",
+    "Od jego nazwiska Holendrzy mówią o bałaganie w domu „gospodarstwo Jana Steena”."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zydowska-narzeczona",
+   "order": 29,
+   "size": [
+    1600,
+    1164
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 73,
+     "v": "c367beef"
+    },
+    "sredni": {
+     "colors": 17,
+     "regions": 171,
+     "v": "ff6d22e1"
+    },
+    "trudny": {
+     "colors": 30,
+     "regions": 511,
+     "v": "e773410c"
+    }
+   },
+   "v": "f129e37e",
+   "title": "Żydowska narzeczona",
+   "author": "Rembrandt van Rijn",
+   "date": "ok. 1665–1669",
+   "objectNumber": "SK-C-216",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200107934",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "121,5 × 166,5 cm",
+   "story": {
+    "client": "Pani Miriam, konserwatorka synagogi w Tykocinie",
+    "text": "Stara kopia, którą znaleziono przy remoncie zabytkowego domu w Tykocinie. Była zamurowana we wnęce za piecem. Wapno, sadza i wilgoć pokryły ją grubą skorupą."
+   },
+   "card": [
+    "Mężczyzna czule obejmuje kobietę i kładzie dłoń na jej piersi, a ona delikatnie dotyka jego ręki. Para stoi przed ciemną ścianą, w czerwieni i złocie.",
+    "Tytuł nadano obrazowi w XIX wieku. Prawdopodobnie przedstawia parę jako biblijnych Izaaka i Rebekę. Rękaw mężczyzny Rembrandt nałożył grubymi warstwami farby, które niemal wystają z płótna.",
+    "Vincent van Gogh napisał, że oddałby dziesięć lat życia, żeby móc przez dwa tygodnie siedzieć przed tym obrazem z kawałkiem suchego chleba."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "straz-nocna",
+   "order": 30,
+   "size": [
+    1600,
+    1328
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 79,
+     "v": "4f0e84b9"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 275,
+     "v": "f80f0b43"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 406,
+     "v": "41874cd3"
+    }
+   },
+   "v": "4721972d",
+   "title": "Straż nocna",
+   "author": "Rembrandt van Rijn",
+   "date": "1642",
+   "objectNumber": "SK-C-5",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200107928",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "379,5 × 453,5 cm",
+   "story": {
+    "client": "Zarząd ratusza w Toruniu",
+    "text": "Wielka dziewiętnastowieczna kopia, zamówiona dla bractwa kurkowego. Wisiała w ratuszowej sali, gdzie przez dziesięciolecia palono świece i cygara. Werniks pociemniał tak bardzo, że scena wyglądała na nocną."
+   },
+   "card": [
+    "Kapitan Frans Banninck Cocq i porucznik Willem van Ruytenburch wyprowadzają swoją kompanię strzelców. Wokół nich ruch, dym, bębny, broń i dziewczynka w złocistej sukni.",
+    "To scena dzienna. Nazwę „Straż nocna” obraz dostał później, bo pociemniałe warstwy werniksu zrobiły z niego nocny obraz.",
+    "Płótno ma prawie 3,8 na 4,5 metra. W 1715 roku przycięto je ze wszystkich stron, żeby zmieściło się na ścianie ratusza w Amsterdamie."
    ],
    "dirt": null
   }

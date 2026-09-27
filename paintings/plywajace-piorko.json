@@ -1,0 +1,45 @@
+{
+  "order": 22,
+  "title": "Pływające piórko",
+  "author": "Melchior d'Hondecoeter",
+  "date": "ok. 1680",
+  "kind": "zwierzęta",
+  "story": {
+    "client": "Ogród zoologiczny w Poznaniu",
+    "text": "Kopia wisiała w dawnym pawilonie ptaków. Było tam ciepło, wilgotno i pełno kurzu z karmy, więc płótno pokryła szara skorupa, a w rogach zamieszkały pająki."
+  },
+  "card": [
+    "Nad sadzawką zebrały się ptaki: pelikan, kaczki i inne gatunki, egzotyczne obok zwyczajnych. Na wodzie na pierwszym planie unosi się jedno małe piórko, od którego obraz wziął nazwę.",
+    "Melchior d'Hondecoeter był najsłynniejszym malarzem ptaków w Holandii. Bogaci zamawiali u niego obrazy do swoich domów i posiadłości.",
+    "Muzeum ma w kolekcji kilka jego dużych płócien."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 507
+    },
+    "trudny": {
+      "work_long": 585
+    }
+  },
+  "source": {
+    "object_number": "SK-A-175",
+    "title_en": "A Pelican and other Birds near a Pool, Known as ‘The Floating Feather’",
+    "title_nl": "Een pelikaan en ander gevogelte bij een waterbassin, bekend als ‘Het drijvend veertje’",
+    "creator": "Melchior d' Hondecoeter",
+    "date": "c. 1680",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109383",
+    "iiif": "https://iiif.micr.io/BaFQb",
+    "commons": null,
+    "description_nl": "Een pelikaan en ander gevogelte bij een waterbassin in een tuin in een voorstelling bekend als 'Het drijvend veertje'. Op de voorgrond de pelikaan, in het water verschillende soorten eenden, links een kasuaris, een flamingo en een Afrikaanse kroonkraanvogel. In de lucht en in de verte nog verschillende andere vogels.",
+    "dimensions_en": "height 159 cm x width 144 cm",
+    "dimensions_nl": "drager: hoogte 159 cm x breedte 144 cm",
+    "medium_en": "oil on canvas",
+    "medium_nl": "olieverf op doek",
+    "image": "https://iiif.micr.io/BaFQb/full/!4000,4000/0/default.jpg"
+  }
+}

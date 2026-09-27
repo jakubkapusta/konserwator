@@ -1,5 +1,5 @@
 {
-  "order": 2,
+  "order": 6,
   "title": "Uliczka",
   "author": "Johannes Vermeer",
   "date": "ok. 1658",
@@ -16,7 +16,9 @@
   "levels": {
     "latwy": {},
     "sredni": {},
-    "trudny": {}
+    "trudny": {
+      "work_long": 599
+    }
   },
   "source": {
     "object_number": "SK-A-2860",

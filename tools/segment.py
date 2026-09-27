@@ -32,10 +32,15 @@ LEVELS = {
 }
 
 
-def kmeans_lab(lab, k, seed=1, iters=25, sample=60000):
+def kmeans_lab(lab, k, seed=1, iters=25, sample=60000, weights=None):
+    """weights: per-pixel sampling weight (detail), so big flat areas don't eat the palette."""
     rng = np.random.default_rng(seed)
     px = lab.reshape(-1, 3)
-    s = px[rng.choice(len(px), min(sample, len(px)), replace=False)]
+    p = None
+    if weights is not None:
+        wv = weights.ravel().astype(np.float64)
+        p = wv / wv.sum()
+    s = px[rng.choice(len(px), min(sample, len(px)), replace=False, p=p)]
     # k-means++ init
     c = [s[rng.integers(len(s))]]
     for _ in range(1, k):
@@ -52,6 +57,30 @@ def kmeans_lab(lab, k, seed=1, iters=25, sample=60000):
     for i in range(0, len(px), 200000):
         out[i:i + 200000] = np.argmin(((px[i:i + 200000, None, :] - c[None]) ** 2).sum(-1), axis=1)
     return c, out.reshape(lab.shape[:2])
+
+
+def detail_weights(lab):
+    """0.2 in flat areas .. 1.2 where there is detail (local density of luminance edges)."""
+    g = ndi.gaussian_gradient_magnitude(lab[..., 0], 1.5)
+    g = ndi.uniform_filter(g, 9)
+    return 0.2 + np.clip(g / (np.percentile(g, 90) + 1e-6), 0, 1)
+
+
+def merge_close(pal, lbl, de):
+    """Merge paints closer than de (CIE76 in Lab): two near-identical browns are no fun to paint."""
+    pal = pal.copy()
+    while len(pal) > 2:
+        d = np.sqrt(((pal[:, None] - pal[None]) ** 2).sum(-1))
+        np.fill_diagonal(d, 1e9)
+        i, j = np.unravel_index(d.argmin(), d.shape)
+        if d[i, j] >= de:
+            break
+        ci, cj = (lbl == i).sum(), (lbl == j).sum()
+        pal[i] = (pal[i] * ci + pal[j] * cj) / max(1, ci + cj)
+        lbl[lbl == j] = i
+        pal = np.delete(pal, j, 0)
+        lbl[lbl > j] -= 1
+    return pal, lbl
 
 
 def mode_filter(lbl, k, size=5, rounds=2):
@@ -180,7 +209,7 @@ def draw_numbers(im, pts, col, done=(), min_px=12, max_px=34):
         d.text((x, y), str(col[rid] + 1), fill=(90, 82, 74), font=font(size), anchor="mm")
 
 
-def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, tv=0.06):
+def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, tv=0.06, merge_de=6.0):
     """src: float RGB array (any size). out_size: (width, height) of the region map."""
     ow, oh = out_size
     work_w, h = (work_long, round(work_long * oh / ow)) if ow >= oh else (round(work_long * ow / oh), work_long)
@@ -190,8 +219,10 @@ def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, 
     lab = color.rgb2lab(smooth)
     # weight chroma so saturated accents (Vermeer's yellow and ultramarine) get their own paints instead of more browns
     w = np.array([1.0, chroma, chroma])
-    pal_lab, lbl = kmeans_lab(lab * w, colors)
+    pal_lab, lbl = kmeans_lab(lab * w, colors, weights=detail_weights(lab))
     pal_lab = pal_lab / w
+    pal_lab, lbl = merge_close(pal_lab, lbl, merge_de)
+    colors = len(pal_lab)
     # number paints dark -> light
     order = np.argsort(pal_lab[:, 0])
     inv = np.empty(colors, np.int32)

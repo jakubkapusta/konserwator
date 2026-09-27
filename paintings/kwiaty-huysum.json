@@ -1,0 +1,49 @@
+{
+  "order": 24,
+  "title": "Martwa natura z kwiatami i owocami",
+  "author": "Jan van Huysum",
+  "date": "ok. 1728",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Pałacyk fabrykanta w Łodzi",
+    "text": "Kopia zdobiła jadalnię pałacyku. Potem mieścił się tam urząd, a obraz trafił na strych. Gołębie, kurz i sto lat przerw w ogrzewaniu zostawiły po sobie ślady."
+  },
+  "card": [
+    "Bogaty bukiet kwiatów przelewa się z wazonu na tle jasnego pejzażu. Na blacie leżą winogrona, brzoskwinie i melony, a wśród nich owady.",
+    "Kwiaty na obrazie nie mogły zakwitnąć jednocześnie. Van Huysum składał bukiety z osobnych studiów, malowanych przez wiele miesięcy.",
+    "Pilnie strzegł swoich metod i nie wpuszczał innych do pracowni. Jego jasne, świetliste martwe natury osiągały zawrotne ceny."
+  ],
+  "levels": {
+    "latwy": {
+      "work_long": 364
+    },
+    "sredni": {
+      "work_long": 450
+    },
+    "trudny": {
+      "work_long": 536
+    }
+  },
+  "source": {
+    "object_number": "SK-C-155",
+    "title_en": "Still Life with Flowers and Fruit",
+    "title_nl": "Stilleven met bloemen en vruchten",
+    "creator": "Jan van Huysum",
+    "date": "c. 1728",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109397",
+    "iiif": "https://iiif.micr.io/bTUZL",
+    "commons": null,
+    "medium_nl": "olieverf op paneel",
+    "description_nl": "Stilleven met bloemen en vruchten. Op een stenen plint liggen trossen witte en blauwe druiven, een doorgesneden meloen en granaatappel, perziken, pruimen en een takje rode bessen. Op de achtergrond een vaas met papavers.",
+    "dimensions_en": "height 66.5 cm x width 52 cm",
+    "dimensions_nl": "hoogte 66,5 cm x breedte 52 cm",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "medium_en": "oil on panel",
+    "image": "https://iiif.micr.io/bTUZL/full/!4000,4000/0/default.jpg"
+  }
+}

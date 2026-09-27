@@ -59,6 +59,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .card .dots { position: absolute; top: 14px; right: 14px; display: flex; gap: 5px; }
 .card .dots i { width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(220, 182, 96, 0.55); }
 .card .dots i.on { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 8px rgba(220, 182, 96, 0.6); }
+.shelf { max-width: 1100px; margin: 34px auto 14px; font-family: var(--serif); font-weight: 600; font-size: 26px; letter-spacing: 0.02em; color: var(--ink); }
+.chips { max-width: 1100px; margin: 0 auto 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips button { padding: 8px 15px; border-radius: 999px; font-size: 14.5px; color: var(--muted); border: 1px solid var(--line); background: rgba(255, 255, 255, 0.03); }
+.chips button.on { color: var(--ink); border-color: rgba(220, 182, 96, 0.6); background: rgba(220, 182, 96, 0.14); }
 .menu footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; opacity: 0.8; }
 
 /* ---------- commission card ---------- */
@@ -236,21 +240,31 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hung:active { transform: scale(0.98); }
 .hung .lamp { position: absolute; top: -60px; left: 50%; width: 140%; height: 150%; transform: translateX(-50%); pointer-events: none;
   background: radial-gradient(ellipse at 50% 0%, rgba(255, 236, 196, 0.22), transparent 60%); }
-.hung .fr { padding: 14px; background: linear-gradient(135deg, #f7df95, #c3923a 30%, #7b5421 52%, #d6ad54 72%, #fff0b8 88%, #a8792d);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(90, 60, 20, 0.8); }
-.hung .fr-in { padding: 3px; background: linear-gradient(135deg, #6b4a1c, #e8c46e 50%, #6b4a1c); box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6); }
+.hung .fr {
+  --gold: linear-gradient(135deg, #fbe7a4 0%, #d5a547 18%, #8a5f22 40%, #c99a45 58%, #fff0bb 76%, #b07f30 100%);
+  padding: 12px; background: var(--gold);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(70, 45, 12, 0.9), inset 0 0 0 4px rgba(255, 240, 190, 0.25), inset 0 0 14px rgba(60, 35, 5, 0.6);
+}
+.hung .fr-bead { padding: 0; }
+.hung .fr-in { padding: 4px; background: linear-gradient(315deg, #fbe7a4, #9a6b28 50%, #e9c774); box-shadow: inset 0 0 0 1px rgba(60, 35, 5, 0.8), 0 0 0 1px rgba(60, 35, 5, 0.6); }
 .hung img { display: block; max-height: min(42vh, 360px); height: auto; box-shadow: inset 0 0 20px #000; }
-.hung.style-1 .fr { padding: 18px; background:
-  radial-gradient(circle at 50% 50%, #fff4c4 0 2px, transparent 2.6px) 0 0 / 9px 9px,
-  linear-gradient(135deg, #f7df95, #c3923a 30%, #7b5421 52%, #d6ad54 72%, #fff0b8 88%, #a8792d); }
-.hung.style-2 .fr { padding: 24px; background:
-  radial-gradient(circle at 0 0, #fff3c0 0 10px, #a8792d 11px 15px, transparent 16px),
-  radial-gradient(circle at 100% 0, #fff3c0 0 10px, #a8792d 11px 15px, transparent 16px),
-  radial-gradient(circle at 0 100%, #fff3c0 0 10px, #a8792d 11px 15px, transparent 16px),
-  radial-gradient(circle at 100% 100%, #fff3c0 0 10px, #a8792d 11px 15px, transparent 16px),
-  repeating-linear-gradient(45deg, rgba(255, 245, 200, 0.35) 0 3px, transparent 3px 8px),
-  linear-gradient(135deg, #f7df95, #c3923a 30%, #7b5421 52%, #d6ad54 72%, #fff0b8 88%, #a8792d); }
-.hung.style-2 .fr-in { padding: 5px; }
+.hung.style-1 .fr, .hung.style-2 .fr { padding: 10px; }
+.hung.style-1 .fr-bead, .hung.style-2 .fr-bead {
+  padding: 7px;
+  background:
+    radial-gradient(circle at 40% 35%, #fff6d0 0 1.2px, #e2b95e 1.8px, #7d561d 3.3px, transparent 3.6px) 0 0 / 8px 8px,
+    linear-gradient(135deg, #6d4816, #a57a33);
+  box-shadow: inset 0 0 0 1px rgba(60, 35, 5, 0.8);
+}
+.hung.style-2 .fr {
+  padding: 18px;
+  background:
+    radial-gradient(circle at 18px 18px, #fff4c6 0 4px, #d6a64a 6px, #7a531b 11px, #e6c170 13px, transparent 15px),
+    radial-gradient(circle at calc(100% - 18px) 18px, #fff4c6 0 4px, #d6a64a 6px, #7a531b 11px, #e6c170 13px, transparent 15px),
+    radial-gradient(circle at 18px calc(100% - 18px), #fff4c6 0 4px, #d6a64a 6px, #7a531b 11px, #e6c170 13px, transparent 15px),
+    radial-gradient(circle at calc(100% - 18px) calc(100% - 18px), #fff4c6 0 4px, #d6a64a 6px, #7a531b 11px, #e6c170 13px, transparent 15px),
+    var(--gold);
+}
 .plaque { margin-top: 22px; padding: 8px 16px 7px; text-align: center; border-radius: 3px; min-width: 170px;
   background: linear-gradient(180deg, #d9bd7a, #a88443); color: #2c1f0c; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5); }
 .plaque b { display: block; font-family: var(--serif); font-size: 18px; font-weight: 600; line-height: 1.1; }

@@ -1,0 +1,46 @@
+{
+  "order": 11,
+  "title": "Kobieta czytająca list",
+  "author": "Johannes Vermeer",
+  "date": "ok. 1663",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Pani Teresa, córka przedwojennego notariusza",
+    "text": "Kopia z kancelarii notarialnej w Poznaniu. Przetrwała wojnę zwinięta w rulon w piwnicy, potem wróciła na ścianę gabinetu, gdzie przez lata palono cygara. Płótno pofałdowało się od wilgoci, a werniks pociemniał."
+  },
+  "card": [
+    "Młoda kobieta w niebieskim kaftanie stoi przy stole i czyta list. Za nią na ścianie wisi mapa na drążkach, przed nią stoją krzesła. Okna nie widać, ale z lewej pada miękkie światło.",
+    "Vermeer nie mówi, co jest w liście. Całą uwagę przyciąga skupiona twarz i cisza pokoju, namalowana subtelnymi odcieniami błękitu i szarości.",
+    "Obraz należy do miasta Amsterdam i od 1885 roku jest w depozycie Rijksmuseum. Trafił tam z kolekcji zapisanej przez Adriaana van der Hoopa."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 858
+    },
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-251",
+    "title_en": "Woman Reading a Letter",
+    "title_nl": "Brieflezende vrouw",
+    "creator": "Johannes Vermeer",
+    "date": "c. 1663",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108372",
+    "iiif": "https://iiif.micr.io/RwfHG",
+    "commons": null,
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "dimensions_nl": "inclusief lijst: hoogte 70 cm x breedte 63 cm",
+    "provenance_en": "…; ? sale Pieter van der Lip (1655-1712), Amsterdam, 14 June 1712, no. 22, fl. 110;{Hoet and Terwesten 1752-1770, vol. 1 (1752), p. 147.} …; ? collection Mozes de Chaves (1718-1762), Amsterdam, 1759;{In Meijer 1947, p. 12 an inventory is included of the collection Mozes de Chaves: ‘Staat en Inventaris van den Boedel en Nalatenschap van Wijlen de Heer Mozes de Chaves’ on which the painting is mentioned as follows: ‘Een blauwe Meisje door Vermeer van Delft’.} his sale, Amsterdam (H. de Winter and J. Yver), 30 November 1772 <em>sqq.</em>, no. 23, as ‘Van der Neer (de Delfsche)’, fl. 40, to the dealer Fouquet;{Exh.cat. Dresden 2021, p. 230; Copy Cabinet des Estampes, Bibliothèque Nationale, Paris.} …; sale Pieter Lyonet (1706-1789, The Hague), Amsterdam (P.B. Bunel <em>et al.</em>), 11 April 1791 <em>sqq.</em>, no. 181, fl. 43, to the dealer P. Fouquet;{Copy RKD.} …; anonymous sale, Amsterdam (P. van der Schley <em>et al.</em>), 14 August 1793 <em>sqq.</em>, no. 73, fl. 70;{Copy RKD; in Liedtke 2008 incorrectly as no. 739.} …; sale Herman ten Kate (1741-1800, The Hague), Amsterdam (P. van der Schley <em>et al.</em>), 10 June 1801 <em>sqq.</em>, no. 118, fl. 110, to Taijs;{Copy RKD.} …; sale Auguste-Louis-Cesar-Hyppolite-Theodore de L’Espinasse de Langeac (1759-1814), Paris (A. Paillet and H. Delaroche), 16 January 1809 <em>sqq.</em>, no. 85, fr. 200, to Augustin Lapeyrière (1779-1831), Paris;{Copy Philadelphia Museum of Art.} his sale, Paris (M. Lacoste), 19 April 1825 <em>sqq.</em>, no. 127, fr. 2,060 or fr. 1,060, to Berthaud;{Copy RKD1; copy Philadelphia Museum of Art.} …; the dealer John Smith, London, 1831;{Sebag-Montefiore and Armstrong-Totten 2013, p. 30, n.27.} by whom, £73 10 s, to Adriaan van der Hoop (1778-1854), Amsterdam, 1839;{Ibid., p. 22.} by whom bequeathed to the Academie voor Schone Kunsten, Amsterdam; transferred to the City of Amsterdam, 1885; on loan to the museum since 1885",
+    "medium_en": "oil on canvas",
+    "description_nl": "Brieflezende vrouw. Een jonge vrouw, staande bij een tafel met stoelen, leest een brief. Achter haar hangt aan de muur een landkaart op rollen.",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "dimensions_en": "height 46.5 cm x width 39 cm x depth 6.5 cm",
+    "medium_nl": "olieverf op doek",
+    "image": "https://iiif.micr.io/RwfHG/full/!4000,4000/0/default.jpg"
+  }
+}

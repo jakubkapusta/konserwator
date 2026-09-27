@@ -1,0 +1,45 @@
+{
+  "order": 25,
+  "title": "Święto św. Mikołaja",
+  "author": "Jan Steen",
+  "date": "1665–1668",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Dom dziecka w Zamościu",
+    "text": "Kopia wisiała w świetlicy od czasów, gdy nikt nie pamięta. Brokat z dekoracji świątecznych, pył z choinek i dym z pieca zrobiły swoje, a jedna z pinezek zostawiła dziurkę."
+  },
+  "card": [
+    "Rodzina świętuje dzień św. Mikołaja. Dziewczynka tuli lalkę i wiaderko słodyczy, chłopiec płacze nad rózgą, którą znalazł w bucie, a jego brat śmieje się z niego.",
+    "Na podłodze stoi kosz z piernikami i bułkami, a przy kominie młodzi śpiewają piosenkę dla Mikołaja. Starsi przyglądają się wszystkiemu z głębi pokoju.",
+    "Jan Steen malował pełne humoru sceny z życia rodzin. Uczył przy tym, jak żyć, i trochę się z ludzi podśmiewał."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 499
+    },
+    "trudny": {
+      "work_long": 621
+    }
+  },
+  "source": {
+    "object_number": "SK-A-385",
+    "title_en": "The Feast of St Nicholas",
+    "title_nl": "Het Sint-Nicolaasfeest",
+    "creator": "Jan Havicksz. Steen",
+    "date": "1665 - 1668",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/2006398",
+    "iiif": "https://iiif.micr.io/WZzyz",
+    "commons": null,
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "hoogte 82 cm x breedte 70,5 cm",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 82 cm x width 70.5 cm",
+    "description_nl": "Interieur waarin een familie het Sint Nicolaasfeest viert. In het midden een meisje met in haar armen een Johannes de Doper-pop en een emmer met snoep. Links een huilende jongen die een roe in zijn schoen heeft gekregen. Naast de moeder met uitgestoken armen staat een lachende jongen met een kolfstok. Op de vloer staat een mand met koeken en broodjes, bij de schoorsteen zingen enkele jongeren een sinterklaaslied. Op de achtergrond een oudere man en vrouw.",
+    "image": "https://iiif.micr.io/WZzyz/full/!4000,4000/0/default.jpg"
+  }
+}

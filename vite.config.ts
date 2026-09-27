@@ -25,8 +25,12 @@ function serviceWorker(): Plugin {
         }
       };
       walk(outDir);
-      const heavy = (f: string) => /^p\/[^/]+\/(?!thumb\.jpg$)/.test(f);
-      const list = files.filter((f) => f !== 'sw.js' && !heavy(f) && !/(cyrillic|greek|vietnamese)/.test(f) && !/\.woff$/.test(f));
+      // painting files are fetched with ?v=<hash> (see src/data.ts); precache the thumbnails under those URLs
+      const list = files.filter((f) => f !== 'sw.js' && !/^p\/[^/]+\//.test(f) && !/(cyrillic|greek|vietnamese)/.test(f) && !/\.woff$/.test(f));
+      try {
+        const cat = JSON.parse(readFileSync(join(outDir, 'p/catalog.json'), 'utf8'));
+        for (const p of cat.paintings) list.push(`p/${p.slug}/thumb.jpg${p.v ? '?v=' + p.v : ''}`);
+      } catch { /* no catalog */ }
       const hash = createHash('sha1');
       for (const f of files.filter((f) => f !== 'sw.js').sort()) hash.update(f).update(readFileSync(join(outDir, f)));
       const version = hash.digest('hex').slice(0, 10);

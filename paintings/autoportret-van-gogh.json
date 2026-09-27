@@ -1,0 +1,47 @@
+{
+  "order": 9,
+  "title": "Autoportret",
+  "author": "Vincent van Gogh",
+  "date": "1887",
+  "kind": "portret",
+  "story": {
+    "client": "Pan Julian, student Akademii Sztuk Pięknych",
+    "text": "Studencka kopia z lat sześćdziesiątych, znaleziona w piwnicy akademika przy remoncie. Leżała pod stertą ram obok kotłowni, więc pokryła ją sadza, a ktoś zostawił na niej kropki farby z własnej palety."
+  },
+  "card": [
+    "Vincent van Gogh patrzy prosto na nas. Twarz, broda i tło zbudował z krótkich, osobnych pociągnięć czystych kolorów, które zlewają się w oku dopiero z daleka.",
+    "Namalował ten autoportret w Paryżu, gdzie zobaczył obrazy impresjonistów i puentylistów. Tam jego paleta nagle pojaśniała.",
+    "Van Gogh malował siebie wiele razy, między innymi dlatego, że nie było go stać na opłacanie modeli. Ten autoportret należał do Andriesa Bongera, szwagra jego brata Theo, a w 1936 roku wdowa po nim podarowała go muzeum."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 446
+    },
+    "trudny": {
+      "work_long": 515
+    }
+  },
+  "source": {
+    "object_number": "SK-A-3262",
+    "title_en": "Self-portrait",
+    "title_nl": "Zelfportret",
+    "creator": "Vincent van Gogh",
+    "date": "1887",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109794",
+    "iiif": null,
+    "commons": "https://commons.wikimedia.org/wiki/Special:FilePath/Zelfportret%20Rijksmuseum%20SK-A-3262.jpeg",
+    "credit_en": "Gift of F.W.M., Baroness Bonger-van der Borch van Verwolde, Almen",
+    "dimensions_nl": "diepte 8 cm",
+    "description_nl": "Zelfportret van Vincent van Gogh. Borstbeeld met bruine jas en grijze hoed.",
+    "credit_nl": "Schenking van F.W.M. barones Bonger-van der Borch van Verwolde, Almen",
+    "medium_nl": "olieverf op karton",
+    "dimensions_en": "height 42 cm x width 34 cm",
+    "provenance_en": "Given by the artist to Andries Bonger (1861-1936), Hilversum, Amsterdam and Aerdenhout, by 1893;{Amsterdam 1972, p. 48, no. 112.} donated by his widow, Françoise W.M. Bonger (1887-1975), Almen, to the museum, 1936",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Zelfportret%20Rijksmuseum%20SK-A-3262.jpeg?width=4000"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "order": 23,
+  "title": "List miłosny",
+  "author": "Johannes Vermeer",
+  "date": "ok. 1669–1670",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Pani Ewa, antykwariuszka z Krakowa",
+    "text": "Kopia znaleziona w szafie po starszym panu, który pisał listy do żony z każdej delegacji. Przez lata stała za szafą w chłodnym pokoju, więc zawilgła, a na werniksie wykwitły plamy."
+  },
+  "card": [
+    "Patrzymy przez otwarte drzwi do pokoju, gdzie służąca podaje list młodej kobiecie z cytrą na kolanach. Na ścianie wiszą pejzaż i obraz z morzem, a na pierwszym planie leżą kapcie i miotła.",
+    "W 1971 roku obraz skradziono z wystawy w Brukseli. Złodziej wyciął płótno z ramy i je uszkodził. Po odzyskaniu obraz trzeba było starannie odrestaurować.",
+    "Muzeum kupiło go w 1893 roku przy wsparciu Towarzystwa Rembrandta."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-1595",
+    "title_en": "The Love Letter",
+    "title_nl": "De liefdesbrief",
+    "creator": "Johannes Vermeer",
+    "date": "c. 1669 - c. 1670",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108370",
+    "iiif": null,
+    "commons": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20%27De%20liefdesbrief%27%20-%20Google%20Art%20Project.jpg",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "medium_en": "oil on canvas",
+    "provenance_en": "…; collection Pieter van Lennep (1780-1850), Amsterdam;{According to the sale catalogue Messchert van Vollenhoven and Van Engelenberg [section Messchert van Vollenhoven], Amsterdam (C.F. Roos), 29 March 1892, introduction.} his daughter, Margaretha Catharina Messchert van Vollenhoven-Van Lennep (1815-1891), Bloemendaal; by inheritance to J.F. van Lennep (1819-1892), Amsterdam, 1892;{Exh.cat. Washington/The Hague 1995, pp. 184-185, n. 20.} sale Messchert van Vollenhoven and Van Engelenberg [section Messchert van Vollenhoven], Amsterdam (C.F. Roos), 29 March 1892, no. 14, fl. 41,000, to J. Ankersmit of the Vereniging Rembrandt for the museum, fl. 15,000, 1893{Copy RKD.}",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "dimensions_nl": "geheel: gewicht (eigenschap) 9 kg (20.09.2011)",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 68.5 cm x width 62.5 cm x thickness 7 cm",
+    "description_nl": "Voorstelling bekend als 'De liefdesbrief'. Gezicht door een openstaande deur naar een interieur waarin een dienstmaagd een brief overhandigt aan een jonge vrouw met een cister op schoot. Tegen de achtermuur twee schilderijen met een landschap en een zeegezicht. Op de voorgrond twee sloffen, een bezem en een stoel.",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20%27De%20liefdesbrief%27%20-%20Google%20Art%20Project.jpg?width=4000"
+  }
+}

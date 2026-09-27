@@ -1,0 +1,44 @@
+{
+  "order": 17,
+  "title": "Wesoły pijak",
+  "author": "Frans Hals",
+  "date": "ok. 1628–1630",
+  "kind": "portret",
+  "story": {
+    "client": "Właściciel dawnego browaru w Żywcu",
+    "text": "Kopia wisiała w piwiarni przy browarze, nad ladą. Zostawiły na niej ślad dziesięciolecia dymu, pary i pienistych toastów, a od spodu zaciekło ją piwo."
+  },
+  "card": [
+    "Roześmiany mężczyzna z brodą, w wielkim czarnym kapeluszu, podnosi rękę, jakby wznosił toast albo coś do nas mówił. W drugiej ręce trzyma szklany kielich, a na szyi ma medalion na łańcuszku.",
+    "Hals malował szybko, luźnymi, widocznymi pociągnięciami. Dzięki temu obraz wygląda jak uchwycona chwila, a nie pozowany portret.",
+    "Muzeum kupiło go w 1816 roku. To jedno z najbardziej lubianych dzieł Halsa."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 643
+    }
+  },
+  "source": {
+    "object_number": "SK-A-135",
+    "title_en": "The Merry Drinker",
+    "title_nl": "De vrolijke drinker",
+    "creator": "Frans Hals (eigenhandig gesigneerd)",
+    "date": "c. 1628 - c. 1630",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109347",
+    "iiif": "https://iiif.micr.io/CgrHr",
+    "commons": null,
+    "description_nl": "De vrolijke drinker. Lachende man met baard en grote zwarte hoed, ten halven lijve, met een berkenmeier in de linkerhand en opgeheven rechterhand. Om de hals een medaillon aan een ketting.",
+    "provenance_en": "…: sale, Baroness Hermina Jacoba van Leyden van Warmond, née Comtesse de Thoms (1744-1814), Warmond Castle, sold on the premises (P. van der Schley <em>et al.</em>), 31 July 1816, no. 13 (‘un guerrier ayant un visage riant et tenant un verre à la main […] sur bois; haut 2 pieds 7 pouces, longue 2 pieds 2 pouces’ [74.6 x 61.8 cm]), fl. 325, to De Vries, for the museum",
+    "dimensions_en": "support: height 81 cm x width 66.5 cm",
+    "medium_en": "oil on canvas",
+    "medium_nl": "olieverf op doek",
+    "dimensions_nl": "drager: hoogte 81 cm x breedte 66,5 cm",
+    "image": "https://iiif.micr.io/CgrHr/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "order": 15,
+  "title": "Wnętrze kościoła św. Odulfa w Assendelft",
+  "author": "Pieter Saenredam",
+  "date": "1649",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Parafia ewangelicka w Cieszynie",
+    "text": "Kopia z zakrystii, gdzie przez stulecie palono świece i kadzidło. Jasne ściany kościoła zrobiły się szare, a na płótnie zastygły krople wosku."
+  },
+  "card": [
+    "Patrzymy wzdłuż nawy jasnego, prawie pustego kościoła. Białe ściany i drewniane sklepienie wypełnia spokojne światło, a kilka postaci podkreśla wielkość wnętrza.",
+    "Saenredam wyspecjalizował się w portretach kościołów. Najpierw starannie mierzył i rysował wnętrza, a dopiero potem malował je na desce, często po latach.",
+    "Assendelft było jego rodzinną miejscowością. Obraz jest datowany co do dnia: 2 października 1649 roku."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-217",
+    "title_en": "Interior of the Sint-Odulphuskerk in Assendelft",
+    "title_nl": "Interieur van de Sint-Odulphuskerk in Assendelft",
+    "creator": "Pieter Jansz Saenredam (signed by artist)",
+    "date": "1649-10-02",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200107965",
+    "iiif": "https://iiif.micr.io/fjTNG",
+    "commons": null,
+    "dimensions_nl": "dagmaat: hoogte 49 cm x breedte 73,6 cm",
+    "dimensions_en": "support: height 49.6 cm x width 75 cm",
+    "description_nl": "Interieur van de Sint-Odulphuskerk te Assendelft, gezien vanuit het koor naar het westen, tijdens een kerkdienst. Rechts de predikant op de preekstoel. Rechtsop de voorgrond in de vloer de grafsteen van Jan Saenredam, de vader van de schilder.",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "medium_nl": "olieverf op paneel",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "provenance_en": "...; sale, J.V.D.H. (†), Zoeterwoude, near Leiden (P. de Bruyn), 11 September 1776, no. 79 (‘P. Saenredam, 1649, 2 October. De Kerk te Assendelft van binne te zien, terwyl ’er gepredikt word voor eenige Toehoorders, benevens de Tombe of Begraavplaats vande Heeren tot Assendelft, [...] op penneel, hoog 19½, breet 29 duim’ [50 x 74.5 cm]);...; sale, Jeronimo de Bosch III (1740-1811), Amsterdam (J. Yver <em>et al.</em>), 6 April 1812, no. 51 (‘De Kerk te Assendelft van binnen. [...] door P.J. Saenredam. Hoog 20, breed 29 duim [51.4 x 74.5 cm.] Paneel’), fl. 131, to the dealer Jeronimo de Vries, Amsterdam;{Copy RKD.} from whom, fl. 600, to Adriaan van der Hoop, Amsterdam, 17 January 1848;{Van der Hoop _<em>Lijst</em>_, p. 38, no. 235: ‘Van den Heer J:o de Vries overgenomen eene voorstelling van de kerk te Assendelft, door P. Saenredam; en is dit Schilderij geteekend door hem, met het jaartel 1649, zijnde zeer helder en fijn uitgewerkt; voor de Som van ... 600’.} by whom bequeathed to the City of Amsterdam with the rest of his collection, 1854;{Van der Hoop _<em>Taxatie</em>_ 1854, p. 2, no. 235: ‘Gezigt in de kerk te Assendelft, fl. 100’.} on loan from the City of Amsterdam to the museum since 30 June 1885 {Provenance reconstructed in Pollmer 2004, p. 172, no. 154.}",
+    "medium_en": "oil on panel",
+    "image": "https://iiif.micr.io/fjTNG/full/!4000,4000/0/default.jpg"
+  }
+}

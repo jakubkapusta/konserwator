@@ -1,0 +1,44 @@
+{
+  "order": 18,
+  "title": "Dziewczynka w błękitnej sukience",
+  "author": "Johannes Verspronck",
+  "date": "1641",
+  "kind": "portret",
+  "story": {
+    "client": "Przedszkole na warszawskim Żoliborzu",
+    "text": "Kopia wisiała w przedszkolnej sali od lat pięćdziesiątych. Kredki, klej, kurz i kilka pokoleń małych rąk zrobiły z błękitnej sukienki szarą plamę."
+  },
+  "card": [
+    "Dziewczynka w kosztownej błękitnej sukience z koronkowym kołnierzem stoi i spogląda na nas poważnie. Z tła wyłania się tylko jej jasna postać.",
+    "Verspronck był portrecistą z Haarlemu, młodszym od Fransa Halsa. W przeciwieństwie do niego malował gładko i starannie, prawie bez śladów pędzla.",
+    "Nie wiemy, kim była dziewczynka. Portret należy dziś do najpopularniejszych w Rijksmuseum."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-3064",
+    "title_en": "Portrait of a Girl Dressed in Blue",
+    "title_nl": "Portret van een meisje in het blauw",
+    "creator": "Johannes Verspronck (signed by artist)",
+    "date": "1641",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108377",
+    "iiif": "https://iiif.micr.io/GYQQk",
+    "commons": null,
+    "dimensions_nl": "drager: hoogte 82 cm x breedte 66,7 cm",
+    "medium_nl": "olieverf op doek",
+    "provenance_en": "…; ? collection Von Hendorff;{O. ter Kuile, ‘Twee portretten uit de zeventiende eeuw in het Rijksmuseum Twenthe te Enschede’, _<em>Antiek</em>_ 3 (1968), pp. 9-13, esp. p. 9; Ekkart in J.B. Bedaux and R.E.O. Ekkart (eds.), _<em>Pride and Joy: Children’s Portraits in the Netherlands 1500-1700</em>_, exh. cat. Haarlem (Frans Hals Museum)/Antwerp (Royal Museum of Fine Arts) 2000-01, p. 174; R.E.O. Ekkart, _<em>Johannes Verspronck and the Girl in Blue</em>_, Amsterdam 2009, p. 38. According to H.W. Keiser, _<em>Gemäldegalerie Oldenburg</em>_, coll. cat. Oldenburg 1966, p. 11, Von Hendorff was a Danish major and ducal postmaster, in which case he would have been Johann Georg von Hendorff (1744-1800). Another candidate is his elder brother Friedrich Wilhelm von Hendorff (1738-1798).} ? his posthumous sale, Oldenburg (auction house not known), 1800, to Peter Friedrich Ludwig, Grand Duke of Oldenburg (1755-1829), Augusteum, Oldenburg;{R.E.O. Ekkart, _<em>Johannes Verspronck and the Girl in Blue</em>_, Amsterdam 2009, p. 38. That sale is not documented, however.} first documented in his collection in 1805;{F. von Alten, _<em>Verzeichnis der Gemälde, Gypse und Bronzen in der Grossherzoglichen Sammlung zu Oldenburg: Mit einem Anhange der auf den Gemälden befindlichen Monogramme, Bezeichnungen und Inschriften</em>_, coll. cat. Oldenburg 1881, p. 86, no. 211.} by descent to Friedrich August, Grand Duke of Oldenburg (1852-1931); from whom purchased by Mari Paul Voûte (1856-1928), Amsterdam, through the mediation of the dealer A.W.M. Mensing, in or before 1922;{P.J.J. van Thiel, ‘Verkregen met de steun van de Vereniging Rembrandt: 1928 Johannes Verspronck: _<em>Portret van een meisje in het blauw</em>_’, _<em>Bulletin van het Rijksmuseum</em>_ 31 (1983), pp. 210-11, esp. p. 210; R.E.O. Ekkart, _<em>Johannes Verspronck and the Girl in Blue</em>_, Amsterdam 2009, pp. 7-8.} from whom on loan to the museum, 1922-28; from whom, with SK-A-3065 and SK-A-3066, fl. 100,000, to the Vereniging Rembrandt, 1928;{P.J.J. van Thiel, ‘Verkregen met de steun van de Vereniging Rembrandt: 1928 Johannes Verspronck: _<em>Portret van een meisje in het blauw</em>_’, _<em>Bulletin van het Rijksmuseum</em>_ 31 (1983), pp. 210-11, esp. p. 210. The sum of fl. 100,000 was actually paid for Rembrandt’s _<em>Old Woman Reading</em>_ (SK-A-3066), the other two paintings being donations; see P. Hecht, _<em>125 jaar openbaar kunstbezit met steun van de Vereniging Rembrandt</em>_, exh. cat. Amsterdam (Van Gogh Museum) 2008-09, pp. 70-72, 75.} donated to the museum by the Vereniging Rembrandt, November 1928",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "dimensions_en": "support: height 82 cm x width 66.7 cm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "description_nl": "Portret van een meisje in het blauw. Staande, ten halven lijve, in de handen een veren waaier.",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/GYQQk/full/!4000,4000/0/default.jpg"
+  }
+}

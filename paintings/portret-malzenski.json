@@ -1,0 +1,42 @@
+{
+  "order": 26,
+  "title": "Portret małżeński Isaaca Massy i Beatrix van der Laen",
+  "author": "Frans Hals",
+  "date": "ok. 1622",
+  "kind": "portret",
+  "story": {
+    "client": "Pan Henryk, dziedzic dworu na Kaszubach",
+    "text": "Kopia z sali balowej dworu, w której po wojnie mieścił się magazyn zboża. Ziarno, pył i myszy obeszły się z nią bezlitośnie, ale uśmiechy małżonków przetrwały."
+  },
+  "card": [
+    "Młodzi małżonkowie siedzą pod drzewem i uśmiechają się do nas. Po lewej rośnie oset, po prawej bluszcz, symbole wierności. W tle eleganckie pary spacerują w ogrodzie z fontanną.",
+    "Isaac Massa był kupcem, który handlował z Rosją i pisał o niej. Ślub z Beatrix van der Laen wzięli w Haarlemie 25 kwietnia 1622 roku.",
+    "Portret pary w pełnej postaci, w plenerze i z uśmiechem, był wtedy czymś niezwykłym."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-133",
+    "title_en": "Portrait of a Married Couple, Likely Isaac Abrahamsz Massa and Beatrix van der Laen",
+    "title_nl": "Portret van een echtpaar, mogelijk Isaac Abrahamsz Massa en Beatrix van der Laen",
+    "creator": "Frans Hals",
+    "date": "c. 1622",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109346",
+    "iiif": "https://iiif.micr.io/kMSwz",
+    "commons": null,
+    "medium_nl": "olieverf op doek",
+    "dimensions_nl": "drager: hoogte 140 cm x breedte 166,5 cm",
+    "provenance_en": "…; sale, Jan Six (1618-1700), Lord of Vromade and Wimmenum, Amsterdam (J.P. Zomer), 6 April 1702, no. 89 (‘Man en Vrouw, leevensgroote van Frans Hals’), fl. 32, to his widow Margaretha Tulp (1634-1709);{Copy collection Six.} ? estate inventory, Jan Six (1618-1700) and Margaretha Tulp (1634-1709), Amsterdam, 6 January 1710, in the large side room (‘Beelden in een lantschap van F. Hals, fl. 18’);{GAA, NA 4845, fols. 719-96; GPI, N-431.} by descent to Jonkheer Hendrik Six, Lord of Hillegom (1790-1847); his sale, Amsterdam (De Vries <em>et al.</em>), 25 November 1851, no. 15, fl. 600, to Roos, for the museum",
+    "dimensions_en": "support: height 140 cm x width 166.5 cm",
+    "description_nl": "Huwelijksportret van Isaac Abrahamsz Massa en Beatrix van der Laen, getrouwd te Haarlem op 25 april 1622. Het paar zit ten voeten uit op een verhoging onder een boom. Links een distel, rechts klimop. Rechts op de achtergrond elegante paren wandelend in een tuin met fontein bij een landhuis.",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/kMSwz/full/!4000,4000/0/default.jpg"
+  }
+}

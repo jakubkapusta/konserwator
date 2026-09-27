@@ -1,0 +1,43 @@
+{
+  "order": 21,
+  "title": "Towarzystwo na podwórzu za domem",
+  "author": "Pieter de Hooch",
+  "date": "ok. 1663–1665",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Pan Andrzej, sadownik spod Grójca",
+    "text": "Kopia z werandy starego domu, gdzie przez lata suszono jabłka i wędzono kiełbasę. Deszcz przeciekał przez dach, więc na płótnie zostały zacieki."
+  },
+  "card": [
+    "W ogrodzie za domem przy stole siedzą mężczyzna z fajką i kobieta, która wyciska cytrynę do kieliszka wina. Za nimi stoi kobieta ze szklanką piwa, a po prawej służąca szoruje miedziany kocioł.",
+    "Pieter de Hooch lubił podwórza i wnętrza, w których przez drzwi i okna widać kolejne pomieszczenia i kolejne światło.",
+    "Obraz pochodzi z kolekcji Adriaana van der Hoopa i należy do miasta Amsterdam."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-150",
+    "title_en": "Figures in a Courtyard behind a House",
+    "title_nl": "Een gezelschap op de plaats achter een huis",
+    "creator": "Pieter de Hooch",
+    "date": "c. 1663 - c. 1665",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109390",
+    "iiif": "https://iiif.micr.io/SOvaQ",
+    "commons": null,
+    "dimensions_en": "height 60 cm x width 45.7 cm",
+    "medium_nl": "olieverf op doek",
+    "description_nl": "Een gezelschap op de plaats achter een huis. In de tuin achter een huis zitten een man en vrouw aan een tafel. De man heeft een pijp in de hand, de vrouw knijpt een citroen uit boven haar roemer met wijn. Achter het paar staat een vrouw met een glas bier. Rechts schuurt een meid een grote koperen ketel boven een houten vat.",
+    "dimensions_nl": "doek: hoogte 60 cm x breedte 45,7 cm",
+    "medium_en": "oil on canvas",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "image": "https://iiif.micr.io/SOvaQ/full/!4000,4000/0/default.jpg"
+  }
+}

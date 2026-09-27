@@ -1,0 +1,43 @@
+{
+  "order": 5,
+  "title": "Młyn w Wijk bij Duurstede",
+  "author": "Jacob van Ruisdael",
+  "date": "ok. 1668–1670",
+  "kind": "pejzaż",
+  "story": {
+    "client": "Gospodarz zajazdu pod Kazimierzem Dolnym",
+    "text": "Dziewiętnastowieczna kopia, którą ktoś przywiózł z Holandii i powiesił w sali jadalnej zajazdu. Nad obrazem przez sto lat buzował kominek, a pod nim goście palili fajki. Werniks zrobił się brązowy jak herbata."
+  },
+  "card": [
+    "Nad rzeką Lek wznosi się okrągły młyn wiatrowy, a nad nim kłębią się chmury. Po lewej płynie łódka, w oddali widać wieże zamku Duurstede i kościoła. Brzegiem idzie kilka kobiet.",
+    "Ruisdael ustawił widza nisko, niemal przy wodzie, więc młyn wyrasta ponad horyzont jak pomnik. Połowę obrazu zajmuje niebo z chmurami, w których odbija się światło.",
+    "Obraz uchodzi za jeden z najważniejszych pejzaży holenderskiego złotego wieku. Muzeum ma go w depozycie od miasta Amsterdam, z kolekcji zapisanej przez Adriaana van der Hoopa."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-211",
+    "title_en": "The Windmill at Wijk bij Duurstede",
+    "title_nl": "De molen bij Wijk bij Duurstede",
+    "creator": "Jacob Isaacksz van Ruisdael",
+    "date": "c. 1668 - c. 1670",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200107959",
+    "iiif": "https://iiif.micr.io/XWEFp",
+    "commons": null,
+    "dimensions_en": "height 83 cm x width 101 cm",
+    "medium_en": "oil on canvas",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "description_nl": "De molen bij Wijk bij Duurstede. Links de rivier de Lek met een bootje, rechts de molen nabij de oever. In de verte de torens van kasteel Duurstede, rechts de toren van de Sint-Janskerk. Langs de oever lopen enkele vrouwen.",
+    "medium_nl": "olieverf op doek",
+    "dimensions_nl": "hoogte 83 cm x breedte 101 cm",
+    "image": "https://iiif.micr.io/XWEFp/full/!4000,4000/0/default.jpg"
+  }
+}

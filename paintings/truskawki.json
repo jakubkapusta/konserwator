@@ -1,0 +1,44 @@
+{
+  "order": 2,
+  "title": "Miska truskawek",
+  "author": "Adriaen Coorte",
+  "date": "1696",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Pani Halina, emerytowana nauczycielka biologii",
+    "text": "Mała kopia w dębowej ramce, która przez trzydzieści lat wisiała w szkolnej pracowni biologicznej w Tarnowie, tuż nad klatką z kanarkami. Dzieci dotykały jej palcami, a kurz z tablicy osiadał warstwa po warstwie."
+  },
+  "card": [
+    "Na kamiennym postumencie stoi porcelanowa miseczka pełna truskawek. Kilka owoców leży obok, a z tła wyłania się tylko ciemność. Coorte malował niewiele przedmiotów, za to z niezwykłą uwagą dla światła na każdej pestce.",
+    "Adriaen Coorte pracował w Middelburgu na przełomie XVII i XVIII wieku i malował prawie wyłącznie takie małe, skromne martwe natury. Po śmierci o nim zapomniano. Jego obrazy odkryto na nowo dopiero w XX wieku."
+  ],
+  "levels": {
+    "latwy": {
+      "work_long": 714
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-5098",
+    "title_en": "A Bowl of Strawberries on a Stone Plinth",
+    "title_nl": "Een bakje aardbeien op een stenen plint",
+    "creator": "Adriaen Coorte",
+    "date": "1696",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200367359",
+    "iiif": "https://iiif.micr.io/abQcw",
+    "commons": null,
+    "provenance_en": "…; collection Willem Jabes van Beeck Calkoen (1806-95), heer van Rhijnestein, and Susanna Elizabeth van Beeck Calkoen, née Sluymer ‘s Graeuwen (1811-85), huis Steenisweerd, near Cothen (near Utrecht), c. 1878;{Dibbits 2004, p. 163.} ? his son, Willem Aarnoud van Beeck Calkoen (1846-1925) and Sara Johanna van Beeck Calkoen, née Grothe (1849-1927), huis Rhijnestein, near Cothen (near Utrecht);{Dibbits 2004, p. 163.} his son, Jonkheer Willem Frederik Van Beeck Calkoen (1880-1960), huis Rhijnestein, near Cothen (near Utrecht);{Dibbits 2004, p. 163.} his heirs; from whom purchased by a private collector, Amsterdam, 2015; from whom on loan to the museum, 2015; by descent to his heirs, 2015;{The heirs continued the loan to the museum.} by whom donated to the museum, 2022",
+    "dimensions_nl": "drager: hoogte 28,9 cm x breedte 22,3 cm",
+    "credit_nl": "Overdracht aan de Staat ter voldoening van erfbelasting",
+    "description_nl": "Een testje aarbeien, een aardbeirankje in bloei en een losse aardbei op een stenen plint voor een donkere achtergrond.",
+    "credit_en": "Transfer to the State in lieu of inheritance tax",
+    "dimensions_en": "height 28.9 cm x width 22.3 cm",
+    "medium_nl": "olieverf op papier op paneel",
+    "image": "https://iiif.micr.io/abQcw/full/!4000,4000/0/default.jpg"
+  }
+}

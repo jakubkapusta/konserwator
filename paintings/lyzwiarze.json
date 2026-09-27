@@ -1,0 +1,48 @@
+{
+  "order": 10,
+  "title": "Pejzaż zimowy z łyżwiarzami",
+  "author": "Hendrick Avercamp",
+  "date": "ok. 1608",
+  "kind": "pejzaż",
+  "story": {
+    "client": "Proboszcz parafii pod Nowym Sączem",
+    "text": "Stara kopia z plebanii, która przez dziesięciolecia wisiała w kancelarii przy kaflowym piecu. Świece, kadzidło i dym z pieca zrobiły swoje, a zimowy pejzaż wyglądał, jakby leżał pod warstwą błota."
+  },
+  "card": [
+    "Zamarznięta rzeka przy wsi zamieniła się w lodowisko. Są tu łyżwiarze, gracze w kolf, spacerowicze i psy, po prawej sanie, po lewej kościół. Każda z dziesiątek postaci robi coś innego.",
+    "Avercamp był głuchoniemy i nazywano go „Niemową z Kampen”. Specjalizował się w zimowych scenach, które malował w czasach mroźnych zim tak zwanej małej epoki lodowcowej.",
+    "Obraz jest namalowany na desce. Muzeum kupiło go w 1897 roku z pomocą Towarzystwa Rembrandta."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 477
+    },
+    "trudny": {
+      "work_long": 541
+    }
+  },
+  "source": {
+    "object_number": "SK-A-1718",
+    "title_en": "Winter Landscape with Ice Skaters",
+    "title_nl": "Winterlandschap met schaatsers",
+    "creator": "Hendrick Avercamp (eigenhandig gesigneerd)",
+    "date": "c. 1608",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108163",
+    "iiif": "https://iiif.micr.io/aXnzA",
+    "commons": null,
+    "medium_nl": "olieverf op paneel",
+    "description_nl": "Winterlandschap met ijsvermaak. Dorpsgezicht met vele figuren op het ijs: schaatsers, kolfspelers, wandelaars. Rechts een arrenslede, links een kerk.",
+    "dimensions_en": "support: height 77.3 cm x width 131.9 cm",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "provenance_en": "…; ? sale, E.A. van Ourijk <em>et al.</em>, Rotterdam (auction house not known), 19 July 1748, no. 1, fl. 25;{According to Welcker 1933, p. 224, no. S 305: ‘Een ijsvermaak, met vele beelden’, panel 78 x 130 cm; the sale catalogue has not been located.}…; sale, Gijsbert de Clercq (1850-1911), Amsterdam (F. Muller), 1 June 1897, no. 1, fl. 345, to the dealer C.S. Roos; from whom, fl. 550, to the museum, with support from the Vereniging Rembrandt, 1897",
+    "dimensions_nl": "drager: hoogte 77,3 cm x breedte 131,9 cm",
+    "medium_en": "oil on panel",
+    "image": "https://iiif.micr.io/aXnzA/full/!4000,4000/0/default.jpg"
+  }
+}

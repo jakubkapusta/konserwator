@@ -1,0 +1,43 @@
+{
+  "order": 29,
+  "title": "Żydowska narzeczona",
+  "author": "Rembrandt van Rijn",
+  "date": "ok. 1665–1669",
+  "kind": "portret",
+  "story": {
+    "client": "Pani Miriam, konserwatorka synagogi w Tykocinie",
+    "text": "Stara kopia, którą znaleziono przy remoncie zabytkowego domu w Tykocinie. Była zamurowana we wnęce za piecem. Wapno, sadza i wilgoć pokryły ją grubą skorupą."
+  },
+  "card": [
+    "Mężczyzna czule obejmuje kobietę i kładzie dłoń na jej piersi, a ona delikatnie dotyka jego ręki. Para stoi przed ciemną ścianą, w czerwieni i złocie.",
+    "Tytuł nadano obrazowi w XIX wieku. Prawdopodobnie przedstawia parę jako biblijnych Izaaka i Rebekę. Rękaw mężczyzny Rembrandt nałożył grubymi warstwami farby, które niemal wystają z płótna.",
+    "Vincent van Gogh napisał, że oddałby dziesięć lat życia, żeby móc przez dwa tygodnie siedzieć przed tym obrazem z kawałkiem suchego chleba."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-C-216",
+    "title_en": "Isaac and Rebecca, Known as ‘The Jewish Bride’",
+    "title_nl": "Isaak en Rebekka, bekend als ‘Het Joodse bruidje’",
+    "creator": "Rembrandt van Rijn",
+    "date": "c. 1665 - c. 1669",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200107934",
+    "iiif": "https://iiif.micr.io/uRWXq",
+    "commons": null,
+    "dimensions_en": "height 121.5 cm x width 166.5 cm",
+    "medium_nl": "olieverf op doek",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "description_nl": "Portret van een paar als Isaac en Rebecca of andere oudtestamentische figuren, bekend onder de titel 'Het Joodse bruidje' of 'De Joodse bruid'. De man legt zijn rechterhand op de borst van de vrouw, de linkerarm over de schouders. De vrouw legt haar linkerhand op de hand van de man, de rechterhand voor de buik. Het paar is geportretteerd staande, tot de knieën, voor een muur.",
+    "dimensions_nl": "hoogte 121,5 cm x breedte 166,5 cm",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/uRWXq/full/!4000,4000/0/default.jpg"
+  }
+}

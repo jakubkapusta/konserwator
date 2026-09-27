@@ -1,0 +1,43 @@
+{
+  "order": 13,
+  "title": "Kwiaty na marmurowym blacie",
+  "author": "Rachel Ruysch",
+  "date": "1716",
+  "kind": "martwa natura",
+  "story": {
+    "client": "Kwiaciarnia rodziny Nowaków z Wrocławia",
+    "text": "Kopia zdobiła kwiaciarnię od trzech pokoleń. Wilgoć z wiader, pył z kwiatowej ziemi i ślady po taśmie klejącej zamieniły bukiet w mętną plamę."
+  },
+  "card": [
+    "W niebieskim szklanym wazonie na marmurowym blacie stoi bukiet róż, maków, irysów, goździków i powoju. Między płatkami ukrywają się owady.",
+    "Rachel Ruysch była jedną z najlepiej opłacanych malarek swoich czasów i nadworną malarką elektora Palatynatu w Düsseldorfie. Malowała aż do późnej starości.",
+    "Jej ojciec, Frederik Ruysch, był słynnym anatomem i botanikiem, więc od dziecka miała pod ręką rzadkie rośliny i okazy."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2338",
+    "title_en": "Still Life with Flowers on a Marble Tabletop",
+    "title_nl": "Stilleven met bloemen op een marmeren tafelblad",
+    "creator": "Rachel Ruysch (vermeld op object)",
+    "date": "1716",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/20027537",
+    "iiif": "https://iiif.micr.io/OZhex",
+    "commons": null,
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "description_nl": "Stilleven met bloemen in een glazen vaas op een marmeren tafelblad. Boeket met o.a. rozen, papavers, irissen, anjers en winde in een blauwe glazen vaas. Tussen de bloemen allerlei insecten.",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 48.5 cm x width 39.5 cm",
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "drager: hoogte 48,5 cm x breedte 39,5 cm",
+    "image": "https://iiif.micr.io/OZhex/full/!4000,4000/0/default.jpg"
+  }
+}

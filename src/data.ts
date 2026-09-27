@@ -10,7 +10,8 @@ export const LEVELS: { id: LevelId; name: string }[] = [
 export interface CatalogItem {
   slug: string;
   size: [number, number];
-  levels: Record<LevelId, { colors: number; regions: number }>;
+  levels: Record<LevelId, { colors: number; regions: number; v?: string }>;
+  v?: string; // content hash of image + thumb
   title: string;
   author: string;
   date: string;
@@ -50,16 +51,22 @@ const base = './p/';
 export async function loadCatalog(): Promise<CatalogItem[]> {
   const r = await fetch(base + 'catalog.json', { cache: 'no-cache' });
   const j = await r.json();
+  for (const p of j.paintings as CatalogItem[]) {
+    if (p.v) versions.set(p.slug, p.v);
+    for (const [lv, info] of Object.entries(p.levels)) if (info.v) versions.set(p.slug + '/' + lv, info.v);
+  }
   return j.paintings;
 }
 
-export const thumbUrl = (slug: string) => `${base}${slug}/thumb.jpg`;
-export const imageUrl = (slug: string) => `${base}${slug}/image.jpg`;
+const versions = new Map<string, string>();
+const q = (v?: string) => (v ? `?v=${v}` : '');
+export const thumbUrl = (slug: string) => `${base}${slug}/thumb.jpg${q(versions.get(slug))}`;
+export const imageUrl = (slug: string) => `${base}${slug}/image.jpg${q(versions.get(slug))}`;
 
 export async function loadLevel(slug: string, level: LevelId): Promise<LevelData> {
   const [info, bin] = await Promise.all([
-    fetch(`${base}${slug}/${level}.json`).then((r) => r.json()),
-    fetch(`${base}${slug}/${level}.bin`).then((r) => r.arrayBuffer()),
+    fetch(`${base}${slug}/${level}.json${q(versions.get(slug + '/' + level))}`).then((r) => r.json()),
+    fetch(`${base}${slug}/${level}.bin${q(versions.get(slug + '/' + level))}`).then((r) => r.arrayBuffer()),
   ]);
   const runs = new Uint16Array(bin);
   const map = new Uint16Array(info.width * info.height);

@@ -1,0 +1,49 @@
+{
+  "order": 28,
+  "title": "Wesoła rodzina",
+  "author": "Jan Steen",
+  "date": "1668",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Karczma pod Zakopanem",
+    "text": "Kopia wisiała w karczmie nad wielkim stołem, przy którym przez sto lat grała kapela. Dym, para z kwaśnicy i toasty zostawiły na niej warstwę, pod którą ledwo było widać muzykantów."
+  },
+  "card": [
+    "Cała rodzina bawi się przy stole: dziadek śpiewa z kielichem w ręku, ojciec gra na dudach, matka śpiewa z kartki. Dzieci palą fajki, grają na fletach, a najmłodsze dostaje łyk wina.",
+    "Na kartce przy kominku widnieje przysłowie: jak starzy śpiewają, tak młodzi piszczą. Steen pokazuje, że dzieci powtarzają zachowania rodziców.",
+    "Od jego nazwiska Holendrzy mówią o bałaganie w domu „gospodarstwo Jana Steena”."
+  ],
+  "levels": {
+    "latwy": {
+      "work_long": 359
+    },
+    "sredni": {
+      "work_long": 461
+    },
+    "trudny": {
+      "work_long": 512
+    }
+  },
+  "source": {
+    "object_number": "SK-C-229",
+    "title_en": "The Merry Family",
+    "title_nl": "Het vrolijke huisgezin",
+    "creator": "Jan Havicksz. Steen",
+    "date": "1668",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108012",
+    "iiif": "https://iiif.micr.io/SbsFC",
+    "commons": null,
+    "description_nl": "Het vrolijke huisgezin of 'Soo de ouden songen, pijpen de jongen'. Interieur met een gezin rond een tafel, dat zich vermaakt met muziek, zang en drank. Links in het raam een jongen met een pijp en een hoorn, aan tafel een zingende oude man met opgeheven roemer, een man spelend op een doedelzak, twee vrouwen die zingen van een stuk papier, een kind met een lepel, een jongen met een fluit en een jongen en een meisje die een pijp roken. Voor de tafel krijgt een kind een slok wijn uit een kan. Op de vloer een hond, kruiken, een bord en een steelpan.",
+    "credit_en": "On loan from the City of Amsterdam (A. van der Hoop Bequest)",
+    "dimensions_nl": "drager: hoogte 110,5 cm x breedte 141 cm",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam (legaat A. van der Hoop)",
+    "dimensions_en": "height 110.5 cm x width 141 cm",
+    "medium_en": "oil on canvas",
+    "medium_nl": "olieverf op doek",
+    "image": "https://iiif.micr.io/SbsFC/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "order": 27,
+  "title": "Portret Don Ramóna Satué",
+  "author": "Francisco de Goya",
+  "date": "1823",
+  "kind": "portret",
+  "story": {
+    "client": "Pan Ignacy, adwokat z Katowic",
+    "text": "Kopia wisiała w kancelarii adwokackiej w gabinecie szefa, który palił fajkę przez czterdzieści lat. Obraz zszarzał tak, że klienci myśleli, że to fotografia."
+  },
+  "card": [
+    "Mężczyzna w ciemnym surducie i rozpiętej kamizelce patrzy na nas z lekkim uśmiechem. Goya namalował go swobodnie, bez przepychu, na ciemnym tle.",
+    "Ramón Satué był urzędnikiem dworu i sędzią w Madrycie. Goya namalował portret w 1823 roku, na krótko przed wyjazdem na emigrację do Francji.",
+    "To jeden z nielicznych obrazów Goi w holenderskich zbiorach."
+  ],
+  "levels": {
+    "latwy": {
+      "work_long": 951
+    },
+    "sredni": {
+      "work_long": 1100
+    },
+    "trudny": {
+      "work_long": 1100
+    }
+  },
+  "source": {
+    "object_number": "SK-A-2963",
+    "title_en": "Portrait of Don Ramón Satué",
+    "title_nl": "Portret van Don Ramón Satué",
+    "creator": "Francisco de Goya",
+    "date": "1823",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109334",
+    "iiif": "https://iiif.micr.io/GRbAZ",
+    "commons": null,
+    "provenance_en": "? Presented by the artist to the sitter, Don Ramón Satué y Allué (1765-1824), Madrid, 1823; transferred to Satué’s native home, Fanlo, near Huesca, presumably as the property of his brother, Pedro Satué, January 1825;{The portrait was sent by the sitter’s executor and cousin, José Duaso y Latre; letter from José Duaso to Pedro Satué, 8 January 1825. Transcribed in M. García Guatas, ‘Nuevos datos sobre dos aragoneses retratados por Goya’, _<em>Goya: Revista de arte</em>_ 42 (1996), no. 252, pp. 326-30, esp. p. 330: ‘El retrato del difunto está para ser embiado a su casa nativa, siendo ésta una de las cosas que me confió.’}...; ? collection Marquis of Heredia, Madrid;{Heredia’s ownership is first signalled in X. Desparmet Fitz-Gerald, _<em>L’oeuvre peint de Goya: catalogue raisonné</em>_, 4 vols., Paris 1928-50, II, p. 225, no. 514, and is repeated in all subsequent literature, but there seems to be no evidence for it. It is almost certainly a confusion with no. 4 in the catalogue for the sale, Benito Garriga, Paris (Bloche, Haro, Escribe), 24 March 1890: ‘Portrait de la maîtresse de Goya’, there said to be from the ‘Ancienne collection du marquis de Heridia’. That is the painting now in the National Gallery of Art in Washington, inv. no. 177: 1963.4.2 (for which see P. Gassier and J. Wilson, _<em>Goya: His Life and Work: With a Catalogue Raisonné of the Paintings, Drawings and Engravings</em>_, London 1971, no. 835), which was listed as in the collection of Narciso Heredia y Begines de los Ríos, 1st Marquis of Heredia, in C. Yriarte, _<em>Goya: Sa biographie, les fresques, les toiles, les tapisseries, les eaux-fortes et le catalogue de l’oeuvre</em>_, Paris 1867, p. 138.}…; collection Benito Garriga, Madrid, by 1887;{C. Muñoz y Manzano Viñaza, _<em>Goya: Su tiempo, su vida, sus obras</em>_, Madrid 1887, p. 165, no. CXXVII. The Garriga collection is erroneously placed in Barcelona in L. Amaudry, ‘The Collection of Dr. Carvallo at Paris, II: Spanish and Other Later Pictures’, _<em>The Burlington Magazine</em>_ 6 (1904), pp. 179-87, esp. p. 185.} his sale, Paris (Escribe and Haro), 24 March 1890, no. 3, fr. 1,500;...; sale, Paris (Lair-Dubreuil and Haro), 27 May 1902 _<em>sqq.</em>_, no. 21, fr. 9,500, to Dr Joachim Carvallo (1869-1936), Château de Villandry, near Tours; by whom to Duveen Brothers, London and New York, 1919;{E. Fowles, _<em>Memories of Duveen Brothers</em>_, London 1976, pp. 111-12.} from whom purchased by the museum, with SK-A-2964,{Jacopo Tintoretto, _<em>Portrait of a Man with a Red Cloak</em>_.} fl. 65,000, with the support of the Vereniging Rembrandt, 1922{According to E. Fowles, _<em>Memories of Duveen Brothers</em>_, London 1976, p. 112, the price for the Goya was $ 20,000.}",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "dimensions_nl": "drager: hoogte 107 cm x breedte 83,5 cm",
+    "description_nl": "Portret van Don Ramón Satué. Rechter van de vijfde kamer van de raad van Castilië, gevestigd in La Corte. Heupstuk, naar links, staande met de handen in de zakken.",
+    "dimensions_en": "outersize: height 135.5 cm (support incl. frame) x width 112 cm x depth 7 cm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "medium_en": "oil on canvas",
+    "medium_nl": "olieverf op doek",
+    "image": "https://iiif.micr.io/GRbAZ/full/!4000,4000/0/default.jpg"
+  }
+}

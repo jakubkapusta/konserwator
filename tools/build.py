@@ -38,6 +38,10 @@ IMAGE_LONG = 3000
 REGION_LONG = 1600
 THUMB_LONG = 520
 LEVEL_ORDER = ["latwy", "sredni", "trudny"]
+# fields per level we aim for; build --fit scales work_long until the count lands inside
+TARGETS = {"latwy": (40, 140), "sredni": (110, 300), "trudny": (200, 560)}
+# paints closer than this (CIE76) are merged; the hard level keeps finer shades
+MERGE_DE = {"latwy": 7.0, "sredni": 5.5, "trudny": 4.0}
 Image.MAX_IMAGE_PIXELS = None
 
 
@@ -78,11 +82,16 @@ def bboxes(reg, n):
 
 def build_level(slug, rec, level, src, size, tex, previews=True):
     p = dict(seg.LEVELS[level])
-    extra = dict(chroma=1.8, tv=0.06)
+    extra = dict(chroma=1.8, tv=0.06, merge_de=MERGE_DE[level])
     for k, v in (rec.get("levels", {}).get(level) or {}).items():
         (p if k in p else extra)[k] = v
     t = time.time()
     reg, n, col, pal_rgb = seg.segment(src, out_size=size, **p, **extra)
+    # drop paints no field ended up with, keep dark -> light numbering
+    used = np.array(sorted({int(c) for c in col}), np.int32)
+    remap = np.zeros(len(pal_rgb), np.int32)
+    remap[used] = np.arange(len(used))
+    col, pal_rgb = remap[col], pal_rgb[used]
     if n > 65535:
         sys.exit("too many regions")
     pts = seg.label_points(reg, n)
@@ -125,7 +134,29 @@ def review_sheet(slug, levels):
     sheet.save(WORK / slug / "review.jpg", quality=85)
 
 
-def build(slug, levels, previews=True):
+def fit_level(slug, rec, level, src, size, tex, previews):
+    """Build, and if the field count is off target, rescale work_long (fields ~ work_long²) and try again.
+    The chosen work_long is written back to the record so the result is reproducible."""
+    lo, hi = TARGETS[level]
+    for _ in range(4):
+        res = build_level(slug, rec, level, src, size, tex, previews=False)
+        n = res["regions"]
+        if lo <= n <= hi:
+            break
+        aim = (lo + hi) / 2
+        cur = (rec.get("levels", {}).get(level) or {}).get("work_long", seg.LEVELS[level]["work_long"])
+        new = int(round(cur * (aim / n) ** 0.5))
+        new = max(220, min(1100, new))
+        if new == cur:
+            break
+        rec.setdefault("levels", {}).setdefault(level, {})["work_long"] = new
+        print(f"  {slug}/{level}: {n} fields -> work_long {cur} -> {new}")
+    (REC / f"{slug}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2) + "\n")
+    if previews:
+        build_level(slug, rec, level, src, size, tex, previews=True)
+
+
+def build(slug, levels, previews=True, fit=False):
     rec = load_record(slug)
     im = source_image(slug, rec)
     d = OUT / slug
@@ -141,7 +172,10 @@ def build(slug, levels, previews=True):
     src = np.asarray(im.resize((round(W * 1800 / max(W, H)), round(H * 1800 / max(W, H))), Image.LANCZOS)).astype(np.float32) / 255
     tex = np.asarray(im.resize(size, Image.LANCZOS))
     for lv in levels:
-        build_level(slug, rec, lv, src, size, tex, previews)
+        if fit:
+            fit_level(slug, rec, lv, src, size, tex, previews)
+        else:
+            build_level(slug, rec, lv, src, size, tex, previews)
     if previews:
         review_sheet(slug, LEVEL_ORDER)
 
@@ -168,6 +202,16 @@ def dims_pl(src):
     return f"{h.group(1).replace('.', ',')} × {w.group(1).replace('.', ',')} cm"
 
 
+def fhash(*files):
+    """Short content hash: the game appends it to URLs so cached data never goes stale."""
+    import hashlib
+    h = hashlib.sha1()
+    for f in files:
+        if Path(f).exists():
+            h.update(Path(f).read_bytes())
+    return h.hexdigest()[:8]
+
+
 def catalog():
     """public/p/catalog.json: everything the menus need, in the order of paintings/*.json -> order."""
     items = []
@@ -180,7 +224,8 @@ def catalog():
             f = d / f"{lv}.json"
             if f.exists():
                 info = json.loads(f.read_text())
-                levels[lv] = dict(colors=len(info["palette"]), regions=len(info["regions"]))
+                levels[lv] = dict(colors=len(info["palette"]), regions=len(info["regions"]),
+                                  v=fhash(f, d / f"{lv}.bin"))
                 size = [info["width"], info["height"]]
         if len(levels) < 3 or not (d / "image.jpg").exists():
             print(f"{slug}: not built yet, skipped", file=sys.stderr)
@@ -188,6 +233,7 @@ def catalog():
         src = rec["source"]
         items.append(dict(
             slug=slug, order=rec.get("order", 999), size=size, levels=levels,
+            v=fhash(d / "image.jpg", d / "thumb.jpg"),
             title=rec.get("title") or src.get("title_en"), author=rec.get("author") or src.get("creator"),
             date=rec.get("date") or src.get("date"), objectNumber=src.get("object_number"),
             license="Rijksmuseum, domena publiczna", licenseUrl=(src.get("rights") or [None])[0],
@@ -208,13 +254,14 @@ def main():
     ap.add_argument("--level", choices=LEVEL_ORDER, action="append")
     ap.add_argument("--no-previews", action="store_true")
     ap.add_argument("--catalog", action="store_true", help="only rewrite the catalog")
+    ap.add_argument("--fit", action="store_true", help="tune work_long per level until the field count is on target")
     a = ap.parse_args()
     if not a.catalog:
         slugs = [p.stem for p in sorted(REC.glob("*.json"))] if a.all else a.slugs
         if not slugs:
             ap.error("give slugs or --all")
         for s in slugs:
-            build(s, a.level or LEVEL_ORDER, not a.no_previews)
+            build(s, a.level or LEVEL_ORDER, not a.no_previews, a.fit)
     catalog()
 
 

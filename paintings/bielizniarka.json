@@ -1,0 +1,45 @@
+{
+  "order": 20,
+  "title": "Kobiety przy szafie z bielizną",
+  "author": "Pieter de Hooch",
+  "date": "1663",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Pralnia rodzinna z Bydgoszczy",
+    "text": "Kopia wisiała w pralni od czasów przedwojennych. Para, krochmal i mydliny osiadły na niej warstwą, a w kącie ktoś przybijał gwoździem kartkę z cennikiem."
+  },
+  "card": [
+    "Dwie kobiety układają w szafie świeżo wyprasowaną bieliznę. W głębi przez otwarte drzwi widać ulicę z domami w słońcu, a dziewczynka gra w kolf, grę podobną do hokeja.",
+    "Szafa z bielizną była jednym z najcenniejszych mebli w domu. Pani domu nosiła przy sobie klucz i wydawała pościel, bo to ona rządziła w domu.",
+    "Obraz należy do miasta Amsterdam i jest w depozycie Rijksmuseum."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 640
+    }
+  },
+  "source": {
+    "object_number": "SK-C-1191",
+    "title_en": "Interior with Women beside a Linen Cupboard",
+    "title_nl": "Binnenhuis met vrouwen bij een linnenkast",
+    "creator": "Pieter de Hooch",
+    "date": "1663",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/2003051",
+    "iiif": "https://iiif.micr.io/NYvCK",
+    "commons": null,
+    "credit_en": "On loan from the City of Amsterdam",
+    "dimensions_nl": "hoogte 70 cm x breedte 75,5 cm",
+    "dimensions_en": "height 70 cm x width 75.5 cm",
+    "description_nl": "Terwijl buiten de zon grachtenhuizen vol in het licht zet, speelt binnen een meisje kolf, een soort hockey. Twee vrouwen leggen net geperst linnengoed in de kast. De linnenkast had een belangrijke plek in het huis. De vrouw des huizes droeg de sleutel van de kast bij zich en ‘deelde de lakens uit’: zij had het binnenshuis voor het zeggen.",
+    "credit_nl": "Bruikleen van de gemeente Amsterdam",
+    "medium_nl": "olieverf op doek",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/NYvCK/full/!4000,4000/0/default.jpg"
+  }
+}
