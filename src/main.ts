@@ -17,6 +17,8 @@ const renderer = new Renderer(canvas);
 const cam = new Camera();
 const prefs = loadPrefs();
 sound.muted = prefs.muted;
+sound.musicOn = prefs.music;
+sound.sfxOn = prefs.sfx;
 let studio: Studio | null = null;
 let catalog: CatalogItem[] = [];
 let opening = false;
@@ -36,13 +38,15 @@ const ui = new UI(document.getElementById('ui')!, {
     savePrefs(prefs);
     return prefs.muted;
   },
+  music: () => { prefs.music = !prefs.music; sound.setMusic(prefs.music); savePrefs(prefs); return prefs.music; },
+  sfx: () => { prefs.sfx = !prefs.sfx; sound.setSfx(prefs.sfx); savePrefs(prefs); return prefs.sfx; },
   skip: () => studio?.skipCleaning(),
   restart: () => {
     if (!studio) return;
     const it = studio.item, lv = studio.levelId;
     void open(it, lv, true);
   },
-}, prefs.muted);
+}, prefs);
 
 const input = new Input(canvas, cam, () => studio?.handler() ?? null);
 input.onAnyDown = () => sound.unlock();
@@ -98,7 +102,7 @@ window.addEventListener('resize', () => {
   layout();
   if (fitted && studio) cam.fit();
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) studio?.flush(); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) studio?.flush(); sound.pause(document.hidden); });
 window.addEventListener('pagehide', () => studio?.flush());
 
 let last = performance.now();

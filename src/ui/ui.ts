@@ -5,7 +5,7 @@ import type { PointerKind } from '../game/input';
 import type { Cleaning } from '../game/cleaning';
 import { TOOLS } from '../game/cleaning';
 import type { Phase, StudioUI } from '../game/studio';
-import { allWork, loadDone, type WorkSave } from '../game/save';
+import { allWork, loadDone, type Prefs, type WorkSave } from '../game/save';
 import { ICON, TOOL_ICONS } from './icons';
 
 const h = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', html = '') => {
@@ -27,6 +27,8 @@ export interface UIActions {
   fit(): void;
   peek(on: boolean): void;
   mute(): boolean;
+  music(): boolean;
+  sfx(): boolean;
   skip(): void;
   restart(): void;
 }
@@ -43,7 +45,8 @@ export class UI implements StudioUI {
   private tools = h('div', 'dock tools');
   private pal = h('div', 'dock palette');
   private swatches = h('div', 'swatches');
-  private findBtn = h('button', 'find', ICON.find + '<span>Znajdź</span>');
+  private findBtn = h('button', 'find', ICON.find + '<span>Znajdź</span><em></em>');
+  private hintsLeft = 5;
   private toastEl = h('div', 'toast');
   private cursorEl = h('div', 'cursor', '<div class="area"></div>');
   private markerEl = h('div', 'marker');
@@ -56,9 +59,9 @@ export class UI implements StudioUI {
   private cursorTool = -1;
   item: CatalogItem | null = null;
 
-  constructor(private root: HTMLElement, private act: UIActions, muted: boolean) {
+  constructor(private root: HTMLElement, private act: UIActions, prefs: Prefs) {
     root.append(this.menu, this.comm, this.hud, this.fin, this.loadingEl);
-    this.buildHud(muted);
+    this.buildHud(prefs);
   }
 
   // ---------------- menu ----------------
@@ -91,8 +94,9 @@ export class UI implements StudioUI {
     const done = loadDone()[it.slug] ?? {};
     let level: LevelId = w?.level ?? 'latwy';
     const sheet = h('div', 'sheet');
-    sheet.innerHTML = `<div class="tag">Zlecenie</div><h2>${it.title}</h2><div class="by">kopia według: ${it.author}, ${it.date}</div>
-      <div class="story"><img src="${thumbUrl(it.slug)}" alt=""><p>${it.story?.text ?? ''}<span class="client">${it.story?.client ?? ''}</span></p></div>`;
+    sheet.innerHTML = `<div class="tag">${it.kind ? it.kind[0].toUpperCase() + it.kind.slice(1) : 'Obraz'}</div><h2>${it.title}</h2><div class="by">${it.author}, ${it.date}</div>
+      <div class="orig"><img src="${thumbUrl(it.slug)}" alt=""><div>${(it.card ?? []).slice(0, 2).map((p) => `<p>${p}</p>`).join('')}</div></div>
+      <div class="order"><div class="tag">Zlecenie</div><p>${it.story?.text ?? ''}</p><span class="client">${it.story?.client ?? ''}</span></div>`;
     const lv = h('div', 'levels');
     const lvEls = LEVELS.map((l) => {
       const b = h('button', 'lvl' + (done[l.id] ? ' won' : ''), `<b>${l.name}</b><span>${it.levels[l.id].colors} farb · ${it.levels[l.id].regions} pól</span>`);
@@ -134,7 +138,8 @@ export class UI implements StudioUI {
   }
 
   // ---------------- HUD ----------------
-  private buildHud(muted: boolean) {
+  private buildHud(prefs: Prefs) {
+    const muted = prefs.muted;
     const top = h('div', 'top');
     const back = h('button', 'pill back', ICON.back + '<span>Pracownia</span>');
     back.onclick = () => this.act.back();
@@ -165,7 +170,17 @@ export class UI implements StudioUI {
     skip.onclick = () => { this.pop.classList.remove('show'); this.act.skip(); };
     const restart = h('button', '', 'Zacznij ten obraz od nowa');
     restart.onclick = () => { this.pop.classList.remove('show'); this.act.restart(); };
-    this.pop.append(h('div', 'muted', 'Rysik maluje, palce przesuwają i przybliżają. Bez rysika: jeden palec maluje, dwa przesuwają.'), h('div', 'sep'), skip, restart);
+    const toggle = (label: string, on: boolean, flip: () => boolean) => {
+      const b = h('button', 'toggle' + (on ? ' on' : ''), `<span>${label}</span><i></i>`);
+      b.onclick = () => b.classList.toggle('on', flip());
+      return b;
+    };
+    this.pop.append(
+      toggle('Muzyka', prefs.music, () => this.act.music()),
+      toggle('Efekty dźwiękowe', prefs.sfx, () => this.act.sfx()),
+      h('div', 'sep'),
+      h('div', 'muted', 'Rysik maluje, palce przesuwają i przybliżają, a stuknięcie palcem maluje pole. Bez rysika jeden palec maluje, a dwa przesuwają.'),
+      h('div', 'sep'), skip, restart);
     document.addEventListener('pointerdown', (e) => { if (!this.pop.contains(e.target as Node)) this.pop.classList.remove('show'); });
 
     for (const t of TOOLS) {
@@ -269,7 +284,7 @@ export class UI implements StudioUI {
       if (instant) el.classList.add('done');
       else setTimeout(() => el.classList.add('done'), 650);
     }
-    this.findBtn.classList.toggle('pulse', this.swEls.some((e, i) => e.classList.contains('on') && i === c && left > 0 && left <= 2));
+    this.findBtn.classList.toggle('pulse', this.hintsLeft > 0 && this.swEls.some((e, i) => e.classList.contains('on') && i === c && left > 0 && left <= 2));
   }
 
   select(c: number) {
@@ -279,7 +294,7 @@ export class UI implements StudioUI {
       const r = el.getBoundingClientRect(), p = this.swatches.getBoundingClientRect();
       if (r.left < p.left + 20 || r.right > p.right - 20) this.swatches.scrollLeft += r.left - p.left - p.width / 2 + r.width / 2;
       const left = +((el.querySelector('i') as HTMLElement).textContent || 0);
-      this.findBtn.classList.toggle('pulse', left > 0 && left <= 2);
+      this.findBtn.classList.toggle('pulse', this.hintsLeft > 0 && left > 0 && left <= 2);
     }
   }
 
@@ -289,6 +304,13 @@ export class UI implements StudioUI {
     el.classList.remove('flash');
     void el.offsetWidth;
     el.classList.add('flash');
+  }
+
+  hints(left: number) {
+    this.hintsLeft = left;
+    (this.findBtn.querySelector('em') as HTMLElement).textContent = String(left);
+    this.findBtn.classList.toggle('empty', left <= 0);
+    if (left <= 0) this.findBtn.classList.remove('pulse');
   }
 
   retouchProgress(done: number, total: number) {

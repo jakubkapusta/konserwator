@@ -7,6 +7,9 @@ import { glyphAtlas, noiseTexture, spriteAtlas, texture } from './textures';
 import { DirtSim } from './dirt';
 import { Particles } from './particles';
 
+/** t0 of a region nobody has painted yet (shaders test < -1e8). */
+const UNPAINTED = -1e9;
+
 export interface SceneState {
   time: number;
   outline: number;
@@ -60,7 +63,7 @@ export class PaintingGL {
     level.regions.forEach((r, i) => {
       const o = ((i >> 8) * 512 + (i & 255) * 2) * 4;
       this.info[o] = r.c;
-      this.info[o + 1] = -1;
+      this.info[o + 1] = UNPAINTED;
       this.info[o + 4] = Math.hypot(r.b[2] - r.b[0], r.b[3] - r.b[1]);
       this.info[o + 5] = 0.5;
     });
@@ -113,7 +116,7 @@ export class PaintingGL {
   }
   resetReveal(i: number) {
     const o = ((i >> 8) * 512 + (i & 255) * 2) * 4;
-    this.info[o + 1] = -1;
+    this.info[o + 1] = UNPAINTED;
     this.dirty = true;
   }
 

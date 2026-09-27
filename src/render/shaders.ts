@@ -169,7 +169,7 @@ uint regAt(ivec2 t) {
 float reveal(uint id, vec2 w, out float front) {
   front = 0.0;
   vec4 a = rA(id);
-  if (a.y < 0.0) return 0.0;
+  if (a.y < -1e8) return 0.0;
   vec4 b = rB(id);
   float p = clamp((u_time - a.y) / b.y, 0.0, 1.0);
   if (p >= 1.0) return 1.0;
@@ -276,7 +276,7 @@ void main() {
   // fresh paint: a wet gloss that catches the brushwork, drying over a couple of seconds
   {
     vec4 a = rA(own);
-    if (a.y >= 0.0) {
+    if (a.y > -1e8) {
       float t = u_time - a.y - rB(own).y * 0.6;
       if (t > -0.5 && t < 3.0) {
         vec2 e = 1.5 / u_size;
@@ -310,12 +310,15 @@ void main() {
     if (u_sel >= 0) {
       vec4 a = rA(own);
       if (int(a.x) == u_sel && rv < 1.0) {
-        vec3 pc = texelFetch(u_pal, ivec2(u_sel, 0), 0).rgb;
-        float hatch = smoothstep(0.35, 0.5, abs(fract((w.x + w.y) / (u_pxw * 11.0)) - 0.5));
-        float pulse = 0.8 + 0.2 * sin((u_time - u_selT) * 3.2);
+        // semi-transparent white/grey checker: stands out on any colour, even in tiny fields.
+        // Cell ≈ 5 device px, snapped to powers of two in world units so it stays put while panning.
+        float cell = exp2(floor(log2(u_pxw * 5.0) + 0.5));
+        vec2 cc = floor(w / cell);
+        float chk = mod(cc.x + cc.y, 2.0);
+        float pulse = 0.85 + 0.15 * sin((u_time - u_selT) * 3.2);
         float intro = smoothstep(0.0, 0.35, u_time - u_selT);
-        vec3 hl = col * vec3(0.74, 0.73, 0.75) * (0.9 + 0.1 * hatch);
-        col = mix(col, hl, (1.0 - rv) * pulse * intro * u_outline);
+        vec3 hl = mix(vec3(0.97, 0.96, 0.94), vec3(0.5, 0.5, 0.52), chk);
+        col = mix(col, hl, (1.0 - rv) * 0.62 * pulse * intro * u_outline);
       }
     }
   }
@@ -562,7 +565,7 @@ out float v_sel;
 void main() {
   int id = int(a_d.z);
   vec4 ra = texelFetch(u_rinfo, ivec2((id & 255) * 2, id >> 8), 0);
-  float gone = ra.y < 0.0 ? 0.0 : clamp((u_time - ra.y) / 0.22, 0.0, 1.0);
+  float gone = ra.y < -1e8 ? 0.0 : clamp((u_time - ra.y) / 0.22, 0.0, 1.0);
   float px = min(a_d.w * u_zoom, 34.0);
   float a = smoothstep(u_minPx, u_minPx + 4.0, px) * (1.0 - gone) * u_alpha;
   bool sel = int(ra.x) == u_sel;

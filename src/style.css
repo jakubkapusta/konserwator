@@ -76,6 +76,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sheet .story img { width: 120px; flex: none; filter: sepia(0.75) brightness(0.6) contrast(0.8) saturate(0.55); border: 6px solid #3a2718; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5); }
 .sheet .story p { margin: 0; font-size: 17px; line-height: 1.5; color: #e7dccb; }
 .sheet .story .client { display: block; margin-top: 8px; color: var(--muted); font-size: 14.5px; font-style: italic; }
+.sheet .orig { display: flex; gap: 18px; margin: 16px 0 14px; align-items: flex-start; }
+.sheet .orig img { width: 128px; flex: none; border: 6px solid #3a2718; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5); }
+.sheet .orig p { margin: 0 0 8px; font-size: 16px; line-height: 1.5; color: #e7dccb; }
+.sheet .order { margin: 0 0 16px; padding: 12px 14px; border-radius: 8px; background: rgba(255, 255, 255, 0.035); border-left: 2px solid var(--gold-deep); }
+.sheet .order p { margin: 4px 0 4px; font-size: 15.5px; line-height: 1.5; color: #d9cdb9; }
+.sheet .order .client { color: var(--muted); font-size: 14px; font-style: italic; }
 .levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 6px 0 18px; }
 .lvl { border: 1px solid var(--line); border-radius: 8px; padding: 12px 8px; text-align: center; transition: all 0.25s var(--ease); background: rgba(255, 255, 255, 0.02); }
 .lvl b { display: block; font-family: var(--serif); font-size: 23px; font-weight: 600; }
@@ -132,7 +138,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .palette { max-width: calc(100vw - 20px); padding: 8px 8px 8px 8px; gap: 8px; }
 .find { flex: none; width: 52px; height: 64px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--muted); font-size: 11px; }
 .find svg { width: 26px; height: 26px; }
+.find { position: relative; }
 .find:active { transform: scale(0.94); }
+.find em { position: absolute; top: 2px; right: 2px; min-width: 17px; height: 17px; border-radius: 9px; font-style: normal; font-size: 11px; font-weight: 600; background: var(--gold); color: #24190c; display: flex; align-items: center; justify-content: center; }
+.find.empty { opacity: 0.4; }
+.find.empty em { background: #3a3129; color: var(--muted); }
 .find.pulse { color: var(--gold); animation: nudge 1.4s var(--ease) infinite; }
 .swatches { display: flex; gap: 6px; overflow-x: auto; overflow-y: visible; touch-action: pan-x; scrollbar-width: none; padding: 10px 4px 4px; scroll-behavior: smooth; }
 .swatches::-webkit-scrollbar { display: none; }
@@ -171,6 +181,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .menu-pop.show { display: flex; }
 .menu-pop button { text-align: left; padding: 12px 14px; border-radius: 10px; font-size: 15.5px; }
 .menu-pop button:active { background: rgba(255, 255, 255, 0.07); }
+.menu-pop .toggle { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.menu-pop .toggle i { width: 38px; height: 22px; border-radius: 11px; background: rgba(255, 255, 255, 0.15); position: relative; transition: background 0.25s; }
+.menu-pop .toggle i::after { content: ''; position: absolute; left: 3px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: #d8cfc0; transition: transform 0.25s var(--ease); }
+.menu-pop .toggle.on i { background: var(--gold-deep); }
+.menu-pop .toggle.on i::after { transform: translateX(16px); background: #fff4dc; }
 .menu-pop .sep { height: 1px; background: var(--line); margin: 4px 6px; }
 .menu-pop .muted { color: var(--muted); font-size: 13px; padding: 6px 14px 8px; }
 
@@ -190,8 +205,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .pill.back span { display: none; }
   .sheet { padding: 20px 18px 18px; }
   .sheet h2 { font-size: 31px; }
-  .sheet .story img { width: 84px; }
-  .sheet .story p { font-size: 15.5px; }
+  .sheet .orig img { width: 84px; }
+  .sheet .orig p { font-size: 15px; }
   .sw { width: 52px; height: 52px; }
   .sw .ring { -webkit-mask: radial-gradient(circle, transparent 23px, #000 23.5px); mask: radial-gradient(circle, transparent 23px, #000 23.5px); }
   .sw.on .ring { -webkit-mask: radial-gradient(circle, transparent 22px, #000 22.5px); mask: radial-gradient(circle, transparent 22px, #000 22.5px); }

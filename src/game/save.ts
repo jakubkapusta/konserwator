@@ -13,6 +13,7 @@ export interface WorkSave {
   clean?: { tool: number; done: boolean[][]; init: number[][]; initTotal: number[] };
   painted?: number[];
   sel?: number;
+  hints?: number;
   progress: number; // 0..1 of the current stage, for the menu
 }
 
@@ -53,8 +54,8 @@ export function markDone(slug: string, level: LevelId) {
   write(DONE, d);
 }
 
-export interface Prefs { muted: boolean; hints: Record<string, boolean> }
-export function loadPrefs(): Prefs { return { muted: false, hints: {}, ...read<Partial<Prefs>>(PREFS, {}) }; }
+export interface Prefs { muted: boolean; music: boolean; sfx: boolean; hints: Record<string, boolean> }
+export function loadPrefs(): Prefs { return { muted: false, music: true, sfx: true, hints: {}, ...read<Partial<Prefs>>(PREFS, {}) }; }
 export function savePrefs(p: Prefs) { write(PREFS, p); }
 
 // ---- IndexedDB (dirt snapshots) ----

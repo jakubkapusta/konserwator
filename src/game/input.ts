@@ -14,6 +14,8 @@ export interface ToolHandler {
   cancel(): void;
   hover(x: number, y: number, kind: PointerKind): void;
   leave(): void;
+  /** A finger tap while the pen draws (pen mode): e.g. paint a field spotted while zooming. */
+  tap?(x: number, y: number): void;
 }
 
 const PENDING_MS = 90;
@@ -32,6 +34,7 @@ export class Input {
   private mousePan: { id: number; x: number; y: number; vx: number; vy: number; t: number } | null = null;
   private space = false;
   private penDown = false;
+  private fingerTap: { id: number; x: number; y: number; t: number; moved: number } | null = null;
   /** Called on any camera change made by the user. */
   onCamera: () => void = () => {};
   onAnyDown: () => void = () => {};
@@ -76,18 +79,21 @@ export class Input {
       else { this.camera.interacting = true; this.camera.stop(); this.mousePan = { id: e.pointerId, x: p.x, y: p.y, vx: 0, vy: 0, t: now }; }
       return;
     }
-    // touch
+    // touch. The first finger of a new gesture: forget anything left over from a lost pointerup.
+    if (e.isPrimary) { this.touches.clear(); this.cam.clear(); this.gesture = null; }
     // palm rejection only in pen mode: some browsers report wide contact sizes for plain fingers
     const palm = this.penSeen && ((e.width || 0) > 70 || (e.height || 0) > 70);
     const ignore = this.penDown || palm;
     this.touches.set(e.pointerId, { x: p.x, y: p.y, ignore });
     if (ignore) return;
     const live = [...this.touches.entries()].filter(([, t]) => !t.ignore);
+    this.fingerTap = this.penSeen && live.length === 1 ? { id: e.pointerId, x: p.x, y: p.y, t: now, moved: 0 } : null;
     if (!this.penSeen && live.length === 1 && !this.tool) {
       this.startTool(e.pointerId, 'touch', p.x, p.y, 0.65, true);
       return;
     }
     // a second finger: whatever the first one was doing becomes a camera gesture
+    if (live.length > 1) this.fingerTap = null;
     if (this.tool && this.tool.kind === 'touch') {
       if (this.tool.pending) this.discardTool();
       else this.endTool(false);
@@ -123,7 +129,11 @@ export class Input {
     const t = this.touches.get(e.pointerId);
     if (t) {
       t.x = p.x; t.y = p.y;
+      const ft = this.fingerTap;
+      if (ft && ft.id === e.pointerId) ft.moved = Math.max(ft.moved, Math.hypot(p.x - ft.x, p.y - ft.y));
       if (this.penDown || t.ignore) return;
+      // pen mode: a finger starts panning only once it really moves (a still finger may become a tap)
+      if (ft && ft.id === e.pointerId && ft.moved < TAP_PX && this.cam.size === 0) return;
       const c = this.cam.get(e.pointerId);
       if (c) { c.x = p.x; c.y = p.y; this.updateGesture(); }
       else if (this.penSeen && !this.tool && this.cam.size === 0) {
@@ -137,7 +147,18 @@ export class Input {
 
   private up(e: PointerEvent, cancelled: boolean) {
     if (e.pointerType === 'pen') this.penDown = false;
+    if (e.pointerType === 'touch') {
+      const ft = this.fingerTap;
+      if (ft && ft.id === e.pointerId) {
+        this.fingerTap = null;
+        if (!cancelled && ft.moved < TAP_PX && performance.now() - ft.t < TAP_MS && !this.penDown) {
+          const p = this.pos(e);
+          this.handler()?.tap?.(p.x, p.y);
+        }
+      }
+    }
     if (this.tool && e.pointerId === this.tool.id) {
+      this.touches.delete(e.pointerId);
       if (cancelled && this.tool.kind !== 'pen') this.cancelTool();
       else {
         const dur = performance.now() - this.tool.t0;

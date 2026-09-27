@@ -11,6 +11,9 @@ import { Retouch } from './retouch';
 import { idbGet, idbSet, markDone, saveWork, type Stage, type WorkSave } from './save';
 import { sound } from '../audio/audio';
 
+/** "Znajdź" uses per painting. */
+export const HINTS = 5;
+
 export type Phase = 'intro' | 'clean' | 'toRetouch' | 'retouch' | 'finale' | 'done';
 
 export interface StudioUI {
@@ -24,6 +27,7 @@ export interface StudioUI {
   select(c: number): void;
   wrong(c: number): void;
   retouchProgress(done: number, total: number): void;
+  hints(left: number): void;
   finale(): void;
   cursor(x: number, y: number, show: boolean, tool: Tool, r: number, kind: PointerKind | null, swabDirt: number): void;
   marker(x: number, y: number, r: number, show: boolean): void;
@@ -109,6 +113,7 @@ export class Studio {
       c.finished = true;
       this.gpu.dirt.step(10, null, [{ u0: 0, v0: 0, u1: 1, v1: 1, rates: [50, 50, 50, 50] }]);
       this.retouch.restore(save.painted ?? [], save.sel ?? 0);
+      this.hintsLeft = save.hints ?? HINTS;
       this.enterRetouch(true);
       if (save.stage === 'done' || this.retouch.finished) this.startFinale(true);
       return;
@@ -131,6 +136,7 @@ export class Studio {
 
   private setPhase(p: Phase) {
     this.phase = p;
+    sound.mood(p === 'retouch' ? 1 : p === 'finale' || p === 'done' ? 2 : 0);
     this.phaseT = 0;
     this.ui.phase(p);
   }
@@ -169,6 +175,7 @@ export class Studio {
     const r = this.retouch;
     if (r.sel < 0 || r.left[r.sel] === 0) r.sel = r.nextPaint(-1);
     this.ui.palette(this.lv, r.left, r.sel);
+    this.ui.hints(this.hintsLeft);
     this.ui.retouchProgress(r.done, r.total);
     r.select(r.sel, this.time);
     this.setPhase('retouch');
@@ -197,9 +204,14 @@ export class Studio {
   }
 
   /** Find the next field of the selected paint and fly there. */
+  hintsLeft = HINTS;
   hint() {
+    if (this.hintsLeft <= 0) { this.ui.toast('Podpowiedzi na ten obraz się skończyły. Przybliż i poszukaj krateczki.', 3200); return; }
     const id = this.retouch.hint();
     if (id < 0) return;
+    this.hintsLeft--;
+    this.ui.hints(this.hintsLeft);
+    this.dirty = true;
     const reg = this.lv.regions[id];
     const [x0, y0, x1, y1] = reg.b;
     const bw = Math.max(40, x1 - x0), bh = Math.max(40, y1 - y0);
@@ -240,6 +252,7 @@ export class Studio {
     cancel: () => this.retouch.up(false, 0, 0),
     hover: () => {},
     leave: () => {},
+    tap: (x, y) => { this.mark = null; this.retouch.down(x, y); this.retouch.up(true, x, y); },
   };
   private lastUp = { x: 0, y: 0 };
 
@@ -323,7 +336,7 @@ export class Studio {
       progress: st === 'clean' ? this.cleaning.progress : st === 'retouch' ? this.retouch.done / this.retouch.total : 1,
     };
     if (st === 'clean') w.clean = this.cleaning.saveState();
-    else { w.painted = this.retouch.order.slice(); w.sel = this.retouch.sel; }
+    else { w.painted = this.retouch.order.slice(); w.sel = this.retouch.sel; w.hints = this.hintsLeft; }
     saveWork(w);
   }
 
