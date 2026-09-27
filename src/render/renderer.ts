@@ -31,6 +31,7 @@ export interface SceneState {
   shine: number;
   varnOn: number;
   repairs: RepairsGL;
+  detail: { rect: [number, number, number, number]; alpha: number };
 }
 
 /** Bird droppings and tears for PAINT_FS (filled by the studio from game/repairs.ts). */
@@ -52,11 +53,16 @@ export class PaintingGL {
   dirt: DirtSim;
   gilt: GiltSim;
   varn: WebGLTexture;
+  detail: WebGLTexture;
+  readonly imgW: number;
   readonly W: number;
   readonly H: number;
 
   constructor(private gl: GL, quad: WebGLBuffer, fullVao: WebGLVertexArrayObject, noise: WebGLTexture, image: HTMLImageElement, readonly level: LevelData, F: number) {
     const W = (this.W = level.width), H = (this.H = level.height);
+    this.imgW = image.naturalWidth || image.width;
+    this.detail = texture(gl);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array(4));
     this.img = texture(gl, { mips: true });
     gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, image);
@@ -118,6 +124,15 @@ export class PaintingGL {
     this.uploadVarnish(new Float32Array(VROWS * 4));
   }
 
+  /** Full-resolution piece of the painting for the current deep-zoom view (see game/loupe.ts). */
+  setDetail(im: HTMLImageElement) {
+    const gl = this.gl;
+    gl.bindTexture(gl.TEXTURE_2D, this.detail);
+    gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA8, gl.RGBA, gl.UNSIGNED_BYTE, im);
+    gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.BROWSER_DEFAULT_WEBGL);
+  }
+
   uploadVarnish(rows: Float32Array) {
     const gl = this.gl;
     gl.bindTexture(gl.TEXTURE_2D, this.varn);
@@ -152,7 +167,7 @@ export class PaintingGL {
 
   dispose() {
     const gl = this.gl;
-    for (const t of [this.img, this.reg, this.rinfo, this.pal, this.varn]) gl.deleteTexture(t);
+    for (const t of [this.img, this.reg, this.rinfo, this.pal, this.varn, this.detail]) gl.deleteTexture(t);
     this.gilt.dispose();
     gl.deleteBuffer(this.numBuf);
     gl.deleteVertexArray(this.numVao);
@@ -299,6 +314,7 @@ export class Renderer {
       .f1('u_dirtOn', s.dirtOn).i1('u_sel', s.sel).f1('u_selT', s.selT).f4('u_sweep', s.sweep[0], s.sweep[1], s.sweep[2], 0)
       .f1('u_peek', s.peek).f4('u_webs', ...s.webs).f1('u_restored', s.restored)
       .tex('u_varn', 7, p.varn).f1('u_varnOn', s.varnOn).f2('u_tilt', s.tilt[0], s.tilt[1]);
+    this.paintP.tex('u_detail', 8, p.detail).f4('u_detailRect', ...s.detail.rect).f1('u_detailA', s.detail.alpha);
     const P = this.paintP, R = s.repairs;
     gl.uniform4fv(P.loc('u_drops'), R.drops);
     gl.uniform4fv(P.loc('u_dropsB'), R.dropsB);

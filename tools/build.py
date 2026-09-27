@@ -239,6 +239,7 @@ def catalog():
             license="Rijksmuseum, domena publiczna", licenseUrl=(src.get("rights") or [None])[0],
             sourceUrl=src.get("object"), kind=rec.get("kind"),
             medium=rec.get("medium") or medium_pl(src), dimensions=rec.get("dimensions") or dims_pl(src),
+            iiif=src.get("iiif"),
             story=rec.get("story"), card=rec.get("card"), dirt=rec.get("dirt"),
         ))
     items.sort(key=lambda i: (i["order"], i["slug"]))

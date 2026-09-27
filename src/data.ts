@@ -21,6 +21,7 @@ export interface CatalogItem {
   sourceUrl?: string;
   kind?: string;
   medium?: string;
+  iiif?: string; // IIIF image service (full-resolution detail on deep zoom)
   dimensions?: string;
   story?: { client: string; text: string };
   card?: string[];

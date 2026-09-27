@@ -262,6 +262,9 @@ uniform vec4 u_tearB[3];    // c.xy, width, length
 uniform vec4 u_tearM[3];    // stitch mask (24 bits), closeT (-1 open, -100 closed long ago)
 uniform int u_ntears;
 uniform sampler2D u_varn;   // 1 x rows: r coverage, g time applied
+uniform sampler2D u_detail; // deep zoom: full-resolution piece of the scan
+uniform vec4 u_detailRect;  // its uv rect
+uniform float u_detailA;
 uniform float u_varnOn;
 uniform vec2 u_tilt;
 out vec4 o;
@@ -332,6 +335,14 @@ void main() {
   vec2 w = v_w;
   vec2 uv = w / u_size;
   vec3 orig = texture(u_img, uv).rgb;
+  if (u_detailA > 0.001) {
+    vec2 duv = (uv - u_detailRect.xy) / (u_detailRect.zw - u_detailRect.xy);
+    if (duv.x > 0.0 && duv.y > 0.0 && duv.x < 1.0 && duv.y < 1.0) {
+      vec2 e = min(duv, 1.0 - duv);
+      float edge = smoothstep(0.0, 0.03, min(e.x, e.y));
+      orig = mix(orig, texture(u_detail, duv).rgb, u_detailA * edge);
+    }
+  }
   vec3 blur = textureLod(u_img, uv, 3.5).rgb;
   vec4 N = texture(u_noise, w / 256.0);
   vec4 N2 = texture(u_noise, w / 1100.0 + 0.37);

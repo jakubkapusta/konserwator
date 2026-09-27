@@ -11,6 +11,7 @@ import { Cleaning, dirtFor, LAYER_NAMES, TOOLS } from './cleaning';
 import { Retouch } from './retouch';
 import { MAX_DROPS, MAX_TEARS, Repairs } from './repairs';
 import { emptyRepairs } from '../render/renderer';
+import { Loupe } from './loupe';
 import { Gilding } from './gilding';
 import { Varnish } from './varnish';
 import { askTilt, recentreTilt, tilt } from './tilt';
@@ -56,6 +57,7 @@ export class Studio {
   time = 0;
   hintsLeft = HINTS;
   rec: Recording;
+  private loupe: Loupe;
   private phaseT = 0;
   private peekTarget = 0;
   private saveT = 0;
@@ -146,7 +148,9 @@ export class Studio {
       sweep: [-1, 0.12, 0], peek: 0, webs: d.webs, restored: 0, frameDust: 1, numAlpha: 0,
       style: Math.max(0, LEVELS.findIndex((l) => l.id === levelId)), tilt: [0, 0], shine: 0, varnOn: 0,
       repairs: emptyRepairs(),
+      detail: { rect: [0, 0, 0, 0], alpha: 0 },
     };
+    this.loupe = new Loupe(item.iiif, gpu, renderer, cam);
     if (replay) {
       const pts = replay.strokes.reduce((a, s) => a + (s.length - 1) / 3, 0);
       this.rp = { rec: replay, s: 0, i: 0, perFrame: Math.max(2, Math.ceil(pts / (8 * 60))), paintI: 0, gildT: 0, varnT: 0 };
@@ -515,6 +519,9 @@ export class Studio {
     s.sel = this.phase === 'retouch' ? this.retouch.sel : -1;
     s.selT = this.retouch.selT;
     this.fillRepairs();
+    this.loupe.update(dt);
+    s.detail.rect = this.loupe.rect;
+    s.detail.alpha = this.loupe.alpha;
 
     this.cursorAndMarker(dt);
 

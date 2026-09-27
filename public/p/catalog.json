@@ -35,6 +35,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "45,5 × 41 cm",
+   "iiif": "https://iiif.micr.io/QkOGy",
    "story": {
     "client": "Pani Zofia, wnuczka właścicielki pensjonatu",
     "text": "Dziewiętnastowieczna kopia „Mleczarki”, namalowana przez studenta akademii w Antwerpii. Przez pół wieku wisiała w kuchni pensjonatu w Zakopanem, tuż nad kaflowym piecem. Stąd sadza, tłuste zacieki i werniks żółty jak miód."
@@ -81,6 +82,7 @@
    "kind": "martwa natura",
    "medium": null,
    "dimensions": "28,9 × 22,3 cm",
+   "iiif": "https://iiif.micr.io/abQcw",
    "story": {
     "client": "Pani Halina, emerytowana nauczycielka biologii",
     "text": "Mała kopia w dębowej ramce, która przez trzydzieści lat wisiała w szkolnej pracowni biologicznej w Tarnowie, tuż nad klatką z kanarkami. Dzieci dotykały jej palcami, a kurz z tablicy osiadał warstwa po warstwie."
@@ -126,6 +128,7 @@
    "kind": "drzeworyt",
    "medium": "drzeworyt barwny",
    "dimensions": null,
+   "iiif": "https://iiif.micr.io/MFiyA",
    "story": {
     "client": "Pan Tadeusz, marynarz w stanie spoczynku",
     "text": "Ręcznie malowana kopia drzeworytu, przywieziona z rejsu do Jokohamy w latach siedemdziesiątych. Wisiała w kajucie, a potem nad piecykiem na działce pod Gdynią. Papier pożółkł od dymu, a w rogach zamieszkały pająki."
@@ -172,6 +175,7 @@
    "kind": "zwierzęta",
    "medium": "olej na płótnie",
    "dimensions": "144 × 171 cm",
+   "iiif": "https://iiif.micr.io/hZepb",
    "story": {
     "client": "Fundacja opiekująca się dworem pod Kaliszem",
     "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
@@ -218,6 +222,7 @@
    "kind": "pejzaż",
    "medium": "olej na płótnie",
    "dimensions": "83 × 101 cm",
+   "iiif": "https://iiif.micr.io/XWEFp",
    "story": {
     "client": "Gospodarz zajazdu pod Kazimierzem Dolnym",
     "text": "Dziewiętnastowieczna kopia, którą ktoś przywiózł z Holandii i powiesił w sali jadalnej zajazdu. Nad obrazem przez sto lat buzował kominek, a pod nim goście palili fajki. Werniks zrobił się brązowy jak herbata."
@@ -264,6 +269,7 @@
    "kind": "miasto",
    "medium": "olej na płótnie",
    "dimensions": "54,3 × 44 cm",
+   "iiif": null,
    "story": {
     "client": "Pan Marek, handlarz starociami z Gdańska",
     "text": "Kopia z warsztatu kopistów, kupiona na pchlim targu w Gdańsku razem ze skrzynią starych ram. Pół wieku przestała w piwnicy za regałem z przetworami. Ktoś kiedyś chlapnął na nią farbą do okien."
@@ -310,6 +316,7 @@
    "kind": "martwa natura",
    "medium": null,
    "dimensions": "25 × 20,5 cm",
+   "iiif": "https://iiif.micr.io/OHDPD",
    "story": {
     "client": "Właścicielka apteki na Starym Mieście w Lublinie",
     "text": "Kopia wisiała w aptece za ladą przez ponad pół wieku. Unosiły się tam opary spirytusu i ziół, a klienci zostawiali na szkle gablot tłuste odciski palców. W końcu nikt nie pamiętał, co jest na obrazie."
@@ -355,6 +362,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "59 × 57 cm",
+   "iiif": "https://iiif.micr.io/cQMKz",
    "story": {
     "client": "Fundacja teatru w Łodzi",
     "text": "Kopia wisiała w garderobie aktorek łódzkiego teatru. Sto lat pudru, dymu papierosowego i lakieru do włosów zostawiło na niej lepką szarą warstwę, a ktoś kiedyś przykleił do ramy afisz."
@@ -401,6 +409,7 @@
    "kind": "portret",
    "medium": null,
    "dimensions": "42 × 34 cm",
+   "iiif": null,
    "story": {
     "client": "Pan Julian, student Akademii Sztuk Pięknych",
     "text": "Studencka kopia z lat sześćdziesiątych, znaleziona w piwnicy akademika przy remoncie. Leżała pod stertą ram obok kotłowni, więc pokryła ją sadza, a ktoś zostawił na niej kropki farby z własnej palety."
@@ -447,6 +456,7 @@
    "kind": "pejzaż",
    "medium": "olej na desce",
    "dimensions": "77,3 × 131,9 cm",
+   "iiif": "https://iiif.micr.io/aXnzA",
    "story": {
     "client": "Proboszcz parafii pod Nowym Sączem",
     "text": "Stara kopia z plebanii, która przez dziesięciolecia wisiała w kancelarii przy kaflowym piecu. Świece, kadzidło i dym z pieca zrobiły swoje, a zimowy pejzaż wyglądał, jakby leżał pod warstwą błota."
@@ -493,6 +503,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "46,5 × 39 cm",
+   "iiif": "https://iiif.micr.io/RwfHG",
    "story": {
     "client": "Pani Teresa, córka przedwojennego notariusza",
     "text": "Kopia z kancelarii notarialnej w Poznaniu. Przetrwała wojnę zwinięta w rulon w piwnicy, potem wróciła na ścianę gabinetu, gdzie przez lata palono cygara. Płótno pofałdowało się od wilgoci, a werniks pociemniał."
@@ -539,6 +550,7 @@
    "kind": "martwa natura",
    "medium": "olej na desce",
    "dimensions": "87,8 × 112,6 cm",
+   "iiif": "https://iiif.micr.io/UjEro",
    "story": {
     "client": "Restauracja przy Długim Targu w Gdańsku",
     "text": "Kopia wisiała nad bufetem restauracji od czasów międzywojennych. Opary z kuchni, dym papierosowy i tłuszcz osiadły na niej grubą warstwą, a pozłacany puchar wyglądał jak z blachy."
@@ -585,6 +597,7 @@
    "kind": "martwa natura",
    "medium": "olej na płótnie",
    "dimensions": "48,5 × 39,5 cm",
+   "iiif": "https://iiif.micr.io/OZhex",
    "story": {
     "client": "Kwiaciarnia rodziny Nowaków z Wrocławia",
     "text": "Kopia zdobiła kwiaciarnię od trzech pokoleń. Wilgoć z wiader, pył z kwiatowej ziemi i ślady po taśmie klejącej zamieniły bukiet w mętną plamę."
@@ -631,6 +644,7 @@
    "kind": "miasto",
    "medium": "olej na desce",
    "dimensions": "42,5 × 57,9 cm",
+   "iiif": "https://iiif.micr.io/vYQLC",
    "story": {
     "client": "Biuro architektów z Krakowa",
     "text": "Kopię kupiono na aukcji dla biura na Kazimierzu. Przez lata wisiała w pokoju, w którym stał kserograf i palili wszyscy pracownicy. Kanał zniknął pod żółtym nalotem."
@@ -677,6 +691,7 @@
    "kind": "wnętrze",
    "medium": "olej na desce",
    "dimensions": "49,6 × 75 cm",
+   "iiif": "https://iiif.micr.io/fjTNG",
    "story": {
     "client": "Parafia ewangelicka w Cieszynie",
     "text": "Kopia z zakrystii, gdzie przez stulecie palono świece i kadzidło. Jasne ściany kościoła zrobiły się szare, a na płótnie zastygły krople wosku."
@@ -723,6 +738,7 @@
    "kind": "martwa natura",
    "medium": "olej na papierze naklejonym na deskę",
    "dimensions": "29 × 22,5 cm",
+   "iiif": "https://iiif.micr.io/HpCpn",
    "story": {
     "client": "Muzeum regionalne w Helu",
     "text": "Kopia z dawnej izby rybackiej, którą muzeum dostało razem z sieciami i beczkami. Wisiała nad piecem w wędzarni, więc pokryła ją warstwa sadzy o zapachu ryby."
@@ -769,6 +785,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "81 × 66,5 cm",
+   "iiif": "https://iiif.micr.io/CgrHr",
    "story": {
     "client": "Właściciel dawnego browaru w Żywcu",
     "text": "Kopia wisiała w piwiarni przy browarze, nad ladą. Zostawiły na niej ślad dziesięciolecia dymu, pary i pienistych toastów, a od spodu zaciekło ją piwo."
@@ -815,6 +832,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "82 × 66,7 cm",
+   "iiif": "https://iiif.micr.io/GYQQk",
    "story": {
     "client": "Przedszkole na warszawskim Żoliborzu",
     "text": "Kopia wisiała w przedszkolnej sali od lat pięćdziesiątych. Kredki, klej, kurz i kilka pokoleń małych rąk zrobiły z błękitnej sukienki szarą plamę."
@@ -861,6 +879,7 @@
    "kind": "martwa natura",
    "medium": "olej na desce",
    "dimensions": "76,5 × 135 cm",
+   "iiif": "https://iiif.micr.io/TmDqg",
    "story": {
     "client": "Pani Barbara, szefowa kuchni ze Szczecina",
     "text": "Kopia wisiała w kuchni restauracji tuż nad płytą. Tłuszcz z patelni i para z garnków zrobiły z niej lepką, bursztynową taflę."
@@ -907,6 +926,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "70 × 75,5 cm",
+   "iiif": "https://iiif.micr.io/NYvCK",
    "story": {
     "client": "Pralnia rodzinna z Bydgoszczy",
     "text": "Kopia wisiała w pralni od czasów przedwojennych. Para, krochmal i mydliny osiadły na niej warstwą, a w kącie ktoś przybijał gwoździem kartkę z cennikiem."
@@ -953,6 +973,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "60 × 45,7 cm",
+   "iiif": "https://iiif.micr.io/SOvaQ",
    "story": {
     "client": "Pan Andrzej, sadownik spod Grójca",
     "text": "Kopia z werandy starego domu, gdzie przez lata suszono jabłka i wędzono kiełbasę. Deszcz przeciekał przez dach, więc na płótnie zostały zacieki."
@@ -999,6 +1020,7 @@
    "kind": "zwierzęta",
    "medium": "olej na płótnie",
    "dimensions": "159 × 144 cm",
+   "iiif": "https://iiif.micr.io/BaFQb",
    "story": {
     "client": "Ogród zoologiczny w Poznaniu",
     "text": "Kopia wisiała w dawnym pawilonie ptaków. Było tam ciepło, wilgotno i pełno kurzu z karmy, więc płótno pokryła szara skorupa, a w rogach zamieszkały pająki."
@@ -1045,6 +1067,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "68,5 × 62,5 cm",
+   "iiif": null,
    "story": {
     "client": "Pani Ewa, antykwariuszka z Krakowa",
     "text": "Kopia znaleziona w szafie po starszym panu, który pisał listy do żony z każdej delegacji. Przez lata stała za szafą w chłodnym pokoju, więc zawilgła, a na werniksie wykwitły plamy."
@@ -1091,6 +1114,7 @@
    "kind": "martwa natura",
    "medium": "olej na desce",
    "dimensions": "66,5 × 52 cm",
+   "iiif": "https://iiif.micr.io/bTUZL",
    "story": {
     "client": "Pałacyk fabrykanta w Łodzi",
     "text": "Kopia zdobiła jadalnię pałacyku. Potem mieścił się tam urząd, a obraz trafił na strych. Gołębie, kurz i sto lat przerw w ogrzewaniu zostawiły po sobie ślady."
@@ -1137,6 +1161,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "82 × 70,5 cm",
+   "iiif": "https://iiif.micr.io/WZzyz",
    "story": {
     "client": "Dom dziecka w Zamościu",
     "text": "Kopia wisiała w świetlicy od czasów, gdy nikt nie pamięta. Brokat z dekoracji świątecznych, pył z choinek i dym z pieca zrobiły swoje, a jedna z pinezek zostawiła dziurkę."
@@ -1183,6 +1208,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "140 × 166,5 cm",
+   "iiif": "https://iiif.micr.io/kMSwz",
    "story": {
     "client": "Pan Henryk, dziedzic dworu na Kaszubach",
     "text": "Kopia z sali balowej dworu, w której po wojnie mieścił się magazyn zboża. Ziarno, pył i myszy obeszły się z nią bezlitośnie, ale uśmiechy małżonków przetrwały."
@@ -1229,6 +1255,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "135,5 × 112 cm",
+   "iiif": "https://iiif.micr.io/GRbAZ",
    "story": {
     "client": "Pan Ignacy, adwokat z Katowic",
     "text": "Kopia wisiała w kancelarii adwokackiej w gabinecie szefa, który palił fajkę przez czterdzieści lat. Obraz zszarzał tak, że klienci myśleli, że to fotografia."
@@ -1275,6 +1302,7 @@
    "kind": "wnętrze",
    "medium": "olej na płótnie",
    "dimensions": "110,5 × 141 cm",
+   "iiif": "https://iiif.micr.io/SbsFC",
    "story": {
     "client": "Karczma pod Zakopanem",
     "text": "Kopia wisiała w karczmie nad wielkim stołem, przy którym przez sto lat grała kapela. Dym, para z kwaśnicy i toasty zostawiły na niej warstwę, pod którą ledwo było widać muzykantów."
@@ -1321,6 +1349,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "121,5 × 166,5 cm",
+   "iiif": "https://iiif.micr.io/uRWXq",
    "story": {
     "client": "Pani Miriam, konserwatorka synagogi w Tykocinie",
     "text": "Stara kopia, którą znaleziono przy remoncie zabytkowego domu w Tykocinie. Była zamurowana we wnęce za piecem. Wapno, sadza i wilgoć pokryły ją grubą skorupą."
@@ -1367,6 +1396,7 @@
    "kind": "portret",
    "medium": "olej na płótnie",
    "dimensions": "379,5 × 453,5 cm",
+   "iiif": "https://iiif.micr.io/PJEZO",
    "story": {
     "client": "Zarząd ratusza w Toruniu",
     "text": "Wielka dziewiętnastowieczna kopia, zamówiona dla bractwa kurkowego. Wisiała w ratuszowej sali, gdzie przez dziesięciolecia palono świece i cygara. Werniks pociemniał tak bardzo, że scena wyglądała na nocną."
