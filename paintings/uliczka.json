@@ -1,0 +1,36 @@
+{
+  "order": 2,
+  "title": "Uliczka",
+  "author": "Johannes Vermeer",
+  "date": "ok. 1658",
+  "kind": "miasto",
+  "story": {
+    "client": "Pan Marek, handlarz starociami z Gdańska",
+    "text": "Kopia z warsztatu kopistów, kupiona na pchlim targu w Gdańsku razem ze skrzynią starych ram. Pół wieku przestała w piwnicy za regałem z przetworami. Ktoś kiedyś chlapnął na nią farbą do okien."
+  },
+  "card": [
+    "Ceglane domy przy zwykłej ulicy w Delfcie. W bramie kobieta zajmuje się praniem, w drzwiach druga szyje, a na chodniku bawią się dzieci. To jeden z zaledwie dwóch pejzaży miejskich Vermeera, obok „Widoku Delftu”.",
+    "Przez lata spierano się, którą ulicę namalował. W 2015 roku historyk sztuki Frans Grijzenhout porównał dawne rejestry podatkowe i wskazał posesje przy Vlamingstraat w Delfcie.",
+    "Vermeer odtworzył każdą cegłę i pęknięcie tynku, ale scena nie jest dokumentem. To spokojny portret codziennego życia na holenderskim podwórku."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2860",
+    "title_en": "View of Houses in Delft, Known as ‘The Little Street’",
+    "title_nl": "Gezicht op huizen in Delft, bekend als ‘Het straatje’",
+    "creator": "Johannes Vermeer",
+    "date": "c. 1658",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108371",
+    "iiif": null,
+    "commons": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20Gezicht%20op%20huizen%20in%20Delft%2C%20bekend%20als%20%27Het%20straatje%27%20-%20Google%20Art%20Project.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Vermeer%20-%20Gezicht%20op%20huizen%20in%20Delft%2C%20bekend%20als%20%27Het%20straatje%27%20-%20Google%20Art%20Project.jpg?width=4000"
+  }
+}

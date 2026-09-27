@@ -1,0 +1,124 @@
+{
+ "paintings": [
+  {
+   "slug": "mleczarka",
+   "order": 1,
+   "size": [
+    1437,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 87
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 205
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 435
+    }
+   },
+   "title": "Mleczarka",
+   "author": "Johannes Vermeer",
+   "date": "ok. 1660",
+   "objectNumber": "SK-A-2344",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108369",
+   "kind": "wnętrze",
+   "story": {
+    "client": "Pani Zofia, wnuczka właścicielki pensjonatu",
+    "text": "Dziewiętnastowieczna kopia „Mleczarki”, namalowana przez studenta akademii w Antwerpii. Przez pół wieku wisiała w kuchni pensjonatu w Zakopanem, tuż nad kaflowym piecem. Stąd sadza, tłuste zacieki i werniks żółty jak miód."
+   },
+   "card": [
+    "Służąca w skupieniu przelewa mleko z dzbanka do misy. Na stole leży chleb, a w oknie po lewej widać pęknięte szybki. Vermeer namalował scenę bez żadnej akcji i zrobił z niej jedno z najbardziej znanych dzieł holenderskiego złotego wieku.",
+    "Na fartuch i obrus malarz użył ultramaryny z lapis lazuli, jednego z najdroższych pigmentów epoki. Jasne kropki farby na chlebie i koszyku udają błyski światła.",
+    "Rijksmuseum kupiło obraz w 1908 roku. Na ścianie wciąż widać gwóźdź i dziurkę po innym gwoździu, a przy podłodze stoi ogrzewacz do stóp."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "uliczka",
+   "order": 2,
+   "size": [
+    1292,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 129
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 337
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 679
+    }
+   },
+   "title": "Uliczka",
+   "author": "Johannes Vermeer",
+   "date": "ok. 1658",
+   "objectNumber": "SK-A-2860",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108371",
+   "kind": "miasto",
+   "story": {
+    "client": "Pan Marek, handlarz starociami z Gdańska",
+    "text": "Kopia z warsztatu kopistów, kupiona na pchlim targu w Gdańsku razem ze skrzynią starych ram. Pół wieku przestała w piwnicy za regałem z przetworami. Ktoś kiedyś chlapnął na nią farbą do okien."
+   },
+   "card": [
+    "Ceglane domy przy zwykłej ulicy w Delfcie. W bramie kobieta zajmuje się praniem, w drzwiach druga szyje, a na chodniku bawią się dzieci. To jeden z zaledwie dwóch pejzaży miejskich Vermeera, obok „Widoku Delftu”.",
+    "Przez lata spierano się, którą ulicę namalował. W 2015 roku historyk sztuki Frans Grijzenhout porównał dawne rejestry podatkowe i wskazał posesje przy Vlamingstraat w Delfcie.",
+    "Vermeer odtworzył każdą cegłę i pęknięcie tynku, ale scena nie jest dokumentem. To spokojny portret codziennego życia na holenderskim podwórku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "labedz",
+   "order": 3,
+   "size": [
+    1600,
+    1332
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 102
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 222
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 464
+    }
+   },
+   "title": "Zagrożony łabędź",
+   "author": "Jan Asselijn",
+   "date": "ok. 1650",
+   "objectNumber": "SK-A-4",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108146",
+   "kind": "zwierzęta",
+   "story": {
+    "client": "Fundacja opiekująca się dworem pod Kaliszem",
+    "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
+   },
+   "card": [
+    "Łabędź z rozpostartymi skrzydłami broni gniazda przed psem, który podpływa z lewej strony. Asselijn namalował zwierzę niemal w naturalnej wielkości, a dramatyczne światło podkreśla gniew ptaka.",
+    "Później ktoś dopisał na obrazie słowa, które zmieniły go w alegorię polityczną. Łabędź stał się wielkim pensjonariuszem Johanem de Wittem, a jajo w gnieździe Holandią broniącą się przed wrogiem.",
+    "Był to pierwszy obraz kupiony w 1800 roku przez Nationale Kunst-Galerij, poprzedniczkę dzisiejszego Rijksmuseum."
+   ],
+   "dirt": null
+  }
+ ]
+}

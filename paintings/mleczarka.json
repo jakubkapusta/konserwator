@@ -1,0 +1,36 @@
+{
+  "order": 1,
+  "title": "Mleczarka",
+  "author": "Johannes Vermeer",
+  "date": "ok. 1660",
+  "kind": "wnętrze",
+  "story": {
+    "client": "Pani Zofia, wnuczka właścicielki pensjonatu",
+    "text": "Dziewiętnastowieczna kopia „Mleczarki”, namalowana przez studenta akademii w Antwerpii. Przez pół wieku wisiała w kuchni pensjonatu w Zakopanem, tuż nad kaflowym piecem. Stąd sadza, tłuste zacieki i werniks żółty jak miód."
+  },
+  "card": [
+    "Służąca w skupieniu przelewa mleko z dzbanka do misy. Na stole leży chleb, a w oknie po lewej widać pęknięte szybki. Vermeer namalował scenę bez żadnej akcji i zrobił z niej jedno z najbardziej znanych dzieł holenderskiego złotego wieku.",
+    "Na fartuch i obrus malarz użył ultramaryny z lapis lazuli, jednego z najdroższych pigmentów epoki. Jasne kropki farby na chlebie i koszyku udają błyski światła.",
+    "Rijksmuseum kupiło obraz w 1908 roku. Na ścianie wciąż widać gwóźdź i dziurkę po innym gwoździu, a przy podłodze stoi ogrzewacz do stóp."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2344",
+    "title_en": "The Milkmaid",
+    "title_nl": "Het melkmeisje",
+    "creator": "Johannes Vermeer",
+    "date": "c. 1660",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108369",
+    "iiif": "https://iiif.micr.io/QkOGy",
+    "commons": null,
+    "image": "https://iiif.micr.io/QkOGy/full/!4000,4000/0/default.jpg"
+  }
+}

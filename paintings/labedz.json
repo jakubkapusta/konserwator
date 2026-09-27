@@ -1,0 +1,36 @@
+{
+  "order": 3,
+  "title": "Zagrożony łabędź",
+  "author": "Jan Asselijn",
+  "date": "ok. 1650",
+  "kind": "zwierzęta",
+  "story": {
+    "client": "Fundacja opiekująca się dworem pod Kaliszem",
+    "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
+  },
+  "card": [
+    "Łabędź z rozpostartymi skrzydłami broni gniazda przed psem, który podpływa z lewej strony. Asselijn namalował zwierzę niemal w naturalnej wielkości, a dramatyczne światło podkreśla gniew ptaka.",
+    "Później ktoś dopisał na obrazie słowa, które zmieniły go w alegorię polityczną. Łabędź stał się wielkim pensjonariuszem Johanem de Wittem, a jajo w gnieździe Holandią broniącą się przed wrogiem.",
+    "Był to pierwszy obraz kupiony w 1800 roku przez Nationale Kunst-Galerij, poprzedniczkę dzisiejszego Rijksmuseum."
+  ],
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-4",
+    "title_en": "The Threatened Swan",
+    "title_nl": "De bedreigde zwaan",
+    "creator": "Jan Asselijn",
+    "date": "c. 1650",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108146",
+    "iiif": "https://iiif.micr.io/hZepb",
+    "commons": null,
+    "image": "https://iiif.micr.io/hZepb/full/!4000,4000/0/default.jpg"
+  }
+}
