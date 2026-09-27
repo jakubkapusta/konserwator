@@ -1,0 +1,48 @@
+{
+  "order": 8.5,
+  "title": "Corniche koło Monako",
+  "author": "Claude Monet",
+  "date": "1884",
+  "kind": "pejzaż",
+  "card": [
+    "Nadmorska droga wije się po zboczu nad Morzem Śródziemnym. Po lewej lśni woda, w głębi wyrasta skalisty cypel, a wszystko drga od krótkich, gęstych pociągnięć pędzla.",
+    "Monet spędził początek 1884 roku na Riwierze i pisał, że południowe światło jest tak jasne, że trudno je oddać farbą. Malował szybko, na miejscu, kładąc obok siebie czyste kolory zamiast je mieszać. Tak pracowali impresjoniści."
+  ],
+  "story": {
+    "client": "Pani Jadwiga, emerytowana stewardesa",
+    "text": "Kopia kupiona na pchlim targu w Nicei i przewieziona w walizce do Gdańska. Wisiała w kuchni nad kuchenką gazową, więc tłuszcz i para zrobiły swoje, a z ramy zaczął odchodzić tynk."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 374
+    },
+    "sredni": {
+      "work_long": 437
+    },
+    "trudny": {
+      "work_long": 491
+    }
+  },
+  "source": {
+    "object_number": "SK-A-1892",
+    "title_en": "La Corniche near Monaco",
+    "title_nl": "La Corniche bij Monaco",
+    "creator": "Claude Monet",
+    "date": "1884",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108883",
+    "iiif": "https://iiif.micr.io/VPrnZ",
+    "commons": null,
+    "dimensions_nl": "hoogte 75 cm x breedte 94 cm",
+    "medium_nl": "olieverf op doek",
+    "medium_en": "oil on canvas",
+    "credit_en": "Gift of M.C., Baroness van Lynden-van Pallandt, The Hague",
+    "credit_nl": "Schenking van M.C. barones van Lynden-van Pallandt, Den Haag",
+    "description_nl": "La Corniche bij Monaco. Kustlandschap met een weg over een heuvel bij de kust van de Middellandse Zee.",
+    "dimensions_en": "height 75 cm x width 94 cm",
+    "image": "https://iiif.micr.io/VPrnZ/full/!4000,4000/0/default.jpg"
+  }
+}

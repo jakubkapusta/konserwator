@@ -15,6 +15,8 @@ from scipy import ndimage as ndi
 from skimage import color, restoration, transform
 
 FONT = "/System/Library/Fonts/Supplemental/Arial.ttf"
+GOLD_ID = 65535  # region id of the gold ground in the map: not painted in the retouch, gilded with leaf instead
+GOLD_LAB = np.array([72.0, 9.0, 48.0])
 
 
 def font(size):
@@ -104,9 +106,10 @@ def regions_from_labels(lbl, k):
     return reg, n, col
 
 
-def merge_small(reg, col, pal_lab, min_area, min_radius):
+def merge_small(reg, col, pal_lab, min_area, min_radius, fixed=None):
     """Absorb regions that are too small or too thin (can't hold a number) into the closest-colored neighbor.
-    Returns ids compacted to 0..n-1."""
+    fixed: a color (the gold ground) whose regions are never absorbed and only take in specks with no other
+    neighbor. Returns ids compacted to 0..n-1."""
     changed = True
     while changed:
         changed = False
@@ -115,7 +118,7 @@ def merge_small(reg, col, pal_lab, min_area, min_radius):
         objs = ndi.find_objects(reg)
         H, W = reg.shape
         for rid in sorted(area, key=area.get):
-            if rid == 0 or objs[rid - 1] is None:
+            if rid == 0 or objs[rid - 1] is None or (fixed is not None and col[rid] == fixed):
                 continue
             sl = objs[rid - 1]
             y0, y1 = max(sl[0].start - 2, 0), min(sl[0].stop + 2, H)
@@ -132,6 +135,10 @@ def merge_small(reg, col, pal_lab, min_area, min_radius):
                 continue
             ring = ndi.binary_dilation(m) & ~m
             nb, cnt = np.unique(sub[ring], return_counts=True)
+            if fixed is not None and len(nb) > 1:
+                keep = col[nb] != fixed
+                if keep.any():
+                    nb, cnt = nb[keep], cnt[keep]
             if len(nb) == 0:
                 continue
             # closest color, tie-broken by shared border length
@@ -209,17 +216,95 @@ def draw_numbers(im, pts, col, done=(), min_px=12, max_px=34):
         d.text((x, y), str(col[rid] + 1), fill=(90, 82, 74), font=font(size), anchor="mm")
 
 
-def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, tv=0.06, merge_de=6.0):
-    """src: float RGB array (any size). out_size: (width, height) of the region map."""
+def gold_mask(rgb, p=None):
+    """Gold ground of a medieval panel (and halos), from the scan. rgb: float HxWx3 at region resolution.
+    Colour alone can't tell gold leaf from tempera flesh, so it's a seeded, edge-aware split (random walker):
+    clearly non-gold colours are "not gold" seeds, the cores of big gold-coloured areas are gold seeds
+    (plus `seeds`), and `figures` ([x, y] fractions on faces, bodies...) mark gold-coloured things that
+    aren't gold. Missing a bit of gold is fine (it gets painted in the retouch); gilding a face is not.
+    p (record -> gold): min_L, min_chroma, hue [lo, hi], seeds, figures, core, beta,
+    bg (the dark photo background around an arched top becomes gilded spandrels)."""
+    from skimage.segmentation import random_walker
+    p = p or {}
+    H, W = rgb.shape[:2]
+    lab = color.rgb2lab(ndi.gaussian_filter(rgb, (1.0, 1.0, 0)))
+    L, a, b = lab[..., 0], lab[..., 1], lab[..., 2]
+    C = np.hypot(a, b)
+    hue = np.degrees(np.arctan2(b, a))
+    lo, hi = p.get("hue", (62, 100))
+    gate = (L > p.get("min_L", 32)) & (L < 95) & (C > p.get("min_chroma", 30)) & (hue > lo) & (hue < hi)
+    gate = ndi.binary_closing(gate, iterations=2)
+    # work small: the walker solves a big linear system
+    k = min(1.0, 520 / max(H, W))
+    h, w = max(8, round(H * k)), max(8, round(W * k))
+    small = transform.resize(lab, (h, w), anti_aliasing=True)
+    gs = transform.resize(gate.astype(np.float32), (h, w), order=1) > 0.5
+    # sure "not gold": clearly outside the colour gate; sure gold: the core of big gold-coloured areas
+    Ls, As, Bs = small[..., 0], small[..., 1], small[..., 2]
+    Cs, Hs = np.hypot(As, Bs), np.degrees(np.arctan2(Bs, As))
+    far = (Cs < p.get("min_chroma", 30) - 8) | (Hs < lo - 8) | (Hs > hi + 8) | (Ls < p.get("min_L", 32) - 8)
+    lbl = np.where(far, 2, 0).astype(np.int32)
+    core = ndi.binary_erosion(gs, iterations=max(2, round(max(h, w) * p.get("core", 0.02))))
+    lbl[core] = 1
+    yy, xx = np.mgrid[0:h, 0:w]
+    rad = max(3, round(max(h, w) * 0.012))
+    for fx, fy in p.get("seeds", []):
+        lbl[((yy - fy * h) ** 2 + (xx - fx * w) ** 2 < rad * rad) & gs] = 1
+    figs = np.zeros((h, w), bool)
+    for fx, fy in p.get("figures", []):
+        figs |= (yy - fy * h) ** 2 + (xx - fx * w) ** 2 < (rad * 1.8) ** 2
+    # a gold-coloured core that a figure point falls into is that figure, not gold
+    cr, _ = ndi.label(lbl == 1)
+    bad = np.unique(cr[figs & (cr > 0)])
+    lbl[np.isin(cr, bad) & (cr > 0)] = 0
+    lbl[figs] = 2
+    if not (lbl == 1).any():
+        return np.zeros((H, W), bool)
+    rw = random_walker(small / np.array([100.0, 60.0, 60.0]), lbl, beta=p.get("beta", 600), mode="cg_j", channel_axis=-1, tol=1e-3)
+    g = transform.resize((rw == 1).astype(np.float32), (H, W), order=1) > 0.5
+    g &= ndi.binary_dilation(gate, iterations=2)
+    if p.get("bg"):
+        # the dark, colourless photo background connected to the top corners (outside an arched top)
+        dark = ndi.binary_closing((C < 16) & (L < 45), iterations=3)
+        rr, _ = ndi.label(dark)
+        for cy, cx in ((8, 8), (8, W - 9)):
+            # (inset: the closing eats the picture's edge) and only above the lower third, so it can't run
+            # into a dark robe
+            if rr[cy, cx]:
+                comp = rr == rr[cy, cx]
+                comp[int(H * 0.66):] = False
+                comp[:12] |= (C[:12] < 16) & (L[:12] < 45)
+                g |= ndi.binary_dilation(comp, iterations=4)
+    # punches, cracks and small losses inside the gold are gold too
+    holes = ndi.binary_fill_holes(g) & ~g
+    hr, hn = ndi.label(holes)
+    if hn:
+        ha = ndi.sum(holes, hr, np.arange(1, hn + 1))
+        g |= np.isin(hr, np.flatnonzero(ha < H * W * p.get("max_hole", 0.0008)) + 1)
+    g = ndi.binary_opening(g, iterations=2)
+    r, n = ndi.label(g)
+    if n:
+        area = ndi.sum(g, r, np.arange(1, n + 1))
+        g = np.isin(r, np.flatnonzero(area >= H * W * 0.0015) + 1)
+    return g
+
+
+def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, tv=0.06, merge_de=6.0, gold=None):
+    """src: float RGB array (any size). out_size: (width, height) of the region map.
+    gold: bool mask at out_size; those pixels get region id GOLD_ID and no paint."""
     ow, oh = out_size
     work_w, h = (work_long, round(work_long * oh / ow)) if ow >= oh else (round(work_long * ow / oh), work_long)
     img = transform.resize(src, (h, work_w), anti_aliasing=True)
+    gw = transform.resize(gold.astype(np.float32), (h, work_w), order=1) > 0.5 if gold is not None and gold.any() else None
     # flatten brush texture and craquelure, keep edges
     smooth = restoration.denoise_tv_chambolle(img, weight=tv, channel_axis=-1)
     lab = color.rgb2lab(smooth)
     # weight chroma so saturated accents (Vermeer's yellow and ultramarine) get their own paints instead of more browns
     w = np.array([1.0, chroma, chroma])
-    pal_lab, lbl = kmeans_lab(lab * w, colors, weights=detail_weights(lab))
+    dw = detail_weights(lab)
+    if gw is not None:
+        dw = dw * np.where(gw, 1e-4, 1.0)
+    pal_lab, lbl = kmeans_lab(lab * w, colors, weights=dw)
     pal_lab = pal_lab / w
     pal_lab, lbl = merge_close(pal_lab, lbl, merge_de)
     colors = len(pal_lab)
@@ -228,20 +313,33 @@ def segment(src, colors, work_long, min_area, min_radius, out_size, chroma=1.8, 
     inv = np.empty(colors, np.int32)
     inv[order] = np.arange(colors)
     pal_lab, lbl = pal_lab[order], inv[lbl]
-    lbl = mode_filter(lbl, colors)
-    reg, _, col = regions_from_labels(lbl, colors)
-    reg, n, col = merge_small(reg, col, pal_lab, min_area, min_radius)
+    # the gold ground is one extra pseudo-paint that never merges with the others
+    fixed, K, pal_x = None, colors, pal_lab
+    if gw is not None:
+        lbl[gw] = colors
+        fixed, K, pal_x = colors, colors + 1, np.vstack([pal_lab, GOLD_LAB])
+    lbl = mode_filter(lbl, K)
+    reg, _, col = regions_from_labels(lbl, K)
+    reg, n, col = merge_small(reg, col, pal_x, min_area, min_radius, fixed)
     pal_rgb = np.clip(color.lab2rgb(pal_lab[None])[0], 0, 1)
     # upscale to output size with smooth borders, then clean up specks the smoothing created
     zoom = (oh / h, ow / work_w)
     z = ow / work_w
-    reg, _, col = regions_from_labels(smooth_upscale(reg, col, zoom, sigma=z * 0.9), colors)
-    reg, n, col = merge_small(reg, col, pal_lab, int(z * z * 12), 0)
+    reg, _, col = regions_from_labels(smooth_upscale(reg, col, zoom, sigma=z * 0.9), K)
+    reg, n, col = merge_small(reg, col, pal_x, int(z * z * 12), 0, fixed)
     # zoom rounding can be off by a pixel
     if reg.shape != (oh, ow):
         reg = reg[:oh, :ow]
         if reg.shape != (oh, ow):
             reg = np.pad(reg, ((0, oh - reg.shape[0]), (0, ow - reg.shape[1])), mode="edge")
+    if fixed is not None:
+        g = col[reg] == fixed
+        keep = np.unique(reg[~g])
+        remap = np.zeros(n, np.int32)
+        remap[keep] = np.arange(len(keep))
+        out = np.full(reg.shape, GOLD_ID, np.int32)
+        out[~g] = remap[reg[~g]]
+        reg, col, n = out, col[keep], len(keep)
     return reg, n, col, pal_rgb
 
 
@@ -280,8 +378,15 @@ def main():
 def write_previews(out, level, reg, col, pal_rgb, pts, tex):
     k = len(pal_rgb)
     done = set(np.random.default_rng(3).choice(k, size=int(k * 0.55), replace=False).tolist())
+    if (reg == GOLD_ID).any():
+        # the gold ground shows as flat gold, never numbered
+        cx = np.full(GOLD_ID + 1, k, np.int32)
+        cx[:len(col)] = col
+        col, pal_rgb = cx, np.vstack([pal_rgb, np.clip(color.lab2rgb(GOLD_LAB[None, None])[0], 0, 1)])
+        done.add(k)
+    base = {k} if len(pal_rgb) > k else set()
     render(reg, col, pal_rgb).save(out / f"preview-{level}-plaski.png")
-    im = render(reg, col, pal_rgb, done=set())
+    im = render(reg, col, pal_rgb, done=base)
     draw_numbers(im, pts, col)
     im.save(out / f"preview-{level}-kontury.png")
     im = render(reg, col, pal_rgb, done=done, texture=tex)

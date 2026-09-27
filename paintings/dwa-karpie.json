@@ -1,0 +1,45 @@
+{
+  "order": 5.5,
+  "title": "Dwa karpie",
+  "author": "Katsushika Hokusai",
+  "date": "1831",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "17,6 × 28,6 cm",
+  "card": [
+    "Dwa szare karpie płyną wśród wodorostów na tle niebieskiej wody. Obraz ma kształt wachlarza, z wyciętym miejscem na rączkę.",
+    "To rycina do naklejania na wachlarze. Takie odbitki zużywano i wyrzucano, dlatego przetrwało ich bardzo mało. Karp był w Japonii symbolem siły i wytrwałości, bo płynie pod prąd."
+  ],
+  "story": {
+    "client": "Pan Józef, hodowca karpi z Zatora",
+    "text": "Kopia wisiała w stróżówce przy stawach. Para z czajnika, dym z kozy i muchy przez lata robiły swoje."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 714
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1960-3",
+    "title_en": "Two Carp",
+    "title_nl": "Twee karpers",
+    "creator": "Katsushika Hokusai (mentioned on object)",
+    "date": "1831",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134561",
+    "iiif": "https://iiif.micr.io/ernja",
+    "commons": null,
+    "dimensions_nl": "blad: hoogte 176 mm (uchiwa-e) x breedte 286 mm",
+    "dimensions_en": "height 176 mm x width 286 mm",
+    "description_nl": "Waaierprent waarop twee grijze karpers tegen blauwe achtergrond met zeewier.",
+    "credit_nl": "Aankoop uit het F.G. Waller-Fonds",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "credit_en": "Purchased with the support of the F.G. Waller-Fonds",
+    "image": "https://iiif.micr.io/ernja/full/!4000,4000/0/default.jpg"
+  }
+}

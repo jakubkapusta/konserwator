@@ -68,7 +68,8 @@ export class Retouch {
     const { width: W, height: H, map } = this.lv;
     const ix = Math.floor(x), iy = Math.floor(y);
     if (ix < 0 || iy < 0 || ix >= W || iy >= H) return -1;
-    return map[iy * W + ix];
+    const id = map[iy * W + ix];
+    return id < this.lv.regions.length ? id : -1; // the gold ground isn't painted
   }
 
   update(dt: number, now: number) {

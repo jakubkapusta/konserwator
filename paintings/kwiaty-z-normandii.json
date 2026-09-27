@@ -1,0 +1,42 @@
+{
+  "order": 10.5,
+  "title": "Kwiaty z Normandii",
+  "author": "Henri Fantin-Latour",
+  "date": "1887",
+  "kind": "martwa natura",
+  "card": [
+    "Bukiet polnych i ogrodowych kwiatów stoi w wysokim szklanym wazonie na tle szarej ściany. Obok na blacie leży pojedyncza róża. Tło jest ciche i gładkie, żeby kwiaty wydawały się jeszcze jaśniejsze.",
+    "Fantin-Latour przyjaźnił się z impresjonistami, ale utrzymywał się głównie z martwych natur z kwiatami. Chętnie kupowali je Anglicy. Malował powoli, z natury, i potrafił oddać nawet to, jak płatek przepuszcza światło."
+  ],
+  "story": {
+    "client": "Kwiaciarnia „Pod Lipą” w Lublinie",
+    "text": "Kopia, która od czterdziestu lat wisi za ladą kwiaciarni. Wilgoć z wiader, kurz z papieru pakowego i dym z papierosów dawnego właściciela zostawiły na niej żółtą mgłę."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2895",
+    "title_en": "Flowers from Normandy",
+    "title_nl": "Bloemen uit Normandië",
+    "creator": "Henri Fantin-Latour",
+    "date": "1887",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109683",
+    "iiif": "https://iiif.micr.io/LQqcH",
+    "commons": null,
+    "credit_nl": "Legaat van de heer A. van Wezel, Amsterdam",
+    "credit_en": "A. van Wezel Bequest, Amsterdam",
+    "description_nl": "Stilleven met bloemen. Boeket bloemen in een hoge glazen vaas, rechts ligt een roos.",
+    "dimensions_nl": "hoogte 72 cm x breedte 60 cm",
+    "medium_nl": "olieverf op doek",
+    "medium_en": "oil on canvas",
+    "dimensions_en": "height 72 cm x width 60 cm",
+    "image": "https://iiif.micr.io/LQqcH/full/!4000,4000/0/default.jpg"
+  }
+}

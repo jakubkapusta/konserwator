@@ -1,0 +1,45 @@
+{
+  "order": 25.5,
+  "title": "Kwiaty w szklanej butelce",
+  "author": "Balthasar van der Ast",
+  "date": "ok. 1625–1630",
+  "kind": "martwa natura",
+  "card": [
+    "W szklanej butelce stoi bukiet tulipanów, róż, goździków, irysów i orlików. Na blacie leżą muszle, pełza jaszczurka i gąsienica. Każdy kwiat jest namalowany osobno, jak w zielniku.",
+    "Balthasar van der Ast uczył się u swojego szwagra Ambrosiusa Bosschaerta w Middelburgu. Takie bukiety nigdy nie istniały naprawdę: kwiaty kwitnące w różnych miesiącach malowano z osobnych studiów i składano w jeden obraz."
+  ],
+  "story": {
+    "client": "Zakon sióstr w Staniątkach",
+    "text": "Kopia podarowana klasztorowi w XIX wieku. Wisiała w refektarzu, gdzie przez dziesięciolecia paliły się świece i gotowano zupę. Sadza i wosk pokryły kwiaty brązową warstwą."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 648
+    }
+  },
+  "source": {
+    "object_number": "SK-A-2103",
+    "title_en": "Still Life with Flowers",
+    "title_nl": "Stilleven met bloemen",
+    "creator": "Balthasar van der Ast (signed by artist)",
+    "date": "c. 1625 - c. 1630",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108148",
+    "iiif": "https://iiif.micr.io/aasHz",
+    "commons": null,
+    "credit_en": "A.A. des Tombe Bequest, The Hague",
+    "medium_nl": "olieverf op paneel",
+    "dimensions_en": "support: height 59 cm x width 43 cm",
+    "dimensions_nl": "lijst: hoogte 75,8 cm x breedte 59,8 cm",
+    "provenance_en": "...; ? collection the Van Citters family;{Handwritten catalogue of the Des Tombe collection, n.d., HUA, PA 26, Des Tombe archive 26, no. 108: ‘13 B. van der Ast, Bloemen in eene vaas met schelpen en een hagedis, paneel afkomstig als boven’ (from the Van Citters family); see also the main entry.} by descent to Arnoldus Andries des Tombe (1818-1902), The Hague; by whom bequeathed to the museum, 1903; on loan to the Noordbrabants Museum, ’s-Hertogenbosch, 2002-11",
+    "description_nl": "Bloemstilleven. In een glazen fles een boeket met tulpen, rozen, anjelieren, irissen, koekoeksbloemen en akeleien. Op het tafelblad een hagedis, een rups en enige schelpen.",
+    "credit_nl": "Legaat van de heer A.A. des Tombe, Den Haag",
+    "medium_en": "oil on panel",
+    "image": "https://iiif.micr.io/aasHz/full/!4000,4000/0/default.jpg"
+  }
+}

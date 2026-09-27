@@ -1,0 +1,43 @@
+{
+  "order": 17.5,
+  "title": "Kintarō i karp",
+  "author": "Utagawa Kuniyoshi",
+  "date": "1834–1838",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "37,6 × 24,8 cm",
+  "card": [
+    "Muskularny chłopiec zmaga się pod wodospadem z ogromnym karpiem. Woda spływa białymi strugami, a karp wije się w jego rękach.",
+    "Kintarō to chłopiec z japońskiej legendy, obdarzony nadludzką siłą i wychowany w górach. Kuniyoshi słynął z dynamicznych rycin z bohaterami i wojownikami. Karp był symbolem wytrwałości."
+  ],
+  "story": {
+    "client": "Klub zapaśniczy w Radomiu",
+    "text": "Kopia wisiała w szatni przez czterdzieści lat. Para spod pryszniców, pot i dym z papierosów trenerów zrobiły z niej ciemną plamę."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1964-813",
+    "title_en": null,
+    "title_nl": "Kintaro worstelend met karper",
+    "creator": "Utagawa Kuniyoshi (vermeld op object)",
+    "date": "1834 - 1838",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200135021",
+    "iiif": "https://iiif.micr.io/SbOlV",
+    "commons": null,
+    "description_nl": "Naakt gespierd jongetje, Kintaro, ook wel Sakata Kaidomaru, worstelend met een enorme karper onder een waterval.",
+    "dimensions_en": "height 376 mm x width 248 mm",
+    "credit_en": "Gift of F. Bobeldijk, Zwolle",
+    "dimensions_nl": "blad: hoogte 376 mm x breedte 248 mm",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "credit_nl": "Schenking van de heer F. Bobeldijk, Zwolle",
+    "image": "https://iiif.micr.io/SbOlV/full/!4000,4000/0/default.jpg"
+  }
+}

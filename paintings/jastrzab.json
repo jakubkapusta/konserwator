@@ -1,0 +1,49 @@
+{
+  "order": 11.5,
+  "title": "Jastrząb na sośnie",
+  "author": "Utagawa Hiroshige",
+  "date": "1833–1837",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "38,5 × 17,5 cm",
+  "card": [
+    "Jastrząb siedzi na pniu sosny na tle wielkiego, czerwonego słońca. W prawym górnym rogu jest wiersz. Kompozycja jest prosta: pień, ptak, słońce.",
+    "Jastrząb na tle słońca był w Japonii znakiem siły i dobrej wróżby. Hiroshige robił takie wąskie, wysokie ryciny z ptakami i kwiatami obok swoich słynnych pejzaży."
+  ],
+  "story": {
+    "client": "Pan Tadeusz, sokolnik z Bolkowa",
+    "text": "Kopia wisiała w stajni na zamku, gdzie trzymano ptaki. Pióra, kurz i to, co ptaki zostawiają, pokryły ją dość dokładnie."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 814
+    },
+    "sredni": {
+      "work_long": 1093
+    },
+    "trudny": {
+      "work_long": 1100
+    }
+  },
+  "source": {
+    "object_number": "RP-P-1956-765",
+    "title_en": null,
+    "title_nl": "Havik op pijnboom",
+    "creator": "Utagawa Hiroshige (I) (mentioned on object)",
+    "date": "1833 - 1837",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134827",
+    "iiif": "https://iiif.micr.io/smJWx",
+    "commons": null,
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "description_nl": "Een havik op de stam van een pijnboom, tegen een grote rode zon; rechtsboven een gedicht.",
+    "dimensions_nl": "blad: hoogte 385 mm (otanzaku) x breedte 175 mm",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "dimensions_en": "height 385 mm x width 175 mm",
+    "image": "https://iiif.micr.io/smJWx/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "order": 4.5,
+  "title": "Martwa natura z owocami",
+  "author": "Henri Fantin-Latour",
+  "date": "ok. 1880–1890",
+  "kind": "martwa natura",
+  "card": [
+    "Na białym talerzu leżą winogrona i gruszka, obok stoi koszyk z jabłkami i innymi owocami. Nic więcej: ciemne tło, kilka przedmiotów i miękkie światło z boku.",
+    "Henri Fantin-Latour malował takie niewielkie martwe natury przez całe życie. Były kameralne i spokojne, przez co dobrze się sprzedawały, zwłaszcza w Anglii."
+  ],
+  "story": {
+    "client": "Pan Zbigniew, sadownik spod Grójca",
+    "text": "Kopia wisiała w przechowalni owoców, gdzie zimą paliło się w kozie. Na płótnie osiadł dym i pył z jabłkowych skrzynek, a myszy nadgryzły róg blejtramu."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-2982",
+    "title_en": "Still Life with Fruit",
+    "title_nl": "Stilleven met fruit",
+    "creator": "Henri Fantin-Latour",
+    "date": "c. 1880 - c. 1890",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/20027871",
+    "iiif": "https://iiif.micr.io/tDDnJ",
+    "commons": null,
+    "dimensions_nl": "drager: hoogte 28,3 cm x breedte 42,8 cm x dikte 2,5 cm (incl. achterkantbescherming)",
+    "medium_nl": "olieverf op doek",
+    "description_nl": "Stilleven met fruit. Witte schotel met druiven en een peer, rechts een mandje met appels en andere vruchten.",
+    "credit_nl": "Legaat van de heer C.D. Reich",
+    "dimensions_en": "height 28.3 cm x width 42.8 cm x thickness 2.5 cm",
+    "medium_en": "oil on canvas",
+    "credit_en": "C.D. Reich Bequest",
+    "image": "https://iiif.micr.io/tDDnJ/full/!4000,4000/0/default.jpg"
+  }
+}

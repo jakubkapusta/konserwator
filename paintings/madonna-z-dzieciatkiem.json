@@ -1,0 +1,74 @@
+{
+  "order": 9.2,
+  "title": "Madonna z Dzieciątkiem",
+  "author": "Mistrz z Badia a Isola",
+  "date": "ok. 1300",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Maria trzyma na ręku Dzieciątko, a za nimi błyszczy złote tło z rytymi aureolami. Twarze są spokojne, podłużne, oczy lekko skośne, a na ciemnym płaszczu Marii złote smugi znaczą fałdy.",
+    "Nazwę temu anonimowemu malarzowi nadano od ołtarza w kościele opactwa Badia a Isola koło Sieny. Był uczniem albo naśladowcą Duccia. Złoto kładło się na deskę w płatkach cieńszych od papieru, na czerwoną glinkę zwaną pulmentem, i polerowało kamieniem albo wilczym zębem.",
+    "Do obrazu dodano później drugi fragment z rękami Marii i nóżkami Dzieciątka."
+  ],
+  "story": {
+    "client": "Parafia w Tyńcu",
+    "text": "Kopia z XIX wieku, namalowana przez zakonnika na wzór włoskiej ikony. Stała na bocznym ołtarzu, gdzie świece i kadzidło okopciły ją na czarno. Złoto tła starło się niemal całkiem i widać spod niego czerwony pulment."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "gold": {
+    "bg": true,
+    "min_chroma": 36,
+    "figures": [
+      [
+        0.45,
+        0.37
+      ],
+      [
+        0.36,
+        0.3
+      ],
+      [
+        0.8,
+        0.62
+      ],
+      [
+        0.75,
+        0.7
+      ],
+      [
+        0.3,
+        0.72
+      ],
+      [
+        0.5,
+        0.55
+      ]
+    ]
+  },
+  "source": {
+    "object_number": "SK-C-1597-A",
+    "title_en": "Virgin and Child",
+    "title_nl": "Madonna met kind",
+    "creator": "Meester van Badia a Isola",
+    "date": "c. 1300",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109467",
+    "iiif": "https://iiif.micr.io/OmERn",
+    "commons": null,
+    "description_nl": "Maria met kind. Buste van Maria met het Christuskind op de arm (SK-C-1597-A). Toegevoegd een tweede later geschilderde fragment met de armen van Maria en de benen van het kind (SK-C-1597-B)",
+    "dimensions_nl": "drager: hoogte 40 cm (getoogd) x breedte 41 cm",
+    "credit_en": "On loan from Museum Catharijneconvent",
+    "medium_nl": "tempera op paneel",
+    "medium_en": "tempera on panel",
+    "credit_nl": "Bruikleen van Museum Catharijneconvent",
+    "dimensions_en": "height 40 cm x width 41 cm",
+    "image": "https://iiif.micr.io/OmERn/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "order": 24.5,
+  "title": "Wystawa sklepowa",
+  "author": "Isaac Israëls",
+  "date": "1894",
+  "kind": "miasto",
+  "card": [
+    "Mężczyzna i kobieta stoją wieczorem przed oświetloną witryną i oglądają ubranka dla dzieci. Po prawej przechodzi dziewczynka w kapeluszu. Światło z wystawy rozlewa się na ulicę.",
+    "Isaac Israëls lubił życie wielkiego miasta: ulice, sklepy, kawiarnie i tancerki. Szybkie, szkicowe pociągnięcia pędzla sprawiają, że scena wygląda jak podpatrzona w przelocie."
+  ],
+  "story": {
+    "client": "Dom towarowy w Łodzi",
+    "text": "Kopia wisiała na zapleczu, w pokoju kierownika, przez całe lata siedemdziesiąte. Dym z papierosów i kurz z kartonów pokryły ją brązową mgłą."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 465
+    },
+    "trudny": {
+      "work_long": 580
+    }
+  },
+  "source": {
+    "object_number": "SK-A-3592",
+    "title_en": "Shop Window",
+    "title_nl": "Etalage",
+    "creator": "Isaac Israels (vermeld op object)",
+    "date": "1894",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109401",
+    "iiif": "https://iiif.micr.io/hkTBS",
+    "commons": null,
+    "medium_en": "oil on canvas",
+    "credit_en": "Mr and Mrs Drucker-Fraser Bequest, Montreux",
+    "medium_nl": "olieverf op doek",
+    "credit_nl": "Legaat van de heer en mevrouw Drucker-Fraser, Montreux",
+    "provenance_en": "…; on loan from Jean Charles Joseph Drucker (1862-1944, Montreux) and Maria Lydia Drucker-Fraser (1886-1944, Montreux), with 70 other paintings, to the museum, 1919;{Note RMA.} by whom bequeathed, with 71 other paintings, to the museum, 1944",
+    "dimensions_en": "height 59 cm x width 64 cm",
+    "description_nl": "Een man en een vrouw staan voor de verlichte etalage van een winkel en bekijken de uitgestalde kinderkleding. Rechts een meisje met een hoed.",
+    "dimensions_nl": "hoogte 59 cm x breedte 64 cm",
+    "image": "https://iiif.micr.io/hkTBS/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "order": 20.2,
+  "title": "Męczeństwo św. Wawrzyńca",
+  "author": "Jacobello del Fiore",
+  "date": "ok. 1425",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Święty Wawrzyniec leży na rozżarzonej kracie. Z prawej przyglądają się dwaj oprawcy, z lewej klęczą dwie benedyktynki, fundatorki obrazu. Z obłoków wychyla się głowa Boga, a w powietrzu wiszą dwie wstęgi z łacińskimi napisami.",
+    "Jacobello del Fiore był jednym z najważniejszych malarzy Wenecji na początku XV wieku. Łączył złote tło dawnej sztuki z nową, żywą opowieścią."
+  ],
+  "story": {
+    "client": "Parafia św. Wawrzyńca w Kutnie",
+    "text": "Kopia wisiała w kruchcie, tuż przy drzwiach, przez które wiało zimą. Wilgoć, kurz z ulicy i wosk ze świec pokryły ją grubo, a złote tło odpadło płatami."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "gold": {
+    "min_chroma": 29,
+    "figures": [
+      [
+        0.28,
+        0.25
+      ],
+      [
+        0.32,
+        0.35
+      ],
+      [
+        0.4,
+        0.5
+      ],
+      [
+        0.55,
+        0.55
+      ],
+      [
+        0.7,
+        0.6
+      ],
+      [
+        0.85,
+        0.3
+      ],
+      [
+        0.93,
+        0.3
+      ],
+      [
+        0.08,
+        0.5
+      ],
+      [
+        0.4,
+        0.93
+      ],
+      [
+        0.6,
+        0.93
+      ],
+      [
+        0.25,
+        0.95
+      ],
+      [
+        0.15,
+        0.05
+      ]
+    ]
+  },
+  "source": {
+    "object_number": "SK-A-4001",
+    "title_en": "Martyrdom of Saint Lawrence, with Two Benedictine Nuns",
+    "title_nl": "Het martelaarschap van Sint-Laurentius, met twee benedictinessen",
+    "creator": "Jacobello del Fiore",
+    "date": "c. 1425",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109285",
+    "iiif": "https://iiif.micr.io/bhGxX",
+    "commons": null,
+    "provenance_en": "…; the the dealer Galerie van Diemen & Co, Berlin, 1921;{According to a label on the reverse of the panel.}…; purchased from Woltereck, Basel, by Prof. Dr Otto Lanz (1865-1935), Amsterdam, 1928;{File RMA.} his widow, Anna Theresia Elisabeth Lanz - Willi (1870 - 1954), Amsterdam, 1935; from whom, CHF 2,000,000 and fl. 350,000, with xx other paintings, to Hans Posse (1879-1942), for Adolf Hitler’s Führermuseum, Linz, through the mediation of the dealer N. Katz, 1941;{Van Os 1978, p. 167.} war recuperation, SNK, 15 February 1946 (inv. no. NK 2343);{Provenance from 1935 to 1945 reconstructed by Ekkart <em>et al.</em> 2006; MCCP website, file card no. 3989; the Munich Central Collecting Point number 3989 is recorded on the reverse of the panel.} on loan from the DRVK to the museum, 1952 (inv. no. SK-C-1427); transferred to the museum, 1960",
+    "dimensions_nl": "drager: hoogte 38 cm x breedte 70,5 cm",
+    "medium_en": "tempera on panel",
+    "description_nl": "Het martelaarschap van de heilige Laurentius. Rechts zien twee beulen toe, links twee benedictinessen, de stichteressen. Tussen de wolken verschijnt het hoofd van God, in de lucht ook twee banderollen met Latijnse opschriften.",
+    "medium_nl": "tempera op paneel",
+    "dimensions_en": "height 38 cm x width 70.5 cm",
+    "image": "https://iiif.micr.io/bhGxX/full/!4000,4000/0/default.jpg"
+  }
+}

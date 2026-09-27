@@ -1,0 +1,49 @@
+{
+  "order": 23.5,
+  "title": "Portret Marie Jeanette de Lange",
+  "author": "Jan Toorop",
+  "date": "1900",
+  "kind": "portret",
+  "card": [
+    "Młoda kobieta w różowej sukni czyta książkę w świetle lampy naftowej. Obok na stoliku przykrytym kwiecistą serwetą stoi wazonik z różami, a kwiaty w tle zlewają się z deseniem ściany.",
+    "Toorop namalował ten portret techniką puentylistyczną: z tysięcy drobnych plamek czystego koloru, które mieszają się dopiero w oku widza. Suknia to tak zwana suknia reformowana, luźna, bez gorsetu, modna wtedy wśród kobiet o nowoczesnych poglądach."
+  ],
+  "story": {
+    "client": "Biblioteka Miejska w Cieszynie",
+    "text": "Kopia wisiała w czytelni nad kaloryferem przez ponad pół wieku. Ciepłe powietrze niosło w górę kurz z książek, a lampa nad regałem dopisała swoje."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 315
+    },
+    "sredni": {
+      "work_long": 409
+    },
+    "trudny": {
+      "work_long": 446
+    }
+  },
+  "source": {
+    "object_number": "SK-A-4989",
+    "title_en": "Portrait of Marie Jeanette de Lange",
+    "title_nl": "Portret van mevrouw, Marie Jeannette de Lange",
+    "creator": "Jan Toorop",
+    "date": "1900",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200475283",
+    "iiif": "https://iiif.micr.io/sQZwp",
+    "commons": null,
+    "dimensions_en": "height 70.5 cm x width 77.4 cm",
+    "medium_nl": "olieverf op doek",
+    "dimensions_nl": "drager: hoogte 70,5 cm (In Jaarverslag 2005: 67 cm) x breedte 77,4 cm (In Jaarverslag 2005: 74 cm)",
+    "description_nl": "Het schilderij is geschilderd in een pointillistische techniek. De geportretteerde is rechts geplaatst, toegewend naar de beschouwer, terwijl zij in het licht van een petroleumlamp een boek bestudeert. Ze is gekleed in een roze japon, zg. reformkleding, en heeft het haar eenvoudig opgestoken. Op de tafel links is deels de petroleumlamp te zien, geplaatst naast een vaasje rozen op een tafeltje bedekt met een gebloemd kleed. Bloemen in een grote vaas op de achtergrond worden visueel opgenomen in het patroon van het decoratieve behang.",
+    "medium_en": "oil on canvas",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt, the BankGiro Lottery and the Rijksmuseum Fonds",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt, de BankGiro Loterij en het Rijksmuseum Fonds",
+    "provenance_en": "By descent through the family of the sitter, 1900-2005;{Note RMA.} anonymous sale, Amsterdam (Christie’s), 29 November 2005, no. 244, €720,000;{Copy RMA.}…; purchased from the dealer R. Noortman, Maastricht, by the museum, 2006",
+    "image": "https://iiif.micr.io/sQZwp/full/!4000,4000/0/default.jpg"
+  }
+}

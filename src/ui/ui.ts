@@ -18,7 +18,7 @@ const h = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', html = '') =
   return e;
 };
 
-const STAGE_NAMES: Record<string, string> = { clean: 'Czyszczenie', retouch: 'Retusz', gild: 'Złocenie ramy', varnish: 'Werniks', done: 'Ukończony' };
+const STAGE_NAMES: Record<string, string> = { clean: 'Czyszczenie', retouch: 'Retusz', gild: 'Złocenie', varnish: 'Werniks', done: 'Ukończony' };
 const PHASE_NAMES: Record<Phase, string> = {
   intro: 'Czyszczenie', clean: 'Czyszczenie', toRetouch: 'Czyszczenie', retouch: 'Retusz', toGild: 'Retusz',
   gild: 'Złocenie ramy', toVarnish: 'Złocenie ramy', varnish: 'Werniks', finale: 'Odnowiony', done: 'Odnowiony',
@@ -193,14 +193,18 @@ export class UI implements StudioUI {
     bar.append(h('h2', 'shelf', 'Zlecenia'), chips, toggle);
     fill();
     const foot = h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna');
-    const off = h('button', 'offline', localStorage.getItem('konserwator.offline') === '1' ? 'Cała kolekcja jest dostępna offline ✓' : 'Pobierz całą kolekcję do gry bez internetu (ok. 55 MB)');
+    // the flag holds how many paintings were downloaded: new ones in the catalog ask for a download again
+    let offFlag: string | null = null;
+    try { offFlag = localStorage.getItem('konserwator.offline'); } catch { /* ignore */ }
+    const off = h('button', 'offline', offFlag === String(items.length) ? 'Cała kolekcja jest dostępna offline ✓'
+      : `Pobierz całą kolekcję do gry bez internetu (ok. ${Math.round(items.length * 1.9)} MB)`);
     off.onclick = async () => {
       if (off.classList.contains('busy')) return;
       off.classList.add('busy');
       const failed = await downloadAll(items, (d, t) => { off.textContent = `Pobieram obrazy… ${Math.round((d / t) * 100)}%`; });
       off.classList.remove('busy');
       if (failed) off.textContent = `Nie udało się pobrać ${failed} plików. Spróbuj ponownie.`;
-      else { off.textContent = 'Cała kolekcja jest dostępna offline ✓'; try { localStorage.setItem('konserwator.offline', '1'); } catch { /* ignore */ } }
+      else { off.textContent = 'Cała kolekcja jest dostępna offline ✓'; try { localStorage.setItem('konserwator.offline', String(items.length)); } catch { /* ignore */ } }
     };
     this.menu.append(bar, wall, off, foot);
     this.menu.classList.add('show');
@@ -364,8 +368,9 @@ export class UI implements StudioUI {
     const clean = p === 'intro' || p === 'clean';
     this.tools.classList.toggle('show', clean && !this.replaying);
     this.pal.classList.toggle('show', p === 'retouch' && !this.replaying);
-    this.stageName.textContent = this.replaying ? 'Nagranie renowacji' : PHASE_NAMES[p];
-    this.stageSub.textContent = this.replaying ? PHASE_NAMES[p] + ' · ' + (this.item?.title ?? '') : this.item?.title ?? '';
+    const name = this.item?.gold ? PHASE_NAMES[p].replace('Złocenie ramy', 'Złocenie') : PHASE_NAMES[p];
+    this.stageName.textContent = this.replaying ? 'Nagranie renowacji' : name;
+    this.stageSub.textContent = this.replaying ? name + ' · ' + (this.item?.title ?? '') : this.item?.title ?? '';
     if (p === 'finale' || p === 'done') { this.barFill.style.width = '100%'; this.fin.classList.remove('show'); }
     if (p === 'toRetouch' || p === 'toGild' || p === 'toVarnish') this.barFill.style.width = '100%';
     if (p === 'retouch' || p === 'gild' || p === 'varnish') this.barFill.style.width = '0%';

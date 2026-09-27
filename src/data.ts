@@ -22,6 +22,8 @@ export interface CatalogItem {
   kind?: string;
   medium?: string;
   iiif?: string; // IIIF image service (full-resolution detail on deep zoom)
+  crop?: [number, number, number, number]; // part of the scan used (fractions), for the IIIF detail
+  gold?: boolean; // gold-ground panel: the background is gilded like the frame
   dimensions?: string;
   story?: { client: string; text: string };
   card?: string[];
@@ -45,7 +47,11 @@ export interface LevelData {
   regions: Region[];
   map: Uint16Array; // region id per pixel, row-major
   byColor: number[][]; // region ids per paint
+  gold: boolean; // the map has GOLD_ID pixels (gold ground)
 }
+
+/** Region id of the gold ground in the map (tools/segment.py GOLD_ID). */
+export const GOLD_ID = 65535;
 
 const base = './p/';
 
@@ -79,7 +85,7 @@ export async function loadLevel(slug: string, level: LevelId): Promise<LevelData
   }
   const byColor: number[][] = info.palette.map(() => []);
   info.regions.forEach((r: Region, i: number) => byColor[r.c].push(i));
-  return { level, width: info.width, height: info.height, palette: info.palette, regions: info.regions, map, byColor };
+  return { level, width: info.width, height: info.height, palette: info.palette, regions: info.regions, map, byColor, gold: !!info.gold };
 }
 
 export function loadImage(url: string): Promise<HTMLImageElement> {

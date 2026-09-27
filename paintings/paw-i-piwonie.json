@@ -1,0 +1,43 @@
+{
+  "order": 7.5,
+  "title": "Paw i piwonie",
+  "author": "Utagawa Hiroshige",
+  "date": "1833–1837",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "37,8 × 17,3 cm",
+  "card": [
+    "Pod gęstymi, różowymi i białymi piwoniami stoi paw z długim ogonem. W lewym górnym rogu jest wiersz. Wąski, wysoki format przypomina zwój do powieszenia na ścianie.",
+    "Hiroshige zasłynął pejzażami, ale robił też dużo rycin z ptakami i kwiatami. Taki temat nazywano kachō-ga i często łączono go z poezją."
+  ],
+  "story": {
+    "client": "Pani Maria, właścicielka herbaciarni w Toruniu",
+    "text": "Kopia wisiała nad samowarem przez dwadzieścia lat. Para, dym z kadzidełek i kurz z liści herbaty zamieniły róż w szarość."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1956-766",
+    "title_en": null,
+    "title_nl": "Pauw en pioenrozen",
+    "creator": "Utagawa Hiroshige (I) (vermeld op object)",
+    "date": "1833 - 1837",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134828",
+    "iiif": "https://iiif.micr.io/eHzjX",
+    "commons": null,
+    "description_nl": "Pauw onder weelderig bloeiende pioenrozen; linksboven een gedicht.",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "dimensions_en": "height 378 mm x width 173 mm",
+    "dimensions_nl": "blad: hoogte 378 mm (otanzaku) x breedte 173 mm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "image": "https://iiif.micr.io/eHzjX/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "order": 24.2,
+  "title": "Madonna Pokory",
+  "author": "Fra Angelico",
+  "date": "ok. 1440",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Maria siedzi na poduszce z lilią w prawej ręce, a lewą obejmuje Dzieciątko stojące na jej kolanach. Za nimi zwisa złota tkanina we wzory, a głowy otaczają aureole.",
+    "Fra Angelico był dominikaninem i malował we Florencji, między innymi freski w klasztorze San Marco. „Madonna Pokory” to typ przedstawienia, w którym Maria siedzi nisko, na ziemi albo na poduszce, a nie na tronie."
+  ],
+  "story": {
+    "client": "Siostry dominikanki z Krakowa",
+    "text": "Kopia wisiała w chórze zakonnym, gdzie przez sto lat paliły się świece. Złocone tło starło się od dotyku i czyszczenia, a łukowate narożniki ktoś kiedyś zamalował brązem."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 492
+    },
+    "trudny": {
+      "work_long": 576
+    }
+  },
+  "gold": {
+    "bg": true,
+    "min_chroma": 30,
+    "figures": [
+      [
+        0.5,
+        0.14
+      ],
+      [
+        0.47,
+        0.19
+      ],
+      [
+        0.45,
+        0.1
+      ],
+      [
+        0.5,
+        0.23
+      ],
+      [
+        0.66,
+        0.18
+      ],
+      [
+        0.73,
+        0.28
+      ],
+      [
+        0.72,
+        0.35
+      ],
+      [
+        0.66,
+        0.5
+      ],
+      [
+        0.52,
+        0.42
+      ],
+      [
+        0.68,
+        0.52
+      ],
+      [
+        0.5,
+        0.35
+      ],
+      [
+        0.47,
+        0.48
+      ],
+      [
+        0.72,
+        0.42
+      ],
+      [
+        0.6,
+        0.28
+      ],
+      [
+        0.42,
+        0.25
+      ]
+    ]
+  },
+  "source": {
+    "object_number": "SK-A-3011",
+    "title_en": "Madonna of Humility",
+    "title_nl": "Madonna van nederigheid",
+    "creator": "Fra Angelico",
+    "date": "c. 1440",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108128",
+    "iiif": "https://iiif.micr.io/VkxAm",
+    "commons": null,
+    "medium_nl": "tempera op paneel",
+    "medium_en": "tempera on panel",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt",
+    "description_nl": "Madonna met lelie. Zittende Maria met een lelie in haar rechterhand, de linkerarm om de benen van het Christuskind staande op haar schoot.",
+    "dimensions_nl": "hoogte 74 cm x breedte 52 cm",
+    "dimensions_en": "height 74 cm x width 52 cm",
+    "image": "https://iiif.micr.io/VkxAm/full/!4000,4000/0/default.jpg"
+  }
+}

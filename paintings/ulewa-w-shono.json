@@ -1,0 +1,45 @@
+{
+  "order": 15.5,
+  "title": "Nagła ulewa w Shōno",
+  "author": "Utagawa Hiroshige",
+  "date": "1828–1838",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "25,1 × 36,7 cm",
+  "card": [
+    "Podróżni biegną pod górę przez nagłą ulewę. Deszcz pada ukośnymi kreskami, bambusy gną się na wietrze, a tragarze lektyki przyspieszają kroku.",
+    "Rycina należy do serii „Pięćdziesiąt trzy stacje traktu Tōkaidō”, pokazującej drogę z Edo do Kioto. Seria przyniosła Hiroshigemu sławę, a ta scena jest jedną z najbardziej znanych."
+  ],
+  "story": {
+    "client": "Pan Leszek, przewodnik górski z Bieszczad",
+    "text": "Kopia wisiała w schronisku, w jadalni, nad piecem. Mokre kurtki, para i dym z papierosów turystów pokryły ją lepką warstwą."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 714
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1956-740",
+    "title_en": null,
+    "title_nl": "Stortregen te Shono",
+    "creator": "Utagawa Hiroshige (I) (mentioned on object)",
+    "date": "1828 - 1838",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134815",
+    "iiif": "https://iiif.micr.io/ASyyl",
+    "commons": null,
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "description_nl": "Reizigers op een bergpad overvallen door een regenbui; rechtsonder de daken van huizen.",
+    "dimensions_nl": "blad: hoogte 251 mm x breedte 367 mm",
+    "dimensions_en": "height 251 mm x width 367 mm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "image": "https://iiif.micr.io/ASyyl/full/!4000,4000/0/default.jpg"
+  }
+}

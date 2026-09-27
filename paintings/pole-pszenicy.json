@@ -1,0 +1,50 @@
+{
+  "order": 14.5,
+  "title": "Pole pszenicy",
+  "author": "Vincent van Gogh",
+  "date": "1888",
+  "kind": "pejzaż",
+  "medium": "olej na płótnie",
+  "card": [
+    "Dojrzała pszenica zajmuje prawie cały obraz. Nad nią ciągnie się pas pól i zabudowań, a jeszcze wyżej niebieskie niebo z obłokami. Każde źdźbło to osobne, energiczne pociągnięcie pędzla.",
+    "Latem 1888 roku Van Gogh mieszkał w Arles na południu Francji i namalował tam całą serię pól zbóż w pełnym słońcu. Chciał, żeby żółcie i błękity grały ze sobą jak najmocniej. Jego obrazy prawie się wtedy nie sprzedawały."
+  ],
+  "story": {
+    "client": "Koło Gospodyń Wiejskich w Pszczółkach",
+    "text": "Kopia malowana przez miejscowego nauczyciela plastyki na dożynki w latach osiemdziesiątych. Przez lata wisiała w remizie, gdzie świętowano, gotowano i palono. Ktoś kiedyś oparł o nią grabie."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 518
+    }
+  },
+  "crop": [
+    0.158,
+    0.184,
+    0.819,
+    0.814
+  ],
+  "source": {
+    "object_number": "SK-C-1845",
+    "title_en": "Wheatfield",
+    "title_nl": "Korenveld",
+    "creator": "Vincent van Gogh",
+    "date": "1888",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200672687",
+    "iiif": "https://iiif.micr.io/aOMot",
+    "commons": null,
+    "credit_nl": "Bruikleen van de Stichting Collectie P. & N. de Boer",
+    "dimensions_en": "height 63.4 cm x width 52.2 cm",
+    "dimensions_nl": "dagmaat: hoogte 63,4 cm x breedte 52,2 cm",
+    "medium_nl": "olieverf op doek",
+    "credit_en": "On loan from the Stichting Collectie P. & N. de Boer",
+    "description_nl": "Van Gogh oeuvre cat.nr. F 564, JH 1475.",
+    "image": "https://iiif.micr.io/aOMot/full/!4000,4000/0/default.jpg"
+  }
+}

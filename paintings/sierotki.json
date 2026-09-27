@@ -1,0 +1,40 @@
+{
+  "order": 22.5,
+  "title": "Trzy dziewczynki z sierocińca",
+  "author": "Thérèse Schwartze",
+  "date": "1885",
+  "kind": "wnętrze",
+  "card": [
+    "Trzy wychowanki amsterdamskiego sierocińca siedzą w swoich czerwono-czarnych strojach. Jedna czyta na głos, druga słucha, trzecia ceruje. Po lewej stoi kosz na pranie, a po prawej na ławce śpi kot.",
+    "Thérèse Schwartze była jedną z najbardziej cenionych portrecistek w Holandii, co w XIX wieku rzadko udawało się kobiecie. Sieroty z Burgerweeshuis w charakterystycznych strojach malowało wtedy wielu artystów."
+  ],
+  "story": {
+    "client": "Dom Dziecka w Otwocku",
+    "text": "Kopia wisiała na świetlicy przez trzy pokolenia wychowanków. Dzieci przyklejały do ramy naklejki, a na płótnie zostały ślady plasteliny i kurzu z tablicy."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-1190",
+    "title_en": null,
+    "title_nl": "Drie meisjes uit het Amsterdamse Burgerweeshuis",
+    "creator": "Thérèse Schwartze",
+    "date": "1885",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108706",
+    "iiif": "https://iiif.micr.io/DiSsw",
+    "commons": null,
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "hoogte 81,5 cm x breedte 96 cm",
+    "description_nl": "Drie meisjes uit het Amsterdamse Burgerweeshuis, één leest voor uit een boek terwijl een ander luistert en een ander bezig met verstelwerk is. Links een wasmand, rechts slaapt een kat op een bankje.",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 81.5 cm x width 96 cm",
+    "image": "https://iiif.micr.io/DiSsw/full/!4000,4000/0/default.jpg"
+  }
+}

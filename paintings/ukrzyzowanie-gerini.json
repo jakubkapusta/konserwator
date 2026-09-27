@@ -1,0 +1,82 @@
+{
+  "order": 27.5,
+  "title": "Kalwaria",
+  "author": "Niccolò di Pietro Gerini",
+  "date": "ok. 1390",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Trzy krzyże na złotym tle, a między nimi tłum żołnierzy na koniach z powiewającymi czerwonymi sztandarami. Na pierwszym planie Maria, Maria Magdalena, Jan i inni opłakujący.",
+    "Niccolò di Pietro Gerini pracował we Florencji pod koniec XIV wieku i kontynuował tradycję Giotta. Złote tło, kładzione płatkami i polerowane do połysku, w półmroku kościoła świeciło w blasku świec."
+  ],
+  "story": {
+    "client": "Bractwo różańcowe z Gniezna",
+    "text": "Kopia wisiała w kaplicy bocznej. Dym świec, kurz z remontów i woda z przeciekającego dachu zniszczyły złoto tła niemal do gołej glinki."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 495
+    },
+    "trudny": {
+      "work_long": 595
+    }
+  },
+  "gold": {
+    "bg": true,
+    "min_chroma": 32,
+    "figures": [
+      [
+        0.5,
+        0.22
+      ],
+      [
+        0.5,
+        0.3
+      ],
+      [
+        0.21,
+        0.28
+      ],
+      [
+        0.23,
+        0.36
+      ],
+      [
+        0.74,
+        0.3
+      ],
+      [
+        0.73,
+        0.38
+      ],
+      [
+        0.5,
+        0.38
+      ]
+    ]
+  },
+  "source": {
+    "object_number": "SK-A-3401",
+    "title_en": "The Crucifixion",
+    "title_nl": "De kruisiging",
+    "creator": "Niccolò di Pietro Gerini",
+    "date": "c. 1390",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109300",
+    "iiif": "https://iiif.micr.io/beUYu",
+    "commons": null,
+    "credit_nl": "Legaat van de heer J.W.E. vom Rath, Amsterdam",
+    "medium_nl": "tempera op paneel",
+    "medium_en": "tempera on panel",
+    "description_nl": "De kruisiging, tegen een gouden achtergrond. De kruisberg met soldaten te paard met wapperende vaandels tussen de kruisen. Op de voorgrond Maria, Maria Magdalena, Johannes en anderen.",
+    "dimensions_en": "height 70 cm x width 43 cm",
+    "dimensions_nl": "drager: hoogte 70 cm (getoogd) x breedte 43 cm",
+    "credit_en": "J.W.E. vom Rath Bequest, Amsterdam",
+    "provenance_en": "…; sale, Marczell von Nemes (1866-1930), Amsterdam (F. Muller), 13 November 1928 <em>sqq.</em>, no. 4, as Spinello Aretino (Attribué à), fl. 19,000, to Lanz/Vom Rath;{Copy RKD.}…; bequeathed by Julius Wilhelm Edwin vom Rath (1863-1940), Amsterdam, with 305 other objects, to the museum, 1941",
+    "image": "https://iiif.micr.io/beUYu/full/!4000,4000/0/default.jpg"
+  }
+}

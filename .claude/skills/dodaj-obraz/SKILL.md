@@ -16,6 +16,12 @@ tools/.venv/bin/python tools/fetch_rijks.py --object-number SK-A-2344 --dry-run 
 
 Titles search in Dutch and English. Pick the painting itself (`SK-A-…` / `SK-C-…` for paintings, `RP-P-…` for prints), not a copy or a photo of it. If the owner gave a name only, confirm with `--dry-run` that creator, title and date match.
 
+From the Met (CC0, no IIIF so no deep-zoom loupe): `tools/.venv/bin/python tools/fetch_met.py --search "Hiroshige" --department 6 --all-hits`, then `--id <objectID> --slug <slug>` (department 6 Asian Art, 11 European Paintings). The record gets `source.museum = "met"` and the credit line changes automatically.
+
+Scans with a photographed frame, colour bars or big margins: set `crop` in the record (`[x0, y0, x1, y1]` fractions, measure on a gridded preview).
+
+Gold-ground panels (medieval, tempera and gold): add a `gold` block (see `segment.gold_mask` for keys), set `kind` to `złote tło`, build, open `work/<slug>/gold.jpg` and add `figures` points on every gold-coloured face or body the mask swallowed; `bg: true` for arched tops. The background is then gilded in the game instead of painted.
+
 ## 2. License
 
 The script refuses anything that isn't Public Domain Mark or CC0 (`"open": true`). Never work around it. If a record has no image link the script falls back to Wikimedia Commons via Wikidata (same painting, same inventory number) — that's fine.

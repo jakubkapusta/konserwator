@@ -1,0 +1,49 @@
+{
+  "order": 13.5,
+  "title": "Burza u stóp góry",
+  "author": "Katsushika Hokusai",
+  "date": "1829–1833",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "25,4 × 37,5 cm",
+  "card": [
+    "Szczyt Fuji jest jasny i spokojny, pokryty śniegiem, a u stóp góry, w ciemności, biją błyskawice. Hokusai zestawia ciszę i burzę na jednej kartce.",
+    "Rycina należy do serii „Trzydzieści sześć widoków góry Fuji”. Każdy kolor odbijano z osobnego drewnianego klocka, jeden po drugim, na tym samym arkuszu papieru."
+  ],
+  "story": {
+    "client": "Pan Marek, meteorolog z Zakopanego",
+    "text": "Kopia wisiała w stacji na Kasprowym Wierchu. Dym z pieca, wilgoć z mgły i lata zapomnienia na zapleczu zrobiły z niej szary prostokąt."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 743
+    },
+    "sredni": {
+      "work_long": 921
+    },
+    "trudny": {
+      "work_long": 1100
+    }
+  },
+  "source": {
+    "object_number": "RP-P-1956-728",
+    "title_en": null,
+    "title_nl": "Regenstorm aan de voet van de berg",
+    "creator": "Katsushika Hokusai (mentioned on object)",
+    "date": "1829 - 1833",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134563",
+    "iiif": "https://iiif.micr.io/NPmMY",
+    "commons": null,
+    "description_nl": "Gezicht op de berg Fuji, rood met wit besneeuwde top en een donkere voet met bliksemflitsen; een bergketen en wolken op de achtergrond.",
+    "dimensions_en": "height 254 mm x width 375 mm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "medium_nl": "kleurenhoutsnede; lijnblok in blauw met kleurblokken",
+    "dimensions_nl": "hoogte 254 mm x breedte 375 mm",
+    "image": "https://iiif.micr.io/NPmMY/full/!4000,4000/0/default.jpg"
+  }
+}

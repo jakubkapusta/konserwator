@@ -1,0 +1,49 @@
+{
+  "order": 3.5,
+  "title": "Czerwona Fuji",
+  "author": "Katsushika Hokusai",
+  "date": "1829–1833",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "26,1 × 37,6 cm",
+  "card": [
+    "Góra Fuji, czerwona w porannym słońcu, wznosi się nad ciemnym lasem na tle błękitnego nieba z białymi obłokami. Nic więcej nie ma: sama góra, niebo i trzy kolory.",
+    "Rycina pochodzi z tej samej serii co „Wielka fala”: „Trzydzieści sześć widoków góry Fuji”. Japończycy nazywają ją „Pogoda przy południowym wietrze”. Czerwień Fuji pojawia się podobno tylko o jednej porze roku, przy ładnej pogodzie."
+  ],
+  "story": {
+    "client": "Pani Keiko, nauczycielka japońskiego w Warszawie",
+    "text": "Ręcznie malowana kopia, którą babcia przywiozła z Japonii. Przez lata wisiała w przedpokoju przy drzwiach balkonowych, gdzie słońce blakło kolory, a kurz z ulicy osiadał warstwami."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 776
+    },
+    "sredni": {
+      "work_long": 941
+    },
+    "trudny": {
+      "work_long": 1100
+    }
+  },
+  "source": {
+    "object_number": "RP-P-1952-183",
+    "title_en": "Clear Weather with a Southerly Wind",
+    "title_nl": "Helder weer en een zuidelijke wind",
+    "creator": "Katsushika Hokusai (vermeld op object)",
+    "date": "1829 - 1833",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134562",
+    "iiif": "https://iiif.micr.io/hnCqM",
+    "commons": null,
+    "dimensions_en": "height 261 mm x width 376 mm",
+    "dimensions_nl": "blad: hoogte 261 mm x breedte 376 mm",
+    "credit_en": "Purchased with the support of the F.G. Waller-Fonds",
+    "description_nl": "Gezicht op de Fuji, in rood, met besneeuwde top, oprijzend uit een donkergroen pijnboom bos; tegen een blauwe lucht met witte wolken.",
+    "credit_nl": "Aankoop uit het F.G. Waller-Fonds",
+    "medium_nl": "kleurenhoutsnede; lijnblok in blauw met kleurblokken",
+    "image": "https://iiif.micr.io/hnCqM/full/!4000,4000/0/default.jpg"
+  }
+}

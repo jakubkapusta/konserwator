@@ -1,0 +1,45 @@
+{
+  "order": 18.5,
+  "title": "Poranna przejażdżka plażą",
+  "author": "Anton Mauve",
+  "date": "1876",
+  "kind": "pejzaż",
+  "card": [
+    "Dwóch mężczyzn i kobieta zjeżdżają konno z wydmy na plażę. Przed nimi jedzie jeszcze jeden jeździec, a na piasku stoją budki kąpielowe. Poranne światło jest blade i srebrzyste.",
+    "Anton Mauve należał do szkoły haskiej, grupy malarzy, którzy malowali holenderskie plaże, łąki i wydmy w stonowanych szarościach. Był też krewnym Vincenta van Gogha i przez krótki czas uczył go malarstwa."
+  ],
+  "story": {
+    "client": "Stadnina koni w Sierakowie",
+    "text": "Kopia wisiała w siodlarni. Kurz z siana, pył z ujeżdżalni i zapach końskiego potu przez pięćdziesiąt lat osiadały na płótnie."
+  },
+  "levels": {
+    "latwy": {
+      "work_long": 723
+    },
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "SK-A-3602",
+    "title_en": "Morning Ride along the Beach",
+    "title_nl": "Morgenrit langs het strand",
+    "creator": "Anton Mauve (vermeld op object)",
+    "date": "1876",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109454",
+    "iiif": "https://iiif.micr.io/eVjnU",
+    "commons": null,
+    "dimensions_nl": "drager: hoogte 43,7 cm x breedte 68,6 cm",
+    "credit_nl": "Legaat van de heer en mevrouw Drucker-Fraser, Montreux",
+    "credit_en": "Mr and Mrs Drucker-Fraser Bequest, Montreux",
+    "description_nl": "Morgenrit langs het strand. Twee mannen en een vrouw te paard dalen het duin af in de richting van het strand. Voor hen nog een vierde ruiter, op het strand staan enkele badkoetsen.",
+    "dimensions_en": "height 43.7 cm x width 68.6 cm",
+    "medium_nl": "olieverf op doek",
+    "provenance_en": "…; on loan from Jean Charles Joseph Drucker (1862-1944, Montreux) and Maria Lydia Drucker-Fraser (1886-1944, Montreux) to the museum, 1927;{Note RMA.} by whom bequeathed, with 71 other paintings, to the museum, 1944",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/eVjnU/full/!4000,4000/0/default.jpg"
+  }
+}

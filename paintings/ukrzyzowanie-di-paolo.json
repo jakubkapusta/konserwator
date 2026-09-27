@@ -1,0 +1,72 @@
+{
+  "order": 16.2,
+  "title": "Ukrzyżowanie",
+  "author": "Giovanni di Paolo",
+  "date": "ok. 1447",
+  "kind": "złote tło",
+  "medium": "tempera i złoto na desce",
+  "card": [
+    "Chrystus wisi na krzyżu pośród pagórków pod złotym niebem. Z lewej święty Longin na koniu z włócznią, z prawej setnik na białym koniu. Po lewej Maria z niewiastami, Jan i Maria Magdalena.",
+    "Giovanni di Paolo był jednym z najbardziej oryginalnych malarzy Sieny. Złote niebo zamiast błękitu mówi, że scena dzieje się poza zwykłym czasem. Takie małe, podłużne sceny zdobiły często dolną część ołtarza, zwaną predellą."
+  ],
+  "story": {
+    "client": "Muzeum parafialne w Kazimierzu Dolnym",
+    "text": "Kopia wisiała w zakrystii nad szafą na ornaty. Wilgoć z murów i dym ze świec zrobiły swoje, a złoto nieba zeszło płatami."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "gold": {
+    "min_chroma": 32,
+    "figures": [
+      [
+        0.48,
+        0.1
+      ],
+      [
+        0.48,
+        0.25
+      ],
+      [
+        0.48,
+        0.45
+      ],
+      [
+        0.42,
+        0.07
+      ],
+      [
+        0.55,
+        0.07
+      ],
+      [
+        0.48,
+        0.35
+      ]
+    ]
+  },
+  "source": {
+    "object_number": "SK-C-1596",
+    "title_en": "The Crucifixion",
+    "title_nl": "De kruisiging",
+    "creator": "Giovanni di Paolo di Grazia",
+    "date": "c. 1447",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109302",
+    "iiif": "https://iiif.micr.io/KOBYy",
+    "commons": null,
+    "dimensions_en": "height 29 cm x width 62 cm",
+    "description_nl": "De Kruisiging. Christus aan het kruis in een heuvelachtig landschap. Links de heilige Longinus te paard met speer, rechts van het kruis de hoofdman op een wit paard, zich wendend tot een groep Joden achter hem staand. Links van Longinus Maria met de drie heilige vrouwen, Johannes en Maria Magdalena.",
+    "credit_nl": "Bruikleen van Museum Catharijneconvent",
+    "dimensions_nl": "drager: hoogte 29 cm x breedte 62 cm",
+    "medium_nl": "tempera op paneel",
+    "medium_en": "tempera on panel",
+    "credit_en": "On loan from Museum Catharijneconvent",
+    "image": "https://iiif.micr.io/KOBYy/full/!4000,4000/0/default.jpg"
+  }
+}

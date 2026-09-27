@@ -1,0 +1,47 @@
+{
+  "order": 12.5,
+  "title": "Przejażdżka na osiołkach",
+  "author": "Isaac Israëls",
+  "date": "ok. 1890–1901",
+  "kind": "pejzaż",
+  "card": [
+    "Trzy dziewczynki jadą plażą na osiołkach, a chłopiec prowadzi je obok. Wszystko jest ujęte w ruchu, jak w migawce: szybkie pociągnięcia pędzla, jasny piasek i wiatr od morza.",
+    "Isaac Israëls był synem słynnego malarza Jozefa Israëlsa i jednym z amsterdamskich impresjonistów. Lubił tłumy, plaże, ulice i kawiarnie. Obraz trafił do Rijksmuseum w wielkim zapisie kolekcji Drucker-Fraser."
+  ],
+  "story": {
+    "client": "Pensjonat „Mewa” w Jastarni",
+    "text": "Kopia wisiała w holu pensjonatu od lat sześćdziesiątych. Morska sól, piasek z butów letników i dym z grilla zmatowiały kolory, a jedna z mew uznała ją za gniazdo."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 487
+    },
+    "trudny": {
+      "work_long": 598
+    }
+  },
+  "source": {
+    "object_number": "SK-A-3597",
+    "title_en": "Donkey Rides on the Beach",
+    "title_nl": "Ezeltje rijden langs het strand",
+    "creator": "Isaac Israels (vermeld op object)",
+    "date": "c. 1890 - c. 1901",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109402",
+    "iiif": "https://iiif.micr.io/bTTgH",
+    "commons": null,
+    "medium_nl": "olieverf op doek",
+    "credit_en": "Mr and Mrs Drucker-Fraser Bequest, Montreux",
+    "description_nl": "Ezeltje rijden langs het strand. Drie meisjes maken een ritje op ezels op het strand. Een lopende jongen begeleidt de ezels.",
+    "dimensions_en": "height 51 cm x width 70 cm",
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "drager: hoogte 51 cm x breedte 70 cm",
+    "credit_nl": "Legaat van de heer en mevrouw Drucker-Fraser, Montreux",
+    "provenance_en": "…; on loan from Jean Charles Joseph Drucker (1862-1944, Montreux) and Maria Lydia Drucker-Fraser (1886-1944, Montreux), with 70 other paintings, to the museum, 1919;{Note RMA.} by whom bequeathed, with 71 other paintings, to the museum, 1944",
+    "image": "https://iiif.micr.io/bTTgH/full/!4000,4000/0/default.jpg"
+  }
+}

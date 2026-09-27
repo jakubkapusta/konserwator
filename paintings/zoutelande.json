@@ -1,0 +1,44 @@
+{
+  "order": 16.5,
+  "title": "Widok na Zoutelande",
+  "author": "Ferdinand Hart Nibbrig",
+  "date": "1910–1912",
+  "kind": "pejzaż",
+  "card": [
+    "Z wysokiej wydmy patrzymy na wioskę Zoutelande na wyspie Walcheren w Zelandii. Po lewej morze, po prawej domy, zagroda i wiatrak, a wszystko jest zbudowane z drobnych kresek czystego koloru.",
+    "Hart Nibbrig był jednym z pierwszych holenderskich malarzy, którzy stosowali dywizjonizm: kolory kładzie się obok siebie zamiast je mieszać, a łączą się dopiero w oku. Dzięki temu pejzaż wydaje się zalany słońcem."
+  ],
+  "story": {
+    "client": "Pan Krzysztof, latarnik w stanie spoczynku",
+    "text": "Kopia wisiała w latarni morskiej na Helu, w pokoju dyżurnym. Wilgoć, sól i dym z fajki zmieniły jasne kolory w szarą mgłę."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 608
+    }
+  },
+  "source": {
+    "object_number": "SK-A-2540",
+    "title_en": "View of Zoutelande",
+    "title_nl": "Gezicht op het dorp Zoutelande op Walcheren",
+    "creator": "Ferdinand Hart Nibbrig (eigenhandig gesigneerd)",
+    "date": "1910 - 1912",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200109353",
+    "iiif": "https://iiif.micr.io/LvrEn",
+    "commons": null,
+    "dimensions_en": "depth 7 cm",
+    "medium_nl": "olieverf op doek",
+    "credit_nl": "Schenking van B. Hart Nibbrig, Hilversum",
+    "dimensions_nl": "drager: hoogte 80 cm x breedte 159,5 cm",
+    "description_nl": "Gezicht op het dorp Zoutelande op het eiland Walcheren in Zeeland. Gezien vanaf een hoge duin, neerkijkend op het dorp. Links de zee, rechts de huizen van het dorp, een boerderij en een molen.",
+    "credit_en": "Gift of B. Hart Nibbrig, Hilversum",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/LvrEn/full/!4000,4000/0/default.jpg"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "order": 19.5,
+  "title": "Dziewczyna z latarnią",
+  "author": "Suzuki Harunobu",
+  "date": "1765–1770",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "28 × 20,8 cm",
+  "card": [
+    "Młoda kobieta schodzi o zmierzchu z werandy, trzymając w lewej ręce latarnię. Za nią widać pokój z drugą, stojącą latarnią. Scena jest cicha i delikatna.",
+    "Harunobu jako pierwszy, około 1765 roku, zaczął robić wielobarwne drzeworyty odbijane z wielu klocków. Nazywano je „obrazami z brokatu”. Wcześniejsze ryciny miały tylko kilka kolorów albo były kolorowane ręcznie."
+  ],
+  "story": {
+    "client": "Teatr lalek w Białymstoku",
+    "text": "Kopia wisiała w garderobie, gdzie przez lata kurz z kulis, puder i dym z lamp osiadały na niej warstwa po warstwie."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1956-612",
+    "title_en": "Young Lady with Lantern",
+    "title_nl": "Jongedame met lantaarn",
+    "creator": "Suzuki Harunobu (vermeld op object)",
+    "date": "1765 - 1770",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134206",
+    "iiif": "https://iiif.micr.io/rjmSQ",
+    "commons": null,
+    "description_nl": "Jonge vrouw met lantaarn in linker hand, van de veranda af in haar schoenen stappend; achter haar een kamer met staande lantaarn; bij schemering.",
+    "dimensions_en": "height 280 mm x width 208 mm",
+    "credit_en": "Purchased with the support of the Vereniging Rembrandt and the Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "credit_nl": "Aankoop met steun van de Vereniging Rembrandt en het Ministerie van Onderwijs, Kunsten en Wetenschappen",
+    "dimensions_nl": "blad: hoogte 280 mm x breedte 208 mm",
+    "image": "https://iiif.micr.io/rjmSQ/full/!4000,4000/0/default.jpg"
+  }
+}

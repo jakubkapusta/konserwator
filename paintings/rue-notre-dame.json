@@ -1,0 +1,45 @@
+{
+  "order": 20.5,
+  "title": "Rue Notre-Dame w Paryżu",
+  "author": "Johan Barthold Jongkind",
+  "date": "1866",
+  "kind": "miasto",
+  "card": [
+    "Paryska ulica skręca w głąb obrazu między jasnymi kamienicami. Światło pada z lewej, cienie domów kładą się na piaszczystej jezdni, po prawej idzie kobieta, a przed nią jedzie wóz z koniem.",
+    "Jongkind był Holendrem, który większość życia spędził we Francji. Malował szybko, w plenerze, i bardzo wpłynął na młodego Moneta, który mówił potem, że to Jongkind nauczył go patrzeć."
+  ],
+  "story": {
+    "client": "Kawiarnia „Paryżanka” w Krakowie",
+    "text": "Kopia wisiała nad ekspresem do kawy przez trzydzieści lat. Para, dym z papierosów i tłuszcz z rogalików zostawiły na niej lepką, ciemną warstwę."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 634
+    }
+  },
+  "source": {
+    "object_number": "SK-A-4996",
+    "title_en": "Rue Notre-Dame, Paris",
+    "title_nl": "Rue Notre-Dame, Parijs",
+    "creator": "Johan Barthold Jongkind (eigenhandig gesigneerd)",
+    "date": "1866",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/2004267",
+    "iiif": "https://iiif.micr.io/JBFfm",
+    "commons": null,
+    "dimensions_en": "height 38.7 cm x width 47.6 cm",
+    "credit_en": "Purchased with the support of the BankGiro Lottery, he Rijksmuseum Fonds and the Vereniging Rembrandt, with additional funding from the Prins Bernhard Cultuurfonds",
+    "medium_en": "oil on canvas",
+    "dimensions_nl": "drager: hoogte 38,7 cm x breedte 47,6 cm",
+    "description_nl": "Rue Notre Dame (tegenwoordig Rue Censier) in Parijs, gezien vanuit het midden en naar links afbuigend in de diepte. Aan weerszijden van de straat eigentijdse behuizing. Door de lichtval van linksboven valt de schaduw van de huizen op de straat. De straat, in blonde zandkleur geschilderd, wordt in drie horizontale niveaus verdeeld door donkere lijnen die stoepranden of slagschaduwen kunnen zijn. Rechts loopt een dame op de rug gezien, voor haar een paard en wagen. In de achtergrond bevinden zich nog een paar personen. Boven de lage horizon op één-kwart is de lucht helblauw met sluierbewolking.",
+    "provenance_en": "…; collection Joseph Early Widener (1871-1943), Philadelphia, 1900;{Benson 1900, Part I, unpag., no. 66.} his son, Peter Arell Brown Widener II (1895-1953), Philadelphia;{Note RMA.}…; the dealer P. A. Scheen, The Hague, 1977;{Note RMA.} from whom purchased by Jonkheer Ir Louis Constant de Villeneuve (1923-2005), Wassenaar;{Note RMA; according to the catalogue for the anonymous sale, New York (Sotheby’s), 11 July 2006, no. 1.} anonymous sale, New York (Sotheby’s), 7 November 2006, no. 1, € 600,000, to the museum, with support from the BankGiro Loterij, de Vereniging Rembrandt, Prins Bernhard Cultuurfonds and the Rijksmuseum Fonds",
+    "credit_nl": "Aankoop met steun van de BankGiro Loterij, het Rijksmuseum Fonds en de Vereniging Rembrandt, mede dankzij het Prins Bernhard Cultuurfonds",
+    "medium_nl": "olieverf op doek",
+    "image": "https://iiif.micr.io/JBFfm/full/!4000,4000/0/default.jpg"
+  }
+}

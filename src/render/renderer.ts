@@ -349,7 +349,8 @@ export class Renderer {
       .f1('u_dirtOn', s.dirtOn).i1('u_sel', s.sel).f1('u_selT', s.selT).f4('u_sweep', s.sweep[0], s.sweep[1], s.sweep[2], 0)
       .f1('u_peek', s.peek).f4('u_webs', ...s.webs).f1('u_restored', s.restored)
       .tex('u_varn', 7, p.varn).f1('u_varnOn', s.varnOn).f2('u_tilt', s.tilt[0], s.tilt[1]);
-    this.paintP.tex('u_detail', 8, p.detail).f4('u_detailRect', ...s.detail.rect).f1('u_detailA', s.detail.alpha);
+    this.paintP.tex('u_detail', 8, p.detail).f4('u_detailRect', ...s.detail.rect).f1('u_detailA', s.detail.alpha)
+      .tex('u_gilt', 9, p.gilt.state).f4('u_giltRect', ...p.gilt.rect);
     const P = this.paintP, R = s.repairs;
     gl.uniform4fv(P.loc('u_drops'), R.drops);
     gl.uniform4fv(P.loc('u_dropsB'), R.dropsB);

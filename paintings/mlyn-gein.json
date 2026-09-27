@@ -1,0 +1,45 @@
+{
+  "order": 21.5,
+  "title": "Młyn nad Gein w świetle księżyca",
+  "author": "Piet Mondrian",
+  "date": "ok. 1903",
+  "kind": "pejzaż",
+  "card": [
+    "Młyn Oostzijdse nad rzeką Gein koło Abcoude stoi pośrodku obrazu, a księżyc prześwituje zza chmury. Na pierwszym planie w wodzie odbija się młyn. Całość jest cicha, niebiesko-zielona.",
+    "Zanim Mondrian zasłynął obrazami z czarnych linii i prostokątów w czystych kolorach, przez lata malował pejzaże okolic Amsterdamu: młyny, rzeki i drzewa. Wiatrak powracał u niego wiele razy, coraz prostszy."
+  ],
+  "story": {
+    "client": "Pan Andrzej, młynarz z Żuław",
+    "text": "Kopia wisiała w starym młynie, który rodzina przerobiła na dom. Mąka, pajęczyny i wilgoć od rzeki zrobiły swoje."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {
+      "work_long": 588
+    }
+  },
+  "source": {
+    "object_number": "SK-A-4987",
+    "title_en": "Oostzijdse Mill along the River Gein by Moonlight",
+    "title_nl": "Oostzijdse molen aan het Gein bij maanlicht",
+    "creator": "Piet Mondriaan (eigenhandig gesigneerd)",
+    "date": "c. 1903",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200471926",
+    "iiif": "https://iiif.micr.io/xrcfh",
+    "commons": null,
+    "dimensions_nl": "drager: hoogte 63 cm x breedte 75,4 cm",
+    "description_nl": "Oostzijdse molen aan de rivier het Gein bij Abcoude. De horizon ligt iets boven het midden. De maan rechtsboven de molen zit deels achter een wolk. De molen staat centraal met aan de rechterzijde het zomerhuis, aan een bocht in de rivier rechts. Een groepje bomen sluit de horizon links af. De voorgrond van het schilderij wordt in beslag genomen door een wiel met begroeiing, waarin een reflectie van de molen.",
+    "medium_nl": "olieverf op doek",
+    "dimensions_en": "height 63 cm x width 75.4 cm",
+    "credit_nl": "Aankoop met steun van de BankGiro Loterij en het Rijksmuseum Fonds",
+    "provenance_en": "…; acquired by Carl Christian and Ragnhild Kallenbach Pedersen, née Sarauw, Aabenraa (Denmark), probably in 1904;{Reynaerts/Tuijn 2006 p. 250.} by descent through the family till 2000;{According to the catalogue for the sale Kopenhagen (Bruun Rasmussen), 28 March 2000, no. 282.} anonymous sale, Kopenhagen (Bruun Rasmussen), 28 March 2000, no. 282, € 268,676; private collector, Denmark, 2000-2004;{Note RMA.} anonymous sale, Kopenhagen, (Bruun Rasmussen), 30 March 2004, no. 174, € 174,590;{Copy RKD.}…;from the dealer Simonis & Buunk, Ede, € 495,000, to the museum, 2005, with support from the de BankGiro Loterij and the Rijksmuseum Fonds",
+    "credit_en": "Purchased with the support of the BankGiro Lottery and the Rijksmuseum Fonds",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/xrcfh/full/!4000,4000/0/default.jpg"
+  }
+}

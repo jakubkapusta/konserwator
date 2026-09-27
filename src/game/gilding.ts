@@ -11,6 +11,8 @@ import { sound } from '../audio/audio';
 
 export interface Patch {
   x0: number; y0: number; x1: number; y1: number;
+  inner: boolean; // on the painting's gold ground (not the frame)
+  ax: number; ay: number; // a point on its gold (replay lays a leaf there)
   laid: boolean; // any leaf landed in it
   done: boolean;
   cover: number;
@@ -49,9 +51,12 @@ export class Gilding {
   private rng: Rng;
   private floodT = 0;
 
-  constructor(private sim: GiltSim, private cam: Camera, private parts: Particles, readonly W: number, readonly H: number, readonly F: number, seed: string, readonly ev: GildingEvents) {
+  /** goldAt: the painting's own gold ground (gold-ground panels), gilded with the frame. */
+  constructor(private sim: GiltSim, private cam: Camera, private parts: Particles, readonly W: number, readonly H: number, readonly F: number, seed: string, readonly ev: GildingEvents,
+    private goldAt: ((x: number, y: number) => boolean) | null = null) {
     this.rng = makeRng(hashString(seed + 'gold'));
-    const add = (x0: number, y0: number, x1: number, y1: number) => this.patches.push({ x0, y0, x1, y1, laid: false, done: false, cover: 0, smooth: 0, cells: [] });
+    const add = (x0: number, y0: number, x1: number, y1: number, inner = false) =>
+      this.patches.push({ x0, y0, x1, y1, inner, ax: (x0 + x1) / 2, ay: (y0 + y1) / 2, laid: false, done: false, cover: 0, smooth: 0, cells: [] });
     const side = (len: number, f: (a: number, b: number) => void) => {
       const n = Math.max(2, Math.round(len / (F * 1.05)));
       for (let i = 0; i < n; i++) f((i * len) / n, ((i + 1) * len) / n);
@@ -64,14 +69,25 @@ export class Gilding {
     side(W, (a, b) => add(W - b, H, W - a, H + F));
     add(-F, H, 0, H + F);
     side(H, (a, b) => add(-F, H - b, 0, H - a));
+    if (goldAt) {
+      // the gold ground: a grid of leaf-sized patches, each counting only its gold cells
+      const nx = Math.max(1, Math.round(W / (F * 1.2))), ny = Math.max(1, Math.round(H / (F * 1.2)));
+      for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) add((i * W) / nx, (j * H) / ny, ((i + 1) * W) / nx, ((j + 1) * H) / ny, true);
+    }
     const cs = GCELL * GSCALE;
     const [rx, ry] = sim.rect;
     this.patches.forEach((p) => {
+      let first = true;
       for (let cy = 0; cy < sim.ch; cy++) for (let cx = 0; cx < sim.cw; cx++) {
         const x = rx + (cx + 0.5) * cs, y = ry + (cy + 0.5) * cs;
-        if (x > p.x0 && x < p.x1 && y > p.y0 && y < p.y1) p.cells.push(cy * sim.cw + cx);
+        if (!(x > p.x0 && x < p.x1 && y > p.y0 && y < p.y1)) continue;
+        if (p.inner && !goldAt!(x, y)) continue;
+        p.cells.push(cy * sim.cw + cx);
+        if (p.inner && first) { p.ax = x; p.ay = y; first = false; }
       }
     });
+    // slivers of gold (a few cells) aren't worth a patch: the flood at the end fills them
+    this.patches = this.patches.filter((p) => !p.inner || p.cells.length >= 4);
   }
 
   get progress() {
@@ -86,8 +102,10 @@ export class Gilding {
   }
   private onFrame(x: number, y: number) {
     const t = Math.max(-x, x - this.W, -y, y - this.H);
-    return t >= -this.F * 0.05 && t <= this.F * 1.02;
+    return (t >= -this.F * 0.05 && t <= this.F * 1.02) || (t < 0 && !!this.goldAt && this.goldAt(x, y));
   }
+  /** Is there anything left to gild here (for the painting's gold ground)? */
+  get hasGoldGround() { return this.patches.some((p) => p.inner); }
   private covered(x: number, y: number) {
     for (const l of this.leaves) if (Math.hypot(l.x - x, l.y - y) < l.hs * 0.95) return true;
     for (const p of this.pending) if (Math.hypot(p.leaf.x - x, p.leaf.y - y) < p.leaf.hs * 0.95) return true;
@@ -101,7 +119,7 @@ export class Gilding {
     const r = this.rng;
     // pull the leaf's centre towards the middle of the molding so it doesn't hang off the frame
     const t = Math.max(-x, x - this.W, -y, y - this.H);
-    const inward = (t - this.F * 0.5) * 0.15;
+    const inward = t > 0 ? (t - this.F * 0.5) * 0.15 : 0;
     const nx = x < 0 ? -1 : x > this.W ? 1 : 0, ny = y < 0 ? -1 : y > this.H ? 1 : 0;
     const leaf: Placed = {
       x: x - nx * inward + r.range(-0.08, 0.08) * this.F, y: y - ny * inward + r.range(-0.08, 0.08) * this.F,
@@ -274,7 +292,7 @@ export class Gilding {
   /** Replay: lay a leaf at a patch (instantly). */
   layPatch(i: number) {
     const p = this.patches[i];
-    if (!this.layAt((p.x0 + p.x1) / 2, (p.y0 + p.y1) / 2, true)) p.laid = true;
+    if (!this.layAt(p.ax, p.ay, true)) p.laid = true;
   }
 
   /** Burnish everything left (test skip / replay end). */

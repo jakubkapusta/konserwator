@@ -15,7 +15,9 @@ export class Loupe {
   private target = 0;
   rect: [number, number, number, number] = [0, 0, 0, 0];
 
-  constructor(private iiif: string | undefined, private gpu: PaintingGL, private renderer: Renderer, private cam: Camera) {}
+  /** crop: the part of the scan the game's image is (fractions x0, y0, x1, y1). */
+  constructor(private iiif: string | undefined, private gpu: PaintingGL, private renderer: Renderer, private cam: Camera,
+    private crop: [number, number, number, number] = [0, 0, 1, 1]) {}
 
   /** How much of the detail to show (0..1), for the shader. */
   get alpha() { return this.fade; }
@@ -51,8 +53,11 @@ export class Loupe {
     // a little margin so small pans stay covered
     const pu = (u1 - u0) * 0.12, pv = (v1 - v0) * 0.12;
     u0 = Math.max(0, u0 - pu); v0 = Math.max(0, v0 - pv); u1 = Math.min(1, u1 + pu); v1 = Math.min(1, v1 + pv);
-    const x = Math.floor(u0 * info.width), y = Math.floor(v0 * info.height);
-    const w = Math.ceil((u1 - u0) * info.width), h = Math.ceil((v1 - v0) * info.height);
+    // image uv -> scan pixels, through the crop
+    const [c0, c1, c2, c3] = this.crop;
+    const sw = (c2 - c0) * info.width, sh = (c3 - c1) * info.height;
+    const x = Math.floor(c0 * info.width + u0 * sw), y = Math.floor(c1 * info.height + v0 * sh);
+    const w = Math.ceil((u1 - u0) * sw), h = Math.ceil((v1 - v0) * sh);
     // the scan isn't sharper than the texture we already have here
     if (w <= (u1 - u0) * this.gpu.imgW * 1.15) return;
     // no more pixels than the scan has or the screen shows, capped for memory
@@ -67,7 +72,7 @@ export class Loupe {
     try { await im.decode(); } catch { return; }
     if (id !== this.req) return;
     this.gpu.setDetail(im);
-    this.rect = [x / info.width, y / info.height, (x + w) / info.width, (y + h) / info.height];
+    this.rect = [(x - c0 * info.width) / sw, (y - c1 * info.height) / sh, (x + w - c0 * info.width) / sw, (y + h - c1 * info.height) / sh];
     this.fade = 0;
     this.target = 1;
   }

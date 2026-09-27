@@ -1,7 +1,7 @@
 // One painting on the easel: runs the stages (cleaning -> retouch -> gilding -> varnish -> finale), drives the scene
 // state for the renderer, routes input to the current stage, records the restoration (for the gallery replay)
 // and keeps the save up to date.
-import { LEVELS, type CatalogItem, type LevelData, type LevelId } from '../data';
+import { GOLD_ID, LEVELS, type CatalogItem, type LevelData, type LevelId } from '../data';
 import type { PaintingGL, Renderer, SceneState } from '../render/renderer';
 import type { Tool } from '../render/dirt';
 import { Sprite } from '../render/particles';
@@ -132,7 +132,7 @@ export class Studio {
       patchDone: () => { this.dirty = true; },
       allDone: () => this.startVarnishTransition(),
       progress: () => { if (this.phase === 'gild') ui.progress(this.gilding.progress); },
-    });
+    }, lv.gold ? (x, y) => x >= 0 && y >= 0 && x < W && y < H && lv.map[Math.floor(y) * W + Math.floor(x)] === GOLD_ID : null);
     this.varnish = new Varnish(cam, parts, W, H, {
       progress: () => { if (this.phase === 'varnish') ui.progress(this.varnish.progress); },
       allDone: () => this.startFinale(),
@@ -148,7 +148,7 @@ export class Studio {
       detail: { rect: [0, 0, 0, 0], alpha: 0 },
       falling: [],
     };
-    this.loupe = new Loupe(item.iiif, gpu, renderer, cam);
+    this.loupe = new Loupe(item.iiif, gpu, renderer, cam, item.crop);
     if (replay) {
       const pts = replay.strokes.reduce((a, s) => a + (s.length - 1) / 3, 0);
       this.rp = { rec: replay, s: 0, i: 0, perFrame: Math.max(2, Math.ceil(pts / (8 * 60))), paintI: 0, gildT: 0, varnT: 0 };
@@ -283,7 +283,9 @@ export class Studio {
     this.scene.restored = 1;
     this.setPhase('gild');
     this.ui.progress(this.gilding.progress);
-    if (!this.rp) this.ui.toast('Dotknij ramy, żeby położyć płatek złota. Pocieraj go, aż zabłyśnie.', 5000);
+    if (!this.rp) this.ui.toast(this.gilding.hasGoldGround
+      ? 'Połóż płatki złota na tle obrazu i na ramie. Pocieraj je, aż zabłysną.'
+      : 'Dotknij ramy, żeby położyć płatek złota. Pocieraj go, aż zabłyśnie.', 5000);
   }
 
   private startVarnishTransition() {

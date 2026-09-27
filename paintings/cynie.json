@@ -1,0 +1,47 @@
+{
+  "order": 6.5,
+  "title": "Cynie w zielonym dzbanie",
+  "author": "Floris Verster",
+  "date": "1910",
+  "kind": "martwa natura",
+  "medium": "olej na desce",
+  "card": [
+    "Fioletowe, różowe i zielone cynie wylewają się z zielonego dzbana na imbir. Farba jest nałożona grubo, pastą, więc płatki wyglądają jak wyrzeźbione.",
+    "Floris Verster pracował w Lejdzie i malował przede wszystkim kwiaty. Zaczynał od ciemnych, dramatycznych obrazów, a z wiekiem jego martwe natury stawały się coraz jaśniejsze i bardziej kolorowe."
+  ],
+  "story": {
+    "client": "Pani Lucyna, działkowiczka z Poznania",
+    "text": "Kopia wisiała w altance na działce. Latem nagrzewało się tam jak w piecu, zimą zamarzało, a pająki uznały ramę za swoją."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 455
+    },
+    "trudny": {
+      "work_long": 522
+    }
+  },
+  "source": {
+    "object_number": "SK-A-2941",
+    "title_en": "Still Life with Zinnias in a green Jar",
+    "title_nl": "Stilleven met zinnia's in een gemberpot",
+    "creator": "Floris Verster",
+    "date": "1910",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/20028477",
+    "iiif": "https://iiif.micr.io/hxZUN",
+    "commons": null,
+    "dimensions_nl": "drager: hoogte 24,3 cm x breedte 19 cm",
+    "medium_en": "oil on panel",
+    "medium_nl": "olieverf op paneel",
+    "dimensions_en": "depth 6.5 cm",
+    "description_nl": "Stilleven met bloemen: paarse en groene zinnia's in een groene gemberpot.",
+    "credit_nl": "Legaat van de heer A. van Wezel, Amsterdam",
+    "credit_en": "A. van Wezel Bequest, Amsterdam",
+    "image": "https://iiif.micr.io/hxZUN/full/!4000,4000/0/default.jpg"
+  }
+}

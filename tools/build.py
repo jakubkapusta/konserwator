@@ -56,8 +56,30 @@ def source_image(slug, rec):
     p = WORK / slug / "source.jpg"
     if not p.exists():
         print(f"{slug}: source missing, downloading again", file=sys.stderr)
-        fetch_rijks.download(rec["source"], p, 4000)
-    return Image.open(p).convert("RGB")
+        if rec["source"].get("museum") == "met":
+            import fetch_met
+            fetch_met.download(rec["source"], p)
+        else:
+            fetch_rijks.download(rec["source"], p, 4000)
+    im = Image.open(p).convert("RGB")
+    # crop: [x0, y0, x1, y1] fractions of the scan (drop a photographed frame, margins, colour bars)
+    if rec.get("crop"):
+        x0, y0, x1, y1 = rec["crop"]
+        W, H = im.size
+        im = im.crop((round(x0 * W), round(y0 * H), round(x1 * W), round(y1 * H)))
+    return im
+
+
+def gold_for(slug, rec, tex):
+    """Gold ground mask at region resolution for paintings with a `gold` block, plus a review image."""
+    if "gold" not in rec:
+        return None
+    m = seg.gold_mask(tex.astype(np.float32) / 255, rec["gold"])
+    over = tex.copy()
+    over[m] = (over[m] * 0.35 + np.array([255, 40, 200]) * 0.65).astype(np.uint8)
+    Image.fromarray(over).save(WORK / slug / "gold.jpg", quality=85)
+    print(f"{slug}: gold ground {m.mean() * 100:.1f}% (work/{slug}/gold.jpg)")
+    return m
 
 
 def rle(reg):
@@ -80,13 +102,13 @@ def bboxes(reg, n):
     return [[o[1].start, o[0].start, o[1].stop, o[0].stop] for o in objs[:n]]
 
 
-def build_level(slug, rec, level, src, size, tex, previews=True):
+def build_level(slug, rec, level, src, size, tex, previews=True, gold=None):
     p = dict(seg.LEVELS[level])
     extra = dict(chroma=1.8, tv=0.06, merge_de=MERGE_DE[level])
     for k, v in (rec.get("levels", {}).get(level) or {}).items():
         (p if k in p else extra)[k] = v
     t = time.time()
-    reg, n, col, pal_rgb = seg.segment(src, out_size=size, **p, **extra)
+    reg, n, col, pal_rgb = seg.segment(src, out_size=size, **p, **extra, gold=gold)
     # drop paints no field ended up with, keep dark -> light numbering
     used = np.array(sorted({int(c) for c in col}), np.int32)
     remap = np.zeros(len(pal_rgb), np.int32)
@@ -99,7 +121,7 @@ def build_level(slug, rec, level, src, size, tex, previews=True):
     d = OUT / slug
     (d / f"{level}.bin").write_bytes(rle(reg))
     used = sorted({int(c) for c in col})
-    info = dict(level=level, params=dict(p, **extra), width=size[0], height=size[1],
+    info = dict(level=level, params=dict(p, **extra), width=size[0], height=size[1], gold=bool(gold is not None and gold.any()),
                 palette=[[int(v * 255 + .5) for v in c] for c in pal_rgb],
                 regions=[dict(c=int(col[i]), x=round(x, 1), y=round(y, 1), r=round(r, 1), a=a_, b=boxes[i])
                          for i, (x, y, r, a_) in enumerate(pts)])
@@ -134,12 +156,12 @@ def review_sheet(slug, levels):
     sheet.save(WORK / slug / "review.jpg", quality=85)
 
 
-def fit_level(slug, rec, level, src, size, tex, previews):
+def fit_level(slug, rec, level, src, size, tex, previews, gold=None):
     """Build, and if the field count is off target, rescale work_long (fields ~ work_long²) and try again.
     The chosen work_long is written back to the record so the result is reproducible."""
     lo, hi = TARGETS[level]
     for _ in range(4):
-        res = build_level(slug, rec, level, src, size, tex, previews=False)
+        res = build_level(slug, rec, level, src, size, tex, previews=False, gold=gold)
         n = res["regions"]
         if lo <= n <= hi:
             break
@@ -153,7 +175,7 @@ def fit_level(slug, rec, level, src, size, tex, previews):
         print(f"  {slug}/{level}: {n} fields -> work_long {cur} -> {new}")
     (REC / f"{slug}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2) + "\n")
     if previews:
-        build_level(slug, rec, level, src, size, tex, previews=True)
+        build_level(slug, rec, level, src, size, tex, previews=True, gold=gold)
 
 
 def build(slug, levels, previews=True, fit=False):
@@ -171,11 +193,12 @@ def build(slug, levels, previews=True, fit=False):
     size = (round(W * s), round(H * s))
     src = np.asarray(im.resize((round(W * 1800 / max(W, H)), round(H * 1800 / max(W, H))), Image.LANCZOS)).astype(np.float32) / 255
     tex = np.asarray(im.resize(size, Image.LANCZOS))
+    gold = gold_for(slug, rec, tex)
     for lv in levels:
         if fit:
-            fit_level(slug, rec, lv, src, size, tex, previews)
+            fit_level(slug, rec, lv, src, size, tex, previews, gold)
         else:
-            build_level(slug, rec, lv, src, size, tex, previews)
+            build_level(slug, rec, lv, src, size, tex, previews, gold)
     if previews:
         review_sheet(slug, LEVEL_ORDER)
 
@@ -183,7 +206,10 @@ def build(slug, levels, previews=True, fit=False):
 MEDIUM_PL = {
     "oil on canvas": "olej na płótnie", "oil on panel": "olej na desce", "oil on copper": "olej na miedzi",
     "oil on paper": "olej na papierze", "watercolour": "akwarela", "woodblock print": "drzeworyt",
+    "tempera on panel": "tempera na desce", "tempera and gold on panel": "tempera i złoto na desce",
+    "oil on cardboard": "olej na tekturze",
 }
+MUSEUM = {"met": "The Metropolitan Museum of Art, domena publiczna (CC0)", None: "Rijksmuseum, domena publiczna"}
 
 
 def medium_pl(src):
@@ -198,7 +224,9 @@ def dims_pl(src):
     h = re.search(r"height ([\d.]+) cm", d)
     w = re.search(r"width ([\d.]+) cm", d)
     if not (h and w):
-        return None
+        # the Met: '10 1/4 x 15 in. (26 x 38.1 cm)'
+        m = re.search(r"\(([\d.]+) x ([\d.]+) cm\)", d)
+        return f"{m.group(1).replace('.', ',')} × {m.group(2).replace('.', ',')} cm" if m else None
     return f"{h.group(1).replace('.', ',')} × {w.group(1).replace('.', ',')} cm"
 
 
@@ -220,6 +248,7 @@ def catalog():
         slug = p.stem
         d = OUT / slug
         levels = {}
+        gilded = False
         for lv in LEVEL_ORDER:
             f = d / f"{lv}.json"
             if f.exists():
@@ -227,6 +256,7 @@ def catalog():
                 levels[lv] = dict(colors=len(info["palette"]), regions=len(info["regions"]),
                                   v=fhash(f, d / f"{lv}.bin"))
                 size = [info["width"], info["height"]]
+                gilded = info.get("gold", False)
         if len(levels) < 3 or not (d / "image.jpg").exists():
             print(f"{slug}: not built yet, skipped", file=sys.stderr)
             continue
@@ -236,10 +266,10 @@ def catalog():
             v=fhash(d / "image.jpg", d / "thumb.jpg"),
             title=rec.get("title") or src.get("title_en"), author=rec.get("author") or src.get("creator"),
             date=rec.get("date") or src.get("date"), objectNumber=src.get("object_number"),
-            license="Rijksmuseum, domena publiczna", licenseUrl=(src.get("rights") or [None])[0],
+            license=MUSEUM.get(src.get("museum")), licenseUrl=(src.get("rights") or [None])[0],
             sourceUrl=src.get("object"), kind=rec.get("kind"),
             medium=rec.get("medium") or medium_pl(src), dimensions=rec.get("dimensions") or dims_pl(src),
-            iiif=src.get("iiif"),
+            iiif=src.get("iiif"), crop=rec.get("crop"), gold=gilded or None,
             story=rec.get("story"), card=rec.get("card"), dirt=rec.get("dirt"),
         ))
     items.sort(key=lambda i: (i["order"], i["slug"]))

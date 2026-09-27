@@ -1,0 +1,44 @@
+{
+  "order": 26.5,
+  "title": "Girlanda z owoców i kwiatów",
+  "author": "Jan Davidsz. de Heem",
+  "date": "1660–1670",
+  "kind": "martwa natura",
+  "card": [
+    "Przed ciemną niszą wisi na pierścieniu ciężka girlanda: winogrona, cytryny, granat, śliwki, wiśnie, jeżyny i róże. Wśród liści chowają się chrząszcze, motyle i ślimaki, a z boku zwisa gałązka z kasztanami.",
+    "Jan Davidsz. de Heem pracował w Utrechcie i Antwerpii i był jednym z najsłynniejszych malarzy martwych natur swoich czasów. Owoce i owady przypominały widzom, że wszystko, co piękne, szybko przemija."
+  ],
+  "story": {
+    "client": "Pan Ryszard, restaurator z Torunia",
+    "text": "Kopia wisiała nad kominkiem w jadalni starej kamienicy. Dym z kominka, zapach pieczeni i sto lat bez sprzątania zrobiły z owoców jedną brunatną masę."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {
+      "work_long": 495
+    },
+    "trudny": {
+      "work_long": 607
+    }
+  },
+  "source": {
+    "object_number": "SK-A-138",
+    "title_en": "Festoon of Fruit and Flowers",
+    "title_nl": "Festoen van vruchten en bloemen",
+    "creator": "Jan Davidsz. de Heem",
+    "date": "1660 - 1670",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200108431",
+    "iiif": "https://iiif.micr.io/nPYmn",
+    "commons": null,
+    "medium_nl": "olieverf op doek",
+    "description_nl": "Festoen van vruchten (druiven, citroenen, granaatappel, pruimen, kersen, bramen) en bloemen (o.a. rozen), hangend aan een ring voor een nis. Verder ook bladeren, een tak met kastanjes, kevers, vlinders en slakken.",
+    "dimensions_en": "height 74 cm x width 60 cm",
+    "dimensions_nl": "hoogte 74 cm x breedte 60 cm",
+    "medium_en": "oil on canvas",
+    "image": "https://iiif.micr.io/nPYmn/full/!4000,4000/0/default.jpg"
+  }
+}

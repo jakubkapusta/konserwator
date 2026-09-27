@@ -1,0 +1,41 @@
+{
+  "order": 9.5,
+  "title": "Wieczorny śnieg w Kambarze",
+  "author": "Utagawa Hiroshige",
+  "date": "1828–1835",
+  "kind": "drzeworyt",
+  "medium": "drzeworyt barwny",
+  "dimensions": "23,1 × 35,6 cm",
+  "card": [
+    "Trzech podróżnych brnie przez wioskę Kambara pod grubą warstwą śniegu. Wieczór jest cichy, niebo ciemne, a śnieg przykrywa domy i góry.",
+    "To jedna z rycin serii „Pięćdziesiąt trzy stacje traktu Tōkaidō”. W Kambarze śnieg pada rzadko, więc artysta najpewniej wymyślił tę scenę, żeby pokazać ciszę zimowego wieczoru."
+  ],
+  "story": {
+    "client": "Pani Halina, emerytowana listonoszka z Karpacza",
+    "text": "Kopia wisiała w pokoju gościnnym w pensjonacie. Wilgoć od narciarskich butów i dym z kominka powoli zasnuły ją żółtą mgłą."
+  },
+  "levels": {
+    "latwy": {},
+    "sredni": {},
+    "trudny": {}
+  },
+  "source": {
+    "object_number": "RP-P-1960-378",
+    "title_en": null,
+    "title_nl": "Kanbara, avondsneeuw",
+    "creator": "Utagawa Hiroshige (I) (mentioned on object)",
+    "date": "1828 - 1835",
+    "rights": [
+      "https://creativecommons.org/publicdomain/mark/1.0/"
+    ],
+    "open": true,
+    "object": "https://id.rijksmuseum.nl/200134811",
+    "iiif": "https://iiif.micr.io/Vdkkm",
+    "commons": null,
+    "dimensions_nl": "blad: hoogte 231 mm x breedte 356 mm",
+    "dimensions_en": "height 231 mm x width 356 mm",
+    "description_nl": "Drie reizigers in het dorp Kanbara onder een dik pak sneeuw, bij avond.",
+    "medium_nl": "kleurenhoutsnede; lijnblok in zwart met kleurblokken",
+    "image": "https://iiif.micr.io/Vdkkm/full/!4000,4000/0/default.jpg"
+  }
+}

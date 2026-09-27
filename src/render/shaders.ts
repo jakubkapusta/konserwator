@@ -271,7 +271,58 @@ uniform vec4 u_detailRect;  // its uv rect
 uniform float u_detailA;
 uniform float u_varnOn;
 uniform vec2 u_tilt;
+uniform sampler2D u_gilt;   // gold leaf (shared with the frame): r leaf, g burnish, b crumple seed
+uniform vec4 u_giltRect;
 out vec4 o;
+const uint GOLD = 65535u;   // region id of the gold ground (medieval panels): gilded, never painted
+` + GOLD + `
+// The gold ground: bare red bole with the white gesso showing through scratches and a few worn flecks of the
+// old gold, until leaf is laid; then leaf like on the frame (crumpled -> burnished mirror), with the tooling of
+// the original (punched halos, incised lines) raised from the scan's own luminance.
+vec3 goldGround(vec2 w, vec2 uv, vec3 orig, float seamW) {
+  // the scan's incised lines and punches, as relief (on the bole too: the tooling is cut into the gesso)
+  // (sampled at the mip the screen actually resolves: finer craquelure would only glitter)
+  float lod = max(0.8, log2(max(u_pxw * 1.9, 1.0)) + 0.8);
+  vec2 e = 1.4 * exp2(lod - 0.8) / u_size;
+  float gx = lum(textureLod(u_img, uv + vec2(e.x, 0), lod).rgb) - lum(textureLod(u_img, uv - vec2(e.x, 0), lod).rgb);
+  float gy = lum(textureLod(u_img, uv + vec2(0, e.y), lod).rgb) - lum(textureLod(u_img, uv - vec2(0, e.y), lod).rgb);
+  // only where the scan shows gold: the photo background around an arched panel has folds, not tooling
+  float sat = max(max(orig.r, orig.g), orig.b) - min(min(orig.r, orig.g), orig.b);
+  vec2 tool = vec2(gx, gy) * smoothstep(0.06, 0.16, sat);
+  gx = tool.x; gy = tool.y;
+  float n1 = texture(u_noise, w / 120.0).r;
+  vec3 bole = vec3(0.42, 0.17, 0.09) * (0.85 + 0.25 * n1) * (0.93 + 0.14 * texture(u_noise, w / 11.0).g);
+  bole *= clamp(1.0 - (gx * 0.8 + gy) * 2.5, 0.6, 1.3);
+  float scratch = smoothstep(0.76, 0.8, texture(u_noise, vec2(w.x / 260.0 + w.y / 800.0, w.y / 9.0)).b);
+  bole = mix(bole, vec3(0.8, 0.72, 0.6), scratch * 0.35);
+  float old = smoothstep(0.66, 0.74, texture(u_noise, w / 60.0 + 0.3).a * 0.7 + texture(u_noise, w / 17.0).r * 0.3);
+  bole = mix(bole, orig * vec3(0.9, 0.8, 0.6), old * 0.4);
+  vec4 G = texture(u_gilt, (w - u_giltRect.xy) / (u_giltRect.zw - u_giltRect.xy));
+  float leaf = clamp(G.r, 0.0, 1.0);
+  if (leaf < 0.002) return bole;
+  float sm = clamp(G.g, 0.0, 1.0);
+  float amp = pow(1.0 - sm, 1.2);
+  float wa = G.b * 31.0;
+  mat2 rot = mat2(cos(wa), sin(wa), -sin(wa), cos(wa));
+  vec2 q = rot * w / vec2(34.0, 16.0) + G.b * 37.0;
+  float d = 0.12;
+  #define CRG(v) (abs(texture(u_noise, v).r - 0.5) + 0.5 * abs(texture(u_noise, (v) * 2.7 + 0.3).g - 0.5))
+  float c0 = CRG(q);
+  vec2 gr = vec2(CRG(q + vec2(d, 0)) - CRG(q - vec2(d, 0)), CRG(q + vec2(0, d)) - CRG(q - vec2(0, d))) / (2.0 * d);
+  vec3 N = normalize(vec3(-vec2(gx, gy) * 1.7 + (rot * gr) * amp * 0.9, 1.0));
+  vec3 Ld = normalize(vec3(-0.55, -0.7, 0.75));
+  float dif = clamp(dot(N, Ld), 0.0, 1.0);
+  // a flat panel seen from nearby: the view direction changes across it, so the softbox slides over the gold
+  // as it tilts; plus the soft, diffuse warmth gold has in any photograph of these panels
+  vec2 persp = (uv - vec2(0.42, 0.38)) * 0.6 + u_tilt * 0.35;
+  vec3 gc = envGold(normalize(N + vec3(persp, 0.0)), sm, dif);
+  vec3 warm = vec3(0.92, 0.7, 0.33) * (0.7 + 0.3 * dif);
+  gc = mix(warm, gc, 0.55 + 0.25 * sm);
+  gc *= mix(0.8 + 0.35 * c0, 1.0, sm);
+  float seamB = clamp(seamW / u_pxw * 5.0, 0.0, 1.0);
+  gc *= (0.8 + 0.2 * smoothstep(0.55, 0.95, leaf)) * (1.0 - seamB * mix(0.35, 0.06, sm));
+  return mix(bole, gc, leaf);
+}
 
 // brushwork relief from the painting's own luminance (0.5 flat, >0.5 ridges facing the upper-left light)
 float reliefAt(vec2 uv, float lod) {
@@ -291,6 +342,7 @@ uint regAt(ivec2 t) {
 // How much of region id is revealed at world point w (0..1); front: the wet leading band.
 float reveal(uint id, vec2 w, out float front) {
   front = 0.0;
+  if (id == GOLD) return 0.0;
   vec4 a = rA(id);
   if (a.y < -1e8) return 0.0;
   vec4 b = rB(id);
@@ -396,16 +448,21 @@ void main() {
   rv = max(rv, u_restored);
 
   vec3 col = mix(g, orig, rv);
+  bool onGold = own == GOLD;
+  float seamW = fwidth(texture(u_gilt, (w - u_giltRect.xy) / (u_giltRect.zw - u_giltRect.xy)).b);  // outside any branch
+  float gm = (id00 == GOLD ? (1.0 - f.x) * (1.0 - f.y) : 0.0) + (id10 == GOLD ? f.x * (1.0 - f.y) : 0.0)
+           + (id01 == GOLD ? (1.0 - f.x) * f.y : 0.0) + (id11 == GOLD ? f.x * f.y : 0.0);
+  if (gm > 0.0) col = mix(col, goldGround(w, uv, orig, seamW), uniformCell ? 1.0 : smoothstep(0.5 - k, 0.5 + k, gm));
 
   // wet paint at the reveal front: the paint's flat color, glossy
-  if (front > 0.001) {
+  if (front > 0.001 && !onGold) {
     vec4 ra = rA(own);
     vec3 pc = texelFetch(u_pal, ivec2(int(ra.x), 0), 0).rgb;
     col = mix(col, pc, clamp(front * 0.55, 0.0, 0.6));
     col += front * 0.08;
   }
   // fresh paint: a wet gloss that catches the brushwork, drying over a couple of seconds
-  {
+  if (!onGold) {
     vec4 a = rA(own);
     if (a.y > -1e8) {
       float t = u_time - a.y - rB(own).y * 0.6;
@@ -438,7 +495,7 @@ void main() {
       col = mix(col, vec3(0.36, 0.32, 0.28), line * unrev * u_outline * grow * 0.85 * (1.0 - u_restored));
     }
     // highlight of the selected paint's unpainted regions
-    if (u_sel >= 0) {
+    if (u_sel >= 0 && !onGold) {
       vec4 a = rA(own);
       if (int(a.x) == u_sel && rv < 1.0) {
         // semi-transparent white/grey checker: stands out on any colour, even in tiny fields.

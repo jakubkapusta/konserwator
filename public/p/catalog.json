@@ -36,6 +36,8 @@
    "medium": "olej na płótnie",
    "dimensions": "45,5 × 41 cm",
    "iiif": "https://iiif.micr.io/QkOGy",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Zofia, wnuczka właścicielki pensjonatu",
     "text": "Dziewiętnastowieczna kopia „Mleczarki”, namalowana przez studenta akademii w Antwerpii. Przez pół wieku wisiała w kuchni pensjonatu w Zakopanem, tuż nad kaflowym piecem. Stąd sadza, tłuste zacieki i werniks żółty jak miód."
@@ -83,6 +85,8 @@
    "medium": null,
    "dimensions": "28,9 × 22,3 cm",
    "iiif": "https://iiif.micr.io/abQcw",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Halina, emerytowana nauczycielka biologii",
     "text": "Mała kopia w dębowej ramce, która przez trzydzieści lat wisiała w szkolnej pracowni biologicznej w Tarnowie, tuż nad klatką z kanarkami. Dzieci dotykały jej palcami, a kurz z tablicy osiadał warstwa po warstwie."
@@ -129,6 +133,8 @@
    "medium": "drzeworyt barwny",
    "dimensions": null,
    "iiif": "https://iiif.micr.io/MFiyA",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Tadeusz, marynarz w stanie spoczynku",
     "text": "Ręcznie malowana kopia drzeworytu, przywieziona z rejsu do Jokohamy w latach siedemdziesiątych. Wisiała w kajucie, a potem nad piecykiem na działce pod Gdynią. Papier pożółkł od dymu, a w rogach zamieszkały pająki."
@@ -137,6 +143,54 @@
     "Olbrzymia fala z pazurami piany wisi nad trzema łodziami z wioślarzami. W dole, między grzbietami wody, widać maleńką górę Fuji. To najsłynniejszy obraz japońskiej sztuki.",
     "Hokusai wydał go w serii „Trzydzieści sześć widoków góry Fuji”. To drzeworyt: każdy kolor odbijano z osobnego klocka drewna, a do błękitu użyto sprowadzanego z Europy błękitu pruskiego, wtedy nowości w Japonii.",
     "Odbitki sprzedawano tanio i w dużych nakładach. Po otwarciu Japonii na świat takie grafiki zachwyciły europejskich malarzy, między innymi Van Gogha i Moneta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "czerwona-fuji",
+   "order": 3.5,
+   "size": [
+    1600,
+    1165
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 72,
+     "v": "8a9693d0"
+    },
+    "sredni": {
+     "colors": 15,
+     "regions": 158,
+     "v": "dcd145b7"
+    },
+    "trudny": {
+     "colors": 24,
+     "regions": 372,
+     "v": "1f0f09b6"
+    }
+   },
+   "v": "8ce6ce92",
+   "title": "Czerwona Fuji",
+   "author": "Katsushika Hokusai",
+   "date": "1829–1833",
+   "objectNumber": "RP-P-1952-183",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134562",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "26,1 × 37,6 cm",
+   "iiif": "https://iiif.micr.io/hnCqM",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Keiko, nauczycielka japońskiego w Warszawie",
+    "text": "Ręcznie malowana kopia, którą babcia przywiozła z Japonii. Przez lata wisiała w przedpokoju przy drzwiach balkonowych, gdzie słońce blakło kolory, a kurz z ulicy osiadał warstwami."
+   },
+   "card": [
+    "Góra Fuji, czerwona w porannym słońcu, wznosi się nad ciemnym lasem na tle błękitnego nieba z białymi obłokami. Nic więcej nie ma: sama góra, niebo i trzy kolory.",
+    "Rycina pochodzi z tej samej serii co „Wielka fala”: „Trzydzieści sześć widoków góry Fuji”. Japończycy nazywają ją „Pogoda przy południowym wietrze”. Czerwień Fuji pojawia się podobno tylko o jednej porze roku, przy ładnej pogodzie."
    ],
    "dirt": null
   },
@@ -176,6 +230,8 @@
    "medium": "olej na płótnie",
    "dimensions": "144 × 171 cm",
    "iiif": "https://iiif.micr.io/hZepb",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Fundacja opiekująca się dworem pod Kaliszem",
     "text": "Wierna kopia w naturalnej wielkości, która od stu lat wisiała w sieni dworu nad drzwiami do ogrodu. Pajęczyny w rogach pamiętają chyba jeszcze czasy przedwojenne, a jaskółki zostawiły po sobie swoje ślady."
@@ -184,6 +240,54 @@
     "Łabędź z rozpostartymi skrzydłami broni gniazda przed psem, który podpływa z lewej strony. Asselijn namalował zwierzę niemal w naturalnej wielkości, a dramatyczne światło podkreśla gniew ptaka.",
     "Później ktoś dopisał na obrazie słowa, które zmieniły go w alegorię polityczną. Łabędź stał się wielkim pensjonariuszem Johanem de Wittem, a jajo w gnieździe Holandią broniącą się przed wrogiem.",
     "Był to pierwszy obraz kupiony w 1800 roku przez Nationale Kunst-Galerij, poprzedniczkę dzisiejszego Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "owoce-fantin",
+   "order": 4.5,
+   "size": [
+    1600,
+    1060
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 52,
+     "v": "18a3a7b8"
+    },
+    "sredni": {
+     "colors": 20,
+     "regions": 146,
+     "v": "6ad5e41a"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 390,
+     "v": "3ef41ab5"
+    }
+   },
+   "v": "75a49728",
+   "title": "Martwa natura z owocami",
+   "author": "Henri Fantin-Latour",
+   "date": "ok. 1880–1890",
+   "objectNumber": "SK-A-2982",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/20027871",
+   "kind": "martwa natura",
+   "medium": "olej na płótnie",
+   "dimensions": "28,3 × 42,8 cm",
+   "iiif": "https://iiif.micr.io/tDDnJ",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Zbigniew, sadownik spod Grójca",
+    "text": "Kopia wisiała w przechowalni owoców, gdzie zimą paliło się w kozie. Na płótnie osiadł dym i pył z jabłkowych skrzynek, a myszy nadgryzły róg blejtramu."
+   },
+   "card": [
+    "Na białym talerzu leżą winogrona i gruszka, obok stoi koszyk z jabłkami i innymi owocami. Nic więcej: ciemne tło, kilka przedmiotów i miękkie światło z boku.",
+    "Henri Fantin-Latour malował takie niewielkie martwe natury przez całe życie. Były kameralne i spokojne, przez co dobrze się sprzedawały, zwłaszcza w Anglii."
    ],
    "dirt": null
   },
@@ -223,6 +327,8 @@
    "medium": "olej na płótnie",
    "dimensions": "83 × 101 cm",
    "iiif": "https://iiif.micr.io/XWEFp",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Gospodarz zajazdu pod Kazimierzem Dolnym",
     "text": "Dziewiętnastowieczna kopia, którą ktoś przywiózł z Holandii i powiesił w sali jadalnej zajazdu. Nad obrazem przez sto lat buzował kominek, a pod nim goście palili fajki. Werniks zrobił się brązowy jak herbata."
@@ -231,6 +337,54 @@
     "Nad rzeką Lek wznosi się okrągły młyn wiatrowy, a nad nim kłębią się chmury. Po lewej płynie łódka, w oddali widać wieże zamku Duurstede i kościoła. Brzegiem idzie kilka kobiet.",
     "Ruisdael ustawił widza nisko, niemal przy wodzie, więc młyn wyrasta ponad horyzont jak pomnik. Połowę obrazu zajmuje niebo z chmurami, w których odbija się światło.",
     "Obraz uchodzi za jeden z najważniejszych pejzaży holenderskiego złotego wieku. Muzeum ma go w depozycie od miasta Amsterdam, z kolekcji zapisanej przez Adriaana van der Hoopa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "dwa-karpie",
+   "order": 5.5,
+   "size": [
+    1600,
+    1350
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 11,
+     "regions": 53,
+     "v": "5b326257"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 132,
+     "v": "1c32646c"
+    },
+    "trudny": {
+     "colors": 29,
+     "regions": 318,
+     "v": "5b2b6441"
+    }
+   },
+   "v": "612d598c",
+   "title": "Dwa karpie",
+   "author": "Katsushika Hokusai",
+   "date": "1831",
+   "objectNumber": "RP-P-1960-3",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134561",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "17,6 × 28,6 cm",
+   "iiif": "https://iiif.micr.io/ernja",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Józef, hodowca karpi z Zatora",
+    "text": "Kopia wisiała w stróżówce przy stawach. Para z czajnika, dym z kozy i muchy przez lata robiły swoje."
+   },
+   "card": [
+    "Dwa szare karpie płyną wśród wodorostów na tle niebieskiej wody. Obraz ma kształt wachlarza, z wyciętym miejscem na rączkę.",
+    "To rycina do naklejania na wachlarze. Takie odbitki zużywano i wyrzucano, dlatego przetrwało ich bardzo mało. Karp był w Japonii symbolem siły i wytrwałości, bo płynie pod prąd."
    ],
    "dirt": null
   },
@@ -270,6 +424,8 @@
    "medium": "olej na płótnie",
    "dimensions": "54,3 × 44 cm",
    "iiif": null,
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Marek, handlarz starociami z Gdańska",
     "text": "Kopia z warsztatu kopistów, kupiona na pchlim targu w Gdańsku razem ze skrzynią starych ram. Pół wieku przestała w piwnicy za regałem z przetworami. Ktoś kiedyś chlapnął na nią farbą do okien."
@@ -278,6 +434,54 @@
     "Ceglane domy przy zwykłej ulicy w Delfcie. W bramie kobieta zajmuje się praniem, w drzwiach druga szyje, a na chodniku bawią się dzieci. To jeden z zaledwie dwóch pejzaży miejskich Vermeera, obok „Widoku Delftu”.",
     "Przez lata spierano się, którą ulicę namalował. W 2015 roku historyk sztuki Frans Grijzenhout porównał dawne rejestry podatkowe i wskazał posesje przy Vlamingstraat w Delfcie.",
     "Vermeer odtworzył każdą cegłę i pęknięcie tynku, ale scena nie jest dokumentem. To spokojny portret codziennego życia na holenderskim podwórku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "cynie",
+   "order": 6.5,
+   "size": [
+    1244,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 129,
+     "v": "b4cbea46"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 228,
+     "v": "841d76cf"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 443,
+     "v": "2582d1c8"
+    }
+   },
+   "v": "25338de4",
+   "title": "Cynie w zielonym dzbanie",
+   "author": "Floris Verster",
+   "date": "1910",
+   "objectNumber": "SK-A-2941",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/20028477",
+   "kind": "martwa natura",
+   "medium": "olej na desce",
+   "dimensions": null,
+   "iiif": "https://iiif.micr.io/hxZUN",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Lucyna, działkowiczka z Poznania",
+    "text": "Kopia wisiała w altance na działce. Latem nagrzewało się tam jak w piecu, zimą zamarzało, a pająki uznały ramę za swoją."
+   },
+   "card": [
+    "Fioletowe, różowe i zielone cynie wylewają się z zielonego dzbana na imbir. Farba jest nałożona grubo, pastą, więc płatki wyglądają jak wyrzeźbione.",
+    "Floris Verster pracował w Lejdzie i malował przede wszystkim kwiaty. Zaczynał od ciemnych, dramatycznych obrazów, a z wiekiem jego martwe natury stawały się coraz jaśniejsze i bardziej kolorowe."
    ],
    "dirt": null
   },
@@ -317,6 +521,8 @@
    "medium": null,
    "dimensions": "25 × 20,5 cm",
    "iiif": "https://iiif.micr.io/OHDPD",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Właścicielka apteki na Starym Mieście w Lublinie",
     "text": "Kopia wisiała w aptece za ladą przez ponad pół wieku. Unosiły się tam opary spirytusu i ziół, a klienci zostawiali na szkle gablot tłuste odciski palców. W końcu nikt nie pamiętał, co jest na obrazie."
@@ -324,6 +530,54 @@
    "card": [
     "Pęczek białych szparagów związany łykiem leży na krawędzi kamiennego blatu. Tło jest ciemne i puste, więc całe światło spada na łodygi i ich różowe końcówki.",
     "Obraz jest mały, ma zaledwie 25 na 20,5 cm. Coorte malował szparagi wiele razy. Były wtedy przysmakiem, który pojawiał się na stołach tylko przez kilka wiosennych tygodni."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "paw-i-piwonie",
+   "order": 7.5,
+   "size": [
+    807,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 49,
+     "v": "6cca20d3"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 140,
+     "v": "4d9a9479"
+    },
+    "trudny": {
+     "colors": 33,
+     "regions": 311,
+     "v": "519cdaa4"
+    }
+   },
+   "v": "cb44d9eb",
+   "title": "Paw i piwonie",
+   "author": "Utagawa Hiroshige",
+   "date": "1833–1837",
+   "objectNumber": "RP-P-1956-766",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134828",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "37,8 × 17,3 cm",
+   "iiif": "https://iiif.micr.io/eHzjX",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Maria, właścicielka herbaciarni w Toruniu",
+    "text": "Kopia wisiała nad samowarem przez dwadzieścia lat. Para, dym z kadzidełek i kurz z liści herbaty zamieniły róż w szarość."
+   },
+   "card": [
+    "Pod gęstymi, różowymi i białymi piwoniami stoi paw z długim ogonem. W lewym górnym rogu jest wiersz. Wąski, wysoki format przypomina zwój do powieszenia na ścianie.",
+    "Hiroshige zasłynął pejzażami, ale robił też dużo rycin z ptakami i kwiatami. Taki temat nazywano kachō-ga i często łączono go z poezją."
    ],
    "dirt": null
   },
@@ -363,6 +617,8 @@
    "medium": "olej na płótnie",
    "dimensions": "59 × 57 cm",
    "iiif": "https://iiif.micr.io/cQMKz",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Fundacja teatru w Łodzi",
     "text": "Kopia wisiała w garderobie aktorek łódzkiego teatru. Sto lat pudru, dymu papierosowego i lakieru do włosów zostawiło na niej lepką szarą warstwę, a ktoś kiedyś przykleił do ramy afisz."
@@ -371,6 +627,54 @@
     "Młoda kobieta w białym kimonie leży na kanapie przykrytej tkaniną. Za nią stoi parawan, a jej jasne ubranie świeci na tle czerwieni i złota.",
     "Pozowała Geesje Kwak, szesnastoletnia modelka, z którą Breitner namalował całą serię dziewcząt w kimonach. W Europie trwała wtedy moda na Japonię i japońskie tkaniny.",
     "Breitner był malarzem Amsterdamu i jednym z pierwszych holenderskich artystów, którzy fotografowali, żeby lepiej malować."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "corniche-monaco",
+   "order": 8.5,
+   "size": [
+    1600,
+    1281
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 91,
+     "v": "118668b5"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 242,
+     "v": "2cc96ff7"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 401,
+     "v": "91238125"
+    }
+   },
+   "v": "868226bf",
+   "title": "Corniche koło Monako",
+   "author": "Claude Monet",
+   "date": "1884",
+   "objectNumber": "SK-A-1892",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108883",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "75 × 94 cm",
+   "iiif": "https://iiif.micr.io/VPrnZ",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Jadwiga, emerytowana stewardesa",
+    "text": "Kopia kupiona na pchlim targu w Nicei i przewieziona w walizce do Gdańska. Wisiała w kuchni nad kuchenką gazową, więc tłuszcz i para zrobiły swoje, a z ramy zaczął odchodzić tynk."
+   },
+   "card": [
+    "Nadmorska droga wije się po zboczu nad Morzem Śródziemnym. Po lewej lśni woda, w głębi wyrasta skalisty cypel, a wszystko drga od krótkich, gęstych pociągnięć pędzla.",
+    "Monet spędził początek 1884 roku na Riwierze i pisał, że południowe światło jest tak jasne, że trudno je oddać farbą. Malował szybko, na miejscu, kładąc obok siebie czyste kolory zamiast je mieszać. Tak pracowali impresjoniści."
    ],
    "dirt": null
   },
@@ -410,6 +714,8 @@
    "medium": null,
    "dimensions": "42 × 34 cm",
    "iiif": null,
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Julian, student Akademii Sztuk Pięknych",
     "text": "Studencka kopia z lat sześćdziesiątych, znaleziona w piwnicy akademika przy remoncie. Leżała pod stertą ram obok kotłowni, więc pokryła ją sadza, a ktoś zostawił na niej kropki farby z własnej palety."
@@ -418,6 +724,103 @@
     "Vincent van Gogh patrzy prosto na nas. Twarz, broda i tło zbudował z krótkich, osobnych pociągnięć czystych kolorów, które zlewają się w oku dopiero z daleka.",
     "Namalował ten autoportret w Paryżu, gdzie zobaczył obrazy impresjonistów i puentylistów. Tam jego paleta nagle pojaśniała.",
     "Van Gogh malował siebie wiele razy, między innymi dlatego, że nie było go stać na opłacanie modeli. Ten autoportret należał do Andriesa Bongera, szwagra jego brata Theo, a w 1936 roku wdowa po nim podarowała go muzeum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "madonna-z-dzieciatkiem",
+   "order": 9.2,
+   "size": [
+    1600,
+    1551
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 11,
+     "regions": 56,
+     "v": "162c09fa"
+    },
+    "sredni": {
+     "colors": 14,
+     "regions": 161,
+     "v": "26159201"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 497,
+     "v": "682e94cc"
+    }
+   },
+   "v": "543e9d34",
+   "title": "Madonna z Dzieciątkiem",
+   "author": "Mistrz z Badia a Isola",
+   "date": "ok. 1300",
+   "objectNumber": "SK-C-1597-A",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109467",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "40 × 41 cm",
+   "iiif": "https://iiif.micr.io/OmERn",
+   "crop": null,
+   "gold": true,
+   "story": {
+    "client": "Parafia w Tyńcu",
+    "text": "Kopia z XIX wieku, namalowana przez zakonnika na wzór włoskiej ikony. Stała na bocznym ołtarzu, gdzie świece i kadzidło okopciły ją na czarno. Złoto tła starło się niemal całkiem i widać spod niego czerwony pulment."
+   },
+   "card": [
+    "Maria trzyma na ręku Dzieciątko, a za nimi błyszczy złote tło z rytymi aureolami. Twarze są spokojne, podłużne, oczy lekko skośne, a na ciemnym płaszczu Marii złote smugi znaczą fałdy.",
+    "Nazwę temu anonimowemu malarzowi nadano od ołtarza w kościele opactwa Badia a Isola koło Sieny. Był uczniem albo naśladowcą Duccia. Złoto kładło się na deskę w płatkach cieńszych od papieru, na czerwoną glinkę zwaną pulmentem, i polerowało kamieniem albo wilczym zębem.",
+    "Do obrazu dodano później drugi fragment z rękami Marii i nóżkami Dzieciątka."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "snieg-w-kanbara",
+   "order": 9.5,
+   "size": [
+    1600,
+    1116
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 11,
+     "regions": 51,
+     "v": "b553b792"
+    },
+    "sredni": {
+     "colors": 14,
+     "regions": 121,
+     "v": "e7130afc"
+    },
+    "trudny": {
+     "colors": 18,
+     "regions": 294,
+     "v": "deefa692"
+    }
+   },
+   "v": "de263b5b",
+   "title": "Wieczorny śnieg w Kambarze",
+   "author": "Utagawa Hiroshige",
+   "date": "1828–1835",
+   "objectNumber": "RP-P-1960-378",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134811",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "23,1 × 35,6 cm",
+   "iiif": "https://iiif.micr.io/Vdkkm",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pani Halina, emerytowana listonoszka z Karpacza",
+    "text": "Kopia wisiała w pokoju gościnnym w pensjonacie. Wilgoć od narciarskich butów i dym z kominka powoli zasnuły ją żółtą mgłą."
+   },
+   "card": [
+    "Trzech podróżnych brnie przez wioskę Kambara pod grubą warstwą śniegu. Wieczór jest cichy, niebo ciemne, a śnieg przykrywa domy i góry.",
+    "To jedna z rycin serii „Pięćdziesiąt trzy stacje traktu Tōkaidō”. W Kambarze śnieg pada rzadko, więc artysta najpewniej wymyślił tę scenę, żeby pokazać ciszę zimowego wieczoru."
    ],
    "dirt": null
   },
@@ -457,6 +860,8 @@
    "medium": "olej na desce",
    "dimensions": "77,3 × 131,9 cm",
    "iiif": "https://iiif.micr.io/aXnzA",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Proboszcz parafii pod Nowym Sączem",
     "text": "Stara kopia z plebanii, która przez dziesięciolecia wisiała w kancelarii przy kaflowym piecu. Świece, kadzidło i dym z pieca zrobiły swoje, a zimowy pejzaż wyglądał, jakby leżał pod warstwą błota."
@@ -465,6 +870,54 @@
     "Zamarznięta rzeka przy wsi zamieniła się w lodowisko. Są tu łyżwiarze, gracze w kolf, spacerowicze i psy, po prawej sanie, po lewej kościół. Każda z dziesiątek postaci robi coś innego.",
     "Avercamp był głuchoniemy i nazywano go „Niemową z Kampen”. Specjalizował się w zimowych scenach, które malował w czasach mroźnych zim tak zwanej małej epoki lodowcowej.",
     "Obraz jest namalowany na desce. Muzeum kupiło go w 1897 roku z pomocą Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kwiaty-z-normandii",
+   "order": 10.5,
+   "size": [
+    1321,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 97,
+     "v": "5b932f15"
+    },
+    "sredni": {
+     "colors": 22,
+     "regions": 238,
+     "v": "0fae1e12"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 533,
+     "v": "349c81c6"
+    }
+   },
+   "v": "bcd37d60",
+   "title": "Kwiaty z Normandii",
+   "author": "Henri Fantin-Latour",
+   "date": "1887",
+   "objectNumber": "SK-A-2895",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109683",
+   "kind": "martwa natura",
+   "medium": "olej na płótnie",
+   "dimensions": "72 × 60 cm",
+   "iiif": "https://iiif.micr.io/LQqcH",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Kwiaciarnia „Pod Lipą” w Lublinie",
+    "text": "Kopia, która od czterdziestu lat wisi za ladą kwiaciarni. Wilgoć z wiader, kurz z papieru pakowego i dym z papierosów dawnego właściciela zostawiły na niej żółtą mgłę."
+   },
+   "card": [
+    "Bukiet polnych i ogrodowych kwiatów stoi w wysokim szklanym wazonie na tle szarej ściany. Obok na blacie leży pojedyncza róża. Tło jest ciche i gładkie, żeby kwiaty wydawały się jeszcze jaśniejsze.",
+    "Fantin-Latour przyjaźnił się z impresjonistami, ale utrzymywał się głównie z martwych natur z kwiatami. Chętnie kupowali je Anglicy. Malował powoli, z natury, i potrafił oddać nawet to, jak płatek przepuszcza światło."
    ],
    "dirt": null
   },
@@ -504,6 +957,8 @@
    "medium": "olej na płótnie",
    "dimensions": "46,5 × 39 cm",
    "iiif": "https://iiif.micr.io/RwfHG",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Teresa, córka przedwojennego notariusza",
     "text": "Kopia z kancelarii notarialnej w Poznaniu. Przetrwała wojnę zwinięta w rulon w piwnicy, potem wróciła na ścianę gabinetu, gdzie przez lata palono cygara. Płótno pofałdowało się od wilgoci, a werniks pociemniał."
@@ -512,6 +967,54 @@
     "Młoda kobieta w niebieskim kaftanie stoi przy stole i czyta list. Za nią na ścianie wisi mapa na drążkach, przed nią stoją krzesła. Okna nie widać, ale z lewej pada miękkie światło.",
     "Vermeer nie mówi, co jest w liście. Całą uwagę przyciąga skupiona twarz i cisza pokoju, namalowana subtelnymi odcieniami błękitu i szarości.",
     "Obraz należy do miasta Amsterdam i od 1885 roku jest w depozycie Rijksmuseum. Trafił tam z kolekcji zapisanej przez Adriaana van der Hoopa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "jastrzab",
+   "order": 11.5,
+   "size": [
+    850,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 58,
+     "v": "a86cd2ca"
+    },
+    "sredni": {
+     "colors": 17,
+     "regions": 162,
+     "v": "f8d2cb54"
+    },
+    "trudny": {
+     "colors": 28,
+     "regions": 317,
+     "v": "46576757"
+    }
+   },
+   "v": "bd4c4370",
+   "title": "Jastrząb na sośnie",
+   "author": "Utagawa Hiroshige",
+   "date": "1833–1837",
+   "objectNumber": "RP-P-1956-765",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134827",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "38,5 × 17,5 cm",
+   "iiif": "https://iiif.micr.io/smJWx",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Tadeusz, sokolnik z Bolkowa",
+    "text": "Kopia wisiała w stajni na zamku, gdzie trzymano ptaki. Pióra, kurz i to, co ptaki zostawiają, pokryły ją dość dokładnie."
+   },
+   "card": [
+    "Jastrząb siedzi na pniu sosny na tle wielkiego, czerwonego słońca. W prawym górnym rogu jest wiersz. Kompozycja jest prosta: pień, ptak, słońce.",
+    "Jastrząb na tle słońca był w Japonii znakiem siły i dobrej wróżby. Hiroshige robił takie wąskie, wysokie ryciny z ptakami i kwiatami obok swoich słynnych pejzaży."
    ],
    "dirt": null
   },
@@ -551,6 +1054,8 @@
    "medium": "olej na desce",
    "dimensions": "87,8 × 112,6 cm",
    "iiif": "https://iiif.micr.io/UjEro",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Restauracja przy Długim Targu w Gdańsku",
     "text": "Kopia wisiała nad bufetem restauracji od czasów międzywojennych. Opary z kuchni, dym papierosowy i tłuszcz osiadły na niej grubą warstwą, a pozłacany puchar wyglądał jak z blachy."
@@ -559,6 +1064,54 @@
     "Na stole z zielonym obrusem i lnianymi serwetkami leżą chleb, ostrygi na cynowym talerzu i przewrócona srebrna czarka. Są też kieliszki z winem, solniczka i wielki pozłacany puchar z pokrywą.",
     "Heda należał do malarzy z Haarlemu, którzy malowali takie „bankiety” w stonowanych szarościach i zieleniach. Popisem jego mistrzostwa są odbicia światła w szkle, cynie i srebrze.",
     "Muzeum kupiło obraz w 1984 roku przy wsparciu Towarzystwa Rembrandta i innych fundacji."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "osiolki",
+   "order": 12.5,
+   "size": [
+    1600,
+    1143
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 111,
+     "v": "b0dab27b"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 257,
+     "v": "2be40976"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 463,
+     "v": "b498cbf5"
+    }
+   },
+   "v": "150e2784",
+   "title": "Przejażdżka na osiołkach",
+   "author": "Isaac Israëls",
+   "date": "ok. 1890–1901",
+   "objectNumber": "SK-A-3597",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109402",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "51 × 70 cm",
+   "iiif": "https://iiif.micr.io/bTTgH",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pensjonat „Mewa” w Jastarni",
+    "text": "Kopia wisiała w holu pensjonatu od lat sześćdziesiątych. Morska sól, piasek z butów letników i dym z grilla zmatowiały kolory, a jedna z mew uznała ją za gniazdo."
+   },
+   "card": [
+    "Trzy dziewczynki jadą plażą na osiołkach, a chłopiec prowadzi je obok. Wszystko jest ujęte w ruchu, jak w migawce: szybkie pociągnięcia pędzla, jasny piasek i wiatr od morza.",
+    "Isaac Israëls był synem słynnego malarza Jozefa Israëlsa i jednym z amsterdamskich impresjonistów. Lubił tłumy, plaże, ulice i kawiarnie. Obraz trafił do Rijksmuseum w wielkim zapisie kolekcji Drucker-Fraser."
    ],
    "dirt": null
   },
@@ -598,6 +1151,8 @@
    "medium": "olej na płótnie",
    "dimensions": "48,5 × 39,5 cm",
    "iiif": "https://iiif.micr.io/OZhex",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Kwiaciarnia rodziny Nowaków z Wrocławia",
     "text": "Kopia zdobiła kwiaciarnię od trzech pokoleń. Wilgoć z wiader, pył z kwiatowej ziemi i ślady po taśmie klejącej zamieniły bukiet w mętną plamę."
@@ -606,6 +1161,54 @@
     "W niebieskim szklanym wazonie na marmurowym blacie stoi bukiet róż, maków, irysów, goździków i powoju. Między płatkami ukrywają się owady.",
     "Rachel Ruysch była jedną z najlepiej opłacanych malarek swoich czasów i nadworną malarką elektora Palatynatu w Düsseldorfie. Malowała aż do późnej starości.",
     "Jej ojciec, Frederik Ruysch, był słynnym anatomem i botanikiem, więc od dziecka miała pod ręką rzadkie rośliny i okazy."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "burza-pod-fuji",
+   "order": 13.5,
+   "size": [
+    1600,
+    1112
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 47,
+     "v": "98086afb"
+    },
+    "sredni": {
+     "colors": 19,
+     "regions": 113,
+     "v": "f4dc5b34"
+    },
+    "trudny": {
+     "colors": 32,
+     "regions": 278,
+     "v": "be961d2f"
+    }
+   },
+   "v": "2f5f55f6",
+   "title": "Burza u stóp góry",
+   "author": "Katsushika Hokusai",
+   "date": "1829–1833",
+   "objectNumber": "RP-P-1956-728",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134563",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "25,4 × 37,5 cm",
+   "iiif": "https://iiif.micr.io/NPmMY",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Marek, meteorolog z Zakopanego",
+    "text": "Kopia wisiała w stacji na Kasprowym Wierchu. Dym z pieca, wilgoć z mgły i lata zapomnienia na zapleczu zrobiły z niej szary prostokąt."
+   },
+   "card": [
+    "Szczyt Fuji jest jasny i spokojny, pokryty śniegiem, a u stóp góry, w ciemności, biją błyskawice. Hokusai zestawia ciszę i burzę na jednej kartce.",
+    "Rycina należy do serii „Trzydzieści sześć widoków góry Fuji”. Każdy kolor odbijano z osobnego drewnianego klocka, jeden po drugim, na tym samym arkuszu papieru."
    ],
    "dirt": null
   },
@@ -645,6 +1248,8 @@
    "medium": "olej na desce",
    "dimensions": "42,5 × 57,9 cm",
    "iiif": "https://iiif.micr.io/vYQLC",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Biuro architektów z Krakowa",
     "text": "Kopię kupiono na aukcji dla biura na Kazimierzu. Przez lata wisiała w pokoju, w którym stał kserograf i palili wszyscy pracownicy. Kanał zniknął pod żółtym nalotem."
@@ -653,6 +1258,59 @@
     "Wzdłuż kanału stoją okazałe kamienice z piaskowca i cegły, a w wodzie odbijają się fasady. Po ulicy jedzie powóz, idą przechodnie. Brakuje tylko drzew, które dziś rosną wzdłuż całego kanału.",
     "Ten odcinek Herengracht nazywano Złotym Zakrętem, bo mieszkali tu najbogatsi kupcy Amsterdamu. Kamienice były wtedy prawie nowe.",
     "Gerrit Berckheyde pochodził z Haarlemu i malował widoki miast z dokładnością niemal fotograficzną."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "pole-pszenicy",
+   "order": 14.5,
+   "size": [
+    1600,
+    1293
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 107,
+     "v": "7a21e2c3"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 275,
+     "v": "d00801f8"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 420,
+     "v": "7b32cbef"
+    }
+   },
+   "v": "dcdc6c86",
+   "title": "Pole pszenicy",
+   "author": "Vincent van Gogh",
+   "date": "1888",
+   "objectNumber": "SK-C-1845",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200672687",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "63,4 × 52,2 cm",
+   "iiif": "https://iiif.micr.io/aOMot",
+   "crop": [
+    0.158,
+    0.184,
+    0.819,
+    0.814
+   ],
+   "gold": null,
+   "story": {
+    "client": "Koło Gospodyń Wiejskich w Pszczółkach",
+    "text": "Kopia malowana przez miejscowego nauczyciela plastyki na dożynki w latach osiemdziesiątych. Przez lata wisiała w remizie, gdzie świętowano, gotowano i palono. Ktoś kiedyś oparł o nią grabie."
+   },
+   "card": [
+    "Dojrzała pszenica zajmuje prawie cały obraz. Nad nią ciągnie się pas pól i zabudowań, a jeszcze wyżej niebieskie niebo z obłokami. Każde źdźbło to osobne, energiczne pociągnięcie pędzla.",
+    "Latem 1888 roku Van Gogh mieszkał w Arles na południu Francji i namalował tam całą serię pól zbóż w pełnym słońcu. Chciał, żeby żółcie i błękity grały ze sobą jak najmocniej. Jego obrazy prawie się wtedy nie sprzedawały."
    ],
    "dirt": null
   },
@@ -692,6 +1350,8 @@
    "medium": "olej na desce",
    "dimensions": "49,6 × 75 cm",
    "iiif": "https://iiif.micr.io/fjTNG",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Parafia ewangelicka w Cieszynie",
     "text": "Kopia z zakrystii, gdzie przez stulecie palono świece i kadzidło. Jasne ściany kościoła zrobiły się szare, a na płótnie zastygły krople wosku."
@@ -700,6 +1360,54 @@
     "Patrzymy wzdłuż nawy jasnego, prawie pustego kościoła. Białe ściany i drewniane sklepienie wypełnia spokojne światło, a kilka postaci podkreśla wielkość wnętrza.",
     "Saenredam wyspecjalizował się w portretach kościołów. Najpierw starannie mierzył i rysował wnętrza, a dopiero potem malował je na desce, często po latach.",
     "Assendelft było jego rodzinną miejscowością. Obraz jest datowany co do dnia: 2 października 1649 roku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "ulewa-w-shono",
+   "order": 15.5,
+   "size": [
+    1600,
+    1110
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 119,
+     "v": "e238e142"
+    },
+    "sredni": {
+     "colors": 18,
+     "regions": 140,
+     "v": "3df8680f"
+    },
+    "trudny": {
+     "colors": 26,
+     "regions": 353,
+     "v": "279d4654"
+    }
+   },
+   "v": "47eb233b",
+   "title": "Nagła ulewa w Shōno",
+   "author": "Utagawa Hiroshige",
+   "date": "1828–1838",
+   "objectNumber": "RP-P-1956-740",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134815",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "25,1 × 36,7 cm",
+   "iiif": "https://iiif.micr.io/ASyyl",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Leszek, przewodnik górski z Bieszczad",
+    "text": "Kopia wisiała w schronisku, w jadalni, nad piecem. Mokre kurtki, para i dym z papierosów turystów pokryły ją lepką warstwą."
+   },
+   "card": [
+    "Podróżni biegną pod górę przez nagłą ulewę. Deszcz pada ukośnymi kreskami, bambusy gną się na wietrze, a tragarze lektyki przyspieszają kroku.",
+    "Rycina należy do serii „Pięćdziesiąt trzy stacje traktu Tōkaidō”, pokazującej drogę z Edo do Kioto. Seria przyniosła Hiroshigemu sławę, a ta scena jest jedną z najbardziej znanych."
    ],
    "dirt": null
   },
@@ -739,6 +1447,8 @@
    "medium": "olej na papierze naklejonym na deskę",
    "dimensions": "29 × 22,5 cm",
    "iiif": "https://iiif.micr.io/HpCpn",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Muzeum regionalne w Helu",
     "text": "Kopia z dawnej izby rybackiej, którą muzeum dostało razem z sieciami i beczkami. Wisiała nad piecem w wędzarni, więc pokryła ją warstwa sadzy o zapachu ryby."
@@ -747,6 +1457,102 @@
     "Na kamiennej półce leży kilka muszli o różnych kształtach i barwach. Są tak dokładne, że można rozpoznać gatunki.",
     "W czasach Coortego egzotyczne muszle przywożone przez holenderskie statki z Azji i Afryki były cenione jak klejnoty. Kolekcjonerzy płacili za nie fortuny.",
     "Coorte malował małe obrazy w Middelburgu, a po śmierci na długo o nim zapomniano. Jego sztukę doceniono ponownie w XX wieku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "ukrzyzowanie-di-paolo",
+   "order": 16.2,
+   "size": [
+    1600,
+    755
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 100,
+     "v": "15e4a53c"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 207,
+     "v": "11738ae2"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 435,
+     "v": "e57ce2ee"
+    }
+   },
+   "v": "be92bb40",
+   "title": "Ukrzyżowanie",
+   "author": "Giovanni di Paolo",
+   "date": "ok. 1447",
+   "objectNumber": "SK-C-1596",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109302",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "29 × 62 cm",
+   "iiif": "https://iiif.micr.io/KOBYy",
+   "crop": null,
+   "gold": true,
+   "story": {
+    "client": "Muzeum parafialne w Kazimierzu Dolnym",
+    "text": "Kopia wisiała w zakrystii nad szafą na ornaty. Wilgoć z murów i dym ze świec zrobiły swoje, a złoto nieba zeszło płatami."
+   },
+   "card": [
+    "Chrystus wisi na krzyżu pośród pagórków pod złotym niebem. Z lewej święty Longin na koniu z włócznią, z prawej setnik na białym koniu. Po lewej Maria z niewiastami, Jan i Maria Magdalena.",
+    "Giovanni di Paolo był jednym z najbardziej oryginalnych malarzy Sieny. Złote niebo zamiast błękitu mówi, że scena dzieje się poza zwykłym czasem. Takie małe, podłużne sceny zdobiły często dolną część ołtarza, zwaną predellą."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "zoutelande",
+   "order": 16.5,
+   "size": [
+    1600,
+    803
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 61,
+     "v": "150fd8fb"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 217,
+     "v": "41256b87"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 339,
+     "v": "9cd763e5"
+    }
+   },
+   "v": "72918d1a",
+   "title": "Widok na Zoutelande",
+   "author": "Ferdinand Hart Nibbrig",
+   "date": "1910–1912",
+   "objectNumber": "SK-A-2540",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109353",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": null,
+   "iiif": "https://iiif.micr.io/LvrEn",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Krzysztof, latarnik w stanie spoczynku",
+    "text": "Kopia wisiała w latarni morskiej na Helu, w pokoju dyżurnym. Wilgoć, sól i dym z fajki zmieniły jasne kolory w szarą mgłę."
+   },
+   "card": [
+    "Z wysokiej wydmy patrzymy na wioskę Zoutelande na wyspie Walcheren w Zelandii. Po lewej morze, po prawej domy, zagroda i wiatrak, a wszystko jest zbudowane z drobnych kresek czystego koloru.",
+    "Hart Nibbrig był jednym z pierwszych holenderskich malarzy, którzy stosowali dywizjonizm: kolory kładzie się obok siebie zamiast je mieszać, a łączą się dopiero w oku. Dzięki temu pejzaż wydaje się zalany słońcem."
    ],
    "dirt": null
   },
@@ -786,6 +1592,8 @@
    "medium": "olej na płótnie",
    "dimensions": "81 × 66,5 cm",
    "iiif": "https://iiif.micr.io/CgrHr",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Właściciel dawnego browaru w Żywcu",
     "text": "Kopia wisiała w piwiarni przy browarze, nad ladą. Zostawiły na niej ślad dziesięciolecia dymu, pary i pienistych toastów, a od spodu zaciekło ją piwo."
@@ -794,6 +1602,54 @@
     "Roześmiany mężczyzna z brodą, w wielkim czarnym kapeluszu, podnosi rękę, jakby wznosił toast albo coś do nas mówił. W drugiej ręce trzyma szklany kielich, a na szyi ma medalion na łańcuszku.",
     "Hals malował szybko, luźnymi, widocznymi pociągnięciami. Dzięki temu obraz wygląda jak uchwycona chwila, a nie pozowany portret.",
     "Muzeum kupiło go w 1816 roku. To jedno z najbardziej lubianych dzieł Halsa."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kintaro",
+   "order": 17.5,
+   "size": [
+    1063,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 90,
+     "v": "3ccf2d95"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 217,
+     "v": "6d834168"
+    },
+    "trudny": {
+     "colors": 34,
+     "regions": 504,
+     "v": "8f408981"
+    }
+   },
+   "v": "4b1ab93b",
+   "title": "Kintarō i karp",
+   "author": "Utagawa Kuniyoshi",
+   "date": "1834–1838",
+   "objectNumber": "RP-P-1964-813",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200135021",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "37,6 × 24,8 cm",
+   "iiif": "https://iiif.micr.io/SbOlV",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Klub zapaśniczy w Radomiu",
+    "text": "Kopia wisiała w szatni przez czterdzieści lat. Para spod pryszniców, pot i dym z papierosów trenerów zrobiły z niej ciemną plamę."
+   },
+   "card": [
+    "Muskularny chłopiec zmaga się pod wodospadem z ogromnym karpiem. Woda spływa białymi strugami, a karp wije się w jego rękach.",
+    "Kintarō to chłopiec z japońskiej legendy, obdarzony nadludzką siłą i wychowany w górach. Kuniyoshi słynął z dynamicznych rycin z bohaterami i wojownikami. Karp był symbolem wytrwałości."
    ],
    "dirt": null
   },
@@ -833,6 +1689,8 @@
    "medium": "olej na płótnie",
    "dimensions": "82 × 66,7 cm",
    "iiif": "https://iiif.micr.io/GYQQk",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Przedszkole na warszawskim Żoliborzu",
     "text": "Kopia wisiała w przedszkolnej sali od lat pięćdziesiątych. Kredki, klej, kurz i kilka pokoleń małych rąk zrobiły z błękitnej sukienki szarą plamę."
@@ -841,6 +1699,54 @@
     "Dziewczynka w kosztownej błękitnej sukience z koronkowym kołnierzem stoi i spogląda na nas poważnie. Z tła wyłania się tylko jej jasna postać.",
     "Verspronck był portrecistą z Haarlemu, młodszym od Fransa Halsa. W przeciwieństwie do niego malował gładko i starannie, prawie bez śladów pędzla.",
     "Nie wiemy, kim była dziewczynka. Portret należy dziś do najpopularniejszych w Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "przejazdzka",
+   "order": 18.5,
+   "size": [
+    1600,
+    1036
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 87,
+     "v": "7585f26e"
+    },
+    "sredni": {
+     "colors": 20,
+     "regions": 158,
+     "v": "54b84932"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 417,
+     "v": "1b7fcc05"
+    }
+   },
+   "v": "ba128c37",
+   "title": "Poranna przejażdżka plażą",
+   "author": "Anton Mauve",
+   "date": "1876",
+   "objectNumber": "SK-A-3602",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109454",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "43,7 × 68,6 cm",
+   "iiif": "https://iiif.micr.io/eVjnU",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Stadnina koni w Sierakowie",
+    "text": "Kopia wisiała w siodlarni. Kurz z siana, pył z ujeżdżalni i zapach końskiego potu przez pięćdziesiąt lat osiadały na płótnie."
+   },
+   "card": [
+    "Dwóch mężczyzn i kobieta zjeżdżają konno z wydmy na plażę. Przed nimi jedzie jeszcze jeden jeździec, a na piasku stoją budki kąpielowe. Poranne światło jest blade i srebrzyste.",
+    "Anton Mauve należał do szkoły haskiej, grupy malarzy, którzy malowali holenderskie plaże, łąki i wydmy w stonowanych szarościach. Był też krewnym Vincenta van Gogha i przez krótki czas uczył go malarstwa."
    ],
    "dirt": null
   },
@@ -880,6 +1786,8 @@
    "medium": "olej na desce",
    "dimensions": "76,5 × 135 cm",
    "iiif": "https://iiif.micr.io/TmDqg",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Barbara, szefowa kuchni ze Szczecina",
     "text": "Kopia wisiała w kuchni restauracji tuż nad płytą. Tłuszcz z patelni i para z garnków zrobiły z niej lepką, bursztynową taflę."
@@ -888,6 +1796,54 @@
     "Na białym adamaszkowym obrusie stoją cynowe talerze z ostrygami, cytryną i pasztetem, dzbanek, kieliszek, nóż i bułki. Z tyłu wznosi się wielki pasztet, na którym ustawiono indyka.",
     "Obok leżą muszla nautilusa oprawiona w puchar i chińska miska z owocami. Takie przedmioty świadczyły o bogactwie i dalekim handlu.",
     "Pieter Claesz był mistrzem martwych natur z Haarlemu. Muzeum kupiło ten obraz w 1974 roku."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "dziewczyna-z-latarnia",
+   "order": 19.5,
+   "size": [
+    1230,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 10,
+     "regions": 76,
+     "v": "17e8ffc2"
+    },
+    "sredni": {
+     "colors": 16,
+     "regions": 210,
+     "v": "ce615148"
+    },
+    "trudny": {
+     "colors": 29,
+     "regions": 501,
+     "v": "a387ae56"
+    }
+   },
+   "v": "2dce0dfc",
+   "title": "Dziewczyna z latarnią",
+   "author": "Suzuki Harunobu",
+   "date": "1765–1770",
+   "objectNumber": "RP-P-1956-612",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200134206",
+   "kind": "drzeworyt",
+   "medium": "drzeworyt barwny",
+   "dimensions": "28 × 20,8 cm",
+   "iiif": "https://iiif.micr.io/rjmSQ",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Teatr lalek w Białymstoku",
+    "text": "Kopia wisiała w garderobie, gdzie przez lata kurz z kulis, puder i dym z lamp osiadały na niej warstwa po warstwie."
+   },
+   "card": [
+    "Młoda kobieta schodzi o zmierzchu z werandy, trzymając w lewej ręce latarnię. Za nią widać pokój z drugą, stojącą latarnią. Scena jest cicha i delikatna.",
+    "Harunobu jako pierwszy, około 1765 roku, zaczął robić wielobarwne drzeworyty odbijane z wielu klocków. Nazywano je „obrazami z brokatu”. Wcześniejsze ryciny miały tylko kilka kolorów albo były kolorowane ręcznie."
    ],
    "dirt": null
   },
@@ -927,6 +1883,8 @@
    "medium": "olej na płótnie",
    "dimensions": "70 × 75,5 cm",
    "iiif": "https://iiif.micr.io/NYvCK",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pralnia rodzinna z Bydgoszczy",
     "text": "Kopia wisiała w pralni od czasów przedwojennych. Para, krochmal i mydliny osiadły na niej warstwą, a w kącie ktoś przybijał gwoździem kartkę z cennikiem."
@@ -935,6 +1893,102 @@
     "Dwie kobiety układają w szafie świeżo wyprasowaną bieliznę. W głębi przez otwarte drzwi widać ulicę z domami w słońcu, a dziewczynka gra w kolf, grę podobną do hokeja.",
     "Szafa z bielizną była jednym z najcenniejszych mebli w domu. Pani domu nosiła przy sobie klucz i wydawała pościel, bo to ona rządziła w domu.",
     "Obraz należy do miasta Amsterdam i jest w depozycie Rijksmuseum."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "sw-wawrzyniec",
+   "order": 20.2,
+   "size": [
+    1600,
+    786
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 87,
+     "v": "212da5bc"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 194,
+     "v": "dfde8c1c"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 436,
+     "v": "4a4c007d"
+    }
+   },
+   "v": "568105c6",
+   "title": "Męczeństwo św. Wawrzyńca",
+   "author": "Jacobello del Fiore",
+   "date": "ok. 1425",
+   "objectNumber": "SK-A-4001",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109285",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "38 × 70,5 cm",
+   "iiif": "https://iiif.micr.io/bhGxX",
+   "crop": null,
+   "gold": true,
+   "story": {
+    "client": "Parafia św. Wawrzyńca w Kutnie",
+    "text": "Kopia wisiała w kruchcie, tuż przy drzwiach, przez które wiało zimą. Wilgoć, kurz z ulicy i wosk ze świec pokryły ją grubo, a złote tło odpadło płatami."
+   },
+   "card": [
+    "Święty Wawrzyniec leży na rozżarzonej kracie. Z prawej przyglądają się dwaj oprawcy, z lewej klęczą dwie benedyktynki, fundatorki obrazu. Z obłoków wychyla się głowa Boga, a w powietrzu wiszą dwie wstęgi z łacińskimi napisami.",
+    "Jacobello del Fiore był jednym z najważniejszych malarzy Wenecji na początku XV wieku. Łączył złote tło dawnej sztuki z nową, żywą opowieścią."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "rue-notre-dame",
+   "order": 20.5,
+   "size": [
+    1600,
+    1310
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 14,
+     "regions": 86,
+     "v": "eb7fb9c1"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 237,
+     "v": "a40fc2a0"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 401,
+     "v": "9d5b7ba7"
+    }
+   },
+   "v": "943e2a86",
+   "title": "Rue Notre-Dame w Paryżu",
+   "author": "Johan Barthold Jongkind",
+   "date": "1866",
+   "objectNumber": "SK-A-4996",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/2004267",
+   "kind": "miasto",
+   "medium": "olej na płótnie",
+   "dimensions": "38,7 × 47,6 cm",
+   "iiif": "https://iiif.micr.io/JBFfm",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Kawiarnia „Paryżanka” w Krakowie",
+    "text": "Kopia wisiała nad ekspresem do kawy przez trzydzieści lat. Para, dym z papierosów i tłuszcz z rogalików zostawiły na niej lepką, ciemną warstwę."
+   },
+   "card": [
+    "Paryska ulica skręca w głąb obrazu między jasnymi kamienicami. Światło pada z lewej, cienie domów kładą się na piaszczystej jezdni, po prawej idzie kobieta, a przed nią jedzie wóz z koniem.",
+    "Jongkind był Holendrem, który większość życia spędził we Francji. Malował szybko, w plenerze, i bardzo wpłynął na młodego Moneta, który mówił potem, że to Jongkind nauczył go patrzeć."
    ],
    "dirt": null
   },
@@ -974,6 +2028,8 @@
    "medium": "olej na płótnie",
    "dimensions": "60 × 45,7 cm",
    "iiif": "https://iiif.micr.io/SOvaQ",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Andrzej, sadownik spod Grójca",
     "text": "Kopia z werandy starego domu, gdzie przez lata suszono jabłka i wędzono kiełbasę. Deszcz przeciekał przez dach, więc na płótnie zostały zacieki."
@@ -982,6 +2038,54 @@
     "W ogrodzie za domem przy stole siedzą mężczyzna z fajką i kobieta, która wyciska cytrynę do kieliszka wina. Za nimi stoi kobieta ze szklanką piwa, a po prawej służąca szoruje miedziany kocioł.",
     "Pieter de Hooch lubił podwórza i wnętrza, w których przez drzwi i okna widać kolejne pomieszczenia i kolejne światło.",
     "Obraz pochodzi z kolekcji Adriaana van der Hoopa i należy do miasta Amsterdam."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "mlyn-gein",
+   "order": 21.5,
+   "size": [
+    1600,
+    1311
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 8,
+     "regions": 48,
+     "v": "08674734"
+    },
+    "sredni": {
+     "colors": 15,
+     "regions": 184,
+     "v": "e7011221"
+    },
+    "trudny": {
+     "colors": 29,
+     "regions": 396,
+     "v": "e7b021f9"
+    }
+   },
+   "v": "1312fa15",
+   "title": "Młyn nad Gein w świetle księżyca",
+   "author": "Piet Mondrian",
+   "date": "ok. 1903",
+   "objectNumber": "SK-A-4987",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200471926",
+   "kind": "pejzaż",
+   "medium": "olej na płótnie",
+   "dimensions": "63 × 75,4 cm",
+   "iiif": "https://iiif.micr.io/xrcfh",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Andrzej, młynarz z Żuław",
+    "text": "Kopia wisiała w starym młynie, który rodzina przerobiła na dom. Mąka, pajęczyny i wilgoć od rzeki zrobiły swoje."
+   },
+   "card": [
+    "Młyn Oostzijdse nad rzeką Gein koło Abcoude stoi pośrodku obrazu, a księżyc prześwituje zza chmury. Na pierwszym planie w wodzie odbija się młyn. Całość jest cicha, niebiesko-zielona.",
+    "Zanim Mondrian zasłynął obrazami z czarnych linii i prostokątów w czystych kolorach, przez lata malował pejzaże okolic Amsterdamu: młyny, rzeki i drzewa. Wiatrak powracał u niego wiele razy, coraz prostszy."
    ],
    "dirt": null
   },
@@ -1021,6 +2125,8 @@
    "medium": "olej na płótnie",
    "dimensions": "159 × 144 cm",
    "iiif": "https://iiif.micr.io/BaFQb",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Ogród zoologiczny w Poznaniu",
     "text": "Kopia wisiała w dawnym pawilonie ptaków. Było tam ciepło, wilgotno i pełno kurzu z karmy, więc płótno pokryła szara skorupa, a w rogach zamieszkały pająki."
@@ -1029,6 +2135,54 @@
     "Nad sadzawką zebrały się ptaki: pelikan, kaczki i inne gatunki, egzotyczne obok zwyczajnych. Na wodzie na pierwszym planie unosi się jedno małe piórko, od którego obraz wziął nazwę.",
     "Melchior d'Hondecoeter był najsłynniejszym malarzem ptaków w Holandii. Bogaci zamawiali u niego obrazy do swoich domów i posiadłości.",
     "Muzeum ma w kolekcji kilka jego dużych płócien."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "sierotki",
+   "order": 22.5,
+   "size": [
+    1600,
+    1354
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 13,
+     "regions": 70,
+     "v": "db69c1de"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 176,
+     "v": "80d17ad8"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 427,
+     "v": "6033eaa5"
+    }
+   },
+   "v": "67f01266",
+   "title": "Trzy dziewczynki z sierocińca",
+   "author": "Thérèse Schwartze",
+   "date": "1885",
+   "objectNumber": "SK-A-1190",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108706",
+   "kind": "wnętrze",
+   "medium": "olej na płótnie",
+   "dimensions": "81,5 × 96 cm",
+   "iiif": "https://iiif.micr.io/DiSsw",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Dom Dziecka w Otwocku",
+    "text": "Kopia wisiała na świetlicy przez trzy pokolenia wychowanków. Dzieci przyklejały do ramy naklejki, a na płótnie zostały ślady plasteliny i kurzu z tablicy."
+   },
+   "card": [
+    "Trzy wychowanki amsterdamskiego sierocińca siedzą w swoich czerwono-czarnych strojach. Jedna czyta na głos, druga słucha, trzecia ceruje. Po lewej stoi kosz na pranie, a po prawej na ławce śpi kot.",
+    "Thérèse Schwartze była jedną z najbardziej cenionych portrecistek w Holandii, co w XIX wieku rzadko udawało się kobiecie. Sieroty z Burgerweeshuis w charakterystycznych strojach malowało wtedy wielu artystów."
    ],
    "dirt": null
   },
@@ -1068,6 +2222,8 @@
    "medium": "olej na płótnie",
    "dimensions": "68,5 × 62,5 cm",
    "iiif": null,
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Ewa, antykwariuszka z Krakowa",
     "text": "Kopia znaleziona w szafie po starszym panu, który pisał listy do żony z każdej delegacji. Przez lata stała za szafą w chłodnym pokoju, więc zawilgła, a na werniksie wykwitły plamy."
@@ -1076,6 +2232,54 @@
     "Patrzymy przez otwarte drzwi do pokoju, gdzie służąca podaje list młodej kobiecie z cytrą na kolanach. Na ścianie wiszą pejzaż i obraz z morzem, a na pierwszym planie leżą kapcie i miotła.",
     "W 1971 roku obraz skradziono z wystawy w Brukseli. Złodziej wyciął płótno z ramy i je uszkodził. Po odzyskaniu obraz trzeba było starannie odrestaurować.",
     "Muzeum kupiło go w 1893 roku przy wsparciu Towarzystwa Rembrandta."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "portret-de-lange",
+   "order": 23.5,
+   "size": [
+    1600,
+    1491
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 105,
+     "v": "f9580875"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 269,
+     "v": "72fb67e8"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 441,
+     "v": "2ba3b68d"
+    }
+   },
+   "v": "8aab22fc",
+   "title": "Portret Marie Jeanette de Lange",
+   "author": "Jan Toorop",
+   "date": "1900",
+   "objectNumber": "SK-A-4989",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200475283",
+   "kind": "portret",
+   "medium": "olej na płótnie",
+   "dimensions": "70,5 × 77,4 cm",
+   "iiif": "https://iiif.micr.io/sQZwp",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Biblioteka Miejska w Cieszynie",
+    "text": "Kopia wisiała w czytelni nad kaloryferem przez ponad pół wieku. Ciepłe powietrze niosło w górę kurz z książek, a lampa nad regałem dopisała swoje."
+   },
+   "card": [
+    "Młoda kobieta w różowej sukni czyta książkę w świetle lampy naftowej. Obok na stoliku przykrytym kwiecistą serwetą stoi wazonik z różami, a kwiaty w tle zlewają się z deseniem ściany.",
+    "Toorop namalował ten portret techniką puentylistyczną: z tysięcy drobnych plamek czystego koloru, które mieszają się dopiero w oku widza. Suknia to tak zwana suknia reformowana, luźna, bez gorsetu, modna wtedy wśród kobiet o nowoczesnych poglądach."
    ],
    "dirt": null
   },
@@ -1115,6 +2319,8 @@
    "medium": "olej na desce",
    "dimensions": "66,5 × 52 cm",
    "iiif": "https://iiif.micr.io/bTUZL",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pałacyk fabrykanta w Łodzi",
     "text": "Kopia zdobiła jadalnię pałacyku. Potem mieścił się tam urząd, a obraz trafił na strych. Gołębie, kurz i sto lat przerw w ogrzewaniu zostawiły po sobie ślady."
@@ -1123,6 +2329,102 @@
     "Bogaty bukiet kwiatów przelewa się z wazonu na tle jasnego pejzażu. Na blacie leżą winogrona, brzoskwinie i melony, a wśród nich owady.",
     "Kwiaty na obrazie nie mogły zakwitnąć jednocześnie. Van Huysum składał bukiety z osobnych studiów, malowanych przez wiele miesięcy.",
     "Pilnie strzegł swoich metod i nie wpuszczał innych do pracowni. Jego jasne, świetliste martwe natury osiągały zawrotne ceny."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "madonna-pokory",
+   "order": 24.2,
+   "size": [
+    1105,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 109,
+     "v": "a6865abd"
+    },
+    "sredni": {
+     "colors": 21,
+     "regions": 200,
+     "v": "0eaefd56"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 472,
+     "v": "c16e08a5"
+    }
+   },
+   "v": "f7fbd40e",
+   "title": "Madonna Pokory",
+   "author": "Fra Angelico",
+   "date": "ok. 1440",
+   "objectNumber": "SK-A-3011",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108128",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "74 × 52 cm",
+   "iiif": "https://iiif.micr.io/VkxAm",
+   "crop": null,
+   "gold": true,
+   "story": {
+    "client": "Siostry dominikanki z Krakowa",
+    "text": "Kopia wisiała w chórze zakonnym, gdzie przez sto lat paliły się świece. Złocone tło starło się od dotyku i czyszczenia, a łukowate narożniki ktoś kiedyś zamalował brązem."
+   },
+   "card": [
+    "Maria siedzi na poduszce z lilią w prawej ręce, a lewą obejmuje Dzieciątko stojące na jej kolanach. Za nimi zwisa złota tkanina we wzory, a głowy otaczają aureole.",
+    "Fra Angelico był dominikaninem i malował we Florencji, między innymi freski w klasztorze San Marco. „Madonna Pokory” to typ przedstawienia, w którym Maria siedzi nisko, na ziemi albo na poduszce, a nie na tronie."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "wystawa-sklepowa",
+   "order": 24.5,
+   "size": [
+    1600,
+    1466
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 12,
+     "regions": 135,
+     "v": "5425941d"
+    },
+    "sredni": {
+     "colors": 18,
+     "regions": 179,
+     "v": "fc7737aa"
+    },
+    "trudny": {
+     "colors": 31,
+     "regions": 467,
+     "v": "95818ff8"
+    }
+   },
+   "v": "5ce4557b",
+   "title": "Wystawa sklepowa",
+   "author": "Isaac Israëls",
+   "date": "1894",
+   "objectNumber": "SK-A-3592",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109401",
+   "kind": "miasto",
+   "medium": "olej na płótnie",
+   "dimensions": "59 × 64 cm",
+   "iiif": "https://iiif.micr.io/hkTBS",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Dom towarowy w Łodzi",
+    "text": "Kopia wisiała na zapleczu, w pokoju kierownika, przez całe lata siedemdziesiąte. Dym z papierosów i kurz z kartonów pokryły ją brązową mgłą."
+   },
+   "card": [
+    "Mężczyzna i kobieta stoją wieczorem przed oświetloną witryną i oglądają ubranka dla dzieci. Po prawej przechodzi dziewczynka w kapeluszu. Światło z wystawy rozlewa się na ulicę.",
+    "Isaac Israëls lubił życie wielkiego miasta: ulice, sklepy, kawiarnie i tancerki. Szybkie, szkicowe pociągnięcia pędzla sprawiają, że scena wygląda jak podpatrzona w przelocie."
    ],
    "dirt": null
   },
@@ -1162,6 +2464,8 @@
    "medium": "olej na płótnie",
    "dimensions": "82 × 70,5 cm",
    "iiif": "https://iiif.micr.io/WZzyz",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Dom dziecka w Zamościu",
     "text": "Kopia wisiała w świetlicy od czasów, gdy nikt nie pamięta. Brokat z dekoracji świątecznych, pył z choinek i dym z pieca zrobiły swoje, a jedna z pinezek zostawiła dziurkę."
@@ -1170,6 +2474,54 @@
     "Rodzina świętuje dzień św. Mikołaja. Dziewczynka tuli lalkę i wiaderko słodyczy, chłopiec płacze nad rózgą, którą znalazł w bucie, a jego brat śmieje się z niego.",
     "Na podłodze stoi kosz z piernikami i bułkami, a przy kominie młodzi śpiewają piosenkę dla Mikołaja. Starsi przyglądają się wszystkiemu z głębi pokoju.",
     "Jan Steen malował pełne humoru sceny z życia rodzin. Uczył przy tym, jak żyć, i trochę się z ludzi podśmiewał."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "kwiaty-van-der-ast",
+   "order": 25.5,
+   "size": [
+    1120,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 15,
+     "regions": 91,
+     "v": "790f95c2"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 286,
+     "v": "10cd9ac4"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 420,
+     "v": "49da5e6e"
+    }
+   },
+   "v": "a33f9c7b",
+   "title": "Kwiaty w szklanej butelce",
+   "author": "Balthasar van der Ast",
+   "date": "ok. 1625–1630",
+   "objectNumber": "SK-A-2103",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108148",
+   "kind": "martwa natura",
+   "medium": "olej na desce",
+   "dimensions": "59 × 43 cm",
+   "iiif": "https://iiif.micr.io/aasHz",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Zakon sióstr w Staniątkach",
+    "text": "Kopia podarowana klasztorowi w XIX wieku. Wisiała w refektarzu, gdzie przez dziesięciolecia paliły się świece i gotowano zupę. Sadza i wosk pokryły kwiaty brązową warstwą."
+   },
+   "card": [
+    "W szklanej butelce stoi bukiet tulipanów, róż, goździków, irysów i orlików. Na blacie leżą muszle, pełza jaszczurka i gąsienica. Każdy kwiat jest namalowany osobno, jak w zielniku.",
+    "Balthasar van der Ast uczył się u swojego szwagra Ambrosiusa Bosschaerta w Middelburgu. Takie bukiety nigdy nie istniały naprawdę: kwiaty kwitnące w różnych miesiącach malowano z osobnych studiów i składano w jeden obraz."
    ],
    "dirt": null
   },
@@ -1209,6 +2561,8 @@
    "medium": "olej na płótnie",
    "dimensions": "140 × 166,5 cm",
    "iiif": "https://iiif.micr.io/kMSwz",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Henryk, dziedzic dworu na Kaszubach",
     "text": "Kopia z sali balowej dworu, w której po wojnie mieścił się magazyn zboża. Ziarno, pył i myszy obeszły się z nią bezlitośnie, ale uśmiechy małżonków przetrwały."
@@ -1217,6 +2571,54 @@
     "Młodzi małżonkowie siedzą pod drzewem i uśmiechają się do nas. Po lewej rośnie oset, po prawej bluszcz, symbole wierności. W tle eleganckie pary spacerują w ogrodzie z fontanną.",
     "Isaac Massa był kupcem, który handlował z Rosją i pisał o niej. Ślub z Beatrix van der Laen wzięli w Haarlemie 25 kwietnia 1622 roku.",
     "Portret pary w pełnej postaci, w plenerze i z uśmiechem, był wtedy czymś niezwykłym."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "girlanda",
+   "order": 26.5,
+   "size": [
+    1282,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 111,
+     "v": "8c386d44"
+    },
+    "sredni": {
+     "colors": 23,
+     "regions": 199,
+     "v": "15d3987e"
+    },
+    "trudny": {
+     "colors": 35,
+     "regions": 386,
+     "v": "84e9ad52"
+    }
+   },
+   "v": "797c9a43",
+   "title": "Girlanda z owoców i kwiatów",
+   "author": "Jan Davidsz. de Heem",
+   "date": "1660–1670",
+   "objectNumber": "SK-A-138",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200108431",
+   "kind": "martwa natura",
+   "medium": "olej na płótnie",
+   "dimensions": "74 × 60 cm",
+   "iiif": "https://iiif.micr.io/nPYmn",
+   "crop": null,
+   "gold": null,
+   "story": {
+    "client": "Pan Ryszard, restaurator z Torunia",
+    "text": "Kopia wisiała nad kominkiem w jadalni starej kamienicy. Dym z kominka, zapach pieczeni i sto lat bez sprzątania zrobiły z owoców jedną brunatną masę."
+   },
+   "card": [
+    "Przed ciemną niszą wisi na pierścieniu ciężka girlanda: winogrona, cytryny, granat, śliwki, wiśnie, jeżyny i róże. Wśród liści chowają się chrząszcze, motyle i ślimaki, a z boku zwisa gałązka z kasztanami.",
+    "Jan Davidsz. de Heem pracował w Utrechcie i Antwerpii i był jednym z najsłynniejszych malarzy martwych natur swoich czasów. Owoce i owady przypominały widzom, że wszystko, co piękne, szybko przemija."
    ],
    "dirt": null
   },
@@ -1256,6 +2658,8 @@
    "medium": "olej na płótnie",
    "dimensions": "135,5 × 112 cm",
    "iiif": "https://iiif.micr.io/GRbAZ",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pan Ignacy, adwokat z Katowic",
     "text": "Kopia wisiała w kancelarii adwokackiej w gabinecie szefa, który palił fajkę przez czterdzieści lat. Obraz zszarzał tak, że klienci myśleli, że to fotografia."
@@ -1264,6 +2668,54 @@
     "Mężczyzna w ciemnym surducie i rozpiętej kamizelce patrzy na nas z lekkim uśmiechem. Goya namalował go swobodnie, bez przepychu, na ciemnym tle.",
     "Ramón Satué był urzędnikiem dworu i sędzią w Madrycie. Goya namalował portret w 1823 roku, na krótko przed wyjazdem na emigrację do Francji.",
     "To jeden z nielicznych obrazów Goi w holenderskich zbiorach."
+   ],
+   "dirt": null
+  },
+  {
+   "slug": "ukrzyzowanie-gerini",
+   "order": 27.5,
+   "size": [
+    991,
+    1600
+   ],
+   "levels": {
+    "latwy": {
+     "colors": 16,
+     "regions": 131,
+     "v": "a5da949a"
+    },
+    "sredni": {
+     "colors": 24,
+     "regions": 240,
+     "v": "997d7003"
+    },
+    "trudny": {
+     "colors": 36,
+     "regions": 410,
+     "v": "8b0b029f"
+    }
+   },
+   "v": "f161df5c",
+   "title": "Kalwaria",
+   "author": "Niccolò di Pietro Gerini",
+   "date": "ok. 1390",
+   "objectNumber": "SK-A-3401",
+   "license": "Rijksmuseum, domena publiczna",
+   "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "sourceUrl": "https://id.rijksmuseum.nl/200109300",
+   "kind": "złote tło",
+   "medium": "tempera i złoto na desce",
+   "dimensions": "70 × 43 cm",
+   "iiif": "https://iiif.micr.io/beUYu",
+   "crop": null,
+   "gold": true,
+   "story": {
+    "client": "Bractwo różańcowe z Gniezna",
+    "text": "Kopia wisiała w kaplicy bocznej. Dym świec, kurz z remontów i woda z przeciekającego dachu zniszczyły złoto tła niemal do gołej glinki."
+   },
+   "card": [
+    "Trzy krzyże na złotym tle, a między nimi tłum żołnierzy na koniach z powiewającymi czerwonymi sztandarami. Na pierwszym planie Maria, Maria Magdalena, Jan i inni opłakujący.",
+    "Niccolò di Pietro Gerini pracował we Florencji pod koniec XIV wieku i kontynuował tradycję Giotta. Złote tło, kładzione płatkami i polerowane do połysku, w półmroku kościoła świeciło w blasku świec."
    ],
    "dirt": null
   },
@@ -1303,6 +2755,8 @@
    "medium": "olej na płótnie",
    "dimensions": "110,5 × 141 cm",
    "iiif": "https://iiif.micr.io/SbsFC",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Karczma pod Zakopanem",
     "text": "Kopia wisiała w karczmie nad wielkim stołem, przy którym przez sto lat grała kapela. Dym, para z kwaśnicy i toasty zostawiły na niej warstwę, pod którą ledwo było widać muzykantów."
@@ -1350,6 +2804,8 @@
    "medium": "olej na płótnie",
    "dimensions": "121,5 × 166,5 cm",
    "iiif": "https://iiif.micr.io/uRWXq",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Pani Miriam, konserwatorka synagogi w Tykocinie",
     "text": "Stara kopia, którą znaleziono przy remoncie zabytkowego domu w Tykocinie. Była zamurowana we wnęce za piecem. Wapno, sadza i wilgoć pokryły ją grubą skorupą."
@@ -1397,6 +2853,8 @@
    "medium": "olej na płótnie",
    "dimensions": "379,5 × 453,5 cm",
    "iiif": "https://iiif.micr.io/PJEZO",
+   "crop": null,
+   "gold": null,
    "story": {
     "client": "Zarząd ratusza w Toruniu",
     "text": "Wielka dziewiętnastowieczna kopia, zamówiona dla bractwa kurkowego. Wisiała w ratuszowej sali, gdzie przez dziesięciolecia palono świece i cygara. Werniks pociemniał tak bardzo, że scena wyglądała na nocną."
