@@ -131,7 +131,7 @@ export class UI implements StudioUI {
       const easel = h('section', 'easel-hero');
       easel.innerHTML = `
         <div class="easel">
-          <svg class="legs" viewBox="0 0 200 300" preserveAspectRatio="none"><path d="M100 0 L30 300 M100 0 L170 300 M100 0 L100 300" stroke="#5d3b22" stroke-width="9" stroke-linecap="round"/><path d="M40 220 H160" stroke="#4a2e1a" stroke-width="10" stroke-linecap="round"/></svg>
+          <i class="floor"></i><i class="leg back"></i><i class="leg l"></i><i class="leg r"></i><i class="brace"></i><i class="clamp"></i>
           <div class="board">${this.miniature(next, stage, p, 'big')}</div>
           <div class="ledge"></div>
         </div>
@@ -215,16 +215,11 @@ export class UI implements StudioUI {
   private miniature(it: CatalogItem, stage: string, progress: number, size: 'big' | 'onwall' | 'small', wallH = 200) {
     const src = thumbUrl(it.slug);
     const ar = it.size[0] / it.size[1];
-    // explicit picture size: big fits a box, wall has a fixed height, small a fixed width
-    let pw: string, ph: string;
-    if (size === 'big') {
-      const box = Math.min(window.innerWidth * 0.72, 330), bh = Math.min(window.innerHeight * 0.38, 330);
-      const w = Math.min(box, bh * ar);
-      pw = w + 'px'; ph = w / ar + 'px';
-    } else if (size === 'onwall') {
-      const w = Math.min(wallH * ar, window.innerWidth - 90);
-      pw = w + 'px'; ph = w / ar + 'px';
-    } else { pw = '56px'; ph = 56 / ar + 'px'; }
+    // explicit picture size in CSS (not from window size here: the menu may be built while the page is hidden):
+    // big fits a box, on the wall a fixed height, small a fixed width
+    const pw = size === 'big' ? `min(72vw, 330px, calc(38vh * ${ar.toFixed(4)}))`
+      : size === 'onwall' ? `min(${(wallH * ar).toFixed(1)}px, calc(100vw - 90px))` : '56px';
+    const ph = `calc(${pw} / ${ar.toFixed(4)})`;
     const cleanFrac = stage === 'new' ? 0 : stage === 'clean' ? progress * 0.9 : 1;
     const wipe = (cleanFrac * 140 - 20).toFixed(0);
     const gilt = stage === 'done' || stage === 'varnish' ? ' gilt' : '';
@@ -275,7 +270,7 @@ export class UI implements StudioUI {
     sheet.append(lv, actions, h('div', 'credit', `Oryginał: ${it.license}${it.objectNumber ? ' · ' + it.objectNumber : ''}`));
     upd();
     this.comm.innerHTML = '';
-    this.comm.append(sheet);
+    this.comm.append(paper(sheet));
     this.comm.onclick = (e) => { if (e.target === this.comm) this.comm.classList.remove('show'); };
     this.comm.classList.add('show');
   }
@@ -567,7 +562,7 @@ export class UI implements StudioUI {
       <div class="card-text" style="margin-top:14px">${(it.card ?? []).map((p) => `<p>${p}</p>`).join('')}</div>
       <div class="facts">${[it.medium, it.dimensions, it.objectNumber].filter(Boolean).join(' · ')}</div>
       <div class="order"><div class="tag">Zlecenie wykonane</div><p>${it.story?.text ?? ''}</p><span class="client">${it.story?.client ?? ''}</span></div>
-      <div class="won">${LEVELS.map((l) => `<span class="${done[l.id] ? 'on' : ''}">${l.name}${done[l.id] ? ' ✓' : ''}</span>`).join('')}</div>`;
+      <div class="won-list">${LEVELS.map((l) => `<span class="${done[l.id] ? 'on' : ''}">${l.name}${done[l.id] ? ' ✓' : ''}</span>`).join('')}</div>`;
     const actions = h('div', 'actions');
     const watch = h('button', 'btn', 'Obejrzyj renowację');
     watch.onclick = () => { this.comm.classList.remove('show'); this.act.replay(it); };
@@ -578,7 +573,7 @@ export class UI implements StudioUI {
     actions.append(watch, again, close);
     sheet.append(actions, h('div', 'credit', `${it.license}${it.objectNumber ? ' · ' + it.objectNumber : ''}`));
     this.comm.innerHTML = '';
-    this.comm.append(sheet);
+    this.comm.append(paper(sheet));
     this.comm.onclick = (e) => { if (e.target === this.comm) this.comm.classList.remove('show'); };
     this.comm.classList.add('show');
   }
@@ -594,7 +589,7 @@ export class UI implements StudioUI {
     actions.append(back, admire);
     sheet.append(actions);
     this.fin.innerHTML = '';
-    this.fin.append(sheet);
+    this.fin.append(paper(sheet));
     this.fin.classList.add('show');
   }
 
@@ -614,9 +609,17 @@ export class UI implements StudioUI {
     actions.append(hang, admire);
     sheet.append(actions, h('div', 'credit', `${it.license}${it.objectNumber ? ' · ' + it.objectNumber : ''}`));
     this.fin.innerHTML = '';
-    this.fin.append(sheet);
+    this.fin.append(paper(sheet));
     this.fin.classList.add('show');
   }
+}
+
+/** A sheet's content scrolls inside the paper's ruled border and fades out under it. */
+function paper(sheet: HTMLElement) {
+  const body = h('div', 'sheet-body');
+  body.append(...Array.from(sheet.childNodes));
+  sheet.append(body);
+  return sheet;
 }
 
 function stateText(w: WorkSave) {

@@ -13,8 +13,12 @@ export const MAX_DROPS = 16;
 export const MAX_TEARS = 3;
 export const STITCHES = 24;
 
-export interface Drop { x: number; y: number; r: number; seed: number; hold: number; popT: number } // popT < 0: still there
+// popT / closeT: -1 still there, the time it went (>= 0), or -100 = went long ago (restored from a save).
+// Always test "still there" with === -1: the -100 of a restored save is negative too.
+export interface Drop { x: number; y: number; r: number; seed: number; hold: number; popT: number }
 export interface Tear { a: [number, number]; b: [number, number]; c: [number, number]; w: number; len: number; mask: number; closeT: number }
+export const there = (d: Drop) => d.popT === -1;
+export const open = (t: Tear) => t.closeT === -1;
 
 const COUNTS: Record<LevelId, { drops: number; tears: number }> = {
   latwy: { drops: 0, tears: 0 },
@@ -54,18 +58,18 @@ export class Repairs {
   }
 
   get total() { return this.drops.length + this.tears.length; }
-  get left() { return this.drops.filter((d) => d.popT < 0).length + this.tears.filter((t) => t.closeT < 0).length; }
+  get left() { return this.drops.filter((d) => there(d)).length + this.tears.filter((t) => open(t)).length; }
   get done() { return this.left === 0; }
   get hasDrops() { return this.drops.length > 0; }
   get hasTears() { return this.tears.length > 0; }
-  dropsLeft() { return this.drops.filter((d) => d.popT < 0).length; }
-  tearsLeft() { return this.tears.filter((t) => t.closeT < 0).length; }
+  dropsLeft() { return this.drops.filter((d) => there(d)).length; }
+  tearsLeft() { return this.tears.filter((t) => open(t)).length; }
   /** 0..1 done, for the tool rings. */
   dropsProgress() { return this.drops.length ? 1 - this.dropsLeft() / this.drops.length : 1; }
   tearsProgress() {
     if (!this.tears.length) return 1;
     let a = 0;
-    for (const t of this.tears) a += t.closeT >= 0 ? 1 : popcount(t.mask) / STITCHES;
+    for (const t of this.tears) a += !open(t) ? 1 : popcount(t.mask) / STITCHES;
     return a / this.tears.length;
   }
 
@@ -90,7 +94,7 @@ export class Repairs {
   private dropAt(x: number, y: number) {
     let best = -1, bd = 1e9;
     this.drops.forEach((d, i) => {
-      if (d.popT >= 0) return;
+      if (!there(d)) return;
       const dd = Math.hypot(d.x - x, d.y - y);
       if (dd < d.r * 1.5 && dd < bd) { bd = dd; best = i; }
     });
@@ -101,7 +105,7 @@ export class Repairs {
   private stitch(ax: number, ay: number, bx: number, by: number) {
     const steps = Math.max(1, Math.ceil(Math.hypot(bx - ax, by - ay) / 4));
     this.tears.forEach((t, i) => {
-      if (t.closeT >= 0) return;
+      if (!open(t)) return;
       let added = 0;
       for (let k = 0; k <= steps; k++) {
         const x = ax + ((bx - ax) * k) / steps, y = ay + ((by - ay) * k) / steps;
@@ -161,30 +165,31 @@ export class Repairs {
     const i = this.holding;
     if (i >= 0 && this.last) {
       const d = this.drops[i];
-      if (d.popT < 0) {
+      if (there(d)) {
         d.hold = Math.min(1, d.hold + dt * (0.9 + this.pressure * 1.1));
         if (!this.quiet && Math.random() < dt * 14) sound.crackle(d.hold);
         if (d.hold >= 1) { this.pop(i); this.holding = -1; }
       }
     }
     // an abandoned drop slowly settles back (the cracks close a little)
-    for (const d of this.drops) if (d.popT < 0 && this.drops.indexOf(d) !== this.holding) d.hold = Math.max(0, d.hold - dt * 0.15);
+    for (const d of this.drops) if (there(d) && this.drops.indexOf(d) !== this.holding) d.hold = Math.max(0, d.hold - dt * 0.15);
   }
 
   finishAll() {
-    this.drops.forEach((d, i) => { if (d.popT < 0) this.pop(i); });
-    this.tears.forEach((t, i) => { if (t.closeT < 0) { t.mask = (1 << STITCHES) - 1; this.closeTear(i); } });
+    this.drops.forEach((d, i) => { if (there(d)) this.pop(i); });
+    this.tears.forEach((t, i) => { if (open(t)) { t.mask = (1 << STITCHES) - 1; this.closeTear(i); } });
   }
 
   saveState() {
-    return { drops: this.drops.map((d) => d.popT >= 0), tears: this.tears.map((t) => (t.closeT >= 0 ? -1 : t.mask)) };
+    return { drops: this.drops.map((d) => !there(d)), tears: this.tears.map((t) => (open(t) ? t.mask : -1)) };
   }
   restore(s: { drops: boolean[]; tears: number[] }) {
     s.drops.forEach((p, i) => { if (p && this.drops[i]) { this.drops[i].popT = -100; this.drops[i].hold = 1; } });
     s.tears.forEach((m, i) => {
       const t = this.tears[i];
       if (!t) return;
-      if (m === -1) { t.mask = (1 << STITCHES) - 1; t.closeT = -100; } else t.mask = m;
+      // (a full mask that isn't closed came from older saves that lost the "closed" flag)
+      if (m === -1 || m === (1 << STITCHES) - 1) { t.mask = (1 << STITCHES) - 1; t.closeT = -100; } else t.mask = m;
     });
   }
 }

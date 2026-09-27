@@ -9,7 +9,7 @@ import type { Camera } from './camera';
 import type { PointerKind, ToolHandler } from './input';
 import { Cleaning, dirtFor, LAYER_NAMES, TOOLS } from './cleaning';
 import { Retouch } from './retouch';
-import { MAX_DROPS, MAX_TEARS, Repairs } from './repairs';
+import { MAX_DROPS, MAX_TEARS, Repairs, open, there } from './repairs';
 import { emptyRepairs } from '../render/renderer';
 import { Loupe } from './loupe';
 import { Gilding } from './gilding';
@@ -111,8 +111,8 @@ export class Studio {
         const s = this.cleaning.dirtiestSpot();
         if (s && !why) this.showMark(s.x, s.y, TOOLS.find((d) => d.id === t)!.radius * Math.max(W, H) * 1.2);
         const r = this.repairs;
-        if (t === 4) { const d = r.drops.find((d) => d.popT < 0); if (d) this.showMark(d.x, d.y, d.r * 1.8); }
-        if (t === 5) { const tr = r.tears.find((x) => x.closeT < 0); if (tr) this.showMark(tr.b[0], tr.b[1], tr.len * 0.55); }
+        if (t === 4) { const d = r.drops.find(there); if (d) this.showMark(d.x, d.y, d.r * 1.8); }
+        if (t === 5) { const tr = r.tears.find(open); if (tr) this.showMark(tr.b[0], tr.b[1], tr.len * 0.55); }
       },
     }, this.repairs, levelId);
     this.retouch = new Retouch(lv, gpu, cam, parts, {
