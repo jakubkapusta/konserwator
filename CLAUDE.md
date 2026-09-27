@@ -5,7 +5,7 @@ Browser game (iPad + Apple Pencil first, phone and laptop too): restore old pain
 ## Status (read first)
 
 - **M0 done**, **M1 accepted** 2026-09-27 after the owner's iPad test. Owner feedback applied: peek (hold the eye) stays; "Znajdź" limited to **5 per painting**; the selected paint's fields get a **semi-transparent white/grey checker** (visible on any colour, tiny fields too); pinch zoom-out bug fixed (a finger used as the tool stayed in the touch list); with the Pencil a **finger tap paints** a field; generative **music** (music-box plucks over a pad) with separate music / effects toggles; retouch save restore fixed; the commission card shows the original first, the copy's story below; the collection should include easier paintings (still lifes, prints).
-- **M2 in progress / pushed for review**: gilding, varnish, finale, gallery with replay, saves for all stages, `dodaj-obraz` + `przelicz-kolekcje` skills, collection of 30 paintings built with the pipeline.
+- **M2 pushed 2026-09-27, waiting for the owner's review**: gilding, varnish, finale, gallery with replay, saves for all stages, `dodaj-obraz` + `przelicz-kolekcje` skills, collection of 30 paintings (easy still lifes and a Hokusai print first in the menu). Next: M3 (polish, deep zoom detail, sound, phone/laptop, offline download of the whole collection).
 - Player-facing text Polish; code and comments English; commit messages Polish. Don't wait for the Pages deploy after a push.
 
 ## Stages of one painting (`src/game/studio.ts`)
