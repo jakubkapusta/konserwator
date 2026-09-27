@@ -41,7 +41,6 @@ export interface StudioUI {
   hints(left: number): void;
   finale(): void;
   replayDone(): void;
-  leafFall(x: number, y: number, size: number, ang: number, seed: number, dur: number): void;
   cursor(x: number, y: number, show: boolean, tool: number, r: number, kind: PointerKind | null, swabDirt: number): void;
   marker(x: number, y: number, r: number, show: boolean): void;
 }
@@ -71,6 +70,7 @@ export class Studio {
   private recStroke: number[] | null = null;
   private lastUp = { x: 0, y: 0 };
   private readonly F: number;
+  private airborne: { x: number; y: number; hs: number; ang: number; seed: number; t0: number; dur: number }[] = [];
   /** Replay state (gallery): feeds the recording back at speed. */
   private rp: { rec: Recording; s: number; i: number; perFrame: number; paintI: number; gildT: number; varnT: number } | null = null;
 
@@ -127,10 +127,7 @@ export class Studio {
       select: (c) => { ui.select(c); this.scene.sel = c; this.scene.selT = this.time; },
     });
     this.gilding = new Gilding(gpu.gilt, cam, parts, W, H, F, item.slug, {
-      falling: (leaf, dur) => {
-        const s = this.cam.toScreen(leaf.x, leaf.y);
-        ui.leafFall(s.x, s.y, leaf.hs * 2.1 * this.cam.zoom, leaf.ang, leaf.seed, dur);
-      },
+      falling: (leaf, dur) => { this.airborne.push({ ...leaf, t0: this.time, dur }); },
       laid: () => { this.dirty = true; },
       patchDone: () => { this.dirty = true; },
       allDone: () => this.startVarnishTransition(),
@@ -149,6 +146,7 @@ export class Studio {
       style: Math.max(0, LEVELS.findIndex((l) => l.id === levelId)), tilt: [0, 0], shine: 0, varnOn: 0,
       repairs: emptyRepairs(),
       detail: { rect: [0, 0, 0, 0], alpha: 0 },
+      falling: [],
     };
     this.loupe = new Loupe(item.iiif, gpu, renderer, cam);
     if (replay) {
@@ -500,6 +498,9 @@ export class Studio {
       if (t > 2.6) { s.sweep[2] = 0; recentreTilt(); this.enterGild(); }
     }
     if (this.phase === 'gild' || this.phase === 'toVarnish') this.gilding.update(dt);
+    // leaves in the air: the stamp lands at t = 1, the sheet fades into it just after
+    this.airborne = this.airborne.filter((l) => (this.time - l.t0) / l.dur < 1.12);
+    s.falling = this.airborne.map((l) => ({ x: l.x, y: l.y, hs: l.hs, ang: l.ang, seed: l.seed, t: (this.time - l.t0) / l.dur }));
     if (this.phase === 'toVarnish') {
       const t = this.phaseT;
       s.shine = Math.min(1, t / 1.6);

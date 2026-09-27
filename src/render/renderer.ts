@@ -2,7 +2,7 @@
 import { Program, type GL } from '../gl/gl';
 import type { Camera } from '../game/camera';
 import type { LevelData } from '../data';
-import { BG_FS, FRAME_FS, NUM_FS, NUM_VS, PAINT_FS, SPRITE_FS, SPRITE_VS, WORLD_VS } from './shaders';
+import { BG_FS, FRAME_FS, LEAF_FS, LEAF_VS, NUM_FS, NUM_VS, PAINT_FS, SPRITE_FS, SPRITE_VS, WORLD_VS } from './shaders';
 import { glyphAtlas, noiseTexture, spriteAtlas, texture } from './textures';
 import { DirtSim } from './dirt';
 import { GiltSim } from './gilt';
@@ -32,7 +32,13 @@ export interface SceneState {
   varnOn: number;
   repairs: RepairsGL;
   detail: { rect: [number, number, number, number]; alpha: number };
+  /** Gold leaves in the air (gilding); t 0..1 falling, a little past 1 fading into the stamp. */
+  falling: FallingLeaf[];
 }
+
+export interface FallingLeaf { x: number; y: number; hs: number; ang: number; seed: number; t: number }
+
+const LEAF_GRID = 18;
 
 /** Bird droppings and tears for PAINT_FS (filled by the studio from game/repairs.ts). */
 export interface RepairsGL { drops: Float32Array; dropsB: Float32Array; nd: number; tearA: Float32Array; tearB: Float32Array; tearM: Float32Array; nt: number }
@@ -194,6 +200,9 @@ export class Renderer {
   private spriteBuf: WebGLBuffer;
   private spriteVao: WebGLVertexArrayObject;
   private spriteData = new Float32Array(1500 * 9);
+  private leafP: Program;
+  private leafVao: WebGLVertexArrayObject;
+  private leafCount = 0;
   particles = new Particles();
   painting: PaintingGL | null = null;
 
@@ -217,6 +226,8 @@ export class Renderer {
     this.paintP = new Program(gl, WORLD_VS, PAINT_FS, 'paint');
     this.numP = new Program(gl, NUM_VS, NUM_FS, 'num');
     this.spriteP = new Program(gl, SPRITE_VS, SPRITE_FS, 'sprite');
+    this.leafP = new Program(gl, LEAF_VS, LEAF_FS, 'leaf');
+    this.leafVao = this.leafGrid();
     this.spriteVao = gl.createVertexArray()!;
     gl.bindVertexArray(this.spriteVao);
     gl.bindBuffer(gl.ARRAY_BUFFER, this.quad);
@@ -230,6 +241,30 @@ export class Renderer {
     gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2, 4, gl.FLOAT, false, st, 16); gl.vertexAttribDivisor(2, 1);
     gl.enableVertexAttribArray(3); gl.vertexAttribPointer(3, 1, gl.FLOAT, false, st, 32); gl.vertexAttribDivisor(3, 1);
     gl.bindVertexArray(null);
+  }
+
+  /** A grid mesh for the falling leaf (it bends, so it needs vertices inside). */
+  private leafGrid() {
+    const gl = this.gl, n = LEAF_GRID;
+    const v: number[] = [], idx: number[] = [];
+    for (let j = 0; j <= n; j++) for (let i = 0; i <= n; i++) v.push((i / n) * 2.6 - 1.3, (j / n) * 2.6 - 1.3);
+    for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) {
+      const a = j * (n + 1) + i, b = a + 1, c = a + n + 1, d = c + 1;
+      idx.push(a, b, c, b, d, c);
+    }
+    const vao = gl.createVertexArray()!;
+    gl.bindVertexArray(vao);
+    const vb = gl.createBuffer()!;
+    gl.bindBuffer(gl.ARRAY_BUFFER, vb);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(v), gl.STATIC_DRAW);
+    gl.enableVertexAttribArray(0);
+    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
+    const ib = gl.createBuffer()!;
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(idx), gl.STATIC_DRAW);
+    gl.bindVertexArray(null);
+    this.leafCount = idx.length;
+    return vao;
   }
 
   /** The digit atlas needs the web font loaded first. */
@@ -333,6 +368,21 @@ export class Renderer {
         .f2('u_cam', cam.x, cam.y).f1('u_zoom', cam.zoom).f2('u_screen', this.w, this.h).f1('u_time', s.time)
         .i1('u_sel', s.sel).f1('u_alpha', s.numAlpha).f1('u_minPx', 8.5);
       gl.drawArraysInstanced(gl.TRIANGLE_STRIP, 0, 4, p.numCount);
+    }
+
+    if (s.falling.length) {
+      gl.bindVertexArray(this.leafVao);
+      const L = this.leafP.use().tex('u_noise', 0, this.noise).f2('u_cam', cam.x, cam.y).f1('u_zoom', cam.zoom).f2('u_screen', this.w, this.h)
+        .f1('u_F', F).f1('u_pxw', pxw).f2('u_tilt', s.tilt[0], s.tilt[1]);
+      for (const pass of [1, 0]) {
+        L.i1('u_shadow', pass);
+        for (const f of s.falling) {
+          const a = Math.min(1, f.t / 0.12) * (1 - Math.max(0, Math.min(1, (f.t - 1) / 0.12)));
+          if (pass === 1 && f.t >= 1) continue;
+          L.f4('u_leaf', f.x, f.y, f.hs, f.ang).f1('u_seed', f.seed).f1('u_t', f.t).f1('u_alpha', a);
+          gl.drawElements(gl.TRIANGLES, this.leafCount, gl.UNSIGNED_SHORT, 0);
+        }
+      }
     }
 
     // particles: normal, then additive

@@ -63,6 +63,28 @@ void main() {
   o = vec4(pow(wall, vec3(1.0 / 1.15)), 1.0);
 }`;
 
+/** Gold leaf mirroring the studio (needs `uniform vec2 u_tilt` declared before). */
+const GOLD = `
+vec3 envGold(vec3 N, float sm, float dif) {
+  // what the gold mirrors: a room brighter towards the ceiling and the window side, a big softbox up-left,
+  // a second window on the right; lobes sharpen as the leaf gets burnished
+  vec3 R = reflect(vec3(0.0, 0.0, -1.0), N);
+  vec3 key = normalize(vec3(-0.42 + u_tilt.x * 0.75, -0.5 + u_tilt.y * 0.75, 0.75));
+  vec3 win = normalize(vec3(0.6 + u_tilt.x * 0.5, -0.3 + u_tilt.y * 0.5, 0.74));
+  float ck = dot(R, key), cw = dot(R, win);
+  float edgeK = mix(0.25, 0.04, sm), edgeW = mix(0.2, 0.035, sm);
+  float box = smoothstep(0.93 - edgeK * 2.0, 0.93, ck) * mix(1.0, 2.2, sm);
+  float win2 = smoothstep(0.94 - edgeW * 2.0, 0.94, cw) * mix(0.6, 1.4, sm);
+  float room = 0.1 + 0.34 * clamp(-R.y + 0.1, 0.0, 1.0) + 0.14 * clamp(-R.x + 0.2, 0.0, 1.0);
+  float e = box + win2 + room + 0.1 * dif;
+  vec3 dark = vec3(0.3, 0.16, 0.04), mid = vec3(0.95, 0.68, 0.24), hi = vec3(1.0, 0.92, 0.62);
+  vec3 c = mix(dark, mid, clamp(e, 0.0, 1.0));
+  c = mix(c, hi, clamp(e - 1.0, 0.0, 1.0));
+  c += vec3(1.0, 0.97, 0.88) * clamp(e - 1.9, 0.0, 1.0) * 0.6;
+  return c * mix(0.82, 1.0, sm);
+}
+`;
+
 /**
  * The frame: a mitered molding profile around the painting, lit from the upper left. Worn bole and wood where
  * there's no gold yet; gold leaf from u_gilt (crumpled until burnished, then a mirror of the studio lights that
@@ -108,25 +130,7 @@ float profile(float u, float along) {
   return h;
 }
 
-vec3 envGold(vec3 N, float sm, float dif) {
-  // what the gold mirrors: a room brighter towards the ceiling and the window side, a big softbox up-left,
-  // a second window on the right; lobes sharpen as the leaf gets burnished
-  vec3 R = reflect(vec3(0.0, 0.0, -1.0), N);
-  vec3 key = normalize(vec3(-0.42 + u_tilt.x * 0.75, -0.5 + u_tilt.y * 0.75, 0.75));
-  vec3 win = normalize(vec3(0.6 + u_tilt.x * 0.5, -0.3 + u_tilt.y * 0.5, 0.74));
-  float ck = dot(R, key), cw = dot(R, win);
-  float edgeK = mix(0.25, 0.04, sm), edgeW = mix(0.2, 0.035, sm);
-  float box = smoothstep(0.93 - edgeK * 2.0, 0.93, ck) * mix(1.0, 2.2, sm);
-  float win2 = smoothstep(0.94 - edgeW * 2.0, 0.94, cw) * mix(0.6, 1.4, sm);
-  float room = 0.1 + 0.34 * clamp(-R.y + 0.1, 0.0, 1.0) + 0.14 * clamp(-R.x + 0.2, 0.0, 1.0);
-  float e = box + win2 + room + 0.1 * dif;
-  vec3 dark = vec3(0.3, 0.16, 0.04), mid = vec3(0.95, 0.68, 0.24), hi = vec3(1.0, 0.92, 0.62);
-  vec3 c = mix(dark, mid, clamp(e, 0.0, 1.0));
-  c = mix(c, hi, clamp(e - 1.0, 0.0, 1.0));
-  c += vec3(1.0, 0.97, 0.88) * clamp(e - 1.9, 0.0, 1.0) * 0.6;
-  return c * mix(0.82, 1.0, sm);
-}
-
+` + GOLD + `
 void main() {
   vec2 p = v_w;
   vec4 s = vec4(-p.x, p.x - u_size.x, -p.y, p.y - u_size.y); // outside distances: left, right, top, bottom
@@ -939,4 +943,130 @@ void main() {
     }
   }
   o = s;
+}`;
+
+/**
+ * A leaf of gold on its way down (gilding): a thin flexible sheet on a grid, swinging like a falling leaf, bending
+ * and fluttering, bigger while it's up (perspective), its shadow converging under it. The last bit it glides in and
+ * gets pulled flat onto the size from the middle out, ending exactly in the shape the gilt stamp gives it.
+ * a_g: grid coords -1.3..1.3 (leaf-local / half size).
+ */
+export const LEAF_VS = HEAD + `
+layout(location=0) in vec2 a_g;
+uniform vec4 u_leaf;      // landing cx, cy, half size, angle
+uniform float u_seed, u_t, u_F;
+uniform int u_shadow;
+uniform vec2 u_cam;
+uniform float u_zoom;
+uniform vec2 u_screen;
+out vec2 v_w;     // where this bit of leaf lands (world): the shape mask is evaluated there
+out vec2 v_l;     // leaf-local, landing orientation
+out vec3 v_n;
+out float v_h;
+float h1(float n) { return fract(sin(n * 91.345) * 47453.5453); }
+vec2 rot(vec2 v, float a) { float c = cos(a), s = sin(a); return vec2(c * v.x - s * v.y, s * v.x + c * v.y); }
+
+// motion state shared by all vertices of the leaf
+float T, air, sw, tiltA, spin;
+vec2 dir;
+// height of the sheet above the frame at grid point g (world units)
+float sheet(vec2 g) {
+  float hs = u_leaf.z;
+  float r = length(g);
+  // pulled flat from the middle out at the very end
+  float front = smoothstep(0.8, 1.0, T) * 2.2;
+  float loose = smoothstep(front - 0.8, front, r);
+  float amp = (0.22 + 0.78 * air) * loose;
+  float curl = (h1(u_seed + 3.0) - 0.5) * 0.9 * g.x * g.x + (h1(u_seed + 4.0) - 0.4) * 0.5 * g.y * g.y;
+  float flap = sin(g.x * 2.3 + g.y * 0.8 + T * 17.0 + u_seed * 5.0) * 0.12 + sin(g.y * 3.1 - T * 11.0 + u_seed) * 0.07;
+  float bend = (curl + flap) * hs * amp;
+  vec2 p = rot(g * hs, u_leaf.w + spin);
+  float tip = sin(tiltA) * dot(p, dir);
+  return air * u_F * 2.6 + bend + tip;
+}
+void main() {
+  T = clamp(u_t, 0.0, 1.0);
+  air = pow(max(0.0, 1.0 - T / 0.84), 1.35);           // 1 high up .. 0 touching down
+  float ph = T * 6.2832 * 1.15 + u_seed * 3.0;
+  float da = h1(u_seed) * 6.2832;
+  dir = vec2(cos(da), sin(da));
+  sw = sin(ph) * air;                                    // side swing, pendulum-like
+  tiltA = cos(ph) * 0.95 * air;                          // tilted most at the ends of each swing
+  spin = (h1(u_seed + 1.0) - 0.5) * 2.4 * air * air;
+  vec2 g = a_g;
+  float hs = u_leaf.z;
+  vec2 C = u_leaf.xy;
+  float h = sheet(g);
+  float e = 0.05;
+  vec2 grad = vec2(sheet(g + vec2(e, 0.0)) - sheet(g - vec2(e, 0.0)), sheet(g + vec2(0.0, e)) - sheet(g - vec2(0.0, e))) / (2.0 * e);
+  // leaf-local gradient -> world gradient
+  vec2 gw = rot(grad / hs, u_leaf.w + spin);
+  v_n = normalize(vec3(-gw, 1.0));
+  vec2 p = rot(g * hs, u_leaf.w + spin);
+  p -= dir * dot(p, dir) * (1.0 - cos(tiltA));           // foreshortened across the tilt
+  vec2 P = C + p + dir * sw * u_F * 0.6;
+  vec2 W;
+  if (u_shadow == 1) {
+    W = P + vec2(0.55, 0.8) * h * 0.7;                  // key light from the upper left
+  } else {
+    float D = u_F * 7.0;
+    W = C + (P - C) * (D / max(D - h, D * 0.3));
+  }
+  v_w = C + rot(g * hs, u_leaf.w);
+  v_l = g * hs;
+  v_h = h;
+  vec2 s = (W - u_cam) * u_zoom;
+  gl_Position = vec4(s.x / (u_screen.x * 0.5), -s.y / (u_screen.y * 0.5), 0.0, 1.0);
+}`;
+
+export const LEAF_FS = HEAD + COMMON + `
+in vec2 v_w, v_l;
+in vec3 v_n;
+in float v_h;
+uniform sampler2D u_noise;
+uniform vec4 u_leaf;
+uniform float u_seed, u_alpha, u_pxw, u_t;
+uniform int u_shadow;
+uniform vec2 u_tilt;
+out vec4 o;
+` + GOLD + `
+void main() {
+  // the torn outline of GILT_STEP_FS stamps, minus its texel-scale jitter (that one is sampled per pixel here
+  // and would sparkle); the leaf fades into the stamp when it lands
+  vec2 l = v_l;
+  float seed = u_seed;
+  float ang = atan(l.y, l.x);
+  float tear = (texture(u_noise, vec2(ang / 6.2832 * 2.0, seed * 0.07)).r - 0.5) * 0.42
+             + (texture(u_noise, vec2(ang / 6.2832 * 5.0, seed * 0.13 + 0.5)).g - 0.5) * 0.2
+             + (texture(u_noise, vec2(ang / 6.2832 * 17.0, seed * 0.11 + 0.2)).b - 0.5) * 0.035;
+  vec2 q = abs(l) / u_leaf.z;
+  float box = pow(pow(q.x, 5.0) + pow(q.y, 5.0), 0.2);
+  float e = (box - 1.0 - tear) * u_leaf.z;
+  if (u_shadow == 1) {
+    float soft = 1.0 + v_h * 0.22;
+    float m = 1.0 - smoothstep(-soft, soft, e);
+    float a = m * u_alpha * 0.6 * (1.0 - 0.5 * smoothstep(0.0, u_leaf.z * 6.0, v_h));
+    o = vec4(0.0, 0.0, 0.0, a);
+    return;
+  }
+  float aa = max(0.6, u_pxw * 1.2);
+  float m = 1.0 - smoothstep(-aa, aa * 0.5, e);
+  if (m < 0.003) discard;
+  // fine crinkles of beaten foil on top of the big bend
+  vec2 cq = l / (u_leaf.z * 2.5) + seed * 3.7;
+  vec2 cr = vec2(texture(u_noise, cq).r, texture(u_noise, cq + 0.37).g) - 0.5;
+  vec3 N = normalize(v_n + vec3(cr * 0.07, 0.0));
+  vec3 Ld = normalize(vec3(-0.55, -0.7, 0.75));
+  float dif = clamp(dot(N, Ld), 0.0, 1.0);
+  vec3 c = envGold(N, 0.4, dif) * 1.08;
+  // a flash whenever the sheet swings its face into the key light
+  vec3 R = reflect(vec3(0.0, 0.0, -1.0), N);
+  vec3 key = normalize(vec3(-0.42 + u_tilt.x * 0.75, -0.5 + u_tilt.y * 0.75, 0.75));
+  c += vec3(1.0, 0.95, 0.8) * pow(clamp(dot(R, key), 0.0, 1.0), 90.0) * 1.3;
+  // so thin it lets a little green light through where it faces away
+  c = mix(c, vec3(0.35, 0.42, 0.18), clamp(-dot(N, Ld) * 0.5 + 0.1, 0.0, 0.25) * step(0.001, v_h));
+  // thin bright rim where the torn edge catches the light
+  c += vec3(1.0, 0.85, 0.5) * (1.0 - smoothstep(0.0, aa * 1.5, abs(e + aa))) * 0.2;
+  float a = m * u_alpha;
+  o = vec4(c * a, a);
 }`;

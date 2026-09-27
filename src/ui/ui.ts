@@ -71,9 +71,31 @@ export class UI implements StudioUI {
   private cursorTool = -1;
   item: CatalogItem | null = null;
 
-  constructor(private root: HTMLElement, private act: UIActions, prefs: Prefs) {
+  constructor(private root: HTMLElement, private act: UIActions, private prefs: Prefs) {
     root.append(this.menu, this.gal, this.comm, this.hud, this.fin, this.loadingEl);
     this.buildHud(prefs);
+  }
+
+  /** Music / effects switches: the same state wherever they are (studio corner, gallery, workbench menu). */
+  private flipSound(which: 'music' | 'sfx') {
+    if (which === 'music') this.act.music(); else this.act.sfx();
+    this.syncSound();
+  }
+  private syncSound() {
+    this.root.querySelectorAll<HTMLElement>('[data-snd]').forEach((e) => e.classList.toggle(e.classList.contains('toggle') ? 'on' : 'off',
+      e.classList.contains('toggle') ? this.prefs[e.dataset.snd as 'music' | 'sfx'] : !this.prefs[e.dataset.snd as 'music' | 'sfx']));
+  }
+  private soundCorner() {
+    const box = h('div', 'snd');
+    for (const [k, icon, title] of [['music', ICON.note, 'Muzyka'], ['sfx', ICON.sound, 'Efekty dźwiękowe']] as const) {
+      const b = h('button', 'knob', icon);
+      b.dataset.snd = k;
+      b.title = title;
+      b.setAttribute('aria-label', title);
+      b.onclick = () => this.flipSound(k);
+      box.append(b);
+    }
+    return box;
   }
 
   // ---------------- menu ----------------
@@ -97,7 +119,7 @@ export class UI implements StudioUI {
 
     const head = h('header', 'sign', `<h1 class="gilt">Konserwator</h1><p>Pracownia konserwacji malarstwa</p>`);
     head.append(this.tabs('menu'));
-    this.menu.append(head);
+    this.menu.append(head, this.soundCorner());
 
     // the easel: the most recent work in progress, or the next commission waiting
     const current = items.filter(live).sort((a, b) => work[b.slug].t - work[a.slug].t);
@@ -152,8 +174,8 @@ export class UI implements StudioUI {
         c.style.setProperty('--delay', Math.min(i, 20) * 45 + 'ms');
         const L = it.levels.latwy;
         c.innerHTML = `<div class="string"></div>${this.miniature(it, stage, live(it) ? w.progress : 0, 'onwall', [200, 175, 225][hashStr(it.slug) % 3])}
-          <div class="label"><em>${it.kind ?? 'obraz'} · ${L.colors} farb · od ${L.regions} pól</em><b>${it.title}</b><span>${it.author}</span>
-          <i class="dots">${LEVELS.map((l) => `<u class="${done[it.slug]?.[l.id] ? 'on' : ''}"></u>`).join('')}</i></div>`;
+          <div class="label"><div class="meta"><em>${it.kind ?? 'obraz'} · ${L.colors} farb · od ${L.regions} pól</em>
+          <i class="dots">${LEVELS.map((l) => `<u class="${done[it.slug]?.[l.id] ? 'on' : ''}"></u>`).join('')}</i></div><b>${it.title}</b><span>${it.author}</span></div>`;
         c.onclick = () => { c.classList.remove('swing'); void c.offsetWidth; c.classList.add('swing'); setTimeout(() => this.act.open(it), 180); };
         wall.append(c);
       });
@@ -182,6 +204,7 @@ export class UI implements StudioUI {
     };
     this.menu.append(bar, wall, off, foot);
     this.menu.classList.add('show');
+    this.syncSound();
   }
 
   /** A painting in its current state: dirty, partly cleaned (diagonal wipe by progress) or restored in gold. */
@@ -294,14 +317,15 @@ export class UI implements StudioUI {
     skip.onclick = () => { this.pop.classList.remove('show'); this.act.skip(); };
     const restart = h('button', '', 'Zacznij ten obraz od nowa');
     restart.onclick = () => { this.pop.classList.remove('show'); this.act.restart(); };
-    const toggle = (label: string, on: boolean, flip: () => boolean) => {
-      const b = h('button', 'toggle' + (on ? ' on' : ''), `<span>${label}</span><i></i>`);
-      b.onclick = () => b.classList.toggle('on', flip());
+    const toggle = (label: string, k: 'music' | 'sfx') => {
+      const b = h('button', 'toggle' + (prefs[k] ? ' on' : ''), `<i></i><span>${label}</span>`);
+      b.dataset.snd = k;
+      b.onclick = () => this.flipSound(k);
       return b;
     };
     this.pop.append(
-      toggle('Muzyka', prefs.music, () => this.act.music()),
-      toggle('Efekty dźwiękowe', prefs.sfx, () => this.act.sfx()),
+      toggle('Muzyka', 'music'),
+      toggle('Efekty dźwiękowe', 'sfx'),
       h('div', 'sep'),
       h('div', 'muted', 'Rysik maluje, palce przesuwają i przybliżają, a stuknięcie palcem maluje pole. Bez rysika jeden palec maluje, a dwa przesuwają.'),
       h('div', 'sep'), skip, restart);
@@ -519,8 +543,9 @@ export class UI implements StudioUI {
       wall.append(e);
     }
     hall.append(wall);
-    this.gal.append(head, hall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
+    this.gal.append(head, hall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'), this.soundCorner());
     this.gal.classList.add('show');
+    this.syncSound();
     if (focus) {
       const el = wall.querySelector(`[data-slug="${focus}"]`) as HTMLElement | null;
       if (el) {
@@ -551,22 +576,6 @@ export class UI implements StudioUI {
     this.comm.append(sheet);
     this.comm.onclick = (e) => { if (e.target === this.comm) this.comm.classList.remove('show'); };
     this.comm.classList.add('show');
-  }
-
-  /** A leaf of gold fluttering down onto the frame (DOM, 3D flutter), before the GPU stamps it. */
-  leafFall(x: number, y: number, size: number, ang: number, seed: number, dur: number) {
-    const el = h('div', 'leaf-fall');
-    const r = (k: number) => ((Math.sin(seed * 12.9898 + k * 78.233) * 43758.5453) % 1 + 1) % 1;
-    const pts: string[] = [];
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2;
-      const sq = 1 / Math.max(Math.abs(Math.cos(a)), Math.abs(Math.sin(a)));
-      const rr = 50 * Math.min(sq, 1.25) * (0.86 + 0.18 * r(i));
-      pts.push(`${(50 + Math.cos(a) * rr).toFixed(1)}% ${(50 + Math.sin(a) * rr).toFixed(1)}%`);
-    }
-    el.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;clip-path:polygon(${pts.join(',')});--rot:${(ang * 57.3).toFixed(1)}deg;--sx:${((r(20) - 0.5) * 60).toFixed(0)}px;animation-duration:${dur}s`;
-    this.hud.append(el);
-    setTimeout(() => el.remove(), dur * 1000 + 80);
   }
 
   replayDone() {

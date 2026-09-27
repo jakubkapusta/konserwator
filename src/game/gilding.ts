@@ -28,7 +28,7 @@ export interface GildingEvents {
   progress(): void;
 }
 
-const FALL = 0.42; // seconds a leaf flutters before it lands
+const FALL = 0.8; // seconds a leaf flutters before it lands
 
 export class Gilding {
   patches: Patch[] = [];
