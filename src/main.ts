@@ -119,12 +119,23 @@ window.addEventListener('resize', () => {
 document.addEventListener('visibilitychange', () => { if (document.hidden) studio?.flush(); sound.pause(document.hidden); });
 window.addEventListener('pagehide', () => studio?.flush());
 
+// #debug: live input state on screen (for testing gestures on the iPad)
+let dbg: HTMLElement | null = null;
+if (location.hash.includes('debug')) {
+  input.logOn = true;
+  dbg = document.createElement('pre');
+  dbg.style.cssText = 'position:fixed;left:8px;bottom:120px;z-index:99;margin:0;padding:8px 10px;font:11px/1.35 ui-monospace,monospace;color:#fff;background:rgba(0,0,0,.7);border-radius:8px;pointer-events:none;white-space:pre';
+  document.body.append(dbg);
+}
+
 let last = performance.now();
 let insetT = 0;
 function frame(now: number) {
   const dt = Math.min(0.05, (now - last) / 1000);
   last = now;
   step(dt);
+  if (studio && !document.hidden) renderer.governor(dt);
+  if (dbg) dbg.textContent = input.debug() + `\nzoom ${cam.zoom.toFixed(2)} (min ${cam.minZoom.toFixed(2)}, max ${cam.maxZoom.toFixed(2)}) · q ${renderer.quality.toFixed(2)} · ${studio?.phase ?? ''}`;
   requestAnimationFrame(frame);
 }
 function step(dt: number) {

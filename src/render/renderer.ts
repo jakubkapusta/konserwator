@@ -228,8 +228,22 @@ export class Renderer {
     this.painting = null;
   }
 
+  /** Resolution scale picked by the frame-time governor (1 = native up to 2× DPR). */
+  quality = 1;
+  private ft = 1 / 60;
+  private slowT = 0;
+  private fastT = 0;
+
+  /** Frame-time governor: drop resolution when frames are late (big iPads at 2× are heavy), recover slowly. */
+  governor(dt: number) {
+    this.ft += (dt - this.ft) * 0.1;
+    if (this.ft > 1 / 42) { this.slowT += dt; this.fastT = 0; } else if (this.ft < 1 / 57) { this.fastT += dt; this.slowT = 0; }
+    if (this.slowT > 0.6 && this.quality > 0.55) { this.quality = Math.max(0.55, this.quality - 0.12); this.slowT = 0; this.resize(); }
+    if (this.fastT > 4 && this.quality < 1) { this.quality = Math.min(1, this.quality + 0.08); this.fastT = 0; this.resize(); }
+  }
+
   resize() {
-    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.dpr = Math.min(window.devicePixelRatio || 1, 2) * this.quality;
     const w = Math.max(1, window.innerWidth), h = Math.max(1, window.innerHeight);
     this.w = w;
     this.h = h;

@@ -50,9 +50,36 @@ export class Input {
     for (const t of ['gesturestart', 'gesturechange', 'gestureend']) document.addEventListener(t, (e) => e.preventDefault(), { passive: false } as AddEventListenerOptions);
     el.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
     el.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
+    // the authoritative "no fingers left": forget touch state a lost pointerup/pointercancel could have left behind
+    const allUp = (e: TouchEvent) => { if (e.touches.length === 0) this.resetTouches(); };
+    el.addEventListener('touchend', allUp);
+    el.addEventListener('touchcancel', allUp);
     window.addEventListener('keydown', (e) => { if (e.code === 'Space') this.space = true; });
     window.addEventListener('keyup', (e) => { if (e.code === 'Space') this.space = false; });
   }
+
+  private resetTouches() {
+    if (this.tool && this.tool.kind === 'touch') this.endTool(false);
+    this.touches.clear();
+    this.cam.clear();
+    this.fingerTap = null;
+    if (this.gesture) { this.gesture = null; this.camera.interacting = false; }
+  }
+
+  /** Live state for the #debug overlay. */
+  debug() {
+    return `pen seen ${this.penSeen ? 'tak' : 'nie'} · pen down ${this.penDown ? 'tak' : 'nie'}\n`
+      + `touches ${[...this.touches.entries()].map(([id, t]) => id + (t.ignore ? '(ign)' : '')).join(', ') || '-'}\n`
+      + `camera ${[...this.cam.keys()].join(', ') || '-'} · gesture ${this.gesture ? (this.cam.size >= 2 ? 'pinch' : 'pan') : '-'}\n`
+      + `tool ${this.tool ? this.tool.kind + (this.tool.pending ? ' (pending)' : '') : '-'}\n` + this.log.slice(-6).join('\n');
+  }
+  log: string[] = [];
+  private note(e: PointerEvent) {
+    if (!this.logOn) return;
+    this.log.push(`${e.type.replace('pointer', '')} ${e.pointerType} #${e.pointerId}${e.isPrimary ? ' P' : ''} ${Math.round(e.width || 0)}×${Math.round(e.height || 0)}`);
+    if (this.log.length > 30) this.log.shift();
+  }
+  logOn = false;
 
   private pos(e: PointerEvent) {
     const r = this.el.getBoundingClientRect();
@@ -61,6 +88,7 @@ export class Input {
 
   private down(e: PointerEvent) {
     e.preventDefault();
+    this.note(e);
     this.onAnyDown();
     if (!this.enabled) return;
     try { this.el.setPointerCapture(e.pointerId); } catch { /* synthetic events */ }
@@ -79,11 +107,9 @@ export class Input {
       else { this.camera.interacting = true; this.camera.stop(); this.mousePan = { id: e.pointerId, x: p.x, y: p.y, vx: 0, vy: 0, t: now }; }
       return;
     }
-    // touch. The first finger of a new gesture: forget anything left over from a lost pointerup.
-    if (e.isPrimary) { this.touches.clear(); this.cam.clear(); this.gesture = null; }
-    // palm rejection only in pen mode: some browsers report wide contact sizes for plain fingers
-    const palm = this.penSeen && ((e.width || 0) > 70 || (e.height || 0) > 70);
-    const ignore = this.penDown || palm;
+    // touch. Palm rejection: touches that land while the pen is down are ignored for their whole life
+    // (iPadOS itself cancels most palm touches). Contact size is not used: firmly pressed fingers look wide too.
+    const ignore = this.penDown;
     this.touches.set(e.pointerId, { x: p.x, y: p.y, ignore });
     if (ignore) return;
     const live = [...this.touches.entries()].filter(([, t]) => !t.ignore);
@@ -98,8 +124,9 @@ export class Input {
       if (this.tool.pending) this.discardTool();
       else this.endTool(false);
     }
+    // the two newest touches drive the gesture: an older one is usually a resting palm or the hand holding the iPad
     this.cam.clear();
-    for (const [id, t] of live.slice(0, 2)) this.cam.set(id, { x: t.x, y: t.y });
+    for (const [id, t] of live.slice(-2)) this.cam.set(id, { x: t.x, y: t.y });
     this.beginGesture();
   }
 
@@ -146,6 +173,7 @@ export class Input {
   }
 
   private up(e: PointerEvent, cancelled: boolean) {
+    this.note(e);
     if (e.pointerType === 'pen') this.penDown = false;
     if (e.pointerType === 'touch') {
       const ft = this.fingerTap;
