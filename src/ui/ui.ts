@@ -543,6 +543,22 @@ export class UI implements StudioUI {
     this.comm.classList.add('show');
   }
 
+  /** A leaf of gold fluttering down onto the frame (DOM, 3D flutter), before the GPU stamps it. */
+  leafFall(x: number, y: number, size: number, ang: number, seed: number, dur: number) {
+    const el = h('div', 'leaf-fall');
+    const r = (k: number) => ((Math.sin(seed * 12.9898 + k * 78.233) * 43758.5453) % 1 + 1) % 1;
+    const pts: string[] = [];
+    for (let i = 0; i < 12; i++) {
+      const a = (i / 12) * Math.PI * 2;
+      const sq = 1 / Math.max(Math.abs(Math.cos(a)), Math.abs(Math.sin(a)));
+      const rr = 50 * Math.min(sq, 1.25) * (0.86 + 0.18 * r(i));
+      pts.push(`${(50 + Math.cos(a) * rr).toFixed(1)}% ${(50 + Math.sin(a) * rr).toFixed(1)}%`);
+    }
+    el.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;clip-path:polygon(${pts.join(',')});--rot:${(ang * 57.3).toFixed(1)}deg;--sx:${((r(20) - 0.5) * 60).toFixed(0)}px;animation-duration:${dur}s`;
+    this.hud.append(el);
+    setTimeout(() => el.remove(), dur * 1000 + 80);
+  }
+
   replayDone() {
     const sheet = h('div', 'sheet');
     sheet.innerHTML = `<div class="tag">Koniec nagrania</div><h2>${this.item?.title ?? ''}</h2><div class="by">${this.item?.author ?? ''}, ${this.item?.date ?? ''}</div>`;

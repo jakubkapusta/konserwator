@@ -111,11 +111,11 @@ export class Sound {
     if (tool === 1) { f = 3800 - dirt * 1400; q = 0.6; g = 0.5; }
     else if (tool === 2) { f = 1300 - dirt * 400; q = 1.3; g = 0.75; }
     else if (tool === 3) { f = 2600 + (1 - dirt) * 1500; q = 5; g = 0.6; }
-    else if (tool === 4) { f = 5200; q = 3.5; g = 0.28; }
+    else if (tool === 4) { f = 2200 + dirt * 4400; q = 2 + dirt * 7; g = 0.22 + dirt * 0.16; } // burnisher: `dirt` is shine, the note climbs
     else if (tool === 5) { f = 650; q = 0.8; g = 0.7; }
     this.scrubBand.frequency.setTargetAtTime(f, t, 0.04);
     this.scrubBand.Q.setTargetAtTime(q, t, 0.04);
-    const level = tool ? g * Math.min(1, intensity) * (0.35 + 0.65 * Math.min(1, dirt * 1.5 + 0.15)) : 0;
+    const level = tool === 4 ? g * Math.min(1, intensity) : tool ? g * Math.min(1, intensity) * (0.35 + 0.65 * Math.min(1, dirt * 1.5 + 0.15)) : 0;
     this.scrubGain.gain.setTargetAtTime(level, t, tool ? 0.03 : 0.08);
     if (tool === 3 && dirt > 0.25 && intensity > 0.1 && t - this.lastChip > 0.05 + Math.random() * 0.12) {
       this.lastChip = t;
@@ -232,6 +232,25 @@ export class Sound {
     s.connect(hp).connect(g).connect(this.out);
     s.start(t, Math.random(), 0.4);
     this.bell(2400 + Math.random() * 600, 0.02, 0.05, 0.5);
+  }
+
+  /** A leaf of gold settling on the bole: a soft papery pat. */
+  pat() {
+    const c = this.ctx;
+    if (!c) return;
+    const t = c.currentTime;
+    const s = c.createBufferSource();
+    s.buffer = this.noise;
+    const lp = c.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 1400;
+    const g = c.createGain();
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(0.12, t + 0.008);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+    s.connect(lp).connect(g).connect(this.out);
+    s.start(t, Math.random(), 0.15);
+    this.bell(3100 + Math.random() * 500, 0.015, 0, 0.6);
   }
 
   /** Needle through canvas: a short thread pull per stitch. */

@@ -40,6 +40,7 @@ export interface StudioUI {
   hints(left: number): void;
   finale(): void;
   replayDone(): void;
+  leafFall(x: number, y: number, size: number, ang: number, seed: number, dur: number): void;
   cursor(x: number, y: number, show: boolean, tool: number, r: number, kind: PointerKind | null, swabDirt: number): void;
   marker(x: number, y: number, r: number, show: boolean): void;
 }
@@ -124,6 +125,10 @@ export class Studio {
       select: (c) => { ui.select(c); this.scene.sel = c; this.scene.selT = this.time; },
     });
     this.gilding = new Gilding(gpu.gilt, cam, parts, W, H, F, item.slug, {
+      falling: (leaf, dur) => {
+        const s = this.cam.toScreen(leaf.x, leaf.y);
+        ui.leafFall(s.x, s.y, leaf.hs * 2.1 * this.cam.zoom, leaf.ang, leaf.seed, dur);
+      },
       laid: () => { this.dirty = true; },
       patchDone: () => { this.dirty = true; },
       allDone: () => this.startVarnishTransition(),
@@ -148,6 +153,7 @@ export class Studio {
       this.cleaning.quiet = true;
       this.retouch.quiet = true;
       this.repairs.quiet = true;
+      this.gilding.quiet = true;
     }
   }
 
@@ -177,9 +183,10 @@ export class Studio {
       this.scene.frameDust = 0;
       if (save.stage === 'retouch' && !this.retouch.finished) { this.enterRetouch(true); return; }
       this.scene.restored = 1;
-      if (save.gild) this.gilding.restore(save.gild.laid, save.gild.done);
+      if (save.gild) this.gilding.restore(save.gild);
       if (save.stage === 'gild' && !this.gilding.finished) { this.cam.fit(); this.enterGild(); return; }
       this.gilding.finishAll();
+      this.gpu.gilt.fillAll(); // restored past the gilding: the whole frame at once
       this.scene.varnOn = 1;
       if (save.varnish) this.varnish.restore(save.varnish);
       if (save.stage === 'varnish' && !this.varnish.finished) { this.cam.fit(); this.enterVarnish(); return; }

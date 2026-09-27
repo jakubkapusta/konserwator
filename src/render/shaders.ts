@@ -109,21 +109,22 @@ float profile(float u, float along) {
 }
 
 vec3 envGold(vec3 N, float sm, float dif) {
-  // what the gold mirrors: a big softbox up-left, a smaller window to the right, a dim ceiling, a dark floor
+  // what the gold mirrors: a room brighter towards the ceiling and the window side, a big softbox up-left,
+  // a second window on the right; lobes sharpen as the leaf gets burnished
   vec3 R = reflect(vec3(0.0, 0.0, -1.0), N);
   vec3 key = normalize(vec3(-0.42 + u_tilt.x * 0.75, -0.5 + u_tilt.y * 0.75, 0.75));
   vec3 win = normalize(vec3(0.6 + u_tilt.x * 0.5, -0.3 + u_tilt.y * 0.5, 0.74));
   float ck = dot(R, key), cw = dot(R, win);
-  float edgeK = mix(0.25, 0.035, sm), edgeW = mix(0.2, 0.03, sm);
+  float edgeK = mix(0.25, 0.04, sm), edgeW = mix(0.2, 0.035, sm);
   float box = smoothstep(0.93 - edgeK * 2.0, 0.93, ck) * mix(1.0, 2.2, sm);
-  float win2 = smoothstep(0.95 - edgeW * 2.0, 0.95, cw) * mix(0.5, 1.2, sm);
-  float ceil = smoothstep(0.2, -0.7, R.y) * 0.45;
-  float e = box + win2 + ceil + 0.12 * dif;
-  vec3 dark = vec3(0.26, 0.14, 0.035), mid = vec3(0.86, 0.6, 0.2), hi = vec3(1.0, 0.9, 0.58);
+  float win2 = smoothstep(0.94 - edgeW * 2.0, 0.94, cw) * mix(0.6, 1.4, sm);
+  float room = 0.1 + 0.34 * clamp(-R.y + 0.1, 0.0, 1.0) + 0.14 * clamp(-R.x + 0.2, 0.0, 1.0);
+  float e = box + win2 + room + 0.1 * dif;
+  vec3 dark = vec3(0.3, 0.16, 0.04), mid = vec3(0.95, 0.68, 0.24), hi = vec3(1.0, 0.92, 0.62);
   vec3 c = mix(dark, mid, clamp(e, 0.0, 1.0));
   c = mix(c, hi, clamp(e - 1.0, 0.0, 1.0));
-  c += vec3(1.0, 0.97, 0.88) * clamp(e - 1.8, 0.0, 1.0) * 0.6;
-  return c * mix(0.85, 1.0, sm);
+  c += vec3(1.0, 0.97, 0.88) * clamp(e - 1.9, 0.0, 1.0) * 0.6;
+  return c * mix(0.82, 1.0, sm);
 }
 
 void main() {
@@ -182,24 +183,38 @@ void main() {
     float sm = clamp(G.g, 0.0, 1.0);
     float amp = pow(1.0 - sm, 1.2);
     // crumpled foil: ridged noise, gradient by central differences
-    vec2 q = p / 15.0 + G.b * 37.0;
-    float d = 0.25;
+    float wa = G.b * 31.0;
+    mat2 rot = mat2(cos(wa), sin(wa), -sin(wa), cos(wa));
+    vec2 q = rot * p / vec2(34.0, 16.0) + G.b * 37.0;   // wrinkles run in one direction per leaf
+    float d = 0.12;
     #define CR(v) (abs(texture(u_noise, v).r - 0.5) + 0.5 * abs(texture(u_noise, (v) * 2.7 + 0.3).g - 0.5))
     float c0 = CR(q);
     vec2 gr = vec2(CR(q + vec2(d, 0)) - CR(q - vec2(d, 0)), CR(q + vec2(0, d)) - CR(q - vec2(0, d))) / (2.0 * d);
     // burnishing leaves faint strokes along the side
     float strokeN = texture(u_noise, vec2(along / 90.0, u * 14.0)).g - 0.5;
-    vec3 Ng = normalize(N + vec3(gr * amp * 1.6 + nrm * strokeN * 0.05 * sm, 0.0));
+    vec3 Ng = normalize(N + vec3((rot * gr) * amp * 0.9 + nrm * strokeN * 0.05 * sm, 0.0));
     vec3 gc = envGold(Ng, sm, dif);
     gc *= mix(0.8 + 0.35 * c0, 1.0, sm);
-    // seams between leaves
-    float seam = smoothstep(0.55, 0.95, leaf);
-    gc *= 0.8 + 0.2 * seam;
+    // edges of the leaves: a thin line where one leaf overlaps another, softer once burnished
+    float seamB = clamp(fwidth(G.b) / u_pxw * 5.0, 0.0, 1.0);
+    float edgeR = smoothstep(0.55, 0.95, leaf);
+    gc *= (0.8 + 0.2 * edgeR) * (1.0 - seamB * mix(0.35, 0.06, sm));
     // finale sweep
     float sw = exp(-pow((dot(p / max(u_size.x, u_size.y), vec2(0.7, 0.5)) - u_shine * 2.0 + 0.4) / 0.08, 2.0));
     gc += vec3(1.0, 0.9, 0.65) * sw * 0.6 * step(0.001, u_shine) * sm;
     col = mix(col, gc, leaf);
     h = mix(h, h + 0.02, leaf);
+  }
+
+  // loose flakes of leaf, raised and catching the light, until the burnisher sweeps them off
+  float fl = clamp(G.a, 0.0, 1.0);
+  if (fl > 0.02) {
+    float fn = texture(u_noise, p / 5.0 + 0.3).r;
+    float bit = smoothstep(0.5, 0.56, fn * fl + fl * 0.25);
+    vec2 fg = vec2(texture(u_noise, p / 5.0 + vec2(0.02, 0.3)).r - fn, texture(u_noise, p / 5.0 + vec2(0.0, 0.32)).r - fn);
+    vec3 Nf = normalize(vec3(fg * 14.0, 1.0));
+    vec3 fc = envGold(Nf, 0.35, clamp(dot(Nf, Ld), 0.0, 1.0)) * 1.15;
+    col = mix(col * (1.0 - 0.3 * bit), fc, bit);
   }
 
   // dust settles in the hollows
@@ -851,10 +866,13 @@ uniform vec2 u_rub;         // radius, amount (0 = none)
 uniform vec4 u_leaf[8];     // cx, cy, half size, angle
 uniform float u_leafSeed[8];
 uniform int u_nleaf;
-uniform vec4 u_fin[8];      // world rects to burnish fully
+uniform vec4 u_fin[8];      // world rects to burnish fully (and fill small gaps)
 uniform int u_nfin;
 uniform float u_dt;
+uniform float u_flood;      // end of the stage: gold flows into the last gaps
+uniform vec2 u_texel;
 out vec4 o;
+// r leaf, g burnish, b crumple seed, a loose flakes hanging off the edges
 void main() {
   vec2 w = mix(u_rect.xy, u_rect.zw, v_uv);
   vec4 s = texture(u_state, v_uv);
@@ -864,14 +882,24 @@ void main() {
     float c = cos(L.w), sn = sin(L.w);
     vec2 d = w - L.xy;
     vec2 l = vec2(c * d.x + sn * d.y, -sn * d.x + c * d.y);
-    float rag = (texture(u_noise, w / 23.0 + u_leafSeed[i]).g - 0.5) * L.z * 0.1;
-    float e = max(abs(l.x), abs(l.y)) - L.z - rag;
-    float m = 1.0 - smoothstep(-2.0, 1.0, e);
+    float seed = u_leafSeed[i];
+    // torn, irregular leaf: a rounded square whose edge wanders at two scales
+    float ang = atan(l.y, l.x);
+    float tear = (texture(u_noise, vec2(ang / 6.2832 * 2.0, seed * 0.07)).r - 0.5) * 0.42
+               + (texture(u_noise, w / 7.0 + seed).g - 0.5) * 0.22 + (texture(u_noise, w / 2.5 + seed * 0.3).b - 0.5) * 0.08;
+    vec2 q = abs(l) / L.z;
+    float box = pow(pow(q.x, 5.0) + pow(q.y, 5.0), 0.2);  // superellipse: square with soft corners
+    float e = (box - 1.0 - tear) * L.z;
+    float m = 1.0 - smoothstep(-1.0, 0.5, e);
     if (m > 0.01) {
       s.g = mix(s.g, 0.0, m * (1.0 - s.r));   // fresh leaf is crumpled, unless over gold already
-      s.b = mix(s.b, fract(u_leafSeed[i]), m * (1.0 - s.r));
+      s.b = mix(s.b, fract(seed * 0.618) * 0.9 + 0.05, step(0.5, m));  // each leaf its own crumple (and a seam where it overlaps)
       s.r = max(s.r, m);
     }
+    // loose bits of leaf sticking out past the edge
+    float ring = (1.0 - smoothstep(0.0, L.z * 0.22, abs(e - L.z * 0.05)));
+    float bits = step(0.62, texture(u_noise, w / 7.0 + seed * 1.7).b) * ring;
+    s.a = max(s.a, bits);
   }
   if (u_rub.y > 0.0) {
     vec2 a = u_seg.xy, b = u_seg.zw, ab = b - a;
@@ -880,11 +908,24 @@ void main() {
     float d = distance(w, a + ab * t);
     float f = 1.0 - smoothstep(u_rub.x * 0.45, u_rub.x, d);
     s.g = min(1.0, s.g + f * u_rub.y * s.r);
+    s.a = max(0.0, s.a - f * u_rub.y * 4.0);
+  }
+  if (u_flood > 0.0) {
+    float n = 0.0;
+    for (int k = 0; k < 8; k++) {
+      float a = float(k) * 0.785398;
+      n = max(n, texture(u_state, v_uv + vec2(cos(a), sin(a)) * u_texel * 2.0).r);
+    }
+    if (n > s.r) { s.r = min(1.0, max(s.r, n * 0.995)); s.g = max(s.g, 0.95); }
   }
   for (int i = 0; i < 8; i++) {
     if (i >= u_nfin) break;
     vec4 r = u_fin[i];
-    if (w.x >= r.x && w.y >= r.y && w.x <= r.z && w.y <= r.w) s.g = min(1.0, s.g + u_dt * 2.2 * s.r);
+    if (w.x >= r.x && w.y >= r.y && w.x <= r.z && w.y <= r.w && s.r > 0.05) {
+      s.r = min(1.0, s.r + u_dt * 3.0 * step(0.35, s.r));   // firm up the edges of laid leaves, don't invent gold
+      s.g = min(1.0, s.g + u_dt * 2.2);
+      s.a = max(0.0, s.a - u_dt * 3.0);
+    }
   }
   o = s;
 }`;

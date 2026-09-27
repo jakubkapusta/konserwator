@@ -341,3 +341,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .sheet .won span { padding: 5px 12px; border-radius: 999px; font-size: 13.5px; color: var(--muted); border: 1px solid var(--line); }
 .sheet .won span.on { color: var(--gold); border-color: rgba(220, 182, 96, 0.5); }
 .hud.replay .right > :not(:nth-child(3)) { display: none; }
+
+/* a leaf of gold fluttering down (gilding) */
+.leaf-fall { position: absolute; pointer-events: none; transform: translate(-50%, -50%); z-index: 5;
+  background: linear-gradient(125deg, #fff2bf 0%, #e7bd5c 22%, #9c6d26 38%, #f3d282 55%, #b98a35 72%, #fff0b8 90%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); animation: leafFall 0.42s cubic-bezier(0.3, 0.1, 0.4, 1) forwards; }
+@keyframes leafFall {
+  0% { opacity: 0; transform: translate(calc(-50% + var(--sx)), calc(-50% - 150px)) perspective(500px) rotateX(70deg) rotateY(-30deg) rotate(calc(var(--rot) - 30deg)) scale(1.15); }
+  25% { opacity: 1; }
+  55% { transform: translate(calc(-50% - var(--sx) * 0.4), calc(-50% - 50px)) perspective(500px) rotateX(-35deg) rotateY(25deg) rotate(calc(var(--rot) + 12deg)) scale(1.07); }
+  100% { opacity: 0.9; transform: translate(-50%, -50%) perspective(500px) rotateX(0deg) rotateY(0deg) rotate(var(--rot)) scale(1); }
+}

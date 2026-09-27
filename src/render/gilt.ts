@@ -5,7 +5,7 @@ import { DIRT_REDUCE_FS, FULL_VS, GILT_STEP_FS } from './shaders';
 import { texture } from './textures';
 
 export const GCELL = 8;     // texels per read-back cell
-export const GSCALE = 3;    // world units per texel
+export const GSCALE = 2;    // world units per texel
 
 export interface Leaf { x: number; y: number; hs: number; ang: number; seed: number }
 
@@ -64,7 +64,7 @@ export class GiltSim {
     return t;
   }
 
-  step(dt: number, leaves: Leaf[], rub: { x0: number; y0: number; x1: number; y1: number; r: number; amount: number } | null, fin: number[][]) {
+  step(dt: number, leaves: Leaf[], rub: { x0: number; y0: number; x1: number; y1: number; r: number; amount: number } | null, fin: number[][], flood = false) {
     const gl = this.gl;
     const dst = 1 - this.cur;
     gl.bindFramebuffer(gl.FRAMEBUFFER, this.fbo[dst]);
@@ -72,7 +72,7 @@ export class GiltSim {
     gl.disable(gl.BLEND);
     gl.bindVertexArray(this.vao);
     const P = this.stepP.use().tex('u_state', 0, this.tex[this.cur]).tex('u_noise', 1, this.noise)
-      .f4('u_rect', ...this.rect).f1('u_dt', dt);
+      .f4('u_rect', ...this.rect).f1('u_dt', dt).f1('u_flood', flood ? 1 : 0).f2('u_texel', 1 / this.tw, 1 / this.th);
     const L = new Float32Array(32), S = new Float32Array(8);
     const nl = Math.min(8, leaves.length);
     for (let i = 0; i < nl; i++) { const l = leaves[i]; L.set([l.x, l.y, l.hs, l.ang], i * 4); S[i] = l.seed; }
@@ -109,7 +109,7 @@ export class GiltSim {
     const gl = this.gl;
     for (const f of this.fbo) {
       gl.bindFramebuffer(gl.FRAMEBUFFER, f);
-      gl.clearColor(1, 1, 0.5, 1);
+      gl.clearColor(1, 1, 0.5, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
     }
     gl.clearColor(0, 0, 0, 0);

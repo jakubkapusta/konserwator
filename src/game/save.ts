@@ -14,7 +14,7 @@ export interface WorkSave {
   painted?: number[];
   sel?: number;
   hints?: number;
-  gild?: { laid: boolean[]; done: boolean[] };
+  gild?: { laid: boolean[]; done: boolean[]; leaves?: number[][] };
   varnish?: number[];
   progress: number; // 0..1 of the current stage, for the menu
   regions?: number; // region count of the level when saved (a rebuilt painting invalidates the save)
