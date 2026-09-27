@@ -77,7 +77,8 @@ export class Input {
       return;
     }
     // touch
-    const palm = (e.width || 0) > 45 || (e.height || 0) > 45;
+    // palm rejection only in pen mode: some browsers report wide contact sizes for plain fingers
+    const palm = this.penSeen && ((e.width || 0) > 70 || (e.height || 0) > 70);
     const ignore = this.penDown || palm;
     this.touches.set(e.pointerId, { x: p.x, y: p.y, ignore });
     if (ignore) return;

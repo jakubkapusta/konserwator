@@ -97,6 +97,7 @@ export class Cleaning {
   swabDirt = 0; // how dirty the current cotton swab is (0..1)
   private suggested = new Set<string>();
   private idleT = 0;
+  private uselessT = 0;
 
   constructor(private dirt: DirtSim, private cam: Camera, private parts: Particles, readonly ev: CleaningEvents) {
     const { cw, ch } = dirt;
@@ -249,6 +250,15 @@ export class Cleaning {
       this.emit(rel, spd, under);
       if (this.tool === 2) this.swabDirt = Math.min(1, this.swabDirt + rel * spd * dt * 0.35);
       b.speed = 0;
+      // scrubbing where this tool can't do anything: point at the one that can
+      const other = this.tool === 1 ? Math.max(under[1], under[2]) : this.tool === 2 ? under[3] : Math.max(under[0], under[1], under[2]);
+      if (rel < 0.05 && other * MAXV > 0.25) this.uselessT += dt; else this.uselessT = Math.max(0, this.uselessT - dt * 2);
+      if (this.uselessT > 1.2) {
+        this.uselessT = -6;
+        if (this.tool === 1) this.ev.suggestTool(2, 'Pędzel zmiata tylko kurz. Sadzę i werniks zdejmie wacik z rozpuszczalnikiem.');
+        else if (this.tool === 2) this.ev.suggestTool(3, 'Rozpuszczalnik nie rusza zaschniętych kropli. Weź skalpel.');
+        else this.ev.suggestTool(under[0] > Math.max(under[1], under[2]) ? 1 : 2, 'Skalpel jest do kropli. Resztę zdejmiesz pędzlem albo wacikiem.');
+      }
     }
 
     // read back progress a few times a second

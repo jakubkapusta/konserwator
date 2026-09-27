@@ -44,7 +44,7 @@ export class DirtSim {
     this.th = Math.ceil(H / 2);
     this.cw = Math.ceil(this.tw / CELL);
     this.ch = Math.ceil(this.th / CELL);
-    this.float = !!gl.getExtension('EXT_color_buffer_float');
+    this.float = !!(gl.getExtension('EXT_color_buffer_float') || gl.getExtension('EXT_color_buffer_half_float'));
     this.sides = [this.side(), this.side()];
     this.initP = new Program(gl, FULL_VS, DIRT_INIT_FS, 'dirt-init');
     this.stepP = new Program(gl, FULL_VS, DIRT_STEP_FS, 'dirt-step');

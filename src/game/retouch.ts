@@ -138,7 +138,7 @@ export class Retouch {
     this.order.push(id);
     this.left[r.c]--;
     const size = Math.sqrt(r.a);
-    const dur = Math.min(1.25, 0.38 + size / 700);
+    const dur = Math.min(1.7, 0.4 + size / 420);
     this.gpu.reveal(id, x, y, this.time, dur);
     sound.dab(r.c, Math.min(1, size / 500));
     this.splash(x, y, r.c, drag);

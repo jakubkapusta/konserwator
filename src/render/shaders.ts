@@ -173,7 +173,7 @@ float reveal(uint id, vec2 w, out float front) {
   vec4 b = rB(id);
   float p = clamp((u_time - a.y) / b.y, 0.0, 1.0);
   if (p >= 1.0) return 1.0;
-  float e = 1.0 - (1.0 - p) * (1.0 - p);
+  float e = 1.0 - pow(1.0 - p, 1.6);
   float d = distance(w, a.zw);
   // streaky front: noise stretched along a per-region brush direction
   float ang = hash12(vec2(float(id), 7.0)) * 3.14159;
@@ -196,7 +196,7 @@ float web(vec2 w, vec2 corner, vec2 dir, float size) {
   if (r > size) return 0.0;
   float a = atan(l.y, l.x);              // 0..pi/2
   float lw = u_pxw * 0.9;
-  float rays = 7.0;
+  float rays = 5.0;
   float ai = a / (1.5708 / rays);
   float ray = abs(fract(ai) - 0.5) * 2.0;   // 1 at a ray... 0 between
   float rd = (1.0 - ray) * r * (1.5708 / rays) * 0.5; // distance to nearest ray, world
@@ -204,8 +204,9 @@ float web(vec2 w, vec2 corner, vec2 dir, float size) {
   float seg = fract(ai);
   float sag = 1.0 - 0.18 * sin(seg * 3.14159);
   float rr = r / sag;
-  float ring = abs(fract(rr / (size * 0.09)) - 0.5) * size * 0.09;
-  float w2 = (1.0 - smoothstep(lw * 0.5, lw * 1.5, ring)) * step(size * 0.08, r);
+  float sp = size * 0.16;
+  float ring = abs(fract(rr / sp) - 0.5) * sp;
+  float w2 = (1.0 - smoothstep(lw * 0.4, lw * 1.2, ring)) * step(size * 0.12, r) * 0.7;
   float broken = step(0.35, texture(u_noise, w / 140.0 + corner / 997.0).b);
   float fade = 1.0 - smoothstep(size * 0.7, size, r);
   return clamp(w1 * 0.8 + w2 * broken, 0.0, 1.0) * fade;
@@ -224,6 +225,11 @@ void main() {
   vec3 paper = vec3(0.925, 0.895, 0.835);
   vec3 g = mix(vec3(L), orig, 0.4) * vec3(1.0, 0.98, 0.94);
   g = mix(paper, g, 0.47) + (orig - blur) * 0.4;            // keep brush texture and craquelure
+  // uneven damage: brownish water stains and a milky bloom, so even pale passages look worn
+  float stain = smoothstep(0.45, 0.8, texture(u_noise, w / 780.0 + 0.61).r * 0.75 + texture(u_noise, w / 190.0).g * 0.25);
+  g = mix(g, g * vec3(0.86, 0.8, 0.7), stain * 0.55);
+  float bloom = smoothstep(0.35, 0.75, texture(u_noise, w / 1300.0 + 0.23).a);
+  g = mix(g, vec3(0.9, 0.9, 0.88), bloom * 0.2);
   // paint loss: islands where the ground shows through
   float lossN = texture(u_noise, w / 520.0 + 0.13).b * 0.7 + texture(u_noise, w / 97.0).a * 0.3;
   float edgeW = min(min(uv.x, 1.0 - uv.x), min(uv.y, 1.0 - uv.y));
@@ -267,12 +273,21 @@ void main() {
     col = mix(col, pc, clamp(front * 0.55, 0.0, 0.6));
     col += front * 0.08;
   }
-  // settle glow right after a region finishes
+  // fresh paint: a wet gloss that catches the brushwork, drying over a couple of seconds
   {
     vec4 a = rA(own);
     if (a.y >= 0.0) {
-      float t = u_time - a.y - rB(own).y;
-      if (t > 0.0 && t < 1.0) col += vec3(1.0, 0.95, 0.8) * 0.07 * exp(-t * 5.0) * rv;
+      float t = u_time - a.y - rB(own).y * 0.6;
+      if (t > -0.5 && t < 3.0) {
+        vec2 e = 1.5 / u_size;
+        float gx = lum(textureLod(u_img, uv + vec2(e.x, 0), 0.5).rgb) - lum(textureLod(u_img, uv - vec2(e.x, 0), 0.5).rgb);
+        float gy = lum(textureLod(u_img, uv + vec2(0, e.y), 0.5).rgb) - lum(textureLod(u_img, uv - vec2(0, e.y), 0.5).rgb);
+        float relief = clamp(0.5 - (gx * 0.8 + gy) * 3.0, 0.0, 1.0);
+        float wetk = exp(-max(t, 0.0) * 1.4) * rv;
+        col = mix(col, col * col * 1.25 + col * 0.05, wetk * 0.25);        // deeper while wet
+        col += vec3(1.0, 0.96, 0.88) * pow(relief, 8.0) * 0.22 * wetk;      // gloss on the ridges
+        col += vec3(1.0, 0.95, 0.8) * 0.06 * exp(-max(t, 0.0) * 4.0) * rv;
+      }
     }
   }
 

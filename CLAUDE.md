@@ -5,7 +5,7 @@ Browser game (iPad + Apple Pencil first, phone and laptop too): restore old pain
 ## Status (read first)
 
 - **M0 done** (repo, pipeline, 3 paintings: Mleczarka, Uliczka, Zagrożony łabędź).
-- **M1 in progress / waiting for the owner's iPad test**: cleaning + retouch on one painting, difficulty choice. Owner questions for the M1 stop are in the last report (preview before finishing, tool feel, etc.).
+- **M1 pushed 2026-09-27, waiting for the owner's iPad + Pencil test (STOP)**: cleaning (3 tools, 4 layers, self-finishing tiles with bells, layer chords, tool hints), the transition (light sweep, outlines grow from the centre, numbers fade in), retouch variant B (reveal spreads from the touch with a streaky wet front, then a drying gloss), hint ring, peek (hold the eye), save/restore mid-stage, finale with the painting card. All 3 paintings playable on all 3 levels. Don't start M2 until the owner has given M1 feedback.
 - Player-facing text Polish; code and comments English; commit messages Polish. Don't wait for the Pages deploy after a push.
 
 ## Commands
