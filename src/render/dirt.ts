@@ -7,7 +7,7 @@ import { texture } from './textures';
 export const CELL = 16; // dirt texels per read-back cell
 export const MAXV = 1.3; // read-back values are v / MAXV
 
-export type Tool = 0 | 1 | 2 | 3; // none, brush, swab, scalpel
+export type Tool = 0 | 1 | 2 | 3 | 4 | 5; // none, brush, swab, scalpel, spatula (droppings), needle (tears); 4-5 don't touch the dirt sim
 
 export interface DirtInit {
   seed: [number, number];

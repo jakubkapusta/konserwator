@@ -10,7 +10,7 @@ export interface WorkSave {
   level: LevelId;
   stage: Stage;
   t: number;
-  clean?: { tool: number; done: boolean[][]; init: number[][]; initTotal: number[] };
+  clean?: { tool: number; done: boolean[][]; init: number[][]; initTotal: number[]; repairs?: { drops: boolean[]; tears: number[] } };
   painted?: number[];
   sel?: number;
   hints?: number;

@@ -139,11 +139,11 @@ function frame(now: number) {
   requestAnimationFrame(frame);
 }
 function step(dt: number) {
+  updateTilt(dt);
   if (studio) {
     insetT -= dt;
     if (insetT <= 0) { insetT = 0.5; cam.insets = ui.insets(); }
     cam.update(dt);
-    updateTilt(dt);
     studio.update(dt);
   }
   renderer.particles.update(dt);

@@ -239,6 +239,13 @@ uniform vec4 u_sweep;       // x: position -0.3..1.3 along the diagonal, y: widt
 uniform float u_peek;       // hold-to-preview the finished painting
 uniform vec4 u_webs;        // cobwebs per corner (TL, TR, BL, BR) 0..1 size
 uniform float u_restored;   // 0..1 fully restored look (end of retouch: no ghost anywhere)
+uniform vec4 u_drops[16];   // bird droppings: x, y, r, hold (cracks 0..1)
+uniform vec4 u_dropsB[16];  // seed, popT (-1 there, -100 popped long ago)
+uniform int u_ndrops;
+uniform vec4 u_tearA[3];    // a.xy, b.xy
+uniform vec4 u_tearB[3];    // c.xy, width, length
+uniform vec4 u_tearM[3];    // stitch mask (24 bits), closeT (-1 open, -100 closed long ago)
+uniform int u_ntears;
 uniform sampler2D u_varn;   // 1 x rows: r coverage, g time applied
 uniform float u_varnOn;
 uniform vec2 u_tilt;
@@ -437,8 +444,10 @@ void main() {
       float sx = texture(u_dirt, uv + vec2(u_dirtTexel.x, 0)).a - texture(u_dirt, uv - vec2(u_dirtTexel.x, 0)).a;
       float sy = texture(u_dirt, uv + vec2(0, u_dirtTexel.y)).a - texture(u_dirt, uv - vec2(0, u_dirtTexel.y)).a;
       float sv = smoothstep(0.12, 0.3, sa + (N.r - 0.5) * 0.12);
-      float kind = hash12(floor(w / 90.0) + 3.0);
-      vec3 sc = kind < 0.4 ? vec3(0.1, 0.075, 0.05) : kind < 0.75 ? vec3(0.86, 0.8, 0.62) : vec3(0.93, 0.92, 0.88);
+      // kind of drop varies smoothly over the canvas (a drop never splits into two colours)
+      float kind = texture(u_noise, w / 900.0 + 0.77).b;
+      vec3 sc = mix(vec3(0.12, 0.09, 0.06), vec3(0.86, 0.8, 0.62), smoothstep(0.38, 0.46, kind));
+      sc = mix(sc, vec3(0.93, 0.92, 0.88), smoothstep(0.62, 0.7, kind));
       float shade = clamp(0.5 - (sx * 0.8 + sy * 1.0) * 2.5, 0.0, 1.0);
       sc *= 0.65 + 0.7 * shade;
       sc += pow(shade, 6.0) * 0.25;
@@ -469,6 +478,92 @@ void main() {
     float sp = pow(clamp(0.5 + 0.5 * dot(normalize(vec3(nn * 0.6, 1.0)), normalize(vec3(-0.4, -0.5, 0.8))), 0.0, 1.0), 30.0);
     col += wet * sp * 0.35;
     col += clamp(F.g, 0.0, 1.0) * vec3(1.0, 0.96, 0.86) * 0.18;
+  }
+
+  // ---- tears in the canvas and their stitches ----
+  for (int i = 0; i < 3; i++) {
+    if (i >= u_ntears) break;
+    vec2 A = u_tearA[i].xy, B = u_tearA[i].zw, C = u_tearB[i].xy;
+    float tw = u_tearB[i].z, tl = u_tearB[i].w;
+    vec2 ab = B - A, bc = C - B;
+    float u1 = clamp(dot(w - A, ab) / dot(ab, ab), 0.0, 1.0), u2 = clamp(dot(w - B, bc) / dot(bc, bc), 0.0, 1.0);
+    vec2 p1 = A + ab * u1, p2 = B + bc * u2;
+    float d1 = distance(w, p1), d2 = distance(w, p2);
+    bool first = d1 <= d2;
+    float d = min(d1, d2);
+    if (d > tw * 7.0) continue;
+    float along = first ? u1 * length(ab) : length(ab) + u2 * length(bc);
+    vec2 dir = normalize(first ? ab : bc);
+    vec2 rel = w - (first ? p1 : p2);
+    float across = sign(dir.x * rel.y - dir.y * rel.x) * d;
+    float st = along / tl;
+    float ct = u_tearM[i].y;
+    float close = ct < -50.0 ? 1.0 : ct < 0.0 ? 0.0 : clamp((u_time - ct) / 0.7, 0.0, 1.0);
+    float taper = sin(clamp(st, 0.0, 1.0) * 3.14159);
+    float jag = texture(u_noise, vec2(along / 70.0, float(i) * 0.37 + 0.1)).r;
+    float width = tw * (0.3 + 0.95 * taper) * (0.7 + 0.6 * jag) * (1.0 - close);
+    float ac = abs(across + (jag - 0.5) * tw * 0.7);
+    float gap = 1.0 - smoothstep(width * 0.7, width + u_pxw, ac);
+    float fray = step(0.84, texture(u_noise, vec2(along / 3.0, across / tw * 0.5 + float(i))).g);
+    vec3 hole = mix(vec3(0.045, 0.032, 0.022), vec3(0.74, 0.67, 0.52), fray * 0.85);
+    col *= 1.0 - 0.4 * (1.0 - smoothstep(width, width * 2.8 + tw * 0.4, ac)) * (1.0 - close) * step(0.001, width);
+    col = mix(col, hole, gap);
+    // gesso filler where it closed: the retouch paints over it
+    float seam = close * (1.0 - smoothstep(tw * 0.25, tw * 0.55, ac)) * (0.3 + 0.7 * taper);
+    col = mix(col, vec3(0.9, 0.87, 0.8), seam * (1.0 - rv) * 0.85);
+    // stitches: a zigzag of thread in every sewn cell
+    int cell = int(clamp(st, 0.0, 0.9999) * 24.0);
+    int mask = int(u_tearM[i].x + 0.5);
+    if (((mask >> cell) & 1) == 1 && st >= 0.0 && st <= 1.0) {
+      // cross-stitches: both diagonals of each stitch cell, thin thread with a darker core and a shadow
+      float sp = tw * 1.7;
+      float h = tw * 1.55;
+      float lx = mod(along, sp);
+      float k = sp / sqrt(sp * sp + 4.0 * h * h);
+      float d1s = abs(across - (-h + 2.0 * h * lx / sp)) * k;
+      float d2s = abs(across - (h - 2.0 * h * lx / sp)) * k;
+      float dist = min(d1s, d2s);
+      float inside = step(abs(across), h);
+      float tt = tw * 0.07 + u_pxw * 0.6;
+      float thread = (1.0 - smoothstep(tt, tt + u_pxw, dist)) * inside;
+      float core = (1.0 - smoothstep(0.0, tt * 0.5, dist)) * inside;
+      float sh = (1.0 - smoothstep(tt, tt + tw * 0.2, min(abs(across - tw * 0.12 - (-h + 2.0 * h * lx / sp)), abs(across - tw * 0.12 - (h - 2.0 * h * lx / sp))) * k)) * inside;
+      float fade = 1.0 - smoothstep(0.6, 1.8, (ct < -50.0 ? 10.0 : ct < 0.0 ? 0.0 : u_time - ct));
+      col *= 1.0 - 0.35 * sh * fade;
+      col = mix(col, mix(vec3(0.95, 0.91, 0.82), vec3(0.78, 0.72, 0.6), core * 0.5), thread * fade);
+    }
+  }
+
+  // ---- dried bird droppings (spatula) ----
+  for (int i = 0; i < 16; i++) {
+    if (i >= u_ndrops) break;
+    vec4 D = u_drops[i];
+    vec2 q = w - D.xy;
+    float r = D.z;
+    float dd = length(q);
+    if (dd > r * 1.6) continue;
+    float seed = u_dropsB[i].x, popT = u_dropsB[i].y;
+    float gone = popT < -50.0 ? 1.0 : popT < 0.0 ? 0.0 : clamp((u_time - popT) / 0.18, 0.0, 1.0);
+    float ang = atan(q.y, q.x);
+    float rr = r * (0.72 + 0.4 * texture(u_noise, vec2(ang / 6.2832 * 3.0, seed * 0.13)).r);
+    float m = 1.0 - smoothstep(rr * 0.9, rr + u_pxw, dd);
+    // a faint ring stays for a moment after it pops
+    if (popT >= 0.0) col = mix(col, col * 0.86, (1.0 - smoothstep(rr * 0.7, rr, dd)) * 0.5 * (1.0 - clamp((u_time - popT) / 2.5, 0.0, 1.0)));
+    if (gone >= 1.0 || m <= 0.0) continue;
+    float cn = texture(u_noise, w / 40.0 + seed).g;
+    vec3 dc = mix(vec3(0.93, 0.92, 0.87), vec3(0.29, 0.28, 0.21), smoothstep(rr * 0.6, rr * 0.05, dd + (cn - 0.5) * r * 0.5));
+    vec2 n2 = q / max(dd, 1e-3) * smoothstep(rr * 0.3, rr, dd);
+    float shade = 0.9 + 0.3 * dot(-n2, normalize(vec2(-0.6, -0.75)));
+    float spec = pow(clamp(0.5 + 0.5 * dot(-n2, normalize(vec2(-0.6, -0.75))), 0.0, 1.0), 12.0) * 0.2;
+    float hold = D.w;
+    float crack = 0.0;
+    if (hold > 0.01) {
+      float k = abs(fract(ang / 6.2832 * 7.0 + texture(u_noise, vec2(dd / r * 0.6, seed * 0.2)).g * 0.7) - 0.5);
+      crack = (1.0 - smoothstep(0.0, 0.03 + u_pxw / max(dd, 1.0), k)) * step(dd, rr * hold * 1.05);
+      crack = max(crack, (1.0 - smoothstep(0.0, u_pxw * 1.5, abs(dd - rr * hold * 0.6))) * step(0.3, hold) * 0.6);
+    }
+    vec3 c = dc * shade * (1.0 - crack * 0.75) + spec;
+    col = mix(col, c, m * (1.0 - gone));
   }
 
   // varnish: deeper, richer colour; wet streaks that settle; a soft gloss that follows the tilt

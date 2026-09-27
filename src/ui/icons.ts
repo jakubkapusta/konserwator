@@ -27,6 +27,23 @@ export const TOOL_ICONS: Record<number, { svg: string; tip: [number, number] }> 
     </g></svg>`,
   },
   4: {
+    // spatula: thin flexible steel blade on a wooden handle
+    tip: [9, 55],
+    svg: `<svg viewBox="0 0 64 64"><g transform="rotate(45 32 32)">
+      <rect x="29" y="-8" width="6" height="30" rx="3" fill="#7b4f2c"/><rect x="30" y="-6" width="1.6" height="26" fill="#a87447"/>
+      <rect x="28" y="21" width="8" height="6" rx="1.5" fill="#b8bec2"/>
+      <path d="M29 27 H35 L36.5 52 Q32 60 27.5 52 Z" fill="#dfe4e7"/><path d="M32 29 V55" stroke="#fff" stroke-width="0.8"/>
+    </g></svg>`,
+  },
+  5: {
+    // needle with a loop of thread
+    tip: [8, 57],
+    svg: `<svg viewBox="0 0 64 64"><g transform="rotate(45 32 32)">
+      <path d="M31 -2 Q32 -4 33 -2 L33.2 52 L32 62 L30.8 52 Z" fill="#cfd5d9"/><ellipse cx="32" cy="2" rx="0.9" ry="3" fill="#2a2a2a"/>
+      <path d="M32 1 C 50 6, 52 26, 40 30 C 30 34, 18 22, 26 10" stroke="#e8dcc2" stroke-width="1.6" fill="none"/>
+    </g></svg>`,
+  },
+  8: {
     // agate burnisher: a polished stone tooth on a wooden handle
     tip: [10, 54],
     svg: `<svg viewBox="0 0 64 64"><g transform="rotate(45 32 32)">
@@ -35,7 +52,7 @@ export const TOOL_ICONS: Record<number, { svg: string; tip: [number, number] }> 
       <path d="M28.5 33 H35.5 Q37 46 32 58 Q27 46 28.5 33 Z" fill="#b9a38a"/><path d="M30.5 35 Q30 46 32 55" stroke="#efe6da" stroke-width="1.4" fill="none"/>
     </g></svg>`,
   },
-  5: {
+  9: {
     // wide flat varnish brush
     tip: [32, 60],
     svg: `<svg viewBox="0 0 64 64">

@@ -7,6 +7,9 @@ import { TOOLS } from '../game/cleaning';
 import type { Phase, StudioUI } from '../game/studio';
 import { allWork, loadDone, type Prefs, type WorkSave } from '../game/save';
 import { ICON, TOOL_ICONS } from './icons';
+import { Motes } from './motes';
+
+const hashStr = (s: string) => { let h = 7; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; };
 
 const h = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = '', html = '') => {
   const e = document.createElement(tag);
@@ -75,41 +78,88 @@ export class UI implements StudioUI {
 
   // ---------------- menu ----------------
   private kindFilter = '';
+  private showDone = false;
+  private motes: Motes | null = null;
 
+  /** The studio: an easel with the current work, commissions hanging salon-style on the wall, dust in the window light. */
   showMenu(items: CatalogItem[]) {
     this.hideAll();
     const work = allWork();
     const done = loadDone();
+    const isDone = (it: CatalogItem) => Object.keys(done[it.slug] ?? {}).length > 0;
+    const live = (it: CatalogItem) => !!work[it.slug] && work[it.slug].stage !== 'done';
     this.menu.innerHTML = '';
-    const head = h('header', '', `<h1>Konser<span>w</span>ator</h1><p>Pracownia konserwacji malarstwa</p>`);
+    const motes = h('canvas', 'motes') as HTMLCanvasElement;
+    this.menu.append(h('div', 'beam'), motes);
+    (this.motes ??= new Motes(motes));
+    if (this.motes.canvas !== motes) this.motes = new Motes(motes);
+    this.motes.start();
+
+    const head = h('header', 'sign', `<h1 class="gilt">Konserwator</h1><p>Pracownia konserwacji malarstwa</p>`);
     head.append(this.tabs('menu'));
-    const card = (it: CatalogItem) => {
-      const w = work[it.slug];
-      const d = done[it.slug] ?? {};
-      const live = w && w.stage !== 'done';
-      const c = h('button', 'card' + (Object.keys(d).length ? ' done' : live ? ' started' : ''));
-      c.innerHTML = `<div class="dots">${LEVELS.map((l) => `<i class="${d[l.id] ? 'on' : ''}" title="${l.name}"></i>`).join('')}</div>
-        <div class="pic"><div class="fr"><img src="${thumbUrl(it.slug)}" alt="" loading="lazy"></div></div>
-        <h3>${it.title}</h3><div class="by">${it.author}, ${it.date}</div>
-        <div class="state">${live ? stateText(w) : Object.keys(d).length ? 'Wisi w galerii' : 'Nowe zlecenie'}</div>`;
-      c.onclick = () => this.act.open(it);
-      return c;
-    };
     this.menu.append(head);
-    const easel = items.filter((it) => work[it.slug] && work[it.slug].stage !== 'done').sort((a, b) => work[b.slug].t - work[a.slug].t);
-    if (easel.length) {
-      this.menu.append(h('h2', 'shelf', 'Na sztalugach'));
-      const g = h('div', 'commissions');
-      easel.forEach((it) => g.append(card(it)));
-      this.menu.append(g);
+
+    // the easel: the most recent work in progress, or the next commission waiting
+    const current = items.filter(live).sort((a, b) => work[b.slug].t - work[a.slug].t);
+    const next = current[0] ?? items.find((it) => !isDone(it) && !live(it)) ?? items[0];
+    if (next) {
+      const w = work[next.slug];
+      const p = live(next) ? w.progress : 0;
+      const stage = live(next) ? w.stage : 'new';
+      const easel = h('section', 'easel-hero');
+      easel.innerHTML = `
+        <div class="easel">
+          <svg class="legs" viewBox="0 0 200 300" preserveAspectRatio="none"><path d="M100 0 L30 300 M100 0 L170 300 M100 0 L100 300" stroke="#5d3b22" stroke-width="9" stroke-linecap="round"/><path d="M40 220 H160" stroke="#4a2e1a" stroke-width="10" stroke-linecap="round"/></svg>
+          <div class="board">${this.miniature(next, stage, p, 'big')}</div>
+          <div class="ledge"></div>
+        </div>
+        <div class="hero-text">
+          <div class="tag">${current.length ? 'Na sztalugach' : 'Czeka na ciebie'}</div>
+          <h2>${next.title}</h2><div class="by">${next.author}, ${next.date}</div>
+          ${live(next) ? `<div class="hero-bar"><i style="width:${(p * 100).toFixed(0)}%"></i></div><div class="hero-state">${stateText(w)}</div>` : `<p class="hero-story">${next.story?.text ?? ''}</p>`}
+        </div>`;
+      const go = h('button', 'btn', live(next) ? 'Wróć do pracy' : 'Obejrzyj zlecenie');
+      go.onclick = () => this.act.open(next);
+      easel.querySelector('.hero-text')!.append(go);
+      easel.querySelector('.easel')!.addEventListener('click', () => this.act.open(next));
+      if (current.length > 1) {
+        const more = h('div', 'others');
+        current.slice(1, 5).forEach((it) => {
+          const b = h('button', 'mini', `${this.miniature(it, work[it.slug].stage, work[it.slug].progress, 'small')}<span>${it.title}</span>`);
+          b.onclick = () => this.act.open(it);
+          more.append(b);
+        });
+        easel.querySelector('.hero-text')!.append(more);
+      }
+      this.menu.append(easel);
     }
+
+    // the wall
     const kinds = [...new Set(items.map((i) => i.kind).filter(Boolean))] as string[];
+    const bar = h('div', 'wallbar');
     const chips = h('div', 'chips');
-    const grid = h('div', 'commissions');
+    const toggle = h('button', 'toggle-done', '<i></i><span>Pokaż ukończone</span>');
+    const wall = h('div', 'salon');
     const fill = () => {
-      grid.innerHTML = '';
-      items.filter((it) => !this.kindFilter || it.kind === this.kindFilter).forEach((it) => grid.append(card(it)));
+      wall.innerHTML = '';
+      const list = items.filter((it) => (!this.kindFilter || it.kind === this.kindFilter) && (this.showDone || !isDone(it)));
+      list.forEach((it, i) => {
+        const w = work[it.slug];
+        const stage = isDone(it) ? 'done' : live(it) ? w.stage : 'new';
+        const rot = ((hashStr(it.slug) % 100) / 100 - 0.5) * 3.2;
+        const c = h('button', `hung-card ${stage === 'done' ? 'done' : stage === 'new' ? 'new' : 'started'}`);
+        c.style.setProperty('--rot', rot.toFixed(2) + 'deg');
+        c.style.setProperty('--delay', Math.min(i, 20) * 45 + 'ms');
+        const L = it.levels.latwy;
+        c.innerHTML = `<div class="string"></div>${this.miniature(it, stage, live(it) ? w.progress : 0, 'onwall', [200, 175, 225][hashStr(it.slug) % 3])}
+          <div class="label"><em>${it.kind ?? 'obraz'} · ${L.colors} farb · od ${L.regions} pól</em><b>${it.title}</b><span>${it.author}</span>
+          <i class="dots">${LEVELS.map((l) => `<u class="${done[it.slug]?.[l.id] ? 'on' : ''}"></u>`).join('')}</i></div>`;
+        c.onclick = () => { c.classList.remove('swing'); void c.offsetWidth; c.classList.add('swing'); setTimeout(() => this.act.open(it), 180); };
+        wall.append(c);
+      });
+      if (!list.length) wall.append(h('div', 'empty-wall', this.showDone ? 'Nic tu nie ma.' : 'Wszystkie zlecenia z tej grupy już wiszą w galerii. Włącz „Pokaż ukończone”.'));
       chips.querySelectorAll('button').forEach((b) => b.classList.toggle('on', (b as HTMLElement).dataset.k === this.kindFilter));
+      toggle.classList.toggle('on', this.showDone);
     };
     for (const k of ['', ...kinds]) {
       const b = h('button', '', k ? k[0].toUpperCase() + k.slice(1) : 'Wszystkie');
@@ -117,9 +167,38 @@ export class UI implements StudioUI {
       b.onclick = () => { this.kindFilter = k; fill(); };
       chips.append(b);
     }
+    toggle.onclick = () => { this.showDone = !this.showDone; fill(); };
+    bar.append(h('h2', 'shelf', 'Zlecenia'), chips, toggle);
     fill();
-    this.menu.append(h('h2', 'shelf', 'Zlecenia'), chips, grid, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
+    this.menu.append(bar, wall, h('footer', '', 'Obrazy: Rijksmuseum, domena publiczna'));
     this.menu.classList.add('show');
+  }
+
+  /** A painting in its current state: dirty, partly cleaned (diagonal wipe by progress) or restored in gold. */
+  private miniature(it: CatalogItem, stage: string, progress: number, size: 'big' | 'onwall' | 'small', wallH = 200) {
+    const src = thumbUrl(it.slug);
+    const ar = it.size[0] / it.size[1];
+    // explicit picture size: big fits a box, wall has a fixed height, small a fixed width
+    let pw: string, ph: string;
+    if (size === 'big') {
+      const box = Math.min(window.innerWidth * 0.72, 330), bh = Math.min(window.innerHeight * 0.38, 330);
+      const w = Math.min(box, bh * ar);
+      pw = w + 'px'; ph = w / ar + 'px';
+    } else if (size === 'onwall') {
+      const w = Math.min(wallH * ar, window.innerWidth - 90);
+      pw = w + 'px'; ph = w / ar + 'px';
+    } else { pw = '56px'; ph = 56 / ar + 'px'; }
+    const cleanFrac = stage === 'new' ? 0 : stage === 'clean' ? progress * 0.9 : 1;
+    const wipe = (cleanFrac * 140 - 20).toFixed(0);
+    const gilt = stage === 'done' || stage === 'varnish' ? ' gilt' : '';
+    return `<div class="mini-frame ${size}${gilt}" style="--pw:${pw};--ph:${ph}">
+      <div class="mini-pic">
+        <img class="dirty" src="${src}" alt="" loading="lazy">
+        ${cleanFrac > 0 ? `<img class="clean" src="${src}" alt="" loading="lazy" style="clip-path: polygon(0 0, ${wipe}% 0, ${Number(wipe) - 40}% 100%, 0 100%)">` : ''}
+        ${cleanFrac < 1 ? '<div class="grime"></div>' : ''}
+        ${stage === 'new' ? '<svg class="web" viewBox="0 0 60 60"><path d="M60 0 L0 60 M60 0 L20 60 M60 0 L40 60 M60 0 L0 20 M60 0 L0 40 M36 0 Q44 16 60 24 M24 0 Q36 26 60 36 M12 0 Q28 34 60 48" stroke="rgba(235,230,215,.5)" stroke-width="0.7" fill="none"/></svg>' : ''}
+        ${gilt ? '<div class="sheen"></div>' : ''}
+      </div></div>`;
   }
 
   showCommission(it: CatalogItem) {
@@ -168,6 +247,7 @@ export class UI implements StudioUI {
 
   hideAll() {
     for (const e of [this.menu, this.gal, this.comm, this.hud, this.fin]) e.classList.remove('show');
+    this.motes?.stop();
     this.pop.classList.remove('show');
   }
 
@@ -265,12 +345,12 @@ export class UI implements StudioUI {
     this.barFill.style.width = (c.progress * 100).toFixed(1) + '%';
     const needed = c.toolsNeeded;
     for (const el of this.tools.children as HTMLCollectionOf<HTMLElement>) {
-      const def = TOOLS.find((t) => t.id === +el.dataset.t!)!;
+      const id = +el.dataset.t! as Tool;
+      const def = TOOLS.find((t) => t.id === id)!;
       const show = needed.includes(def);
       el.style.display = show ? '' : 'none';
-      const rem = def.channels.filter((ch) => c.channels.includes(ch)).reduce((a, ch) => a + c.remaining(ch), 0) / Math.max(1, def.channels.filter((ch) => c.channels.includes(ch)).length);
-      el.style.setProperty('--p', (1 - rem).toFixed(3));
-      el.classList.toggle('clear', show && def.channels.every((ch) => !c.channels.includes(ch) || c.layerDone[ch]));
+      el.style.setProperty('--p', c.toolProgress(id).toFixed(3));
+      el.classList.toggle('clear', show && c.toolClear(id));
     }
   }
 

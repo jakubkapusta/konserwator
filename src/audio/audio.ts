@@ -234,6 +234,54 @@ export class Sound {
     this.bell(2400 + Math.random() * 600, 0.02, 0.05, 0.5);
   }
 
+  /** Needle through canvas: a short thread pull per stitch. */
+  stitch(n: number) {
+    const c = this.ctx;
+    if (!c) return;
+    const t = c.currentTime;
+    for (let i = 0; i < Math.min(3, n); i++) {
+      const s = c.createBufferSource();
+      s.buffer = this.noise;
+      const bp = c.createBiquadFilter();
+      bp.type = 'bandpass';
+      bp.Q.value = 3;
+      const t0 = t + i * 0.05;
+      bp.frequency.setValueAtTime(1800 + Math.random() * 600, t0);
+      bp.frequency.exponentialRampToValueAtTime(4200, t0 + 0.09);
+      const g = c.createGain();
+      g.gain.setValueAtTime(0, t0);
+      g.gain.linearRampToValueAtTime(0.09, t0 + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.12);
+      s.connect(bp).connect(g).connect(this.out);
+      s.start(t0, Math.random(), 0.15);
+      this.click(3200 + Math.random() * 800, 0.06);
+    }
+  }
+
+  /** A dried dropping cracking under the spatula (hold 0..1 raises the pitch). */
+  crackle(hold: number) {
+    if (!this.ctx) return;
+    this.click(1200 + hold * 2400 + Math.random() * 600, 0.05 + hold * 0.08);
+  }
+
+  /** ...and popping off. */
+  pop() {
+    const c = this.ctx;
+    if (!c) return;
+    const t = c.currentTime;
+    const o = c.createOscillator();
+    o.type = 'triangle';
+    o.frequency.setValueAtTime(420, t);
+    o.frequency.exponentialRampToValueAtTime(140, t + 0.09);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.22, t);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+    o.connect(g).connect(this.out);
+    o.start(t);
+    o.stop(t + 0.16);
+    for (let i = 0; i < 4; i++) setTimeout(() => this.click(2000 + Math.random() * 3000, 0.07), 40 + i * 35 + Math.random() * 30);
+  }
+
   /** Wrong paint for this field: a dry little tick. */
   tick() {
     const c = this.ctx;

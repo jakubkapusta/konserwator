@@ -6,6 +6,7 @@ import { CELL, MAXV, type Brush, type DirtInit, type DirtSim, type Dissolve, typ
 import type { Particles } from '../render/particles';
 import { Sprite } from '../render/particles';
 import type { Camera } from './camera';
+import type { Repairs } from './repairs';
 import { sound } from '../audio/audio';
 
 export const CH = { dust: 0, grime: 1, varnish: 2, spots: 3 } as const;
@@ -25,11 +26,16 @@ export const TOOLS: ToolDef[] = [
   { id: 1, name: 'Pędzel', hint: 'Miękki pędzel zmiata kurz i pajęczyny', channels: [CH.dust], radius: 0.075, hard: 0.3, rate: 1 },
   { id: 2, name: 'Wacik', hint: 'Wacik z rozpuszczalnikiem zdejmuje sadzę i stary werniks', channels: [CH.grime, CH.varnish], radius: 0.045, hard: 0.5, rate: 1 },
   { id: 3, name: 'Skalpel', hint: 'Skalpel zeskrobuje zaschnięte krople', channels: [CH.spots], radius: 0.017, hard: 0.75, rate: 1 },
+  { id: 4, name: 'Szpatułka', hint: 'Przytrzymaj szpatułkę na zaschniętym ptasim odchodzie, aż odskoczy', channels: [], radius: 0.014, hard: 1, rate: 0 },
+  { id: 5, name: 'Igła', hint: 'Prowadź igłę wzdłuż rozdarcia, żeby je zszyć', channels: [], radius: 0.008, hard: 1, rate: 0 },
 ];
+
+/** Brush and swab get smaller on harder levels: more scrubbing. */
+const SIZE: Record<LevelId, number> = { latwy: 1, sredni: 0.8, trudny: 0.66 };
 
 interface LevelDirt { amt: [number, number, number, number]; soot: number; drips: number; spots: number; webs: number }
 const DIRT: Record<LevelId, LevelDirt> = {
-  latwy: { amt: [0.85, 0, 0.9, 0], soot: 0, drips: 0, spots: 0, webs: 1 },
+  latwy: { amt: [0.85, 0, 0.9, 1], soot: 0, drips: 0, spots: 4, webs: 1 },
   sredni: { amt: [0.95, 0.6, 1.0, 1], soot: 0.12, drips: 7, spots: 12, webs: 2 },
   trudny: { amt: [1.05, 0.85, 1.15, 1], soot: 0.25, drips: 13, spots: 26, webs: 3 },
 };
@@ -99,7 +105,10 @@ export class Cleaning {
   private idleT = 0;
   private uselessT = 0;
 
-  constructor(private dirt: DirtSim, private cam: Camera, private parts: Particles, readonly ev: CleaningEvents) {
+  private sizeScale = 1;
+
+  constructor(private dirt: DirtSim, private cam: Camera, private parts: Particles, readonly ev: CleaningEvents, readonly repairs: Repairs, level: LevelId) {
+    this.sizeScale = SIZE[level];
     const { cw, ch } = dirt;
     const aspect = dirt.W / dirt.H;
     const nx = aspect >= 1 ? 5 : 4, ny = Math.max(3, Math.round(nx / aspect));
@@ -114,7 +123,27 @@ export class Cleaning {
 
   get L() { return Math.max(this.dirt.W, this.dirt.H); }
   toolDef(t: Tool = this.tool) { return TOOLS.find((d) => d.id === t)!; }
-  get toolsNeeded() { return TOOLS.filter((t) => t.channels.some((c) => this.channels.includes(c))); }
+  get toolsNeeded() {
+    return TOOLS.filter((t) => t.channels.some((c) => this.channels.includes(c)) || (t.id === 4 && this.repairs.hasDrops) || (t.id === 5 && this.repairs.hasTears));
+  }
+  /** World radius of the current tool (the brush and swab shrink on harder levels). */
+  radius(t: Tool = this.tool) {
+    const d = this.toolDef(t);
+    return d.radius * this.L * (t === 1 || t === 2 ? this.sizeScale : 1);
+  }
+  /** 0..1 done for a tool's job (its ring in the dock). */
+  toolProgress(t: Tool) {
+    if (t === 4) return this.repairs.dropsProgress();
+    if (t === 5) return this.repairs.tearsProgress();
+    const chs = this.toolDef(t).channels.filter((c) => this.channels.includes(c));
+    if (!chs.length) return 1;
+    return 1 - chs.reduce((a, c) => a + this.remaining(c), 0) / chs.length;
+  }
+  toolClear(t: Tool) {
+    if (t === 4) return this.repairs.dropsLeft() === 0;
+    if (t === 5) return this.repairs.tearsLeft() === 0;
+    return this.toolDef(t).channels.every((c) => !this.channels.includes(c) || this.layerDone[c]);
+  }
 
   /** First read-back after the dirt exists: per tile and per layer starting amounts. restoredDone: tiles already done in a save. */
   start(restoredDone?: boolean[][], initTotals?: number[], tileInit?: number[][]) {
@@ -163,6 +192,9 @@ export class Cleaning {
     let a = 0, b = 0;
     const wgt = [1, 1.2, 1.4, 0.6];
     for (const c of this.channels) { a += wgt[c] * (1 - this.remaining(c)); b += wgt[c]; }
+    const r = this.repairs;
+    if (r.hasDrops) { a += 0.5 * r.dropsProgress(); b += 0.5; }
+    if (r.hasTears) { a += 0.7 * r.tearsProgress(); b += 0.7; }
     return b ? a / b : 1;
   }
 
@@ -188,6 +220,7 @@ export class Cleaning {
   downW(x: number, y: number, p: number, kind: string) {
     const s = this.cam.toScreen(x, y);
     this.brush = { x, y, p, kind, active: true, lastX: s.x, lastY: s.y, speed: 0 };
+    if (this.tool >= 4) { this.repairs.down(this.tool, x, y, kind === 'pen' ? p : 0.6); return; }
     this.queue(x, y, x, y, p, 0.016);
     this.idleT = 0;
   }
@@ -195,6 +228,7 @@ export class Cleaning {
     const b = this.brush;
     if (!b.active) return;
     const s = this.cam.toScreen(x, y);
+    if (this.tool >= 4) { this.repairs.move(this.tool, x, y, b.kind === 'pen' ? p : 0.6); b.x = x; b.y = y; b.lastX = s.x; b.lastY = s.y; return; }
     this.queue(b.x, b.y, x, y, p, 0);
     const d = Math.hypot(s.x - b.lastX, s.y - b.lastY);
     b.speed = Math.max(b.speed, d);
@@ -205,6 +239,7 @@ export class Cleaning {
   quiet = false;
   up() {
     this.brush.active = false;
+    this.repairs.up();
     sound.scrub(0, 0, 0);
   }
 
@@ -218,8 +253,9 @@ export class Cleaning {
     this.time += dt;
     if (!this.started) return;
     const def = this.toolDef();
-    const L = this.L;
     const b = this.brush;
+    this.repairs.update(dt);
+    const special = this.tool >= 4;
     // apply the stroke: every queued piece as its own step (they're short), plus "dwelling" when holding still
     const steps: Brush[] = [];
     const pf = (p: number) => (b.kind === 'pen' ? { size: 0.7 + 0.55 * p, str: 0.55 + 0.75 * p } : { size: 1, str: 1 });
@@ -229,15 +265,16 @@ export class Cleaning {
       for (let i = 0; i < n; i += k) {
         const a = this.segs[i], z = this.segs[Math.min(n - 1, i + k - 1)];
         const f = pf(z.p);
-        const r = def.radius * L * f.size;
+        const r = this.radius() * f.size;
         const len = Math.hypot(z.x1 - a.x0, z.y1 - a.y0);
         steps.push({ x0: a.x0, y0: a.y0, x1: z.x1, y1: z.y1, r, amount: def.rate * f.str * (Math.min(len, 1.6 * r) / r) * 0.95, tool: this.tool, hard: def.hard });
       }
       this.segs.length = 0;
     }
-    if (b.active) {
+    if (special) this.segs.length = 0;
+    if (b.active && !special) {
       const f = pf(b.p);
-      const r = def.radius * L * f.size;
+      const r = this.radius() * f.size;
       steps.push({ x0: b.x, y0: b.y, x1: b.x, y1: b.y, r, amount: def.rate * f.str * dt * 0.5, tool: this.tool, hard: def.hard });
       this.fxUntil = this.time + 3;
       this.idleT = 0;
@@ -253,7 +290,7 @@ export class Cleaning {
     if (this.dissolves.length) this.fxUntil = Math.max(this.fxUntil, this.time + 1);
 
     // sound + particles from the stroke
-    if (b.active) {
+    if (b.active && !special) {
       const under = this.dirtAt(b.x, b.y);
       const rel = def.channels.reduce((a, c) => Math.max(a, under[c] * MAXV), 0) + (this.tool === 2 ? under[0] * 0.5 : 0);
       const spd = Math.min(1, b.speed / (40 * (Math.max(dt, 1 / 120) * 60)));
@@ -288,7 +325,7 @@ export class Cleaning {
     const b = this.brush;
     const s = this.cam.toScreen(b.x, b.y);
     const z = this.cam.zoom;
-    const r = this.toolDef().radius * this.L * z;
+    const r = this.radius() * z;
     const n = Math.random() < rel * (0.3 + spd) * 2.2 ? 1 + Math.floor(rel * 3 * spd) : 0;
     for (let i = 0; i < n; i++) {
       const a = Math.random() * 6.283, d = Math.sqrt(Math.random()) * r * 0.8;
@@ -323,7 +360,7 @@ export class Cleaning {
         this.ev.layerDone(c);
       }
     }
-    if (!this.finished && this.channels.every((c) => this.layerDone[c])) {
+    if (!this.finished && this.channels.every((c) => this.layerDone[c]) && this.repairs.done) {
       this.finished = true;
       sound.scrub(0, 0, 0);
       this.ev.allDone();
@@ -353,6 +390,7 @@ export class Cleaning {
 
   /** Clean everything left (end of the stage or the test skip). */
   finishAll() {
+    this.repairs.finishAll();
     const { cw, ch } = this.dirt;
     this.tiles.forEach((t, i) => { for (const c of this.channels) if (!t.done[c]) this.finishTile(i, c, cw, ch); });
     this.dissolves.push({ u0: 0, v0: 0, u1: 1, v1: 1, rates: [4, 4, 4, 4], t: 2 });
@@ -371,6 +409,10 @@ export class Cleaning {
     } else if (has(CH.spots) && !has(CH.grime) && !has(CH.varnish) && this.tool !== 3 && !this.suggested.has('scalpel')) {
       this.suggested.add('scalpel');
       this.ev.suggestTool(3, 'Zostały zaschnięte krople. Zeskrob je skalpelem.');
+    } else if (this.channels.every((c) => this.layerDone[c]) && !this.repairs.done && !this.suggested.has('repairs')) {
+      this.suggested.add('repairs');
+      if (this.repairs.dropsLeft()) this.ev.suggestTool(4, 'Zostały zaschnięte ptasie odchody. Przytrzymaj na nich szpatułkę.');
+      else this.ev.suggestTool(5, 'Płótno jest rozdarte. Zszyj je igłą, prowadząc ją wzdłuż rozdarcia.');
     } else if (this.idleT > 7 && !this.suggested.has('idle' + Math.floor(this.time / 30))) {
       this.suggested.add('idle' + Math.floor(this.time / 30));
       this.ev.suggestTool(this.tool, '');
@@ -392,6 +434,6 @@ export class Cleaning {
   }
 
   saveState() {
-    return { tool: this.tool, done: this.tiles.map((t) => t.done.slice()), init: this.tiles.map((t) => t.init.slice()), initTotal: this.initTotal.slice() };
+    return { tool: this.tool, done: this.tiles.map((t) => t.done.slice()), init: this.tiles.map((t) => t.init.slice()), initTotal: this.initTotal.slice(), repairs: this.repairs.saveState() };
   }
 }

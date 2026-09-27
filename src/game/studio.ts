@@ -9,6 +9,8 @@ import type { Camera } from './camera';
 import type { PointerKind, ToolHandler } from './input';
 import { Cleaning, dirtFor, LAYER_NAMES, TOOLS } from './cleaning';
 import { Retouch } from './retouch';
+import { MAX_DROPS, MAX_TEARS, Repairs } from './repairs';
+import { emptyRepairs } from '../render/renderer';
 import { Gilding } from './gilding';
 import { Varnish } from './varnish';
 import { askTilt, recentreTilt, tilt } from './tilt';
@@ -46,6 +48,7 @@ export class Studio {
   phase: Phase = 'intro';
   cleaning: Cleaning;
   retouch: Retouch;
+  repairs: Repairs;
   gilding: Gilding;
   varnish: Varnish;
   scene: SceneState;
@@ -84,6 +87,11 @@ export class Studio {
     gpu.dirt.init(d.init);
     const parts = renderer.particles;
     this.rec = { v: 1, level: levelId, strokes: [], order: [] };
+    this.repairs = new Repairs(item.slug, levelId, W, H, cam, parts, {
+      popped: () => { this.dirty = true; this.dirtDirty = true; sound.ding(this.tileBell++); ui.cleanProgress(this.cleaning); },
+      stitched: () => { this.dirty = true; ui.cleanProgress(this.cleaning); },
+      tearDone: () => { this.dirty = true; if (!this.rp) ui.toast('Rozdarcie zszyte!'); ui.cleanProgress(this.cleaning); },
+    });
     this.cleaning = new Cleaning(gpu.dirt, cam, parts, {
       tileDone: () => { sound.ding(this.tileBell++); this.dirty = true; },
       layerDone: (c) => {
@@ -99,8 +107,11 @@ export class Studio {
         ui.suggestTool(t);
         const s = this.cleaning.dirtiestSpot();
         if (s && !why) this.showMark(s.x, s.y, TOOLS.find((d) => d.id === t)!.radius * Math.max(W, H) * 1.2);
+        const r = this.repairs;
+        if (t === 4) { const d = r.drops.find((d) => d.popT < 0); if (d) this.showMark(d.x, d.y, d.r * 1.8); }
+        if (t === 5) { const tr = r.tears.find((x) => x.closeT < 0); if (tr) this.showMark(tr.b[0], tr.b[1], tr.len * 0.55); }
       },
-    });
+    }, this.repairs, levelId);
     this.retouch = new Retouch(lv, gpu, cam, parts, {
       painted: (_id, c) => {
         this.dirty = true;
@@ -129,12 +140,14 @@ export class Studio {
       time: 0, outline: 0, outlineC: [W / 2, H / 2], outlineR: 0, dirtOn: 1, sel: -1, selT: 0,
       sweep: [-1, 0.12, 0], peek: 0, webs: d.webs, restored: 0, frameDust: 1, numAlpha: 0,
       style: Math.max(0, LEVELS.findIndex((l) => l.id === levelId)), tilt: [0, 0], shine: 0, varnOn: 0,
+      repairs: emptyRepairs(),
     };
     if (replay) {
       const pts = replay.strokes.reduce((a, s) => a + (s.length - 1) / 3, 0);
       this.rp = { rec: replay, s: 0, i: 0, perFrame: Math.max(2, Math.ceil(pts / (8 * 60))), paintI: 0, gildT: 0, varnT: 0 };
       this.cleaning.quiet = true;
       this.retouch.quiet = true;
+      this.repairs.quiet = true;
     }
   }
 
@@ -179,6 +192,7 @@ export class Studio {
       if (snap && snap.data) this.gpu.dirt.restore(snap);
       c.start(save.clean.done, save.clean.initTotal, save.clean.init);
       c.tool = (save.clean.tool as Tool) || 1;
+      if (save.clean.repairs) this.repairs.restore(save.clean.repairs);
     } else c.start();
     this.ui.tool(c.tool);
     this.ui.cleanProgress(c);
@@ -435,6 +449,7 @@ export class Studio {
   // ---- frame ----
   update(dt: number) {
     this.time += dt;
+    this.repairs.time = this.time;
     this.phaseT += dt * (this.rp ? 1.5 : 1);
     const s = this.scene;
     s.time = this.time;
@@ -492,6 +507,7 @@ export class Studio {
     }
     s.sel = this.phase === 'retouch' ? this.retouch.sel : -1;
     s.selT = this.retouch.selT;
+    this.fillRepairs();
 
     this.cursorAndMarker(dt);
 
@@ -503,6 +519,23 @@ export class Studio {
     if (this.dirtDirty && this.dirtSaveT > 12 && !this.stroking) this.saveDirt();
   }
 
+  private fillRepairs() {
+    const R = this.scene.repairs, r = this.repairs;
+    R.nd = Math.min(MAX_DROPS, r.drops.length);
+    for (let i = 0; i < R.nd; i++) {
+      const d = r.drops[i];
+      R.drops.set([d.x, d.y, d.r, d.hold], i * 4);
+      R.dropsB.set([d.seed, d.popT, 0, 0], i * 4);
+    }
+    R.nt = Math.min(MAX_TEARS, r.tears.length);
+    for (let i = 0; i < R.nt; i++) {
+      const t = r.tears[i];
+      R.tearA.set([t.a[0], t.a[1], t.b[0], t.b[1]], i * 4);
+      R.tearB.set([t.c[0], t.c[1], t.w, t.len], i * 4);
+      R.tearM.set([t.mask, t.closeT, 0, 0], i * 4);
+    }
+  }
+
   private sparkles(dt: number, on: boolean) {
     if (!on || Math.random() > dt * 30) return;
     const p = this.cam.toScreen(Math.random() * this.lv.width, Math.random() * this.lv.height);
@@ -512,13 +545,12 @@ export class Studio {
   private cursorAndMarker(dt: number) {
     const h = this.hover;
     if (h && (this.phase === 'clean' || this.phase === 'intro')) {
-      const def = this.cleaning.toolDef();
-      const r = def.radius * Math.max(this.lv.width, this.lv.height) * this.cam.zoom;
+      const r = this.cleaning.radius() * this.cam.zoom;
       this.ui.cursor(h.x, h.y, true, this.cleaning.tool, r, h.kind, this.cleaning.swabDirt);
     } else if (h && this.phase === 'gild') {
-      this.ui.cursor(h.x, h.y, true, 4, this.F * 0.42 * this.cam.zoom, h.kind, 0);
+      this.ui.cursor(h.x, h.y, true, 8, this.F * 0.42 * this.cam.zoom, h.kind, 0);
     } else if (h && this.phase === 'varnish') {
-      this.ui.cursor(h.x, h.y, true, 5, 0, h.kind, 0);
+      this.ui.cursor(h.x, h.y, true, 9, 0, h.kind, 0);
     } else this.ui.cursor(0, 0, false, this.cleaning.tool, 0, null, 0);
     if (this.mark) {
       this.mark.t += dt;

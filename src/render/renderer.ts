@@ -30,7 +30,12 @@ export interface SceneState {
   tilt: [number, number];
   shine: number;
   varnOn: number;
+  repairs: RepairsGL;
 }
+
+/** Bird droppings and tears for PAINT_FS (filled by the studio from game/repairs.ts). */
+export interface RepairsGL { drops: Float32Array; dropsB: Float32Array; nd: number; tearA: Float32Array; tearB: Float32Array; tearM: Float32Array; nt: number }
+export const emptyRepairs = (): RepairsGL => ({ drops: new Float32Array(64), dropsB: new Float32Array(64), nd: 0, tearA: new Float32Array(12), tearB: new Float32Array(12), tearM: new Float32Array(12), nt: 0 });
 
 /** GPU side of one painting at one level. */
 export class PaintingGL {
@@ -266,7 +271,7 @@ export class Renderer {
     gl.disable(gl.BLEND);
     gl.clearColor(0.05, 0.04, 0.035, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    if (!p) return;
+    if (!p || !s.webs) return;
     p.upload();
     const W = p.W, H = p.H, F = this.frameWidth(W, H);
     const pxw = 1 / (cam.zoom * this.dpr);
@@ -294,6 +299,14 @@ export class Renderer {
       .f1('u_dirtOn', s.dirtOn).i1('u_sel', s.sel).f1('u_selT', s.selT).f4('u_sweep', s.sweep[0], s.sweep[1], s.sweep[2], 0)
       .f1('u_peek', s.peek).f4('u_webs', ...s.webs).f1('u_restored', s.restored)
       .tex('u_varn', 7, p.varn).f1('u_varnOn', s.varnOn).f2('u_tilt', s.tilt[0], s.tilt[1]);
+    const P = this.paintP, R = s.repairs;
+    gl.uniform4fv(P.loc('u_drops'), R.drops);
+    gl.uniform4fv(P.loc('u_dropsB'), R.dropsB);
+    P.i1('u_ndrops', R.nd);
+    gl.uniform4fv(P.loc('u_tearA'), R.tearA);
+    gl.uniform4fv(P.loc('u_tearB'), R.tearB);
+    gl.uniform4fv(P.loc('u_tearM'), R.tearM);
+    P.i1('u_ntears', R.nt);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
     gl.enable(gl.BLEND);
