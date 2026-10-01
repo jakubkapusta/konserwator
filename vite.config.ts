@@ -48,6 +48,16 @@ function shots(): Plugin {
     name: 'konserwator-shots',
     apply: 'serve',
     configureServer(server) {
+      server.middlewares.use('/__file', (req, res) => {
+        const name = (new URL(req.url ?? '', 'http://x').searchParams.get('name') || 'file').replace(/[^\w.-]/g, '');
+        const parts: Buffer[] = [];
+        req.on('data', (c: Buffer) => parts.push(c));
+        req.on('end', () => {
+          mkdirSync('work/shots', { recursive: true });
+          writeFileSync(`work/shots/${name}`, Buffer.concat(parts));
+          res.end('ok');
+        });
+      });
       server.middlewares.use('/__shot', (req, res) => {
         const name = (new URL(req.url ?? '', 'http://x').searchParams.get('name') || 'shot').replace(/[^\w-]/g, '');
         let body = '';

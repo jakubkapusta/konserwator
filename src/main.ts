@@ -199,5 +199,24 @@ if (import.meta.env.DEV) {
     (k.stroke as (p: number[][], o: object) => void)(pts, o);
   };
   k.tap = (x: number, y: number) => (k.stroke as (p: number[][]) => void)([[x, y]]);
+  // __k.music(60, 1): render the background music offline and save it as work/shots/music.wav
+  k.music = async (seconds = 60, mood = 1, name = 'music') => {
+    const { renderMusic } = await import('./audio/audio');
+    const b = await renderMusic(seconds, mood);
+    const n = b.length, data = new DataView(new ArrayBuffer(44 + n * 4));
+    const str = (o: number, t: string) => { for (let i = 0; i < t.length; i++) data.setUint8(o + i, t.charCodeAt(i)); };
+    str(0, 'RIFF'); data.setUint32(4, 36 + n * 4, true); str(8, 'WAVEfmt '); data.setUint32(16, 16, true); data.setUint16(20, 1, true);
+    data.setUint16(22, 2, true); data.setUint32(24, 44100, true); data.setUint32(28, 44100 * 4, true); data.setUint16(32, 4, true);
+    data.setUint16(34, 16, true); str(36, 'data'); data.setUint32(40, n * 4, true);
+    const L = b.getChannelData(0), R = b.getChannelData(1);
+    let peak = 1e-6;
+    for (let i = 0; i < n; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
+    const g = 0.9 / peak;
+    for (let i = 0; i < n; i++) {
+      data.setInt16(44 + i * 4, Math.max(-1, Math.min(1, L[i] * g)) * 32767, true);
+      data.setInt16(46 + i * 4, Math.max(-1, Math.min(1, R[i] * g)) * 32767, true);
+    }
+    return fetch('/__file?name=' + name + '.wav', { method: 'POST', body: data.buffer }).then((r) => r.text());
+  };
 }
 void boot();

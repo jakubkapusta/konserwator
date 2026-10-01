@@ -347,34 +347,51 @@ function room(ctx: AudioContext, secs: number, curve: number) {
 const midi = (n: number) => 440 * Math.pow(2, (n - 69) / 12);
 
 /**
- * Background music: a small music-box waltz in D major (3/4, about 70 bpm), composed, not random, so there's a
- * tune to hum. Form A A' B A' and then a few bars of just the accompaniment to breathe; every pass varies a
- * little (melody an octave lower, an echo on the long notes, ornaments) so the loop doesn't wear thin.
- * Accompaniment is a soft oom-pah-pah (bass on one, two chord tones on two and three) over a quiet pad.
- * Mood 0 (cleaning) is slower and sparser, 1 (retouch, gilding) the full waltz, 2 (varnish, finale) adds bells.
+ * Background music: a slow, dreamy piece in F major, 4/4 at about 80 bpm, composed so there's a tune to hum.
+ * Seventh and ninth chords (Fmaj7, Am7, B♭maj7, Dm9, C9sus) under a syncopated melody whose hook rises by a
+ * leap; the accompaniment is a flowing eighth-note arpeggio (harp / kalimba), the melody a soft vibraphone-like
+ * tone with a slow tremolo. Form A A' B, then a few bars of arpeggio alone to breathe; every pass varies a little
+ * (melody an octave down, an echo, a second voice a third below). Mood 0 (cleaning): quarter-note arpeggio and a
+ * quieter tune; 1 (retouch, gilding): full; 2 (varnish, finale): a little faster, with high bells.
  */
-type Bar = { ch: string; mel: [number, number | null][] }; // melody: [beats, midi or rest]
-const CHORDS: Record<string, [number, number[]]> = {
-  D: [50, [62, 66, 69]], 'A/C#': [49, [61, 64, 69]], Bm: [47, [62, 66, 71]], 'F#m': [42, [61, 66, 69]],
-  G: [43, [62, 67, 71]], 'D/F#': [42, [62, 66, 69]], Em: [40, [59, 64, 67]], A: [45, [61, 64, 69]], A7: [45, [61, 64, 67]],
+type Note = [number, number, number]; // start (eighths), length (eighths), midi
+type Bar = { ch: string; mel: Note[] };
+const CHORDS: Record<string, number[]> = {
+  Fmaj7: [41, 48, 52, 57, 60], Am7: [45, 52, 55, 60, 64], Bbmaj7: [46, 53, 57, 62, 65], C6: [48, 55, 57, 64, 67],
+  Dm9: [50, 57, 60, 64, 65], Gm7: [43, 50, 53, 58, 62], C9sus: [48, 55, 58, 62, 65], C: [48, 55, 60, 64, 67], Dm7: [50, 57, 60, 65, 69],
 };
-const bars = (chs: string, mel: [number, number | null][][]): Bar[] => chs.split(' ').map((ch, i) => ({ ch, mel: mel[i] }));
-const A1 = bars('D A/C# Bm F#m G D/F# Em A', [
-  [[1, 78], [1, 81], [1, 86]], [[2, 85], [1, 83]], [[1, 81], [1, 78], [1, 74]], [[2, 76], [1, 78]],
-  [[1, 79], [1, 83], [1, 86]], [[2, 81], [1, 78]], [[1, 79], [1, 78], [1, 76]], [[2, 81], [1, null]],
+const bars = (chs: string, mel: Note[][]): Bar[] => chs.split(' ').map((ch, i) => ({ ch, mel: mel[i] ?? [] }));
+const HOOK: Note[] = [[1, 1, 76], [2, 1, 77], [3, 3, 81], [6, 2, 79]];
+const A1 = bars('Fmaj7 Am7 Bbmaj7 C6', [
+  HOOK, [[0, 2, 76], [2, 1, 74], [3, 3, 76], [6, 2, 72]],
+  [[1, 1, 74], [2, 1, 76], [3, 3, 77], [6, 1, 76], [7, 1, 74]], [[0, 2, 74], [2, 6, 79]],
 ]);
-const A2 = bars('D A/C# Bm F#m G D A7 D', [
-  [[1, 78], [1, 81], [1, 86]], [[2, 85], [1, 83]], [[1, 81], [1, 78], [1, 74]], [[2, 76], [1, 78]],
-  [[1, 79], [1, 83], [1, 88]], [[2, 86], [1, 85]], [[1, 83], [1, 79], [1, 76]], [[3, 74]],
+const A2 = bars('Fmaj7 Am7 Dm9 C9sus', [
+  HOOK, [[0, 2, 76], [2, 1, 74], [3, 3, 76], [6, 2, 81]],
+  [[0, 3, 77], [3, 1, 76], [4, 4, 74]], [[0, 2, 72], [2, 2, 70], [4, 4, 72]],
 ]);
-const B = bars('G A F#m Bm Em A D/F# A7', [
-  [[1.5, 86], [0.5, 85], [1, 83]], [[2, 85], [1, 81]], [[1.5, 85], [0.5, 83], [1, 81]], [[2, 83], [1, 78]],
-  [[1, 79], [1, 83], [1, 88]], [[1.5, 88], [0.5, 86], [1, 85]], [[1, 86], [1, 81], [1, 78]], [[2, 76], [1, 81]],
+const B = bars('Bbmaj7 C Am7 Dm7 Gm7 C9sus Fmaj7 Fmaj7', [
+  [[0, 1, 81], [1, 1, 79], [2, 2, 77], [4, 3, 74], [7, 1, 77]], [[0, 3, 79], [3, 1, 77], [4, 4, 76]],
+  [[0, 1, 76], [1, 1, 77], [2, 2, 79], [4, 3, 84], [7, 1, 81]], [[0, 6, 81], [6, 2, 77]],
+  [[0, 2, 79], [2, 2, 77], [4, 2, 74], [6, 2, 70]], [[0, 6, 72], [6, 2, 74]],
+  [[0, 8, 76]], [],
 ]);
-const BREATH = bars('D G D A', [[[3, null]], [[3, null]], [[3, null]], [[3, null]]]);
+const BREATH = bars('Fmaj7 Bbmaj7 Fmaj7 C9sus', []);
 const SONG: { bars: Bar[]; tune: boolean }[] = [
-  { bars: A1, tune: true }, { bars: A2, tune: true }, { bars: B, tune: true }, { bars: A2, tune: true }, { bars: BREATH, tune: false },
+  { bars: A1, tune: true }, { bars: A2, tune: true }, { bars: B, tune: true }, { bars: A1, tune: true }, { bars: A2, tune: true },
+  { bars: BREATH, tune: false },
 ];
+const ARP = [0, 1, 2, 3, 4, 3, 2, 1]; // up and down the voicing, one note per eighth
+const F_MAJOR = [5, 7, 9, 10, 0, 2, 4];
+/** The note a diatonic third below in F major. */
+function thirdBelow(n: number) {
+  const i = F_MAJOR.indexOf(((n % 12) + 12) % 12);
+  if (i < 0) return n - 4;
+  const pc = F_MAJOR[(i + 5) % 7];
+  let d = ((n % 12) - pc + 12) % 12;
+  if (d === 0) d = 12;
+  return n - d;
+}
 
 class Music {
   private bus: GainNode;
@@ -391,12 +408,12 @@ class Music {
     this.bus.gain.value = 0.55;
     const lp = ctx.createBiquadFilter();
     lp.type = 'lowpass';
-    lp.frequency.value = 5200;
+    lp.frequency.value = 4600;
     this.bus.connect(lp).connect(out);
     const conv = ctx.createConvolver();
-    conv.buffer = room(ctx, 3.8, 2.4);
+    conv.buffer = room(ctx, 4.2, 2.2);
     this.verb = ctx.createGain();
-    this.verb.gain.value = 0.5;
+    this.verb.gain.value = 0.55;
     this.verb.connect(conv).connect(out);
   }
   setMood(m: number) { this.moodV = m; }
@@ -404,98 +421,123 @@ class Music {
     this.next = this.ctx.currentTime + 0.5;
     setInterval(() => this.schedule(), 150);
   }
-  private get beat() { return 60 / (64 + this.moodV * 5); }
-  private schedule() {
+  /** Seconds per eighth note. */
+  private get eighth() { return 30 / (76 + this.moodV * 4); }
+  schedule(ahead = 0.9) {
     const c = this.ctx;
-    // one bar at a time, a little ahead
-    while (this.next < c.currentTime + 0.8) {
+    while (this.next < c.currentTime + ahead) {
       const section = SONG[this.sec];
       const bar = section.bars[this.bar];
-      const t0 = this.next, bt = this.beat, m = this.moodV;
-      const [bass, tones] = CHORDS[bar.ch];
+      const t0 = this.next, e = this.eighth, m = this.moodV;
+      const v = CHORDS[bar.ch];
       if (bar.ch !== this.padChord) { this.pad(bar.ch, t0); this.padChord = bar.ch; }
-      // oom-pah-pah (sparser while cleaning)
-      const hum = () => (Math.random() - 0.5) * 0.012;
-      this.pluck(midi(bass), t0 + hum(), 0.05, 'bass');
-      if (m >= 1 || this.bar % 2 === 0) this.pluck(midi(tones[1]), t0 + bt + hum(), 0.018, 'soft');
-      this.pluck(midi(tones[m >= 1 ? 2 : 1]), t0 + 2 * bt + hum(), m >= 1 ? 0.018 : 0.014, 'soft');
-      if (!section.tune && this.bar === 1) this.pluck(midi(tones[2] + 12), t0 + 1.5 * bt, 0.02, 'tune');
-      // the tune
-      if (section.tune) {
-        const v = this.pass % 3;
-        let at = 0;
-        bar.mel.forEach(([len, n], i) => {
-          if (n !== null) {
-            const low = v === 1 && this.sec !== 2 ? -12 : 0;
-            const vol = (i === 0 ? 0.075 : 0.058) * (m === 0 ? 0.8 : 1);
-            this.pluck(midi(n + low), t0 + at * bt + hum(), vol, 'tune');
-            // variation 2: an echo an octave up on the long notes
-            if (v === 2 && len >= 2) this.pluck(midi(n + 12), t0 + (at + 1) * bt + hum(), vol * 0.35, 'tune');
-            // a grace note now and then on the strong beat
-            if (v !== 1 && i === 0 && this.bar % 4 === 3 && Math.random() < 0.5) this.pluck(midi(n + 2), t0 + at * bt - 0.07, vol * 0.4, 'tune');
-          }
-          at += len;
-        });
+      const hum = () => (Math.random() - 0.5) * 0.014;
+      // arpeggio: eighths, or quarters while cleaning; a little swing on the off-beats
+      for (let i = 0; i < 8; i++) {
+        if (m === 0 && i % 2 === 1) continue;
+        const n = v[ARP[i]];
+        const swing = i % 2 === 1 ? e * 0.08 : 0;
+        const vol = i === 0 ? 0.05 : (i % 2 ? 0.016 : 0.022) * (m === 0 ? 0.85 : 1);
+        this.note(midi(n), t0 + i * e + swing + hum(), vol, i === 0 ? 'bass' : 'harp');
       }
-      // finale: bells on the downbeat
-      if (m >= 2 && this.bar % 2 === 0) this.pluck(midi(tones[0] + 24), t0 + 0.01, 0.02, 'bell');
-      this.next += 3 * bt;
+      if (section.tune) {
+        const pv = this.pass % 3;
+        for (const [st, len, n] of bar.mel) {
+          const low = pv === 1 && this.sec !== 2 ? -12 : 0;
+          const vol = (m === 0 ? 0.05 : 0.064) * (st % 2 ? 0.9 : 1);
+          const t = t0 + st * e + hum();
+          this.note(midi(n + low), t, vol, 'vibe', len * e);
+          // second pass: a soft second voice a third below on the long notes
+          if (pv === 2 && len >= 3) this.note(midi(thirdBelow(n) + low), t + 0.02, vol * 0.45, 'vibe', len * e);
+          // an echo an octave up after long notes, now and then
+          if (pv === 0 && len >= 4 && Math.random() < 0.5) this.note(midi(n + 12), t + 2 * e, vol * 0.25, 'harp');
+        }
+      } else if (this.bar === 1) {
+        // breathing bars: a lone high note to keep the thread
+        this.note(midi(v[4] + 12), t0 + 2 * e, 0.03, 'vibe', 4 * e);
+      }
+      if (m >= 2 && this.bar % 2 === 0) this.note(midi(v[3] + 24), t0 + 0.01, 0.018, 'bell');
+      this.next += 8 * e;
       if (++this.bar >= section.bars.length) {
         this.bar = 0;
         if (++this.sec >= SONG.length) { this.sec = 0; this.pass++; }
       }
     }
   }
-  private pluck(f: number, t: number, vol: number, kind: 'tune' | 'soft' | 'bass' | 'bell') {
+  private note(f: number, t: number, vol: number, kind: 'vibe' | 'harp' | 'bass' | 'bell', hold = 0) {
     const c = this.ctx;
     t = Math.max(t, c.currentTime + 0.005);
     const g = c.createGain();
     g.connect(this.bus);
     if (kind !== 'bass') g.connect(this.verb);
-    // music-box tine: fundamental, a bright octave and a faint inharmonic ring; the accompaniment is duller
-    const dec = kind === 'bass' ? 2.2 : kind === 'soft' ? 1.4 : kind === 'bell' ? 3.2 : 2.0 + Math.random() * 0.6;
-    const parts: [number, number, number][] = kind === 'tune' ? [[1, 1, 1], [2.003, 0.28, 0.4], [4.2, 0.07, 0.12]]
+    // vibraphone-ish: soft attack, a faint 4th partial, slow tremolo; harp: brighter and short
+    const dec = kind === 'vibe' ? Math.max(1.6, hold * 1.6) : kind === 'bass' ? 2.6 : kind === 'bell' ? 3.0 : 1.2;
+    const parts: [number, number, number][] = kind === 'vibe' ? [[1, 1, 1], [4.0, 0.1, 0.25], [2.0, 0.06, 0.5]]
       : kind === 'bell' ? [[1, 1, 1], [2.76, 0.35, 0.5], [5.4, 0.12, 0.25]]
-      : kind === 'bass' ? [[1, 1, 1], [2, 0.12, 0.3]] : [[1, 1, 1], [2.004, 0.12, 0.3]];
+      : kind === 'bass' ? [[1, 1, 1], [2, 0.18, 0.4]] : [[1, 1, 1], [2.002, 0.3, 0.35], [3.0, 0.08, 0.2]];
+    const atk = kind === 'vibe' ? 0.012 : kind === 'bass' ? 0.015 : 0.004;
     for (const [r, a, dk] of parts) {
       const o = c.createOscillator();
       o.type = 'sine';
       o.frequency.value = f * r;
       const og = c.createGain();
       og.gain.setValueAtTime(0, t);
-      og.gain.linearRampToValueAtTime(a * vol, t + (kind === 'bass' ? 0.02 : 0.005));
+      og.gain.linearRampToValueAtTime(a * vol, t + atk);
       og.gain.exponentialRampToValueAtTime(0.0001, t + dec * dk);
       o.connect(og).connect(g);
       o.start(t);
       o.stop(t + dec * dk + 0.05);
+    }
+    if (kind === 'vibe') {
+      // the vibraphone's motor: a slow wobble in loudness
+      const lfo = c.createOscillator();
+      lfo.frequency.value = 4.8;
+      const lg = c.createGain();
+      lg.gain.value = 0.18;
+      g.gain.value = 0.82;
+      lfo.connect(lg).connect(g.gain);
+      lfo.start(t);
+      lfo.stop(t + dec + 0.05);
     }
   }
   private pad(name: string, t: number) {
     const c = this.ctx;
     for (const p of this.padNodes) {
       p.g.gain.cancelScheduledValues(t);
-      p.g.gain.setTargetAtTime(0, t, 0.6);
+      p.g.gain.setTargetAtTime(0, t, 0.7);
       p.o.stop(t + 3);
     }
     this.padNodes = [];
-    const [bass, tones] = CHORDS[name];
-    for (const n of [bass + 12, tones[0], tones[2]]) {
+    const v = CHORDS[name];
+    for (const n of [v[1] + 12, v[2] + 12, v[4] + 12]) {
       const o = c.createOscillator();
       o.type = 'triangle';
       o.frequency.value = midi(n);
-      o.detune.value = (Math.random() - 0.5) * 8;
+      o.detune.value = (Math.random() - 0.5) * 10;
       const lp = c.createBiquadFilter();
       lp.type = 'lowpass';
-      lp.frequency.value = 650;
+      lp.frequency.value = 900;
       const g = c.createGain();
       g.gain.value = 0;
-      g.gain.setTargetAtTime(0.011, t, 0.9);
+      g.gain.setTargetAtTime(0.008, t, 1.0);
       o.connect(lp).connect(g).connect(this.bus);
       g.connect(this.verb);
       o.start(t);
       this.padNodes.push({ o, g });
     }
   }
+}
+
+/** Dev: render `seconds` of the music offline (to listen to it outside the game). */
+export async function renderMusic(seconds: number, mood: number) {
+  const off = new OfflineAudioContext(2, Math.round(44100 * seconds), 44100);
+  const out = off.createGain();
+  out.gain.value = 0.9;
+  out.connect(off.destination);
+  const m = new Music(off as unknown as AudioContext, out);
+  m.setMood(mood);
+  m.schedule(seconds - 3);
+  return off.startRendering();
 }
 
 export const sound = new Sound();
