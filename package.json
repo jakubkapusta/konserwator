@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host",
-    "icons": "node scripts/icons.mjs"
+    "icons": "tools/.venv/bin/python tools/make_icons.py"
   },
   "devDependencies": {
     "typescript": "^7.0.2",

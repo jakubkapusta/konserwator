@@ -24,7 +24,7 @@ Browser game (iPad + Apple Pencil first, phone and laptop too): restore old pain
 npm run dev          # vite --host (port 5196)
 npx tsc --noEmit     # typecheck after every change
 npm run build        # typecheck + static build
-npm run icons        # regenerate PWA icons (scripts/icons.mjs)
+npm run icons        # regenerate the app icons (tools/make_icons.py: the Great Wave in a gilt frame, half cleaned)
 tools/.venv/bin/python tools/fetch_rijks.py --object-number SK-A-2344 --slug mleczarka   # add a painting
 tools/.venv/bin/python tools/build.py mleczarka          # build its data (all levels + previews)
 tools/.venv/bin/python tools/build.py --all              # rebuild the whole collection (after changing the algorithm)
@@ -61,12 +61,12 @@ To add a painting follow `.claude/skills/dodaj-obraz/SKILL.md`; after algorithm 
 - `src/game/input.ts` — Pencil draws; after a pen is seen fingers only pan/zoom (touches ignored while the pen is down, palm-sized touches ignored); without a pen one finger draws (held 90 ms so a second finger cancels it), two fingers pan/zoom; mouse left draws, right/middle/space-drag pans, wheel zooms.
 - `src/game/camera.ts` — centre + zoom, UI insets, fling, fly-to.
 - `src/game/save.ts` — `konserwator.work.v1` (per painting: stage, tiles, painted order), `konserwator.done.v1`, `konserwator.prefs.v1`; dirt snapshot in IndexedDB `dirt:<slug>`.
-- `src/audio/audio.ts` — all synthesized: scrub noise per tool (speed + dirt under the tool), bells (pentatonic) per cleaned tile, chords, wet dab per paint, ticks.
+- `src/audio/audio.ts` — all synthesized: scrub noise per tool (speed + dirt under the tool), bells (pentatonic) per cleaned tile, chords, wet dab per paint, ticks. Music (`Music`): a composed music-box waltz in D major (`SONG`: A A' B A' + breathing bars), oom-pah-pah accompaniment over a quiet pad, a different variation each pass; mood 0/1/2 changes tempo, density and adds bells.
 - `src/ui/ui.ts`, `src/ui/icons.ts`, `src/style.css` — DOM: studio menu, commission card with level choice, HUD (stage + progress, peek eye, fit, sound, menu with the test skip), tool dock, palette, toasts, tool cursor, hint ring, finale card.
 
 ## Offline / PWA
 
-`dist/sw.js` from `src/sw.template.js` (plugin in `vite.config.ts`): precaches the app shell, the catalog and thumbnails; painting files are cached the first time they're opened (`konserwator-data` cache, kept across versions). Catalog is network-first.
+`dist/sw.js` from `src/sw.template.js` (plugin in `vite.config.ts`): precaches the app shell and the catalog (thumbnails best effort, so one failed file can't stop the install); painting files are cached the first time they're opened (`konserwator-data` cache, kept across versions). Navigation and catalog are network-first with a 3.5 s timeout. All cache lookups use `ignoreVary` (a module `<script crossorigin>` sends an Origin header, and with the server's `Vary` the cached copy was a miss: offline the app didn't start). "Pobierz całą kolekcję" (`data.downloadAll`) writes into the data cache from the page itself (on a first visit the worker doesn't control the page yet), skips what's there, asks for persistent storage; the menu reads the real cache state (`offlineSlugs`), not a flag; offline, paintings that aren't downloaded are dimmed ("niepobrany"). On iOS the home-screen app and Safari have separate storage: download inside the installed app. Tested by stopping the preview server and reloading.
 
 ## Rules that bite
 
