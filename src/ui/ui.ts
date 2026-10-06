@@ -58,7 +58,6 @@ export class UI implements StudioUI {
   private pal = h('div', 'dock palette');
   private swatches = h('div', 'swatches');
   private findBtn = h('button', 'find', ICON.find + '<span>Znajdź</span><em></em>');
-  private hintsLeft = 5;
   private toastEl = h('div', 'toast');
   private cursorEl = h('div', 'cursor', '<div class="area"></div>');
   private markerEl = h('div', 'marker');
@@ -497,7 +496,6 @@ export class UI implements StudioUI {
       if (instant) el.classList.add('done');
       else setTimeout(() => el.classList.add('done'), 650);
     }
-    this.findBtn.classList.toggle('pulse', this.hintsLeft > 0 && this.swEls.some((e, i) => e.classList.contains('on') && i === c && left > 0 && left <= 2));
   }
 
   select(c: number) {
@@ -506,8 +504,6 @@ export class UI implements StudioUI {
     if (el) {
       const r = el.getBoundingClientRect(), p = this.swatches.getBoundingClientRect();
       if (r.left < p.left + 20 || r.right > p.right - 20) this.swatches.scrollLeft += r.left - p.left - p.width / 2 + r.width / 2;
-      const left = +((el.querySelector('i') as HTMLElement).textContent || 0);
-      this.findBtn.classList.toggle('pulse', this.hintsLeft > 0 && left > 0 && left <= 2);
     }
   }
 
@@ -520,10 +516,8 @@ export class UI implements StudioUI {
   }
 
   hints(left: number) {
-    this.hintsLeft = left;
     (this.findBtn.querySelector('em') as HTMLElement).textContent = String(left);
     this.findBtn.classList.toggle('empty', left <= 0);
-    if (left <= 0) this.findBtn.classList.remove('pulse');
   }
 
   retouchProgress(done: number, total: number) {
